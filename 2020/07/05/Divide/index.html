@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>每日算法之旅(第三天):分而治之​算法思想 | 诗和远方biubiu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="（转载作者请注明出处） 朋友们，当您看到这篇文章，说明本公众号(kangsinx)将开始系统介绍Python算法，同时向还会陆续分享一些有用的算法小技巧与学习资料，这是一个好的消息，希望您和您的朋友一起来加入我们的学习队伍。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日算法之旅(第三天):分而治之​算法思想">
+<meta property="og:url" content="http://yoursite.com/2020/07/05/Divide/index.html">
+<meta property="og:site_name" content="诗和远方biubiu">
+<meta property="og:description" content="（转载作者请注明出处） 朋友们，当您看到这篇文章，说明本公众号(kangsinx)将开始系统介绍Python算法，同时向还会陆续分享一些有用的算法小技巧与学习资料，这是一个好的消息，希望您和您的朋友一起来加入我们的学习队伍。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.xiaozhuanlan.com/photo/2019/1f025d336929d77fe76b813e95dd9428.jpg">
+<meta property="article:published_time" content="2020-07-05T10:37:47.072Z">
+<meta property="article:modified_time" content="2020-04-09T08:25:30.225Z">
+<meta property="article:author" content="KangChou">
+<meta property="article:tag" content="人工智能算法，Python基础知识、数据分析、数据可视化、大数据、TensorFlow和神经网络等">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.xiaozhuanlan.com/photo/2019/1f025d336929d77fe76b813e95dd9428.jpg">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "首页"; 
+
+  themeMenus["/archives"] = "归档"; 
+
+  themeMenus["/categories/"] = "分类"; 
+
+  themeMenus["/tags"] = "标签"; 
+
+  themeMenus["/about"] = "关于"; 
+
+  themeMenus["/guestbook"] = "留言"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="诗和远方biubiu" rel="home"> 诗和远方biubiu </a>
+            
+          </h1>
+
+          
+            <div class="site-description">本博客致力于分享人工智能算法、Python基础知识、数据分析、TensorFlow和神经网络等学习资料，探讨互联网前沿技术和相关技术研发等。
+有诗才有远方文章征稿：kangsinx@yeah.net
+微信公众号(AI科技与算法编程)：kangsinx</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">归档</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories/">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">关于</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/guestbook">留言</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/blog.gif,css/images/pose.jpg,css/images/pose2.jpg,css/images/pose3.jpg,css/images/pose4.jpg,https://images.wallpaperscraft.com/image/couple_mountains_travel_125490_1280x720.jpg,https://cdn.pixabay.com/photo/2019/05/26/16/43/norway-4230682_1280.jpg".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+<article id="post-Divide" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="https://images.xiaozhuanlan.com/photo/2019/1f025d336929d77fe76b813e95dd9428.jpg" target="_blank" rel="gallery_ckc8y351g0002qour8sana854 noopener">
+        <img src="https://images.xiaozhuanlan.com/photo/2019/1f025d336929d77fe76b813e95dd9428.jpg" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      每日算法之旅(第三天):分而治之​算法思想
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2020/07/05/Divide/" class="article-date">
+	  <time datetime="2020-07-05T10:37:47.072Z" itemprop="datePublished">七月 5, 2020</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://mmbiz.qpic.cn/mmbiz_gif/OUjib8gcw0XMeDMttMmkiav5D1Xss7OyK7XSU851GwQuNrwnHznhyrFBAg9uNkBYuwQ6HNoHCgcv9g4PibMBrvzyQ/640?wx_fmt=gif" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/OUjib8gcw0XPLRunwURfKghcQA1xcC50GfWnRictMxaUG6L8R3B5QiaEoxUbIzutbOwSa8tSic9Q1O61iaDict8sxP8A/640?wx_fmt=png" alt="img"></p>
+<p><strong>（转载作者请注明出处）</strong></p>
+<p>朋友们，当您看到这篇文章，说明本公众号(kangsinx)将开始系统介绍Python算法，同时向还会陆续分享一些有用的算法小技巧与学习资料，这是一个好的消息，希望您和您的朋友一起来加入我们的学习队伍。</p>
+<a id="more"></a>
+<p>入微信学习群，由于群人员数已经上限，这里建立一个中转群<strong>，</strong></p>
+<p>扫码加入即可，如果人数已满请公众号给我留言微信号我拉你入群</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/OUjib8gcw0XPtm9kbzXS9JwibBaoXHF0siarQuXuUBv3XPOEDuNXqQrvXicCoLkZ5TW8P6KfMP9q4GBianibIFGsh7Eg/640?wx_fmt=png" alt="img"></p>
+<p>加过本公众号其他学习群的粉丝无需再加入，如果您没有加入算法群请再微信群艾特@我一下</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&mid=2247485927&idx=1&sn=b7724bfd20e306a72d2b23f795315169&chksm=97100811a06781073b4c99fda4cbc4fd904752d4076641dc5246a1a9130529531a80d1189c53&scene=21#wechat_redirect" target="_blank" rel="noopener">每日算法之旅(第一天):枚举算法的平凡与伟大</a></p>
+<p><strong>废**</strong>话不多说，直接上货….**</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/reg3T0Fqiax8lPLzcDQicIfv49r4EgibnRuz10rNYiaBDlUaSfqrWgYrD36DPE4uiar4kHLq7x60wPaguey7Pz8BTOA/640?wx_fmt=jpeg" alt="img"></p>
+<h1 id="一、分治算法思想"><a href="#一、分治算法思想" class="headerlink" title="一、分治算法思想"></a><strong>一、分治算法思想</strong></h1><p><strong>分治即为分而治之</strong></p>
+<p>本文分析的分治算法采取了各个击破的方法，将一个规模为 <strong>N</strong> 的问题分解为 <strong>K</strong> 个规模较小的子问题，这些子问题相互独立且与原问题性质相同。只要求出子问题的解，就可得到原问题的解。</p>
+<p><strong>一句话说明：将局部问题解决以后组合起来解决全局问题的方案</strong></p>
+<p><strong>二、分治算法基础</strong></p>
+<p>在编程过程中，经常遇到处理数据相当多、求解过程比较复杂、直接求解法会比较耗时的问题。在求解这类问题时，可以采用各个击破的方法。具体做法是：先把这个问题分解成几个较小的子问题，找到求出这几个子问题的解法后，再找到合适的方法，把它们组合成求整个大问题的解。如果这些子问题还是比较大，还可以继续再把它们分成几个更小的子问题，以此类推，直至可以直接求出解为止。这就是分治算法的基本思想。</p>
+<p>使用分治算法解题的一般步骤如下。</p>
+<p>① 分解，将要解决的问题划分成若干个规模较小的同类问题。</p>
+<p>② 求解，当子问题划分得足够小时，用较简单的方法解决。</p>
+<p>③ 合并，按原问题的要求，将子问题的解逐层合并构成原问题的解。</p>
+<p><strong>三、算法实战</strong></p>
+<p><strong>1、求解顺序表中的最大值。</strong></p>
+<p>**<br>**</p>
+<p><strong>源码如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># 基本子算法（子问题规模小于等于 2 时）</span><br><span class="line">def get_max(max_list):</span><br><span class="line">    return max(max_list)  # 这里偷个懒！</span><br><span class="line"># 分治法 版本二</span><br><span class="line">def solve2(init_list):</span><br><span class="line">    n &#x3D; len(init_list)</span><br><span class="line">    if n &lt;&#x3D; 2:  # 若问题规模小于等于 2，解决</span><br><span class="line">        return get_max(init_list)</span><br><span class="line"></span><br><span class="line">    # 分解（子问题规模为 n&#x2F;2）</span><br><span class="line">    left_list, right_list &#x3D; init_list[:n &#x2F;&#x2F; 2], init_list[n &#x2F;&#x2F; 2:]</span><br><span class="line"></span><br><span class="line">    # 递归（树），分治</span><br><span class="line">    left_max, right_max &#x3D; solve2(left_list), solve2(right_list)</span><br><span class="line"></span><br><span class="line">    # 合并</span><br><span class="line">    return get_max([left_max, right_max])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    # 测试数据</span><br><span class="line">    test_list &#x3D; [12, 22, 23, 45, 16, 3, 2, 4, 45, 59.8, 24, 23]</span><br><span class="line">    # 求最大值</span><br><span class="line">    print(solve2(test_list))  # 67</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>执行结果：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">59.8Process finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+
+
+<p>**2、判断元素是否在列表中</p>
+<p>**</p>
+<p>**源码如下：</p>
+<p>**</p>
+<p>**<br>**</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># 子问题算法（子问题规模为 1）</span><br><span class="line">def is_in_list(init_list, el):</span><br><span class="line">    return [False, True][init_list[0] &#x3D;&#x3D; el]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 分治法</span><br><span class="line">def solve(init_list, el):</span><br><span class="line">    n &#x3D; len(init_list)</span><br><span class="line">    if n &#x3D;&#x3D; 1:  # 若问题规模等于 1，直接解决</span><br><span class="line">        return is_in_list(init_list, el)</span><br><span class="line"></span><br><span class="line">    # 分解（子问题规模为 n&#x2F;2）</span><br><span class="line">    left_list, right_list &#x3D; init_list[:n &#x2F;&#x2F; 2], init_list[n &#x2F;&#x2F; 2:]</span><br><span class="line"></span><br><span class="line">    # 递归（树），分治，合并</span><br><span class="line">    res &#x3D; solve(left_list, el) or solve(right_list, el)</span><br><span class="line"></span><br><span class="line">    return res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &quot;__main__&quot;:</span><br><span class="line">    # 测试数据</span><br><span class="line">    test_list &#x3D; [12, 2, 23, 45, 67, 3, 2, 4, 45, 63, 24, 23]</span><br><span class="line">    # 查找</span><br><span class="line">    print(solve(test_list, 45))  # True</span><br><span class="line">    print(solve(test_list, 5))  # False</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>执行结果：</strong></p>
+<p>**<br>**</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TrueFalseProcess finished with exit code 0</span><br></pre></td></tr></table></figure>
+
+
+
+<p>**<br>**</p>
+<p><strong>参考文献</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;blog.itpub.net&#x2F;29829936&#x2F;viewspace-2600313&#x2F;https:&#x2F;&#x2F;www.cnblogs.com&#x2F;steven_oyj&#x2F;archive&#x2F;2010&#x2F;05&#x2F;22&#x2F;1741370.htmlhttps:&#x2F;&#x2F;blog.csdn.net&#x2F;weiyongle1996&#x2F;article&#x2F;details&#x2F;70216853https:&#x2F;&#x2F;www.tutorialspoint.com&#x2F;python_data_structure&#x2F;python_divide_and_conquer.htm</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/reg3T0Fqiax8lPLzcDQicIfv49r4EgibnRuz10rNYiaBDlUaSfqrWgYrD36DPE4uiar4kHLq7x60wPaguey7Pz8BTOA/640?wx_fmt=jpeg" alt="img"></p>
+<p><strong><em>您可能喜欢的文章：</em></strong></p>
+<ul>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&mid=2247485246&idx=1&sn=21e5385c26fe6866b056619e87d8829b&chksm=971006c8a0678fde4c18db3115ed91490b8c653b25aebd5bd61605eda5eeb992008c946a447a&scene=21#wechat_redirect" target="_blank" rel="noopener">数据分析开篇：一个简单的应用（2019/11/04）</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&mid=2247485315&idx=1&sn=ddec9e455757a2af1df8a3fca319b173&chksm=97100675a0678f6316f39e5569d92b5727397d86888ec28fc49ae5e3fe71ab2cc8df00889e8a&scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（一）：NumPy数组</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&mid=2247485315&idx=1&sn=ddec9e455757a2af1df8a3fca319b173&chksm=97100675a0678f6316f39e5569d92b5727397d86888ec28fc49ae5e3fe71ab2cc8df00889e8a&scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（二）：NumPy摘要—-文章末尾附Python</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&mid=2247485351&idx=1&sn=c0d14713527646dd7aa113b1b04452d4&chksm=97100651a0678f47fff6692d934aaab91f53b52348dc7f567be99e21358207064ae4b0c328b1&scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（三）：数组的形状和属性（有福利赠予）</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&mid=2247485406&idx=1&sn=50b327edec6ea33605a6551623133a9d&chksm=97100628a0678f3ee979a6f01850b63dd1298dc07ca0e5f098e973ff1b8c888fd0125257e98a&scene=21#wechat_redirect" target="_blank" rel="noopener">数据分析必知必必会（四）：数组的转换，视图，拷贝，索引和广播（这里的“广播”是一个数组的应用：数据处理旧手机铃声）</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&mid=2247485459&idx=1&sn=5d9eaed9972b6dcd7e838530b6c9445f&chksm=971009e5a06780f3d8f401ecb337ce88de166edfec059d43c9a0be2274c01322e32ce84a5718&scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（五）：统计和线性代数（使用Numpy与Scipy实现）</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&mid=2247485579&idx=1&sn=a5128b4d508a51a5f8d3ba0b82364752&chksm=9710097da067806bcd58e326e24971690d0736fe69a85f390b8043415600ae7ceb72d4729a52&scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（六）：离散式复制的创建（以北京最近的猪肉价格为例子）</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&mid=2247485593&idx=1&sn=7a7801b8daa3f5b43a79130df721aba1&chksm=9710096fa0678079c647b363eb92facda180402defcb4375322f30035f96902b57843226b8da&scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（七）：pandas入门与数据结构基础</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&mid=2247485601&idx=1&sn=c8915dfba4416efc8149eb11090c70bd&chksm=97100957a067804179633e45417e803481a0057dd4bc842e6652ba4cc1a19cb24709b16c0d68&scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（八）：使用pandas查询数据和统计分析的应用（短小但强大）</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&mid=2247485699&idx=1&sn=e4a9946cfa5eb87e1796a57b2dacf111&chksm=971008f5a06781e3a09e1eef39a7edf78703f2e44451158da06d6570a84dd4e5fe3f94bb6f28&scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（九）：数据的分组与聚合</a></li>
+</ul>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/OUjib8gcw0XPRLc1HvVlfTatm6M3ZOJaH7737ibdzlCtgRMKmgoYD5t995dXBQXiaPso70zCBm9Je8o3AacEwqF0A/640?wx_fmt=gif" alt="img"></p>
+<p><strong><em>认认真真系统学习数据分析\</em></strong></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/OUjib8gcw0XPRLc1HvVlfTatm6M3ZOJaH08ATPvzgvm4oh56vPvvZRJUibcuKzQo1LZYjTqIUs2WaKibggoAPh7lg/640?wx_fmt=jpeg" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/OUjib8gcw0XPUgfL5Pic0uIb8C9uwQmOeJIFFd3B3vIUeBHalxnHpaeqOrolewWsNONQy96gyn7scyGanF4TuJRw/640?wx_fmt=gif" alt="img"></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/">算法基础</a>
+
+      
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/KangChou/2020PythonKangChou/blob/master/wxzf.jpg',
+  alipayImage: ''
+});
+</script>
+      
+
+      <!-- 要添加的内容 -->
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>作者:  </strong>KangChou</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>文章链接:  </strong>
+          <a href="/2020/07/05/Divide/" target="_blank" title="每日算法之旅(第三天):分而治之​算法思想">http://yoursite.com/2020/07/05/Divide/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>版权声明:   </strong>
+            本博客所有文章除特别声明外，均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            许可协议。转载请注明出处！
+          </li>
+        </ul>
+      <div>
+      
+      <!---->
+
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC80OTQ4NC8yNTk3Ng==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/05/Recursive2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">数据结构基础与递归算法思想</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、分治算法思想"><span class="nav-number">1.</span> <span class="nav-text">一、分治算法思想</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2020 诗和远方biubiu All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories/" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/guestbook" class="mobile-nav-link">guestbook</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
+
+
