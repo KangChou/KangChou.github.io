@@ -1215,14 +1215,14 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #f8f8f8;
+  background: #1d1f21;
   margin: 20px 0px;
   padding: 15px 20px;
   border-style: solid;
   border-color: #eef1f8;
   border-width: 1px 0;
   overflow: auto;
-  color: $highlight-foreground;
+  color: #c5c8c6;
   font-size: 0.9em;
   line-height: 1em;
 }
@@ -1276,7 +1276,7 @@ figure.highlight::-webkit-scrollbar-track {
 }
 .article-entry .highlight figcaption {
   font-size: 0.85em;
-  color: $highlight-comment;
+  color: #969896;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -1310,14 +1310,14 @@ figure.highlight::-webkit-scrollbar-track {
   line-height: 1.7em;
 }
 .article-entry .highlight .line.marked {
-  background: $highlight-selection;
+  background: #373b41;
 }
 .article-entry .gist {
   margin: 0 -20px;
   border-style: solid;
   border-color: #eef1f8;
   border-width: 1px 0;
-  background: #f8f8f8;
+  background: #1d1f21;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -1343,8 +1343,8 @@ figure.highlight::-webkit-scrollbar-track {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #f8f8f8;
-  color: $highlight-comment;
+  background: #1d1f21;
+  color: #969896;
   font: 0.85em -apple-system, "Arial", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   text-shadow: 0 0;
   padding: 0;
@@ -1360,7 +1360,7 @@ figure.highlight::-webkit-scrollbar-track {
 }
 pre .comment,
 pre .title {
-  color: $highlight-comment;
+  color: #969896;
 }
 pre .variable,
 pre .attribute,
@@ -1374,7 +1374,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: $highlight-red;
+  color: #c66;
 }
 pre .number,
 pre .preprocessor,
@@ -1382,12 +1382,12 @@ pre .built_in,
 pre .literal,
 pre .params,
 pre .constant {
-  color: $highlight-orange;
+  color: #de935f;
 }
 pre .class,
 pre .ruby .class .title,
 pre .css .rules .attribute {
-  color: $highlight-green;
+  color: #b5bd68;
 }
 pre .string,
 pre .value,
@@ -1395,10 +1395,10 @@ pre .inheritance,
 pre .header,
 pre .ruby .symbol,
 pre .xml .cdata {
-  color: $highlight-green;
+  color: #b5bd68;
 }
 pre .css .hexcolor {
-  color: $highlight-aqua;
+  color: #8abeb7;
 }
 pre .function,
 pre .python .decorator,
@@ -1408,11 +1408,11 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: $highlight-blue;
+  color: #81a2be;
 }
 pre .keyword,
 pre .javascript .function {
-  color: $highlight-purple;
+  color: #b294bb;
 }
 @media screen and (max-width: 479px) {
   #mobile-nav {
