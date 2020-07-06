@@ -671,20 +671,6 @@
       </categories>
   </entry>
   <entry>
-    <title>hexo-hiero主题设置文字大小</title>
-    <url>/2020/04/05/hiero0/</url>
-    <content><![CDATA[<p>字体大小和字体你可以在source/css/_variables.styl文件中60行左右对齐，这里是大部分字体但不是全部哈，细节的字体可能还需要你具体看，不一定都在这里面哈！</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block-margin &#x3D; 50px</span><br><span class="line">article-padding &#x3D; 20px   #文章字体</span><br><span class="line">mobile-nav-width &#x3D; 280px</span><br><span class="line">main-column &#x3D; 8</span><br><span class="line">sidebar-column &#x3D; 4</span><br></pre></td></tr></table></figure>
-<p>截图如下：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/15863171-457c800cf43aa63c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p><a href="http://kangchou001.cn/">可参考我的博客</a></p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-  </entry>
-  <entry>
     <title>安装和使用桌面版Github (2020-03-29)</title>
     <url>/2020/04/05/hiero1/</url>
     <content><![CDATA[<h2 id="1-下载安装GitHub-Desktop"><a href="#1-下载安装GitHub-Desktop" class="headerlink" title="1.下载安装GitHub Desktop"></a>1.下载安装GitHub Desktop</h2><p>GitHub桌面版下载地址：<a href="https://desktop.github.com/" target="_blank" rel="noopener">https://desktop.github.com/</a><br><img src="https://upload-images.jianshu.io/upload_images/15863171-22f93f6e82f20263.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image1.png"></p>
@@ -740,6 +726,20 @@
       </categories>
   </entry>
   <entry>
+    <title>hexo-hiero主题设置文字大小</title>
+    <url>/2020/04/05/hiero0/</url>
+    <content><![CDATA[<p>字体大小和字体你可以在source/css/_variables.styl文件中60行左右对齐，这里是大部分字体但不是全部哈，细节的字体可能还需要你具体看，不一定都在这里面哈！</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block-margin &#x3D; 50px</span><br><span class="line">article-padding &#x3D; 20px   #文章字体</span><br><span class="line">mobile-nav-width &#x3D; 280px</span><br><span class="line">main-column &#x3D; 8</span><br><span class="line">sidebar-column &#x3D; 4</span><br></pre></td></tr></table></figure>
+<p>截图如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15863171-457c800cf43aa63c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><a href="http://kangchou001.cn/">可参考我的博客</a></p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+  </entry>
+  <entry>
     <title>一步解决hexo博客搭建后的全文搜索功能</title>
     <url>/2020/04/05/hiero3/</url>
     <content><![CDATA[<hr>
@@ -784,20 +784,6 @@
       </categories>
   </entry>
   <entry>
-    <title>解决hexo-theme-hiero博客主页打开后无法显示分类内容的问题</title>
-    <url>/2020/04/05/hiero6/</url>
-    <content><![CDATA[<p>将layout: “categories”添加到分类页面中，而不是type: “categories”<br>类似的情况可以解决标签问题….</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2020-04-07 21:33:34</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>问题描述：<br>如图（文字是因为当时没有解决的办法不得不加的）：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-91ba0c0f69383971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>按照以上修改以后刷新页面如下：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/15863171-cfdb1d691fee4f33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-  </entry>
-  <entry>
     <title>一招解决给hexo博客添加版权声明的方法</title>
     <url>/2020/04/05/hiero5/</url>
     <content><![CDATA[<p>今天更换了新的Hexo主题：<br><a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank" rel="noopener">hexo-theme-hiero</a></p>
@@ -817,6 +803,20 @@
 <h1 id="修改主题设置文件"><a href="#修改主题设置文件" class="headerlink" title="修改主题设置文件"></a>修改主题设置文件</h1><p>打开<code>themes\hiker\_config.yml</code>,添加以下内容。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#版权信息</span><br><span class="line">copyright:</span><br><span class="line">    enable: true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
 <p>引用文献链接：<a href="https://juejin.im/post/5d728f506fb9a06aef090e47" target="_blank" rel="noopener">https://juejin.im/post/5d728f506fb9a06aef090e47</a></p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>解决hexo-theme-hiero博客主页打开后无法显示分类内容的问题</title>
+    <url>/2020/04/05/hiero6/</url>
+    <content><![CDATA[<p>将layout: “categories”添加到分类页面中，而不是type: “categories”<br>类似的情况可以解决标签问题….</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2020-04-07 21:33:34</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>问题描述：<br>如图（文字是因为当时没有解决的办法不得不加的）：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-91ba0c0f69383971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>按照以上修改以后刷新页面如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15863171-cfdb1d691fee4f33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 ]]></content>
       <categories>
         <category>博客教程</category>
