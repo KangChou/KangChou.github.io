@@ -34,7 +34,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://storage.googleapis.com/aihub-c2t-containers-public/release-0.2.0/kfp-components/oob_algorithm/kmeans/assets/kmeans.png">
 <meta property="article:published_time" content="2020-07-08T14:57:06.000Z">
-<meta property="article:modified_time" content="2020-07-07T16:53:57.912Z">
+<meta property="article:modified_time" content="2020-07-07T17:06:22.738Z">
 <meta property="article:author" content="KangChou">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="聚类">
@@ -194,7 +194,7 @@ var themeMenus = {};
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="https://storage.googleapis.com/aihub-c2t-containers-public/release-0.2.0/kfp-components/oob_algorithm/kmeans/assets/kmeans.png" target="_blank" rel="gallery_ckcc6ayh20006ycurdp7c28vu noopener">
+      <a class="article-gallery-img fancybox" href="https://storage.googleapis.com/aihub-c2t-containers-public/release-0.2.0/kfp-components/oob_algorithm/kmeans/assets/kmeans.png" target="_blank" rel="gallery_ckcc6sknw0004p0urdlkra2nu noopener">
         <img src="https://storage.googleapis.com/aihub-c2t-containers-public/release-0.2.0/kfp-components/oob_algorithm/kmeans/assets/kmeans.png" itemprop="image">
       </a>
     
@@ -277,18 +277,8 @@ var themeMenus = {};
 <ul>
 <li><strong>Kmeans++聚类步骤</strong></li>
 </ul>
-<pre><code>1. 从样本集合中随机选择一个样本作为第1个类别中心；
-
-2. 对于样本集合中的每一个样本&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=X_{i}&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?X_{i}&quot; title=&quot;X_{i}&quot; /&gt;&lt;/a&gt;，计算其与上一个刚被选择成为
-
-类别中心的样本之间的距离&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=dis&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?dis&quot; title=&quot;dis&quot; /&gt;&lt;/a&gt;；
-
-3. &lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=dis&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?dis&quot; title=&quot;dis&quot; /&gt;&lt;/a&gt;较大的样本，被选取作为类别中心的概率较大；
-
-4. 重复步骤&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=\textrm{ii}&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?\textrm{ii}&quot; title=&quot;\textrm{ii}&quot; /&gt;&lt;/a&gt;和&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=\textrm{iii}&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?\textrm{iii}&quot; title=&quot;\textrm{iii}&quot; /&gt;&lt;/a&gt;直到&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个初始的类别中心被选出；
-
-5. 进行Kmeans算法。
-</code></pre><p>​     </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 从样本集合中随机选择一个样本作为第<span class="number">1</span>个类别中心；</span><br><span class="line"></span><br><span class="line">2. 对于样本集合中的每一个样本&lt;a href="http://www.codecogs.com/eqnedit.php?latex=X_&#123;i&#125;" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?X_&#123;i&#125;" title="X_&#123;i&#125;" /&gt;&lt;/a&gt;，计算其与上一个刚被选择成为</span><br><span class="line"></span><br><span class="line">类别中心的样本之间的距离&lt;a href="http://www.codecogs.com/eqnedit.php?latex=dis" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?dis" title="dis" /&gt;&lt;/a&gt;；</span><br><span class="line"></span><br><span class="line">3. &lt;a href="http://www.codecogs.com/eqnedit.php?latex=dis" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?dis" title="dis" /&gt;&lt;/a&gt;较大的样本，被选取作为类别中心的概率较大；</span><br><span class="line"></span><br><span class="line">4. 重复步骤&lt;a href="http://www.codecogs.com/eqnedit.php?latex=\textrm&#123;ii&#125;" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?\textrm&#123;ii&#125;" title="\textrm&#123;ii&#125;" /&gt;&lt;/a&gt;和&lt;a href="http://www.codecogs.com/eqnedit.php?latex=\textrm&#123;iii&#125;" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?\textrm&#123;iii&#125;" title="\textrm&#123;iii&#125;" /&gt;&lt;/a&gt;直到&lt;a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?K" title="K" /&gt;&lt;/a&gt;个初始的类别中心被选出；</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> 进行Kmeans算法。</span><br></pre></td></tr></table></figure>
+<p>​     </p>
 <p>​<br>​        </p>
 <p>​            </p>
 
@@ -374,9 +364,9 @@ var a = new Donate({
 <nav id="article-nav">
   
   
-    <a href="/2020/07/08/cnn/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/07/08/carreadme/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">卷积神经网络</div>
+      <div class="article-nav-title">CART回归树</div>
     </a>
   
 </nav>

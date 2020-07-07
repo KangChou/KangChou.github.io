@@ -25,16 +25,16 @@
   
   
   
-  <meta name="description" content="Linear_Regression_Theory 线性回归问题说明  有个样本， 表示每个样本有个特征。 现在为每个样本均添加一个值为1的特征， 也就是令，其中。 这样操作本质就是将中的和合为一个，便于计算。 要拟合的回归方程形式为，其中 ，， 得到的要使得最小二乘代价函数  最小。  正规方程推导  由上可知，也就是使的值最小。令  计算导数，令其等于0，也就是有   梯度下降推导  计算代价函">
+  <meta name="description" content="Linear_Regression_Theory 线性回归问题说明  有个样本， 表示每个样本有个特征。 现在为每个样本均添加一个值为1的特征， 也就是令，其中。 这样操作本质就是将中的和合为一个，便于计算。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线性回归算法理论">
 <meta property="og:url" content="https://kangchou001.cn/2020/04/05/Linear_Regression_Theory/index.html">
 <meta property="og:site_name" content="诗和远方biubiu">
-<meta property="og:description" content="Linear_Regression_Theory 线性回归问题说明  有个样本， 表示每个样本有个特征。 现在为每个样本均添加一个值为1的特征， 也就是令，其中。 这样操作本质就是将中的和合为一个，便于计算。 要拟合的回归方程形式为，其中 ，， 得到的要使得最小二乘代价函数  最小。  正规方程推导  由上可知，也就是使的值最小。令  计算导数，令其等于0，也就是有   梯度下降推导  计算代价函">
+<meta property="og:description" content="Linear_Regression_Theory 线性回归问题说明  有个样本， 表示每个样本有个特征。 现在为每个样本均添加一个值为1的特征， 也就是令，其中。 这样操作本质就是将中的和合为一个，便于计算。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://images.wallpaperscraft.com/image/man_mountains_snowy_148388_1280x720.jpg">
 <meta property="article:published_time" content="2020-04-05T14:57:06.000Z">
-<meta property="article:modified_time" content="2020-07-07T16:14:53.290Z">
+<meta property="article:modified_time" content="2020-07-07T17:07:28.701Z">
 <meta property="article:author" content="KangChou">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="线性回归">
@@ -194,7 +194,7 @@ var themeMenus = {};
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="https://images.wallpaperscraft.com/image/man_mountains_snowy_148388_1280x720.jpg" target="_blank" rel="gallery_ckcc6aygw0002ycurdiyt1y66 noopener">
+      <a class="article-gallery-img fancybox" href="https://images.wallpaperscraft.com/image/man_mountains_snowy_148388_1280x720.jpg" target="_blank" rel="gallery_ckcc6sknn0001p0ur47v98mez noopener">
         <img src="https://images.wallpaperscraft.com/image/man_mountains_snowy_148388_1280x720.jpg" itemprop="image">
       </a>
     
@@ -234,6 +234,7 @@ var themeMenus = {};
 <p>现在为每个样本均添加一个值为1的特征，</p>
 <p>也就是令<a href="http://www.codecogs.com/eqnedit.php?latex=X_{i}&space;=&space;[X_{i}^{1},X_{i}^{2},\cdots&space;X_{i}^{m-1},X_{i}^{m}]" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{i}&space;=&space;[X_{i}^{1},X_{i}^{2},\cdots&space;X_{i}^{m-1},X_{i}^{m}]" title="X_{i} = [X_{i}^{1},X_{i}^{2},\cdots X_{i}^{m-1},X_{i}^{m}]" /></a>，其中<a href="http://www.codecogs.com/eqnedit.php?latex=X_{i}^{m}&space;=&space;1" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{i}^{m}&space;=&space;1" title="X_{i}^{m} = 1" /></a>。</p>
 <p>这样操作本质就是将<a href="http://www.codecogs.com/eqnedit.php?latex=w*X&space;&plus;&space;b" target="_blank"><img src="http://latex.codecogs.com/gif.latex?w*X&space;&plus;&space;b" title="w*X + b" /></a>中的<a href="http://www.codecogs.com/eqnedit.php?latex=w" target="_blank"><img src="http://latex.codecogs.com/gif.latex?w" title="w" /></a>和<a href="http://www.codecogs.com/eqnedit.php?latex=w" target="_blank"><img src="http://latex.codecogs.com/gif.latex?b" title="b" /></a>合为一个<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>，便于计算。</p>
+<a id="more"></a>
 <p>要拟合的回归方程形式为<a href="http://www.codecogs.com/eqnedit.php?latex=\bar{Y}&space;=&space;X&space;\cdot&space;W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bar{Y}&space;=&space;X&space;\cdot&space;W" title="\bar{Y} = X \cdot W" /></a>，其中</p>
 <p><a href="http://www.codecogs.com/eqnedit.php?latex=X&space;=&space;\begin{bmatrix}&space;X_{1}^{1},X_{1}^{2},\cdots&space;,X_{1}^{m}\\&space;X_{2}^{1},X_{2}^{2},\cdots&space;,X_{2}^{m}\\&space;\vdots\\&space;X_{N}^{1},X_{N}^{2},\cdots&space;,X_{N}^{m}\\&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X&space;=&space;\begin{bmatrix}&space;X_{1}^{1},X_{1}^{2},\cdots&space;,X_{1}^{m}\\&space;X_{2}^{1},X_{2}^{2},\cdots&space;,X_{2}^{m}\\&space;\vdots\\&space;X_{N}^{1},X_{N}^{2},\cdots&space;,X_{N}^{m}\\&space;\end{bmatrix}" title="X = \begin{bmatrix} X_{1}^{1},X_{1}^{2},\cdots ,X_{1}^{m}\\ X_{2}^{1},X_{2}^{2},\cdots ,X_{2}^{m}\\ \vdots\\ X_{N}^{1},X_{N}^{2},\cdots ,X_{N}^{m}\\ \end{bmatrix}" /></a>，<a href="http://www.codecogs.com/eqnedit.php?latex=Y&space;=&space;\begin{bmatrix}&space;Y_{1}\\&space;Y_{2}\\&space;\vdots\\&space;Y_{N}\\&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?Y&space;=&space;\begin{bmatrix}&space;Y_{1}\\&space;Y_{2}\\&space;\vdots\\&space;Y_{N}\\&space;\end{bmatrix}" title="Y = \begin{bmatrix} Y_{1}\\ Y_{2}\\ \vdots\\ Y_{N}\\ \end{bmatrix}" /></a>，<a href="http://www.codecogs.com/eqnedit.php?latex=W&space;=&space;\begin{bmatrix}&space;W_{1}\\&space;W_{2}\\&space;\vdots&space;\\&space;W_{m}\\&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W&space;=&space;\begin{bmatrix}&space;W_{1}\\&space;W_{2}\\&space;\vdots&space;\\&space;W_{m}\\&space;\end{bmatrix}" title="W = \begin{bmatrix} W_{1}\\ W_{2}\\ \vdots \\ W_{m}\\ \end{bmatrix}" /></a></p>
 <p>得到的<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>要使得最小二乘代价函数</p>
