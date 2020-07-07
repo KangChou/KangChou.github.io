@@ -1215,14 +1215,14 @@ a.article-title:hover {
 }
 .article-entry pre,
 .article-entry .highlight {
-  background: #1d1f21;
+  background: #f8f8f8;
   margin: 20px 0px;
   padding: 15px 20px;
   border-style: solid;
   border-color: #eef1f8;
   border-width: 1px 0;
   overflow: auto;
-  color: #c5c8c6;
+  color: #4d4d4c;
   font-size: 0.9em;
   line-height: 1em;
 }
@@ -1276,7 +1276,7 @@ figure.highlight::-webkit-scrollbar-track {
 }
 .article-entry .highlight figcaption {
   font-size: 0.85em;
-  color: #969896;
+  color: #8e908c;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -1310,14 +1310,14 @@ figure.highlight::-webkit-scrollbar-track {
   line-height: 1.7em;
 }
 .article-entry .highlight .line.marked {
-  background: #373b41;
+  background: #d6d6d6;
 }
 .article-entry .gist {
   margin: 0 -20px;
   border-style: solid;
   border-color: #eef1f8;
   border-width: 1px 0;
-  background: #1d1f21;
+  background: #f8f8f8;
   padding: 15px 20px 15px 0;
 }
 .article-entry .gist .gist-file {
@@ -1343,8 +1343,8 @@ figure.highlight::-webkit-scrollbar-track {
   border: none;
 }
 .article-entry .gist .gist-file .gist-meta {
-  background: #1d1f21;
-  color: #969896;
+  background: #f8f8f8;
+  color: #8e908c;
   font: 0.85em -apple-system, "Arial", BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   text-shadow: 0 0;
   padding: 0;
@@ -1360,7 +1360,7 @@ figure.highlight::-webkit-scrollbar-track {
 }
 pre .comment,
 pre .title {
-  color: #969896;
+  color: #8e908c;
 }
 pre .variable,
 pre .attribute,
@@ -1374,7 +1374,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #c66;
+  color: #c82829;
 }
 pre .number,
 pre .preprocessor,
@@ -1382,12 +1382,12 @@ pre .built_in,
 pre .literal,
 pre .params,
 pre .constant {
-  color: #de935f;
+  color: #fb6d19;
 }
 pre .class,
 pre .ruby .class .title,
 pre .css .rules .attribute {
-  color: #b5bd68;
+  color: #718c00;
 }
 pre .string,
 pre .value,
@@ -1395,10 +1395,10 @@ pre .inheritance,
 pre .header,
 pre .ruby .symbol,
 pre .xml .cdata {
-  color: #b5bd68;
+  color: #718c00;
 }
 pre .css .hexcolor {
-  color: #8abeb7;
+  color: #3e999f;
 }
 pre .function,
 pre .python .decorator,
@@ -1408,11 +1408,11 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: #81a2be;
+  color: #4271ae;
 }
 pre .keyword,
 pre .javascript .function {
-  color: #b294bb;
+  color: #8959a8;
 }
 @media screen and (max-width: 479px) {
   #mobile-nav {

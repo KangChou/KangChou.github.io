@@ -354,69 +354,33 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><strong>Kmeans 聚类</strong></li>
-</ul>
-<p>样本集合<a href="http://www.codecogs.com/eqnedit.php?latex=X=\begin{pmatrix}&space;X_{1},&space;&X_{2},&space;&&space;\cdots&space;,&&space;X_{N}&space;\end{pmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X=\begin{pmatrix}&space;X_{1},&space;&X_{2},&space;&&space;\cdots&space;,&&space;X_{N}&space;\end{pmatrix}" title="X=\begin{pmatrix} X_{1}, &X_{2}, & \cdots ,& X_{N} \end{pmatrix}" /></a>， <a href="http://www.codecogs.com/eqnedit.php?latex=N" target="_blank"><img src="http://latex.codecogs.com/gif.latex?N" title="N" /></a>为样本个数。<a href="http://www.codecogs.com/eqnedit.php?latex=X_{i}=\begin{bmatrix}&space;X_{i}^{1}&space;&&space;X_{i}^{2}&\cdots&space;&&space;X_{i}^{m}&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{i}=\begin{bmatrix}&space;X_{i}^{1}&space;&&space;X_{i}^{2}&\cdots&space;&&space;X_{i}^{m}&space;\end{bmatrix}" title="X_{i}=\begin{bmatrix} X_{i}^{1} & X_{i}^{2}&\cdots & X_{i}^{m} \end{bmatrix}" /></a>，<a href="http://www.codecogs.com/eqnedit.php?latex=m" target="_blank"><img src="http://latex.codecogs.com/gif.latex?m" title="m" /></a>为每个样本的特征个数。</p>
-<p>要把这些样本分为<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>类，<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>个类别的样本集合分别为<a href="http://www.codecogs.com/eqnedit.php?latex=\begin{matrix}&space;C1,&&space;C2,&&space;\cdots,&space;&&space;Ck&space;\end{matrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\begin{matrix}&space;C1,&&space;C2,&&space;\cdots,&space;&&space;Ck&space;\end{matrix}" title="\begin{matrix} C1,& C2,& \cdots, & Ck \end{matrix}" /></a>。</p>
-<p>得到的<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>个类别要使得下式取得最小值：</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=D&space;=&space;\sum_{k=1}^{K}\sum_{i=1}^{nk}dis(X_{ki},Ckc)" target="_blank"><img src="http://latex.codecogs.com/gif.latex?D&space;=&space;\sum_{k=1}^{K}\sum_{i=1}^{nk}dis(X_{ki},Ckc)" title="D = \sum_{k=1}^{K}\sum_{i=1}^{nk}dis(X_{ki},Ckc)" /></a></p>
-<p>其中<a href="http://www.codecogs.com/eqnedit.php?latex=nk" target="_blank"><img src="http://latex.codecogs.com/gif.latex?nk" title="nk" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的样本集合中样本的个数；</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=Ckc" target="_blank"><img src="http://latex.codecogs.com/gif.latex?Ckc" title="Ckc" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的中心；</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=X_{ki}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{ki}" title="X_{ki}" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的样本集合中的第<a href="http://www.codecogs.com/eqnedit.php?latex=i" target="_blank"><img src="http://latex.codecogs.com/gif.latex?i" title="i" /></a>个样本。</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=dis(X_{ki},Ckc)" target="_blank"><img src="http://latex.codecogs.com/gif.latex?dis(X_{ki},Ckc)" title="dis(X_{ki},Ckc)" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的样本集合中的样本与该类别中心的距离。</p>
-<ul>
-<li><p><strong>不同的距离计算方式</strong><br>有两个点<a href="http://www.codecogs.com/eqnedit.php?latex=\mathbf{A,B}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathbf{A,B}" title="\mathbf{A,B}" /></a>, 坐标分别为<a href="http://www.codecogs.com/eqnedit.php?latex=\mathbf{A}=[a1,a2,\cdots,am]\begin{matrix}&space;&&space;\end{matrix}&space;\mathbf{B}=[b1,b2,\cdots,bm]" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathbf{A}=[a1,a2,\cdots,am]\begin{matrix}&space;&&space;\end{matrix}&space;\mathbf{B}=[b1,b2,\cdots,bm]" title="\mathbf{A}=[a1,a2,\cdots,am]\begin{matrix} & \end{matrix} \mathbf{B}=[b1,b2,\cdots,bm]" /></a>。</p>
-<ul>
-<li><p>欧几里得距离</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=E(\mathbf{A,B})&space;=&space;\sqrt{\sum_{i=1}^{m}(ai-bi)^{2}}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?E(\mathbf{A,B})&space;=&space;\sqrt{\sum_{i=1}^{m}(ai-bi)^{2}}" title="E(\mathbf{A,B}) = \sqrt{\sum_{i=1}^{m}(ai-bi)^{2}}" /></a></p>
-<ul>
-<li>曼哈顿距离</li>
-</ul>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=M(\mathbf{A,B})&space;=&space;\sum_{i=1}^{m}\left&space;|&space;ai-bi&space;\right&space;|" target="_blank"><img src="http://latex.codecogs.com/gif.latex?M(\mathbf{A,B})&space;=&space;\sum_{i=1}^{m}\left&space;|&space;ai-bi&space;\right&space;|" title="M(\mathbf{A,B}) = \sum_{i=1}^{m}\left | ai-bi \right |" /></a></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>闵可夫斯基距离</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=HM(\mathbf{A,B})&space;=&space;\begin{pmatrix}&space;\sum_{i=1}^{m}(ai-bi)^{p}&space;\end{pmatrix}&space;^{1/p}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?HM(\mathbf{A,B})&space;=&space;\begin{pmatrix}&space;\sum_{i=1}^{m}(ai-bi)^{p}&space;\end{pmatrix}&space;^{1/p}" title="HM(\mathbf{A,B}) = \begin{pmatrix} \sum_{i=1}^{m}(ai-bi)^{p} \end{pmatrix} ^{1/p}" /></a></p>
-</li>
-</ul>
-<p>根据样本特征选择不同的距离公式，本算例采用欧几里得距离。</p>
-<ul>
-<li><p><strong>Kmeans 聚类步骤</strong></p>
-<ol>
-<li>随机选择<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>个类别中心<a href="http://www.codecogs.com/eqnedit.php?latex=\begin{matrix}&space;C1c,&&space;C2c,&&space;\cdots,&space;&&space;Ckc&space;\end{matrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\begin{matrix}&space;C1c,&&space;C2c,&&space;\cdots,&space;&&space;Ckc&space;\end{matrix}" title="\begin{matrix} C1c,& C2c,& \cdots, & Ckc \end{matrix}" /></a>；</li>
-</ol>
-</li>
-</ul>
-<pre><code> 2. 对每一个样本计算和&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个类别中心的距离，找到距离最小的&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=Ckc&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?Ckc&quot; title=&quot;Ckc&quot; /&gt;&lt;/a&gt;，
+        
+          <div class="entry-thumbnail">
+            <a href="/2020/07/08/Kmeans/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEPyTg.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          Kmeans &amp; Kmeans++
 
- 然后将该样本添加到样本集合&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=Ck&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?Ck&quot; title=&quot;Ck&quot; /&gt;&lt;/a&gt;中；
+Kmeans 聚类
 
- 3. 计算得到的&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个类别的样本集合中样本的均值，作为新的&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个类别中心；
+样本集合， 为样本个数。，为每个样本的特征个数。
+要把这些样本分为类，个类别的样本集合分别为。
 
- 4. 满足迭代次数或者类别&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个类别中心不再变化，则停止。
-</code></pre><p>Kmeans聚类算法的结果会因为初始的类别中心的不同差异很大，为了避免这个缺点，下面介绍对初始类别中心的选择进行了优化的<strong>Kmeans++聚类</strong>算法。</p>
-<ul>
-<li><strong>Kmeans++聚类步骤</strong></li>
-</ul>
-<pre><code>1. 从样本集合中随机选择一个样本作为第1个类别中心；
+得到的个类别要使得下式取得最小值：
 
-2. 对于样本集合中的每一个样本&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=X_{i}&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?X_{i}&quot; title=&quot;X_{i}&quot; /&gt;&lt;/a&gt;，计算其与上一个刚被选择成为
+其中表示第个类别的样本集合中样本的个数；
+表示第个类别的中心；
+表示第个类别的样本集合中的第个样本。
+表示第个类别的样本集合中的样本与该类别中心的距离。
 
-类别中心的样本之间的距离&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=dis&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?dis&quot; title=&quot;dis&quot; /&gt;&lt;/a&gt;；
 
-3. &lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=dis&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?dis&quot; title=&quot;dis&quot; /&gt;&lt;/a&gt;较大的样本，被选取作为类别中心的概率较大；
+不同的距离计算方式有两个点, 坐...
 
-4. 重复步骤&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=\textrm{ii}&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?\textrm{ii}&quot; title=&quot;\textrm{ii}&quot; /&gt;&lt;/a&gt;和&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=\textrm{iii}&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?\textrm{iii}&quot; title=&quot;\textrm{iii}&quot; /&gt;&lt;/a&gt;直到&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个初始的类别中心被选出；
-
-5. 进行Kmeans算法。
-</code></pre><p>​     </p>
-<p>​<br>​        </p>
-<p>​            </p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/07/08/Kmeans/#more">阅读全文</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -475,71 +439,35 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
-<li><p>数据文件</p>
-<ul>
-<li><p>北京市Pm2.5数据集：<a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data#" target="_blank" rel="noopener">数据下载以及说明</a></p>
-</li>
-<li><p>数据文件：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/PRSA_data_2010.1.1-2014.12.31.csv" target="_blank" rel="noopener">PRSA_data_2010.1.1-2014.12.31.csv</a></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>基于不同库的代码文件</p>
-<ul>
-<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_DT_Regression.py" target="_blank" rel="noopener">AnFany_DT_Regression.py</a></li>
-</ul>
-</li>
-</ul>
-<pre><code> - **Sklearn**：[Sklearn_DT_Regression.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Sklearn_DT_Regression.py)
-</code></pre><ul>
-<li><p>辅助代码文件</p>
-<ul>
-<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Data_DT_Regression.py" target="_blank" rel="noopener">Data_DT_Regression.py</a></li>
-</ul>
-</li>
-</ul>
-<pre><code>  - 绘制树的程序：[AnFany_pm2.5_Tree.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_pm2.5_Tree.py)
-</code></pre><ul>
-<li><p>北京市Pm2.5数据集结果对比</p>
-<ul>
-<li><p><strong>AnFany</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/adult_23.png" alt="image"></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_23.png" alt="image"></p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>  - **Sklearn**
+        
+          <div class="entry-thumbnail">
+            <a href="/2020/07/08/carreadme/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEPyTg.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          CART回归树文件说明
+数据文件
 
-  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_pm2.5.png)
+北京市Pm2.5数据集：数据下载以及说明
 
-  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_cure.png)
-</code></pre><ul>
-<li><p>示例 </p>
-<ul>
-<li><strong>y=sin(x1) + cos(x2)</strong></li>
-</ul>
-<ul>
-<li><p><strong>AnFany</strong></p>
-<ul>
-<li>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_example_DT.py" target="_blank" rel="noopener">AnFany_example_DT.py</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>   - 结果：
+数据文件：PRSA_data_2010.1.1-2014.12.31.csv
 
-     + **不同初始深度**
 
-      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/shili_mse.png)
 
-     + **拟合对比**
 
-      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_shili.png)
-</code></pre>
+
+基于不同库的代码文件
+
+AnFany：AnFany_DT_Regression.py
+
+
+
+ - **Sklearn**：[Sklearn_DT_Regression.py](https://github.com/Anfany...
+
+        
+          <p class="article-more-link">
+            <a href="/2020/07/08/carreadme/#more">阅读全文</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -598,69 +526,32 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="CART分类树"><a href="#CART分类树" class="headerlink" title="CART分类树"></a>CART分类树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
-<li><p>数据文件</p>
-<ul>
-<li>成年人收入数据集：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/BPNN/BPNN_Classify" target="_blank" rel="noopener">数据集参见BP神经网络分类</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>基于不同库的代码文件</p>
-<ul>
-<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Classify.py" target="_blank" rel="noopener">AnFany_DT_Classify.py</a></li>
-</ul>
-</li>
-</ul>
-<pre><code> - **Sklearn**：[Sklearn_DT_Classify.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Sklearn_DT_Classify.py)
-</code></pre><ul>
-<li><p>辅助代码文件</p>
-<ul>
-<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/DT_Classify_Data.py" target="_blank" rel="noopener">DT_Classify_Data.py</a></li>
-</ul>
-</li>
-<li><p>绘制树的程序</p>
-<ul>
-<li><p>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_Show_Tree.py" target="_blank" rel="noopener">AnFany_Show_Tree.py</a></p>
-</li>
-<li><p>成人收入数据集(初始深度设为5)的树的示例：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_tree.png" alt="image"></p>
-</li>
-</ul>
-</li>
-<li><p>成人收入数据集结果对比</p>
-<ul>
-<li><p><strong>AnFany</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_anfany.png" alt="image"></p>
-</li>
-<li><p><strong>Sklearn</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_sklearn.png" alt="image"></p>
-</li>
-</ul>
-</li>
-<li><p>示例(以鸢尾花数据集为例) </p>
-<ul>
-<li><strong><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/Softmax%20Regression" target="_blank" rel="noopener">数据集说明参见Softmax回归</a></strong></li>
-</ul>
-<ul>
-<li><p><strong>AnFany</strong></p>
-<ul>
-<li><p>数据处理：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Irisdata_DT_Anfany.py" target="_blank" rel="noopener">Irisdata_DT_AnFany.py</a></p>
-</li>
-<li><p>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Iris.py" target="_blank" rel="noopener">AnFany_DT_Iris.py</a></p>
-</li>
-<li><p>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Iris_tree.py" target="_blank" rel="noopener">Iris_tree.py</a>       </p>
-</li>
-<li><p>结果：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_anfany.png" alt="image"></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_tree.png" alt="image"></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+        
+          <div class="entry-thumbnail">
+            <a href="/2020/07/08/cart2/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEPyTg.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          CART分类树文件说明
+数据文件
 
+成年人收入数据集：数据集参见BP神经网络分类
+
+
+
+
+基于不同库的代码文件
+
+AnFany：AnFany_DT_Classify.py
+
+
+
+ - **Sklearn**：[Sklearn_DT_Classify.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/b...
+
+        
+          <p class="article-more-link">
+            <a href="/2020/07/08/cart2/#more">阅读全文</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -719,125 +610,20 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>对于一个图片而言，假设其数字矩阵维度为(<strong>3,320,240</strong>)，其中<strong>3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度</strong>。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。</p>
-<p>对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320*240*3=230400的向量，作为神经网络的输入。如果第一层的神经元的个数为100个，则全连接情形下第一层的参数就有230400*100+100=23040100个。因此对于图片而言，全连接网络需要的参数过多。因此需要提取图片的多个特征，在保留这些特征的前提下，缩短可以表示这个图片的向量的长度。</p>
-<p>首先重申以下几点说明：</p>
-<ol>
-<li><p>图片的数字矩阵，并不一定都是三维的，例如灰度图片，因为其通道数为1，所以其数字矩阵就是二维的，其维度为(高度，宽度)；</p>
-</li>
-<li><p>卷积就是提取图片中的特征；多个卷积就可以获取图片的多个特征；池化就是对特征中的信息进行下采样；</p>
-</li>
-<li><p>表示一个卷积核的数字矩阵是三维的，其维度为(通道数/深度，高度，宽度)，其中通道数/深度分别对应输入的数字矩阵的通道数。输入的数字矩阵和卷积核的对应通道的卷积的和加上该卷积核的阈值作为卷积的输出结果；</p>
-</li>
-<li><p>表示多个卷积核的矩阵的维度是四维的，其维度为(卷积核个数，通道数/深度，高度，宽度)。因此得到的卷积结果的通道数要等于就是卷积核的个数。</p>
-</li>
-</ol>
-<p>下面开始介绍卷积神经网络的基本结构，这里只介绍最基本的形式，其他复杂构造的CNN单独介绍。</p>
-<ul>
-<li><strong>基本结构</strong></li>
-</ul>
-<p>CNN一般是由输入层(INPUT)，卷积层(CONV)，激活层(AF)，池化层(POOL)，全连接层(FC)，输出层(OUTPUT)构成的。下面给出一个卷积神经网络的结构：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Cnn/cnn_s.png" alt="卷积神经网络结构"></p>
-<p>上面展示的结构仅仅是一个示例，在实际的应用中卷积层后面可以不设置激活层或者池化层，可以是多个卷积层直接相连，但是多个池化层相连的情况意义不大。最后的全连接层也可以是多个。构成模式可用如下表示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入层 ——&gt; [[卷积层]*N ——&gt;  激活层?——&gt; 池化层?]*M ——&gt;  [全连接层]*K ——&gt; 输出层</span><br></pre></td></tr></table></figure><br>卷积、激活、池化的设置都比较自由，没有限制，但是都有比较好的经验可以借鉴。一个可以遵循的建议就是不要让需要训练的参数的数量骤降，要循序渐进的减少。下面以上面的示例说明卷积神经网络中需要调节的参数，也就是需要学习、需要训练的参数。</p>
-<ul>
-<li><strong>网络中的参数说明</strong>   </li>
-</ul>
-<p>上面示例结构中涉及到的需要训练的参数见下表，其中卷积核也是类似于神经元，也是有阈值的，当然也可以不设置。</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Cnn/cnn_papng.png" alt="卷积神经网络结构"></p>
-<ul>
-<li><strong>训练</strong>      </li>
-</ul>
-<p>和全连接神经网络一样，利用链式求导计算损失函数对每个权重的偏导数（梯度），然后根据梯度下降公式更新权重。整个过程分为两个过程，一是正向传播，二是反向传播。 下面以上面的示例详细说明卷积神经网络的训练过程，为了便于理解，以一张图片为例。</p>
-<ul>
-<li><p><strong>卷积神经网络的正向传播</strong></p>
-<p><strong>1，输入层(INPUT)：图片的数字矩阵为PM，维度为(3,90,117)，这一层的输出为PM；</strong>。</p>
-<p><strong>2，卷积1层(CONV1)：卷积核矩阵设为C1，C1_c表示第c个卷积核的矩阵，其维度为(3,11,11)。C1_B为卷积核的偏置，维度为(1,96)。这一层输出为C1_Out，维度为(96,30,39)；</strong></p>
-<p>   <a href="https://www.codecogs.com/eqnedit.php?latex=C1\_Out&space;=&space;PM&space;*&space;C1&space;\\&space;\\&space;C1\_Out[x,&space;y,&space;z]\\&space;=\sum_{i=1}^{3}&space;P\_M[x1,y1,i]&space;*&space;C1\_z[::i]&space;\\&space;=&space;\sum_{i=1}^{3}\sum_{h=0}^{10}\sum_{s=0}^{10}Pm[i][h,s]&space;\times&space;Cm[i][h,s]&plus;C1\_B[z]&space;\\&space;\\&space;.\,&space;\,&space;\,&space;\,&space;P\_M[x1,y1,i]\,\:&space;is\,&space;\:&space;the\,&space;\:&space;corrding&space;\,&space;\:&space;erea&space;\,&space;\:&space;of&space;PM\\&space;\\&space;.&space;\,&space;\,&space;\,&space;Pm[i]=P\_M[x1,y1,i],&space;Cm[i]=C1\_z[::i],\\&space;\\&space;.\,&space;\,&space;\,&space;x\in&space;[0,29],y\in&space;[0,38],z\in&space;[0,95]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?C1\_Out&space;=&space;PM&space;*&space;C1&space;\\&space;\\&space;C1\_Out[x,&space;y,&space;z]\\&space;=\sum_{i=1}^{3}&space;P\_M[x1,y1,i]&space;*&space;C1\_z[::i]&space;\\&space;=&space;\sum_{i=1}^{3}\sum_{h=0}^{10}\sum_{s=0}^{10}Pm[i][h,s]&space;\times&space;Cm[i][h,s]&plus;C1\_B[z]&space;\\&space;\\&space;.\,&space;\,&space;\,&space;\,&space;P\_M[x1,y1,i]\,\:&space;is\,&space;\:&space;the\,&space;\:&space;corrding&space;\,&space;\:&space;erea&space;\,&space;\:&space;of&space;PM\\&space;\\&space;.&space;\,&space;\,&space;\,&space;Pm[i]=P\_M[x1,y1,i],&space;Cm[i]=C1\_z[::i],\\&space;\\&space;.\,&space;\,&space;\,&space;x\in&space;[0,29],y\in&space;[0,38],z\in&space;[0,95]" title="C1\_Out = PM * C1 \\ \\ C1\_Out[x, y, z]\\ =\sum_{i=1}^{3} P\_M[x1,y1,i] * C1\_z[::i] \\ = \sum_{i=1}^{3}\sum_{h=0}^{10}\sum_{s=0}^{10}Pm[i][h,s] \times Cm[i][h,s]+C1\_B[z] \\ \\ .\, \, \, \, P\_M[x1,y1,i]\,\: is\, \: the\, \: corrding \, \: erea \, \: of PM\\ \\ . \, \, \, Pm[i]=P\_M[x1,y1,i], Cm[i]=C1\_z[::i],\\ \\ .\, \, \, x\in [0,29],y\in [0,38],z\in [0,95]" /></a></p>
-</li>
-</ul>
-<pre><code> **3，激活函数1层(AF1)：激活函数定义为Af1，输出为Af1_Out，维度为(96,30,39)；**
+        
+          <div class="entry-thumbnail">
+            <a href="/2020/07/08/cnn/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEFoi4.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。
 
-    &lt;a href=&quot;https://www.codecogs.com/eqnedit.php?latex=Af1\_Out[x,&amp;space;y,&amp;space;z]&amp;space;=&amp;space;\mathbf{Af1}(C1\_Out[x,y,z])&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://latex.codecogs.com/gif.latex?Af1\_Out[x,&amp;space;y,&amp;space;z]&amp;space;=&amp;space;\mathbf{Af1}(C1\_Out[x,y,z])&quot; title=&quot;Af1\_Out[x, y, z] = \mathbf{Af1}(C1\_Out[x,y,z])&quot; /&gt;&lt;/a&gt;
+对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320...
 
- **4，池化1层(POOL1)：输出为Pool1_Out，维度为(96,10,13)；**
-
-
-    选择Af1_Out中的对应区域的最大值或者均值作为输出值。
-
-
- **5，卷积2层(CONV2)：卷积核数字矩阵设为C2，C2_c表示第c个卷积核的数字矩阵，其维度为(96,7,7)。C2_B表示256个卷积核的偏置，其维度为(1,256)。这一层输出为C2_Out，维度为(256,5,7)；**
-
-    具体的运算过程图示：
-
-    ![卷积](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Cnn/cnn_conv.png)
-
- **6，激活函数2层(AF2)：激活函数定义为Af2，输出为Af2_Out，维度为(256,5,7)；**
-
-    &lt;a href=&quot;https://www.codecogs.com/eqnedit.php?latex=Af2\_Out[x,&amp;space;y,&amp;space;z]&amp;space;=&amp;space;\mathbf{Af2}(C2\_Out[x,y,z])&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://latex.codecogs.com/gif.latex?Af2\_Out[x,&amp;space;y,&amp;space;z]&amp;space;=&amp;space;\mathbf{Af2}(C2\_Out[x,y,z])&quot; title=&quot;Af2\_Out[x, y, z] = \mathbf{Af2}(C2\_Out[x,y,z])&quot; /&gt;&lt;/a&gt;
-
- **7，池化2层(POOL2)：输出为Pool2_Out，维度为(256,3,5)；**
-
-    选择Af2_Out中的对应区域的最大值或者均值作为输出值。
-
- **8，全连接1层(FC1)：Pool2_Out变为一维的向量定义为In_Net，输入维度为(1,3840)，激活函数为FC1_af, 输出为FC1_Out，维度为(1,128)；**
-
-   &lt;a href=&quot;https://www.codecogs.com/eqnedit.php?latex=FC1\_Out[i]&amp;space;=&amp;space;FC1\_af(\sum_{j=0}^{3839}&amp;space;W1[i,j]*In\_Net[j]&amp;plus;B1[i]),i=0,1,\cdots&amp;space;127&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://latex.codecogs.com/gif.latex?FC1\_Out[i]&amp;space;=&amp;space;FC1\_af(\sum_{j=0}^{3839}&amp;space;W1[i,j]*In\_Net[j]&amp;plus;B1[i]),i=0,1,\cdots&amp;space;127&quot; title=&quot;FC1\_Out[i] = FC1\_af(\sum_{j=0}^{3839} W1[i,j]*In\_Net[j]+B1[i]),i=0,1,\cdots 127&quot; /&gt;&lt;/a&gt;
-
-   其中W1为权重的矩阵，维度为(128,3840)，B1为阈值的矩阵，维度为(128,1)；
-
- **9，全连接2层(FC2)：输入维度为(1,128)，激活函数为FC2_af, 输出为FC2_Out，维度为(1,4)；**
-
-   &lt;a href=&quot;https://www.codecogs.com/eqnedit.php?latex=FC2\_Out[i]&amp;space;=&amp;space;FC2\_af(\sum_{j=0}^{127}&amp;space;W2[i,j]*FC1\_Out[j]&amp;plus;B2[i]),i=0,1,2,3&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://latex.codecogs.com/gif.latex?FC2\_Out[i]&amp;space;=&amp;space;FC2\_af(\sum_{j=0}^{127}&amp;space;W2[i,j]*FC1\_Out[j]&amp;plus;B2[i]),i=0,1,2,3&quot; title=&quot;FC2\_Out[i] = FC2\_af(\sum_{j=0}^{127} W2[i,j]*FC1\_Out[j]+B2[i]),i=0,1,2,3&quot; /&gt;&lt;/a&gt;
-
-
- 其中W2为权重的矩阵，维度为(4,128)，B2为阈值的矩阵，维度为(4,1)；
-
- **10，输出层(OUTPUT)：输入维度为(1,4)，输出为Net_Out，维度为(1,4)；**
-
-   &lt;a href=&quot;https://www.codecogs.com/eqnedit.php?latex=Net\_Out&amp;space;=\mathbf{&amp;space;Softmax}(FC2\_Out)&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://latex.codecogs.com/gif.latex?Net\_Out&amp;space;=\mathbf{&amp;space;Softmax}(FC2\_Out)&quot; title=&quot;Net\_Out =\mathbf{ Softmax}(FC2\_Out)&quot; /&gt;&lt;/a&gt;
-
-   这个图片的标签为Real_Out，维度为(1,4)，元素代表图片的类别，属于此类别值为1，不属于此类别值为0。假设成本函数平方误差为代价函数，当然也可以为交叉熵代价函数。计算误差：
-
-  &lt;a href=&quot;https://www.codecogs.com/eqnedit.php?latex=\left\{\begin{matrix}&amp;space;E&amp;space;=&amp;space;\frac{1}{2N}\sum_{i=1}^{N}\sum_{j=1}^{4}(Real\_Out[i,j]-Net\_Out[i,j])^{2}&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;if&amp;space;N&gt;1&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;(1)\\&amp;space;\\&amp;space;E&amp;space;=&amp;space;\frac{1}{2}\sum_{j=1}^{4}(Real\_Out[j]-Net\_Out[j])^{2}&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;if&amp;space;N=1&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;(2)&amp;space;\end{matrix}\right.&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://latex.codecogs.com/gif.latex?\left\{\begin{matrix}&amp;space;E&amp;space;=&amp;space;\frac{1}{2N}\sum_{i=1}^{N}\sum_{j=1}^{4}(Real\_Out[i,j]-Net\_Out[i,j])^{2}&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;if&amp;space;N&gt;1&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;(1)\\&amp;space;\\&amp;space;E&amp;space;=&amp;space;\frac{1}{2}\sum_{j=1}^{4}(Real\_Out[j]-Net\_Out[j])^{2}&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;if&amp;space;N=1&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;\:&amp;space;(2)&amp;space;\end{matrix}\right.&quot; title=&quot;\left\{\begin{matrix} E = \frac{1}{2N}\sum_{i=1}^{N}\sum_{j=1}^{4}(Real\_Out[i,j]-Net\_Out[i,j])^{2} \: \: \: \: if N&gt;1 \: \: \: \: (1)\\ \\ E = \frac{1}{2}\sum_{j=1}^{4}(Real\_Out[j]-Net\_Out[j])^{2} \: \: \: \: if N=1 \: \: \: \: (2) \end{matrix}\right.&quot; /&gt;&lt;/a&gt;
-
- 本例中N=1，所以用式(2)。
-</code></pre><ul>
-<li><p><strong>卷积神经网络的反传播</strong></p>
-<p>获得误差E后，进行反向传播，计算每个需要训练的参数的梯度。需要训练的参数在全连接层以及卷积层中。在池化和激活层中，不存在需要训练的参数，因此经过这些层时，只要把梯度传递到前一层即可。详见下面的叙述。</p>
-<ul>
-<li><p>首先计算成本函数E对全连接层FC2、FC1中的权重个阈值的梯度，这个和<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/BPNN/readme.md" target="_blank" rel="noopener">BP神经网络</a>的计算是一样的，此处不在赘述。</p>
-</li>
-<li><p>计算成本函数E对于<strong>池化层POOL2</strong>中的梯度。因为池化层没有需要训练的参数，因此只需要传递梯度即可。假设成本函数E对于In_Net的梯度向量为d8，其维度为(1,3840)，现在将其变为维度为(256,3,5)的梯度矩阵dm8。下面分2种情况说明梯度矩阵如何传递：</p>
-<ol>
-<li><p>如果池化是最大值池化：对于dm8[a,b,c]而言，就是将dm8[a,b,c]所对应的Af2_Out中的矩阵块中，具有最大值的位置的梯度设为dm8[a,b,c]，其他的设置为0。</p>
-</li>
-<li><p>如果池化是均值池化：对于dm8[a,b,c]而言，就是将dm8[a,b,c]所对应的Af2_Out中的矩阵块中，所有的位置的梯度设置为dm8[a,b,c]除以矩阵块中元素的个数。如果对于有重叠的池化，则具有多个梯度值的可以计算梯度的和作为该位置的最终的梯度。</p>
-<p>此时得到的梯度矩阵d7的维度应该是和Af2_Out的维度是一样的。</p>
-</li>
-</ol>
-<ul>
-<li><p>计算成本函数E对于<strong>激活层AF2</strong>中的梯度。因为激活层也没有训练的参数，因此只需要传递矩阵即可。根据上面得到的梯度矩阵d7，假设这一层得到的梯度矩阵为d6，则有：</p>
-<p><a href="https://www.codecogs.com/eqnedit.php?latex=d6[x,y,z]=d7[x,y,z]*&space;{Af2}'(C2\_Out[x,y,z])\\&space;\\&space;.\,&space;\,&space;\,&space;\,&space;\,&space;\,&space;\,&space;{Af2}'(s)=\frac{\partial&space;Af2(s)}{\partial&space;s}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?d6[x,y,z]=d7[x,y,z]*&space;{Af2}'(C2\_Out[x,y,z])\\&space;\\&space;.\,&space;\,&space;\,&space;\,&space;\,&space;\,&space;\,&space;{Af2}'(s)=\frac{\partial&space;Af2(s)}{\partial&space;s}" title="d6[x,y,z]=d7[x,y,z]* {Af2}'(C2\_Out[x,y,z])\\ \\ .\, \, \, \, \, \, \, {Af2}'(s)=\frac{\partial Af2(s)}{\partial s}" /></a></p>
-</li>
-</ul>
-<p>也就是说，传递过来的梯度值d7[x,y,z]与激活函数的导数在点C2_Out[x,y,z]处的值的乘积就是位置[x,y,z]的梯度d6[x,y,z]。</p>
-<ul>
-<li>下面计算成本函数E对于<strong>卷积层CONV2</strong>的梯度矩阵，因为卷积层中需要训练的参数就是所有卷积核矩阵中的数。现在重申下符号说明，卷积层CONV2的输入为Pool1_Out，维度为(96,10,13)，卷积核的个数为K=256，单个卷积核的维度为(96,7,7)，输出为C2_Out，维度为(256,5,7)。</li>
-</ul>
-<p><a href="https://www.codecogs.com/eqnedit.php?latex=C2\_Out=Pool1\_Out&space;*&space;C2&space;&plus;&space;C2\_B,&space;\:&space;\:&space;\:&space;\:&space;\:&space;a*b&space;\:&space;\:&space;\:is&space;\:&space;\:&space;\:&space;convolution&space;\:&space;\:&space;\:&space;between&space;\:&space;\:&space;\:&space;a&space;\:&space;\:&space;\:&space;and&space;\:&space;\:&space;\:&space;b\\&space;\\&space;.\:&space;\:&space;\:&space;\:&space;\:&space;d5\_C2&space;=&space;\frac{\partial&space;E}{\partial&space;C2}=&space;\frac{\partial&space;E}{\partial&space;C2\_Out}&space;\times&space;\frac{\partial&space;C2\_Out}{\partial&space;C2}=d6&space;\times&space;\frac{\partial&space;C2\_Out}{\partial&space;C2}\\&space;\\&space;.\:&space;\:&space;\:&space;\:&space;\:&space;d5\_C2\_B&space;=&space;\frac{\partial&space;E}{\partial&space;C2\_B}=&space;\frac{\partial&space;E}{\partial&space;C2\_Out}&space;\times&space;\frac{\partial&space;C2\_Out}{\partial&space;C2\_B}=d6&space;\times&space;\frac{\partial&space;C2\_Out}{\partial&space;C2\_B}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?C2\_Out=Pool1\_Out&space;*&space;C2&space;&plus;&space;C2\_B,&space;\:&space;\:&space;\:&space;\:&space;\:&space;a*b&space;\:&space;\:&space;\:is&space;\:&space;\:&space;\:&space;convolution&space;\:&space;\:&space;\:&space;between&space;\:&space;\:&space;\:&space;a&space;\:&space;\:&space;\:&space;and&space;\:&space;\:&space;\:&space;b\\&space;\\&space;.\:&space;\:&space;\:&space;\:&space;\:&space;d5\_C2&space;=&space;\frac{\partial&space;E}{\partial&space;C2}=&space;\frac{\partial&space;E}{\partial&space;C2\_Out}&space;\times&space;\frac{\partial&space;C2\_Out}{\partial&space;C2}=d6&space;\times&space;\frac{\partial&space;C2\_Out}{\partial&space;C2}\\&space;\\&space;.\:&space;\:&space;\:&space;\:&space;\:&space;d5\_C2\_B&space;=&space;\frac{\partial&space;E}{\partial&space;C2\_B}=&space;\frac{\partial&space;E}{\partial&space;C2\_Out}&space;\times&space;\frac{\partial&space;C2\_Out}{\partial&space;C2\_B}=d6&space;\times&space;\frac{\partial&space;C2\_Out}{\partial&space;C2\_B}" title="C2\_Out=Pool1\_Out * C2 + C2\_B, \: \: \: \: \: a*b \: \: \:is \: \: \: convolution \: \: \: between \: \: \: a \: \: \: and \: \: \: b\\ \\ .\: \: \: \: \: d5\_C2 = \frac{\partial E}{\partial C2}= \frac{\partial E}{\partial C2\_Out} \times \frac{\partial C2\_Out}{\partial C2}=d6 \times \frac{\partial C2\_Out}{\partial C2}\\ \\ .\: \: \: \: \: d5\_C2\_B = \frac{\partial E}{\partial C2\_B}= \frac{\partial E}{\partial C2\_Out} \times \frac{\partial C2\_Out}{\partial C2\_B}=d6 \times \frac{\partial C2\_Out}{\partial C2\_B}" /></a></p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>        其中d6为上一层得到的梯度矩阵，其维度为(256,5,7)；这一层的所有卷积核的梯度矩阵为d5_C2，其维度应该为(256,96,7,7)，其中(7,7)表示卷积核矩阵的高度和宽度，96表示矩阵的深度或者说是通道数，256为卷积核的个数；这一层的所有卷积核的偏置的梯度矩阵为d5_C2_B。为了便于说明，下面给出简化的示例：
-
-        ![卷积梯度](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Cnn/cnn_d.png)
-
-  &lt;a href=&quot;https://www.codecogs.com/eqnedit.php?latex=\frac{\partial&amp;space;E}{\partial&amp;space;W0\_0}&amp;space;=&amp;space;\frac{\partial&amp;space;E}{\partial&amp;space;C2\_Out}&amp;space;*&amp;space;\frac{\partial&amp;space;C2\_Out}{\partial&amp;space;W0\_0}\\&amp;space;\\&amp;space;=\frac{\partial&amp;space;E}{\partial&amp;space;U0}*\frac{\partial&amp;space;U0}{\partial&amp;space;W0\_0}&amp;space;&amp;plus;&amp;space;\frac{\partial&amp;space;E}{\partial&amp;space;U1}*\frac{\partial&amp;space;U1}{\partial&amp;space;W0\_0}&amp;plus;\cdots&amp;space;&amp;plus;\frac{\partial&amp;space;E}{\partial&amp;space;U5}*\frac{\partial&amp;space;U5}{\partial&amp;space;W0\_0}\\&amp;space;\\&amp;space;={\color{Purple}&amp;space;e0}*{\color{Red}&amp;space;p0\_0}&amp;plus;{\color{Purple}&amp;space;e1}*{\color{Red}&amp;space;p0\_1}&amp;space;&amp;plus;{\color{Purple}&amp;space;e2}*{\color{Red}&amp;space;p0\_3}&amp;plus;{\color{Purple}&amp;space;e3}*{\color{Red}&amp;space;p0\_4}&amp;space;&amp;plus;{\color{Purple}&amp;space;e4}*{\color{Red}&amp;space;p0\_6}&amp;plus;{\color{Purple}&amp;space;e5}*{\color{Red}&amp;space;p0\_7}\\&amp;space;\\&amp;space;\frac{\partial&amp;space;E}{\partial&amp;space;C2\_B[0]}&amp;space;\\&amp;space;=&amp;space;\frac{\partial&amp;space;E}{\partial&amp;space;C2\_Out}&amp;space;*&amp;space;\frac{\partial&amp;space;C2\_Out}{\partial&amp;space;\partial&amp;space;C2\_B[0]}\\&amp;space;\\&amp;space;=&amp;space;\frac{\partial&amp;space;E}{\partial&amp;space;U0}*\frac{\partial&amp;space;U0}{\partial&amp;space;C2\_B[0]}&amp;space;&amp;plus;&amp;space;\frac{\partial&amp;space;E}{\partial&amp;space;U1}*\frac{\partial&amp;space;U1}{\partial&amp;space;C2\_B[0]}&amp;plus;\cdots&amp;space;&amp;plus;\frac{\partial&amp;space;E}{\partial&amp;space;U5}*\frac{\partial&amp;space;U5}{\partial&amp;space;C2\_B[0]}\\&amp;space;\\&amp;space;={\color{Purple}&amp;space;e0&amp;plus;e1&amp;plus;e2&amp;plus;e3&amp;plus;e4&amp;plus;e5}&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;https://latex.codecogs.com/gif.latex?\frac{\partial&amp;space;E}{\partial&amp;space;W0\_0}&amp;space;=&amp;space;\frac{\partial&amp;space;E}{\partial&amp;space;C2\_Out}&amp;space;*&amp;space;\frac{\partial&amp;space;C2\_Out}{\partial&amp;space;W0\_0}\\&amp;space;\\&amp;space;=\frac{\partial&amp;space;E}{\partial&amp;space;U0}*\frac{\partial&amp;space;U0}{\partial&amp;space;W0\_0}&amp;space;&amp;plus;&amp;space;\frac{\partial&amp;space;E}{\partial&amp;space;U1}*\frac{\partial&amp;space;U1}{\partial&amp;space;W0\_0}&amp;plus;\cdots&amp;space;&amp;plus;\frac{\partial&amp;space;E}{\partial&amp;space;U5}*\frac{\partial&amp;space;U5}{\partial&amp;space;W0\_0}\\&amp;space;\\&amp;space;={\color{Purple}&amp;space;e0}*{\color{Red}&amp;space;p0\_0}&amp;plus;{\color{Purple}&amp;space;e1}*{\color{Red}&amp;space;p0\_1}&amp;space;&amp;plus;{\color{Purple}&amp;space;e2}*{\color{Red}&amp;space;p0\_3}&amp;plus;{\color{Purple}&amp;space;e3}*{\color{Red}&amp;space;p0\_4}&amp;space;&amp;plus;{\color{Purple}&amp;space;e4}*{\color{Red}&amp;space;p0\_6}&amp;plus;{\color{Purple}&amp;space;e5}*{\color{Red}&amp;space;p0\_7}\\&amp;space;\\&amp;space;\frac{\partial&amp;space;E}{\partial&amp;space;C2\_B[0]}&amp;space;\\&amp;space;=&amp;space;\frac{\partial&amp;space;E}{\partial&amp;space;C2\_Out}&amp;space;*&amp;space;\frac{\partial&amp;space;C2\_Out}{\partial&amp;space;\partial&amp;space;C2\_B[0]}\\&amp;space;\\&amp;space;=&amp;space;\frac{\partial&amp;space;E}{\partial&amp;space;U0}*\frac{\partial&amp;space;U0}{\partial&amp;space;C2\_B[0]}&amp;space;&amp;plus;&amp;space;\frac{\partial&amp;space;E}{\partial&amp;space;U1}*\frac{\partial&amp;space;U1}{\partial&amp;space;C2\_B[0]}&amp;plus;\cdots&amp;space;&amp;plus;\frac{\partial&amp;space;E}{\partial&amp;space;U5}*\frac{\partial&amp;space;U5}{\partial&amp;space;C2\_B[0]}\\&amp;space;\\&amp;space;={\color{Purple}&amp;space;e0&amp;plus;e1&amp;plus;e2&amp;plus;e3&amp;plus;e4&amp;plus;e5}&quot; title=&quot;\frac{\partial E}{\partial W0\_0} = \frac{\partial E}{\partial C2\_Out} * \frac{\partial C2\_Out}{\partial W0\_0}\\ \\ =\frac{\partial E}{\partial U0}*\frac{\partial U0}{\partial W0\_0} + \frac{\partial E}{\partial U1}*\frac{\partial U1}{\partial W0\_0}+\cdots +\frac{\partial E}{\partial U5}*\frac{\partial U5}{\partial W0\_0}\\ \\ ={\color{Purple} e0}*{\color{Red} p0\_0}+{\color{Purple} e1}*{\color{Red} p0\_1} +{\color{Purple} e2}*{\color{Red} p0\_3}+{\color{Purple} e3}*{\color{Red} p0\_4} +{\color{Purple} e4}*{\color{Red} p0\_6}+{\color{Purple} e5}*{\color{Red} p0\_7}\\ \\ \frac{\partial E}{\partial C2\_B[0]} \\ = \frac{\partial E}{\partial C2\_Out} * \frac{\partial C2\_Out}{\partial \partial C2\_B[0]}\\ \\ = \frac{\partial E}{\partial U0}*\frac{\partial U0}{\partial C2\_B[0]} + \frac{\partial E}{\partial U1}*\frac{\partial U1}{\partial C2\_B[0]}+\cdots +\frac{\partial E}{\partial U5}*\frac{\partial U5}{\partial C2\_B[0]}\\ \\ ={\color{Purple} e0+e1+e2+e3+e4+e5}&quot; /&gt;&lt;/a&gt;
-
-
-    上面的公式只是说明了卷积神经网络中梯度是如何计算的。但是并不能利用其编程实现，对于更为一般的梯度计算，[参见](https://grzegorzgwardys.wordpress.com/2016/04/22/8/#unique-identifier2)   
-</code></pre>
+        
+          <p class="article-more-link">
+            <a href="/2020/07/08/cnn/#more">阅读全文</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -896,31 +682,19 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
-<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
-<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
-<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
-<li><p><strong>正向传播</strong></p>
-<ul>
-<li><p><strong>输入层INPUT</strong></p>
-<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
-</li>
-<li><p><strong>卷积层CONV</strong>      </p>
-<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
-<li><strong>正向传播</strong></li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
+        
+          <div class="entry-thumbnail">
+            <a href="/2020/07/08/cnn_realize/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEFOL6.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          卷积神经网络实现因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从输入层INPUT开始、到卷积层CONV、激活层AF、池化层POOL、然后到输出层OUTPUT。
+对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(高度，宽度)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(1，高度...
 
+        
+          <p class="article-more-link">
+            <a href="/2020/07/08/cnn_realize/#more">阅读全文</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -979,41 +753,21 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="图像的结构"><a href="#图像的结构" class="headerlink" title="图像的结构"></a>图像的结构</h3><p>图像是由一个个像素点构成，每个像素点有三个通道，分别对应R，G，B。彩色RGB图像其实是一个三维矩阵，矩阵中的每个数字(0到255)代表的是一个像素一个通道的灰度。下面举例说明：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af.png" alt="彩色图片"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_doc.png" alt="图片描述"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_pixel.png" alt="像素图片"></p>
-<h4 id="一、读取这个图片的三维矩阵"><a href="#一、读取这个图片的三维矩阵" class="headerlink" title="一、读取这个图片的三维矩阵"></a>一、读取这个图片的三维矩阵</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span></span><br><span class="line">matrix = io.imread(fig_path)  </span><br><span class="line">print(matrix, matrix.shape)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[[[<span class="number">137</span> <span class="number">198</span> <span class="number">182</span>]</span><br><span class="line">  [<span class="number">126</span> <span class="number">189</span> <span class="number">172</span>]</span><br><span class="line">  [<span class="number">112</span> <span class="number">178</span> <span class="number">164</span>]</span><br><span class="line">  ...</span><br><span class="line">  [<span class="number">106</span> <span class="number">220</span> <span class="number">210</span>]</span><br><span class="line">  [ <span class="number">94</span> <span class="number">208</span> <span class="number">198</span>]</span><br><span class="line">  [ <span class="number">96</span> <span class="number">210</span> <span class="number">202</span>]]</span><br><span class="line">  </span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"> [[<span class="number">210</span> <span class="number">227</span> <span class="number">211</span>]</span><br><span class="line">  [<span class="number">199</span> <span class="number">216</span> <span class="number">200</span>]</span><br><span class="line">  [<span class="number">213</span> <span class="number">227</span> <span class="number">214</span>]</span><br><span class="line">  ...</span><br><span class="line">  [<span class="number">142</span> <span class="number">204</span> <span class="number">193</span>]</span><br><span class="line">  [<span class="number">147</span> <span class="number">207</span> <span class="number">197</span>]</span><br><span class="line">  [<span class="number">151</span> <span class="number">211</span> <span class="number">199</span>]]] (<span class="number">189</span>, <span class="number">149</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>可以得出图片的数字矩阵维度为(189, 149, 3)。其中第一行第一列的像素(上图右)对应的RGB是<code>[137 198 182]</code>，第一行第二列的像素对应的RGB是<code>[126 189 172]</code>；最后一行第一列像素对应的就是<code>[210 227 211]</code>。</p>
-<h4 id="二、获取3个通道的矩阵以及维度"><a href="#二、获取3个通道的矩阵以及维度" class="headerlink" title="二、获取3个通道的矩阵以及维度"></a>二、获取3个通道的矩阵以及维度</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span>   <span class="comment"># 图片路径</span></span><br><span class="line">matrix = io.imread(fig_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">R = matrix[:, :, <span class="number">0</span>]  <span class="comment"># 获取R通道</span></span><br><span class="line">G = matrix[:, :, <span class="number">1</span>]  <span class="comment"># 获取G通道</span></span><br><span class="line">B = matrix[:, :, <span class="number">2</span>]  <span class="comment"># 获取B通道</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'R通道矩阵：\n'</span>, R, <span class="string">'维度：'</span>, R.shape)</span><br><span class="line">print(<span class="string">'G通道矩阵：\n'</span>, G, <span class="string">'维度：'</span>, G.shape)</span><br><span class="line">print(<span class="string">'B通道矩阵：\n'</span>, B, <span class="string">'维度：'</span>, B.shape)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">R通道矩阵：</span><br><span class="line"> [[<span class="number">137</span> <span class="number">126</span> <span class="number">112</span> ... <span class="number">106</span>  <span class="number">94</span>  <span class="number">96</span>]</span><br><span class="line"> [<span class="number">153</span> <span class="number">171</span> <span class="number">154</span> ... <span class="number">114</span> <span class="number">100</span> <span class="number">116</span>]</span><br><span class="line"> [<span class="number">144</span> <span class="number">137</span> <span class="number">137</span> ... <span class="number">112</span> <span class="number">106</span> <span class="number">125</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">218</span> <span class="number">216</span> <span class="number">206</span> ... <span class="number">136</span> <span class="number">140</span> <span class="number">140</span>]</span><br><span class="line"> [<span class="number">221</span> <span class="number">210</span> <span class="number">211</span> ... <span class="number">139</span> <span class="number">143</span> <span class="number">145</span>]</span><br><span class="line"> [<span class="number">210</span> <span class="number">199</span> <span class="number">213</span> ... <span class="number">142</span> <span class="number">147</span> <span class="number">151</span>]] 维度： (<span class="number">189</span>, <span class="number">149</span>)</span><br><span class="line">G通道矩阵：</span><br><span class="line"> [[<span class="number">198</span> <span class="number">189</span> <span class="number">178</span> ... <span class="number">220</span> <span class="number">208</span> <span class="number">210</span>]</span><br><span class="line"> [<span class="number">214</span> <span class="number">233</span> <span class="number">220</span> ... <span class="number">226</span> <span class="number">212</span> <span class="number">227</span>]</span><br><span class="line"> [<span class="number">206</span> <span class="number">199</span> <span class="number">201</span> ... <span class="number">220</span> <span class="number">214</span> <span class="number">235</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">232</span> <span class="number">230</span> <span class="number">222</span> ... <span class="number">202</span> <span class="number">204</span> <span class="number">203</span>]</span><br><span class="line"> [<span class="number">235</span> <span class="number">224</span> <span class="number">227</span> ... <span class="number">203</span> <span class="number">205</span> <span class="number">207</span>]</span><br><span class="line"> [<span class="number">227</span> <span class="number">216</span> <span class="number">227</span> ... <span class="number">204</span> <span class="number">207</span> <span class="number">211</span>]] 维度： (<span class="number">189</span>, <span class="number">149</span>)</span><br><span class="line">B通道矩阵：</span><br><span class="line"> [[<span class="number">182</span> <span class="number">172</span> <span class="number">164</span> ... <span class="number">210</span> <span class="number">198</span> <span class="number">202</span>]</span><br><span class="line"> [<span class="number">198</span> <span class="number">218</span> <span class="number">206</span> ... <span class="number">214</span> <span class="number">200</span> <span class="number">218</span>]</span><br><span class="line"> [<span class="number">191</span> <span class="number">184</span> <span class="number">187</span> ... <span class="number">207</span> <span class="number">201</span> <span class="number">224</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">219</span> <span class="number">217</span> <span class="number">211</span> ... <span class="number">188</span> <span class="number">190</span> <span class="number">192</span>]</span><br><span class="line"> [<span class="number">222</span> <span class="number">211</span> <span class="number">216</span> ... <span class="number">189</span> <span class="number">192</span> <span class="number">194</span>]</span><br><span class="line"> [<span class="number">211</span> <span class="number">200</span> <span class="number">214</span> ... <span class="number">193</span> <span class="number">197</span> <span class="number">199</span>]] 维度： (<span class="number">189</span>, <span class="number">149</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="三、根据每个通道的数字矩阵输出图片"><a href="#三、根据每个通道的数字矩阵输出图片" class="headerlink" title="三、根据每个通道的数字矩阵输出图片"></a>三、根据每个通道的数字矩阵输出图片</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span>   <span class="comment"># 图片路径</span></span><br><span class="line">matrix = io.imread(fig_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">R = matrix[:, :, <span class="number">0</span>]  <span class="comment"># 获取R通道</span></span><br><span class="line">G = matrix[:, :, <span class="number">1</span>]  <span class="comment"># 获取G通道</span></span><br><span class="line">B = matrix[:, :, <span class="number">2</span>]  <span class="comment"># 获取B通道</span></span><br><span class="line"></span><br><span class="line">R_image = Image.fromarray(R)</span><br><span class="line">R_image.show()</span><br><span class="line">R_image.save(<span class="string">r"C:\Users\GWT9\Desktop\af_R.png"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">G_image = Image.fromarray(G)</span><br><span class="line">G_image.show()</span><br><span class="line">G_image.save(<span class="string">r"C:\Users\GWT9\Desktop\af_G.png"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">B_image = Image.fromarray(B)</span><br><span class="line">B_image.show()</span><br><span class="line">B_image.save(<span class="string">r"C:\Users\GWT9\Desktop\af_B.png"</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>结果</p>
-<ul>
-<li><strong>通道R</strong></li>
-</ul>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_R.png" alt="通道R">!</p>
-<ul>
-<li><strong>通道G</strong></li>
-</ul>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_G.png" alt="通道G">!</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>通道B</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_B.png" alt="通道B">!</p>
-</li>
-</ul>
-<h4 id="四、根据数字矩阵输出图片"><a href="#四、根据数字矩阵输出图片" class="headerlink" title="四、根据数字矩阵输出图片"></a>四、根据数字矩阵输出图片</h4><p>  因为像素值均是[0-255]内的数字，因此要保证数字矩阵的数字在此范围内，可以设置数字的格式为uint8。</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数字矩阵</span></span><br><span class="line">R = np.arange(<span class="number">-800</span>, <span class="number">100</span>, <span class="number">0.5</span>, dtype=np.uint8).reshape(<span class="number">30</span>, <span class="number">20</span>, <span class="number">3</span>)</span><br><span class="line">R_image = Image.fromarray(R)</span><br><span class="line">R_image.show()</span><br></pre></td></tr></table></figure>
-<p>如果不转换数字格式，也可以为输出的图设定mode，例如mode设置为’RGB’，但是此时数字矩阵和读取生成的图片的矩阵是不同的。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数字矩阵</span></span><br><span class="line">R = np.arange(<span class="number">-800</span>, <span class="number">100</span>, <span class="number">0.5</span>).reshape(<span class="number">30</span>, <span class="number">20</span>, <span class="number">3</span>)</span><br><span class="line">R_image = Image.fromarray(R, mode=<span class="string">'RGB'</span>)  <span class="comment"># 设置mode</span></span><br><span class="line">R_image.show()</span><br></pre></td></tr></table></figure><br>或将数字矩阵中的数字小于0的按0计算，大于255的按255计算，这种转换和直接将数字进行uint8转换得到的是不同的，最后在转换为uint8的格式进行图片的输出。对于在(0,255)之间的小数不用进行处理。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数字矩阵</span></span><br><span class="line">R = np.arange(<span class="number">-800</span>, <span class="number">100</span>, <span class="number">0.5</span>).reshape(<span class="number">30</span>, <span class="number">20</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># 进行转换</span></span><br><span class="line">R[R &lt; <span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">R[R &gt; <span class="number">255</span>] = <span class="number">255</span></span><br><span class="line">R_image = Image.fromarray(np.uint8(R)) <span class="comment"># 转为uint8的格式</span></span><br><span class="line">R_image.show()</span><br></pre></td></tr></table></figure></p>
+        
+          <div class="entry-thumbnail">
+            <a href="/2020/07/08/fig/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEk9Wd.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          图像的结构图像是由一个个像素点构成，每个像素点有三个通道，分别对应R，G，B。彩色RGB图像其实是一个三维矩阵，矩阵中的每个数字(0到255)代表的是一个像素一个通道的灰度。下面举例说明：
 
+
+一、读取这个图片的三维矩阵12345678# -*- coding：utf-8 -*-# &amp;Author  AnFanyfrom skimage import iofig_path = r"C...
+
+        
+          <p class="article-more-link">
+            <a href="/2020/07/08/fig/#more">阅读全文</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -1072,302 +826,27 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Decision-Tree-Theory"><a href="#Decision-Tree-Theory" class="headerlink" title="Decision Tree Theory"></a>Decision Tree Theory</h1><p>决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/decisiontree.png" alt="image"></p>
-<p>C4.5是ID3的改进版，而CART是最常用的，因此本文主要介绍CART。</p>
-<hr>
-<h3 id="CART"><a href="#CART" class="headerlink" title="CART"></a>CART</h3><p>首先看下面表格中的示例数据(随机生成，仅供参考)。其中类似年龄，身高，月收入为连续变量，学历，工作为离散变量。</p>
-<ul>
-<li><p>如果把<strong>动心</strong>视为目标变量，此问题为<strong>分类问题</strong>。</p>
-</li>
-<li><p>如果把<strong>动心度</strong>视为目标变量，此问题为<strong>回归问题</strong>。</p>
-</li>
-</ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">编号</th>
-<th style="text-align:center">年龄</th>
-<th style="text-align:center">学历</th>
-<th style="text-align:center">工作</th>
-<th style="text-align:center">月收入(k)</th>
-<th style="text-align:center">身高(cm)</th>
-<th style="text-align:center">动心</th>
-<th style="text-align:center">动心度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">0001</td>
-<td style="text-align:center">24</td>
-<td style="text-align:center">专科</td>
-<td style="text-align:center">国企</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">175</td>
-<td style="text-align:center"><strong>N</strong></td>
-<td style="text-align:center">0.56</td>
-</tr>
-<tr>
-<td style="text-align:center">0002</td>
-<td style="text-align:center">35</td>
-<td style="text-align:center">博士</td>
-<td style="text-align:center">国企</td>
-<td style="text-align:center">13</td>
-<td style="text-align:center">180</td>
-<td style="text-align:center"><strong>N</strong></td>
-<td style="text-align:center">0.49</td>
-</tr>
-<tr>
-<td style="text-align:center">0003</td>
-<td style="text-align:center">27</td>
-<td style="text-align:center">硕士</td>
-<td style="text-align:center">私企</td>
-<td style="text-align:center">13</td>
-<td style="text-align:center">173</td>
-<td style="text-align:center"><strong>Y</strong></td>
-<td style="text-align:center">0.76</td>
-</tr>
-<tr>
-<td style="text-align:center">0004</td>
-<td style="text-align:center">23</td>
-<td style="text-align:center">硕士</td>
-<td style="text-align:center">私企</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">180</td>
-<td style="text-align:center"><strong>N</strong></td>
-<td style="text-align:center">0.67</td>
-</tr>
-<tr>
-<td style="text-align:center">0005</td>
-<td style="text-align:center">30</td>
-<td style="text-align:center">硕士</td>
-<td style="text-align:center">国企</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">166</td>
-<td style="text-align:center"><strong>N</strong></td>
-<td style="text-align:center">0.58</td>
-</tr>
-<tr>
-<td style="text-align:center">0006</td>
-<td style="text-align:center">22</td>
-<td style="text-align:center">硕士</td>
-<td style="text-align:center">国企</td>
-<td style="text-align:center">13</td>
-<td style="text-align:center">166</td>
-<td style="text-align:center"><strong>Y</strong></td>
-<td style="text-align:center">0.60</td>
-</tr>
-<tr>
-<td style="text-align:center">0007</td>
-<td style="text-align:center">28</td>
-<td style="text-align:center">博士</td>
-<td style="text-align:center">国企</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">175</td>
-<td style="text-align:center"><strong>Y</strong></td>
-<td style="text-align:center">0.73</td>
-</tr>
-<tr>
-<td style="text-align:center">0008</td>
-<td style="text-align:center">38</td>
-<td style="text-align:center">博士</td>
-<td style="text-align:center">私企</td>
-<td style="text-align:center">19</td>
-<td style="text-align:center">180</td>
-<td style="text-align:center"><strong>N</strong></td>
-<td style="text-align:center">0.40</td>
-</tr>
-<tr>
-<td style="text-align:center">0009</td>
-<td style="text-align:center">23</td>
-<td style="text-align:center">专科</td>
-<td style="text-align:center">私企</td>
-<td style="text-align:center">13</td>
-<td style="text-align:center">175</td>
-<td style="text-align:center"><strong>N</strong></td>
-<td style="text-align:center">0.52</td>
-</tr>
-<tr>
-<td style="text-align:center">0010</td>
-<td style="text-align:center">30</td>
-<td style="text-align:center">博士</td>
-<td style="text-align:center">国企</td>
-<td style="text-align:center">13</td>
-<td style="text-align:center">173</td>
-<td style="text-align:center"><strong>Y</strong></td>
-<td style="text-align:center">0.88</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>CART的目的是生成一个类似下面这样的树：分类树或者回归树。</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/Gtree.png" alt="image"></p>
-<p>叶子节点若为Y或者N，是分类树；若是数字，则为回归树。下面分别讲述回归树和分类树的生成方式：</p>
-<ul>
-<li><p><strong>分类树</strong></p>
-<p>  ID3算法使用<strong>信息增益</strong>来选择特征，信息增益大的优先选择，这种方式会使得特征值较多的特征容易被选择【<em>示例数据中的学历可能会比工作优先选择，因为学历有3个值，而工作有2个值</em>】。</p>
-<p>  在C4.5算法中，采用了<strong>信息增益比</strong>来选择特征，改进了ID3容易选择特征值多的特征的问题。C4.5也是优先选择较大的。</p>
-<p>  上述2者都是基于信息论的<strong>熵</strong>模型的，这里面会涉及对数运算，因此计算成本较大。</p>
-<p>  CART分类树算法使用<strong>基尼系数</strong>，既减少了计算成本，又保留了熵这种运算形式的优点。基尼系数代表了模型的不纯度，基尼系数越小，则不纯度越低，特征越好。</p>
-<ul>
-<li><p><strong>基尼系数</strong></p>
-<p>对于一个样本集合<strong>S</strong>，假设其包含<strong>m</strong>个不同的值，这<strong>m</strong>个值可看作<strong>m</strong>个不同的类。其中由<strong>类i</strong>组成的集合为<strong>Si</strong>，那么对于属于<strong>类i</strong>的样本点<strong>k</strong>而言，其概率为<strong>P(k)=集合Si的样本个数除去集合S的样本个数</strong>。则基于概率分布的基尼指数定义如下：</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\bg_white&space;\fn_phv&space;{\color{Blue}&space;\mathbf{G(S)}&space;=&space;\mathbf{1}&space;-&space;\sum_{\mathrm{i}=1}^{\mathrm{m}}(\frac{|\mathbf{S_{i}}|}{|\mathbf{S}|})^{2}}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bg_white&space;\fn_phv&space;{\color{Blue}&space;\mathbf{G(S)}&space;=&space;\mathbf{1}&space;-&space;\sum_{\mathrm{i}=1}^{\mathrm{m}}(\frac{|\mathbf{S_{i}}|}{|\mathbf{S}|})^{2}}" title="{\color{Blue} \mathbf{G(S)} = \mathbf{1} - \sum_{\mathrm{i}=1}^{\mathrm{m}}(\frac{|\mathbf{S_{i}}|}{|\mathbf{S}|})^{2}}" /></a></p>
-<p>其中符号||为计算集合内元素个数的符号，对于m等于2的情况，上面的式子等价与</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\bg_white&space;\fn_phv&space;{\color{Blue}&space;\mathbf{G(S)}&space;=&space;\mathbf{2}\mathbf{P(k)}*(\mathbf{1}-\mathbf{P(k)})}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bg_white&space;\fn_phv&space;{\color{Blue}&space;\mathbf{G(S)}&space;=&space;\mathbf{2}\mathbf{P(k)}*(\mathbf{1}-\mathbf{P(k)})}" title="{\color{Blue} \mathbf{G(S)} = \mathbf{2}\mathbf{P(k)}*(\mathbf{1}-\mathbf{P(k)})}" /></a></p>
-<p>如果样本集合<strong>S</strong>，被某个规则R划分为n个数据子集，分别为S1， S2，……， Sn，则此时的计算基尼系数公示如下：</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\bg_white&space;\fn_phv&space;{\color{Blue}&space;\mathbf{G(S,&space;R&space;)}&space;=&space;\sum_{\mathrm{\mathbf{j=1}}}^{\mathrm{\mathbf{n}}}\frac{\mathbf{|Sj|}}{\mathbf{|S|}}\mathbf{G(Sj)}}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bg_white&space;\fn_phv&space;{\color{Blue}&space;\mathbf{G(S,&space;R&space;)}&space;=&space;\sum_{\mathrm{\mathbf{j=1}}}^{\mathrm{\mathbf{n}}}\frac{\mathbf{|Sj|}}{\mathbf{|S|}}\mathbf{G(Sj)}}" title="{\color{Blue} \mathbf{G(S, R )} = \sum_{\mathrm{\mathbf{j=1}}}^{\mathrm{\mathbf{n}}}\frac{\mathbf{|Sj|}}{\mathbf{|S|}}\mathbf{G(Sj)}}" /></a></p>
-<p>在CART算法中，上述n的值一定为2。因为每一次分裂，都是把数据集合一分为二。</p>
-<p>针对离散、连续的变量，下面给出具体的计算基尼系数的步骤：</p>
-</li>
-<li><p><strong>离散变量：以工作为例</strong></p>
-<ol>
-<li><p>将数据集合D分为<strong>Dg1=D(学历=国企)</strong>以及<strong>Dg2=D(学历!=国企)</strong>，其中Dg1中动心构成的集合为<strong>Mg1</strong>；Dg2中动心构成的集合为<strong>Mg2</strong>;</p>
-<p>此时的基尼系数计算如下：</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\\&space;{\color{Blue}&space;\boldsymbol{Mg1=[N,&space;N,&space;N,Y,Y,Y]}}\\&space;\\&space;{\color{Blue}&space;\boldsymbol{Mg2=[N,&space;N,N,Y]}}\\&space;\\&space;{\color{Blue}&space;\mathbf{G(D,gongzuo=guoqi)=\frac{|Mg1|}{|D|}G(Mg1)&plus;\frac{|Mg2|}{|D|}G(Mg2)}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\boldsymbol{\frac{6}{10}[1-(\frac{3}{6})^{2}-(\frac{3}{6})^{2}]&plus;\frac{4}{10}[1-(\frac{3}{4})^{2}-(\frac{1}{4})^{2}]}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\boldsymbol{0.45}}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\\&space;{\color{Blue}&space;\boldsymbol{Mg1=[N,&space;N,&space;N,Y,Y,Y]}}\\&space;\\&space;{\color{Blue}&space;\boldsymbol{Mg2=[N,&space;N,N,Y]}}\\&space;\\&space;{\color{Blue}&space;\mathbf{G(D,gongzuo=guoqi)=\frac{|Mg1|}{|D|}G(Mg1)&plus;\frac{|Mg2|}{|D|}G(Mg2)}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\boldsymbol{\frac{6}{10}[1-(\frac{3}{6})^{2}-(\frac{3}{6})^{2}]&plus;\frac{4}{10}[1-(\frac{3}{4})^{2}-(\frac{1}{4})^{2}]}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\boldsymbol{0.45}}" title="\\ {\color{Blue} \boldsymbol{Mg1=[N, N, N,Y,Y,Y]}}\\ \\ {\color{Blue} \boldsymbol{Mg2=[N, N,N,Y]}}\\ \\ {\color{Blue} \mathbf{G(D,gongzuo=guoqi)=\frac{|Mg1|}{|D|}G(Mg1)+\frac{|Mg2|}{|D|}G(Mg2)}}\\ \\ \cdots \cdots \cdots \cdots \cdots \cdots \cdots \cdots ={\color{Blue} \boldsymbol{\frac{6}{10}[1-(\frac{3}{6})^{2}-(\frac{3}{6})^{2}]+\frac{4}{10}[1-(\frac{3}{4})^{2}-(\frac{1}{4})^{2}]}}\\ \\ \cdots \cdots \cdots \cdots \cdots \cdots \cdots \cdots ={\color{Blue} \boldsymbol{0.45}}" /></a></p>
-<p>因为工作只有2个变量，因此按照工作为私企和工作为国企的基尼系数是相同的。</p>
-</li>
-</ol>
-</li>
-<li><p><strong>连续变量：以月收入为例</strong></p>
-<ol>
-<li><p>首先将月收入的值去重后，按照从小到大的排列顺序为[5, 13, 19],相邻的数值取平均值得到序列[9, 16]。类似于离散变量的情况，以9为例：将数据集分为Dn9=D(月收入<9)以及Dm9=D(月收入>9)，相应的动心组成的集合分别为<strong>Mn9,Mm9</strong>。</p>
-<p>下面给出计算基尼系数的过程：</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\\&space;{\color{Blue}&space;\boldsymbol{Mn9=[N,&space;N,&space;N,Y]}}\\&space;\\&space;{\color{Blue}&space;\boldsymbol{Mm9=[N,&space;Y,Y,N,N,Y]}}\\&space;\\&space;{\color{Blue}&space;\mathbf{G(D,yueshouru<>9)=\frac{|Mn9|}{|D|}G(Mn9)&plus;\frac{|Mm9|}{|D|}G(Mm9)}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\mathbf{\frac{4}{10}[1-(\frac{3}{4})^{2}-(\frac{1}{4})^{2}]&space;&plus;&space;\frac{6}{10}[1-(\frac{3}{6})^{2}-(\frac{3}{6})^{2}]}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\boldsymbol{0.45}}\\&space;\\&space;{\color{Blue}&space;\mathbf{G(D,yueshouru<>16)}}={\color{Blue}&space;\mathbf{\frac{9}{10}[1-(\frac{5}{9})^{2}-(\frac{4}{9})^{2}]&space;&plus;&space;\frac{1}{10}[1-(\frac{1}{1})^{2}-(\frac{0}{1})^{2}]}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\mathbf{0.44}}\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\\&space;{\color{Blue}&space;\boldsymbol{Mn9=[N,&space;N,&space;N,Y]}}\\&space;\\&space;{\color{Blue}&space;\boldsymbol{Mm9=[N,&space;Y,Y,N,N,Y]}}\\&space;\\&space;{\color{Blue}&space;\mathbf{G(D,yueshouru<>9)=\frac{|Mn9|}{|D|}G(Mn9)&plus;\frac{|Mm9|}{|D|}G(Mm9)}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\mathbf{\frac{4}{10}[1-(\frac{3}{4})^{2}-(\frac{1}{4})^{2}]&space;&plus;&space;\frac{6}{10}[1-(\frac{3}{6})^{2}-(\frac{3}{6})^{2}]}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\boldsymbol{0.45}}\\&space;\\&space;{\color{Blue}&space;\mathbf{G(D,yueshouru<>16)}}={\color{Blue}&space;\mathbf{\frac{9}{10}[1-(\frac{5}{9})^{2}-(\frac{4}{9})^{2}]&space;&plus;&space;\frac{1}{10}[1-(\frac{1}{1})^{2}-(\frac{0}{1})^{2}]}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\mathbf{0.44}}\\" title="\\ {\color{Blue} \boldsymbol{Mn9=[N, N, N,Y]}}\\ \\ {\color{Blue} \boldsymbol{Mm9=[N, Y,Y,N,N,Y]}}\\ \\ {\color{Blue} \mathbf{G(D,yueshouru<>9)=\frac{|Mn9|}{|D|}G(Mn9)+\frac{|Mm9|}{|D|}G(Mm9)}}\\ \\ \cdots \cdots \cdots \cdots \cdots \cdots \cdots \cdots ={\color{Blue} \mathbf{\frac{4}{10}[1-(\frac{3}{4})^{2}-(\frac{1}{4})^{2}] + \frac{6}{10}[1-(\frac{3}{6})^{2}-(\frac{3}{6})^{2}]}}\\ \\ \cdots \cdots \cdots \cdots \cdots \cdots \cdots \cdots ={\color{Blue} \boldsymbol{0.45}}\\ \\ {\color{Blue} \mathbf{G(D,yueshouru<>16)}}={\color{Blue} \mathbf{\frac{9}{10}[1-(\frac{5}{9})^{2}-(\frac{4}{9})^{2}] + \frac{1}{10}[1-(\frac{1}{1})^{2}-(\frac{0}{1})^{2}]}}\\ \\ \cdots \cdots \cdots \cdots \cdots \cdots \cdots \cdots ={\color{Blue} \mathbf{0.44}}\\" /></a></p>
-</li>
-</ol>
-<p>年龄的处理方式相似，假如不考虑年龄，只考虑月收入和工作，则按着月收入为16这个界限分类，是最优的，因为0.44是最小值。</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code> + **树的输出**
+        
+          <div class="entry-thumbnail">
+            <a href="/2020/07/08/jucreadme/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEkZTS.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          Decision Tree Theory决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：
 
- 叶子节点数据集中，目标变量中占多数的类别，为这个叶子节点的输出类别。如果把上面给定的示例数据集看作一个叶子节点的话，如果某条数据正好落在这个数据集内，则这个数据的分类为N，因为这个数据集中有6条数据为N，多于为Y的数据条数。
-</code></pre><hr>
-<ul>
-<li><p><strong>回归树</strong></p>
-<p> 以上面给出的示例数据为例，下面说明2种形式的变量生成回归树的方式。将数据集合定义为<strong>D</strong>，</p>
-<ul>
-<li><p><strong>离散变量：以学历为例</strong></p>
-<ol>
-<li><p>将数据集合D分为<strong>Dsp1=D(学历=专科)</strong>以及<strong>Dsp2=D(学历!=专科)</strong>，其中Dsp1中动心度构成的集合为<strong>Msp1</strong>，均值为<strong>asp1</strong>；Dsp2中动心度构成的集合为<strong>Msp2</strong>，均值为<strong>asp2</strong>；计算2个数据子集合的误差序列方差的和值：</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\\&space;{\color{Blue}&space;\mathbf{MSE(sp)=\frac{|Msp1|}{|D|}\sqrt[2]{\sum_{di\in&space;Msp1}(di-asp1)^{2}}&plus;&space;\frac{|Msp2|}{|D|}\sqrt[2]{\sum_{di\in&space;Msp2}(di-asp2)^{2}}&space;}&space;}\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\\&space;{\color{Blue}&space;\mathbf{MSE(sp)=\frac{|Msp1|}{|D|}\sqrt[2]{\sum_{di\in&space;Msp1}(di-asp1)^{2}}&plus;&space;\frac{|Msp2|}{|D|}\sqrt[2]{\sum_{di\in&space;Msp2}(di-asp2)^{2}}&space;}&space;}\\" title="\\ {\color{Blue} \mathbf{MSE(sp)=\frac{|Msp1|}{|D|}\sqrt[2]{\sum_{di\in Msp1}(di-asp1)^{2}}+ \frac{|Msp2|}{|D|}\sqrt[2]{\sum_{di\in Msp2}(di-asp2)^{2}} } }\\" /></a></p>
-<p>类似于MSE(sp)，遍历所有学历中的值，得到下面的MSE(ms)，MSE(dr)。</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\\&space;{\color{Blue}&space;\mathbf{MSE(ms)=\frac{|Mms1|}{|D|}\sqrt[2]{\sum_{di\in&space;Mms1}(di-ams1)^{2}}&plus;&space;\frac{|Mms2|}{|D|}\sqrt[2]{\sum_{di\in&space;Mms2}(di-ams2)^{2}}&space;}&space;}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(dr)=\frac{|Mdr1|}{|D|}\sqrt[2]{\sum_{di\in&space;Mdr1}(di-adr1)^{2}}&plus;&space;\frac{|Mdr2|}{|D|}\sqrt[2]{\sum_{di\in&space;Mdr2}(di-adr2)^{2}}&space;}&space;}\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\\&space;{\color{Blue}&space;\mathbf{MSE(ms)=\frac{|Mms1|}{|D|}\sqrt[2]{\sum_{di\in&space;Mms1}(di-ams1)^{2}}&plus;&space;\frac{|Mms2|}{|D|}\sqrt[2]{\sum_{di\in&space;Mms2}(di-ams2)^{2}}&space;}&space;}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(dr)=\frac{|Mdr1|}{|D|}\sqrt[2]{\sum_{di\in&space;Mdr1}(di-adr1)^{2}}&plus;&space;\frac{|Mdr2|}{|D|}\sqrt[2]{\sum_{di\in&space;Mdr2}(di-adr2)^{2}}&space;}&space;}\\" title="\\ {\color{Blue} \mathbf{MSE(ms)=\frac{|Mms1|}{|D|}\sqrt[2]{\sum_{di\in Mms1}(di-ams1)^{2}}+ \frac{|Mms2|}{|D|}\sqrt[2]{\sum_{di\in Mms2}(di-ams2)^{2}} } }\\ \\ {\color{Blue} \mathbf{MSE(dr)=\frac{|Mdr1|}{|D|}\sqrt[2]{\sum_{di\in Mdr1}(di-adr1)^{2}}+ \frac{|Mdr2|}{|D|}\sqrt[2]{\sum_{di\in Mdr2}(di-adr2)^{2}} } }\\" /></a></p>
-<p>其中</p>
-<p>数据集<strong>Dms1=D(学历=硕士)</strong> 以及 <strong>Dms2=D(学历!=硕士)</strong>，Dms1中动心度构成的集合为<strong>Mms1</strong>，均值为<strong>ams1</strong>；Dms2中动心度构成的集合为<strong>Mms2</strong>，均值为<strong>ams2</strong>；</p>
-<p><strong>Ddr1=D(学历=博士)</strong> 以及 <strong>Ddr2=D(学历!=博士)</strong>，Ddr1中动心度构成的集合为<strong>Mdr1</strong>，均值为<strong>adr1</strong>；Ddr2中动心度构成的集合为<strong>Mdr2</strong>，均值为<strong>adr2</strong></p>
-<ul>
-<li><strong>计算示例</strong></li>
-</ul>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\\&space;{\color{Blue}&space;\mathbf{Msp1=[0.56,0.52],}}&space;{\color{Blue}&space;\mathbf{asp1=0.54}}\\&space;\\&space;{\color{Blue}&space;\mathbf{Msp2=[0.49,0.76,0.67,0.58,0.60,0.73,0.40,0.88],}}&space;{\color{Blue}&space;\mathbf{asp2=0.63875}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(sp)=\frac{2}{10}&space;\sqrt[2]{([(0.56-0.54)^{2}&plus;(0.52-0.54)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots&space;&plus;&space;\frac{8}{10}&space;\sqrt[2]{([(0.49-0.63875)^{2}&plus;\cdots&space;&plus;(0.88-0.63875)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.005657&plus;&space;0.081557}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.087214}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(ms)=0.21404}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(dr)=0.229774}}\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\\&space;{\color{Blue}&space;\mathbf{Msp1=[0.56,0.52],}}&space;{\color{Blue}&space;\mathbf{asp1=0.54}}\\&space;\\&space;{\color{Blue}&space;\mathbf{Msp2=[0.49,0.76,0.67,0.58,0.60,0.73,0.40,0.88],}}&space;{\color{Blue}&space;\mathbf{asp2=0.63875}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(sp)=\frac{2}{10}&space;\sqrt[2]{([(0.56-0.54)^{2}&plus;(0.52-0.54)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots&space;&plus;&space;\frac{8}{10}&space;\sqrt[2]{([(0.49-0.63875)^{2}&plus;\cdots&space;&plus;(0.88-0.63875)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.005657&plus;&space;0.081557}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.087214}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(ms)=0.21404}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(dr)=0.229774}}\\" title="\\ {\color{Blue} \mathbf{Msp1=[0.56,0.52],}} {\color{Blue} \mathbf{asp1=0.54}}\\ \\ {\color{Blue} \mathbf{Msp2=[0.49,0.76,0.67,0.58,0.60,0.73,0.40,0.88],}} {\color{Blue} \mathbf{asp2=0.63875}}\\ \\ {\color{Blue} \mathbf{MSE(sp)=\frac{2}{10} \sqrt[2]{([(0.56-0.54)^{2}+(0.52-0.54)^{2}])}}}\\ \\\ {\color{Blue} \mathbf{\cdots \cdots \cdots \cdots + \frac{8}{10} \sqrt[2]{([(0.49-0.63875)^{2}+\cdots +(0.88-0.63875)^{2}])}}}\\ \\\ {\color{Blue} \mathbf{\cdots \cdots \cdots \cdots=0.005657+ 0.081557}}\\ \\\ {\color{Blue} \mathbf{\cdots \cdots \cdots \cdots=0.087214}}\\ \\ {\color{Blue} \mathbf{MSE(ms)=0.21404}}\\ \\ {\color{Blue} \mathbf{MSE(dr)=0.229774}}\\" /></a></p>
-<p>得到以上结果后，MSE最小的为<strong>MSE(sp)</strong> ，其对应的特征值为<strong>专科</strong>，可以说特征学历最小的MSE为MSE(sp)，如果最终的最佳特征为学历，则以学历是否为专科作为分类标准。</p>
-</li>
-</ol>
-<ul>
-<li><p><strong>连续变量：以身高为例</strong></p>
-<ol>
-<li>将身高的所有值<strong>去重</strong>后按照<strong>从小到大</strong>的顺序排列，得到集合H=[166,173,175,180], 取<strong>相邻两个数的中间值</strong>得到集合MH=[169.5,174,177.5],接下来的计算就类似于离散变量的情况，挨个遍历，把数据分为小于、大于这2个数据子集。以169.5为例，把数据集分为<strong>Dn169.5=D(身高<169.5)和Dm169.5=D(身高>169.5)</strong>，数据子集相应的动心度组成的集合分别为<strong>Mn169.5,Mm169.5</strong>,集合相应的均值为<strong>an169.5, am169.5</strong>。</li>
-</ol>
-<p>174，177.5的符号命名规则类似，不一一赘述。</p>
-<ul>
-<li><p><strong>计算示例</strong></p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\\&space;{\color{Blue}&space;\mathbf{Mn169.5=[0.58,&space;0.60],}}&space;{\color{Blue}&space;\mathbf{an169.5=0.59}}\\&space;\\&space;{\color{Blue}&space;\mathbf{Mm169.5=[0.56,&space;0.49,&space;0.76,&space;0.67,&space;0.73,&space;0.40,&space;0.52,&space;0.88],}}&space;{\color{Blue}&space;\mathbf{am169.5=0.62625}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(169.5)=\frac{2}{10}&space;\sqrt[2]{([(0.58-0.59)^{2}&plus;(0.60-0.59)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots&space;&plus;&space;\frac{8}{10}&space;\sqrt[2]{([(0.56-0.62625)^{2}&plus;\cdots&space;&plus;(0.88-0.62625)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.002828&space;&plus;0.084944&space;}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.087772}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(174)=0.20636}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(177.5)=0.360627}}\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\\&space;{\color{Blue}&space;\mathbf{Mn169.5=[0.58,&space;0.60],}}&space;{\color{Blue}&space;\mathbf{an169.5=0.59}}\\&space;\\&space;{\color{Blue}&space;\mathbf{Mm169.5=[0.56,&space;0.49,&space;0.76,&space;0.67,&space;0.73,&space;0.40,&space;0.52,&space;0.88],}}&space;{\color{Blue}&space;\mathbf{am169.5=0.62625}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(169.5)=\frac{2}{10}&space;\sqrt[2]{([(0.58-0.59)^{2}&plus;(0.60-0.59)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots&space;&plus;&space;\frac{8}{10}&space;\sqrt[2]{([(0.56-0.62625)^{2}&plus;\cdots&space;&plus;(0.88-0.62625)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.002828&space;&plus;0.084944&space;}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.087772}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(174)=0.20636}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(177.5)=0.360627}}\\" title="\\ {\color{Blue} \mathbf{Mn169.5=[0.58, 0.60],}} {\color{Blue} \mathbf{an169.5=0.59}}\\ \\ {\color{Blue} \mathbf{Mm169.5=[0.56, 0.49, 0.76, 0.67, 0.73, 0.40, 0.52, 0.88],}} {\color{Blue} \mathbf{am169.5=0.62625}}\\ \\ {\color{Blue} \mathbf{MSE(169.5)=\frac{2}{10} \sqrt[2]{([(0.58-0.59)^{2}+(0.60-0.59)^{2}])}}}\\ \\\ {\color{Blue} \mathbf{\cdots \cdots \cdots \cdots + \frac{8}{10} \sqrt[2]{([(0.56-0.62625)^{2}+\cdots +(0.88-0.62625)^{2}])}}}\\ \\\ {\color{Blue} \mathbf{\cdots \cdots \cdots \cdots=0.002828 +0.084944 }}\\ \\\ {\color{Blue} \mathbf{\cdots \cdots \cdots \cdots=0.087772}}\\ \\ {\color{Blue} \mathbf{MSE(174)=0.20636}}\\ \\ {\color{Blue} \mathbf{MSE(177.5)=0.360627}}\\" /></a></p>
-<p>可知对于特征身高最小的MSE为MSE(169.5)。如果最终的最佳特征是身高，则要把数据集分为身高高于169.5cm、以及不足169.cm的两部分数据子集。</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code> 从以上可以看出学历是比身高还要好的分类特征，是否为专科为最佳的分割变量。其他特征就不一一计算。到此，对离散、连续的变量的处理方式的说明已经结束。按照上述的方式就可以将分裂形成的数据集再次进行分裂，形成树。
-</code></pre><ul>
-<li><p><strong>树的输出</strong></p>
-<p>   树是通过一个个叶子节点决定输出的。输出的方式也包括2种：</p>
-<ul>
-<li><p><strong>回归树</strong>：叶子节点代表的数据子集中目标变量的均值，就作为输出值。例如示例中的叶子节点，其输出值为0.56+0.52=0.54。当要预测的某条数据恰好属于这个数据子集，则针对这条数据的动心度的预测值就是0.54。</p>
-</li>
-<li><p><strong>模型树</strong>：对于一个叶子节点来说，有输入，也有对应的输出。 根据输入和输出的关系，建立模型，这个模型可以是线性回归，也可以通过神经网络来建立。这个叶子节点的输出值是所建立的模型的输出值。当要预测的某条数据恰好属于这个数据子集，则针对这条数据的动心度的预测值就是将数据带入建立的模型中得到的值。</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p><strong>停止生长</strong></p>
-<p> 上面说明了怎么生成一个树。当然树不能无限生长下去，这里说一下什么时候让某个数据子集停止分裂，也就是将这个数据子集形成一个叶子节点。一般有2种方式：</p>
-<ul>
-<li><p>通过限制树的深度。树的深度和人们计算家谱有几代方式相同，只不过比其少一代。示例图中显示出来的树的深度是3， 如果是家谱的就可看作4代。</p>
-</li>
-<li><p>通过给定误差序列方差或者基尼系数的阈值，当这个数据集的MSE或者基尼系数小于这个阈值时，就不再分裂，停止生长。</p>
-</li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li><p><strong>树的剪枝</strong></p>
-<p>   可以想象，如何让树无限的生长下去，最终会对每一条数据都生成一个叶子节点，这就导致了过拟合，降低了树的泛化能力。因此需要进行树的剪枝。所谓剪枝就是将某些已经分裂的数据集合，不让他分裂了。</p>
-<p>   剪枝策略主要分为两类：从上往下剪枝和从下往上剪枝。上往下剪枝也就是从根开始，遍历所有节点进行剪枝，称为预剪枝；从下往上剪枝是从叶节点开始从下往上剪枝，称为后剪枝。</p>
-<ol>
-<li>预剪枝是在决策树生成过程中，对树进行剪枝，提前结束树的分支生长。</li>
-<li><p>后剪枝是在决策树生长完成之后，对树进行剪枝，得到简化版的决策树。</p>
-<p>其实上文的停止生长，也可看作预剪枝，但是这样设置的目的不是剪枝，而是减小树的规模，提高后面真正剪枝的计算效率。</p>
-</li>
-</ol>
-</li>
-</ul>
-<pre><code> 假设现在有一颗充分生长的树，我们希望减少树的大小来防止过拟合，但又担心去掉一些叶子节点后预测的误差会变大，如何达到这两个变量之间的平衡是问题的关键。从这这个角度可以引出比较常用的后剪枝策略：代价复杂剪枝。所谓代价复杂剪枝就是在树的规模(复杂)和树的误差(代价)之间寻求一个平衡。树规模越大，树的误差越小。树的规模越小，树的误差越大。
-
- 我们的目的是为了降低代价复杂度。令其为Ca(T)，其中T代表树。我们用树的叶子节点的个数描述树的规模，记为|T|， 树T的误差记为E(T)：
-
- &lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex={\color{DarkRed}&amp;space;\mathbf{Ca(T)=E(T)&amp;plus;a*|T|}}&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?{\color{DarkRed}&amp;space;\mathbf{Ca(T)=E(T)&amp;plus;a*|T|}}&quot; title=&quot;{\color{DarkRed} \mathbf{Ca(T)=E(T)+a*|T|}}&quot; /&gt;&lt;/a&gt;
-
- 其中 **a** 为权重，**a** 越大，则树规模越小，树的误差越大；**a** 越小，则树规模越大，树的误差越小；
-
- 因为代价复杂度是和a有关系的，每一个a值都会得到最优树(代价复杂度最低的树)，并且每个a值对应的最优树是唯一的。当a值从0慢慢增大的时候，最优的树便会进入一个削剪枝叶的过程，最优树会从**充分分裂后得到的树**削剪到**没有经过任何分裂的树**。此时我们就形成了一个树的嵌套集合，并且前面的树包含后面的树。在形成的树的集合中，我们可以用交叉验证的方式得到最优的树，从而得到最终的树的结果。
-
- 现在的问题是如何实现a值慢慢增大。下面描述实现方式:
-
-    inter = 0
-    a(0) = 0
-    T(0) = 充分生长的树
-    while 树T(inter)不是仅有一个节点时：
-        for node in 树T的内部节点(父节点)：
-            计算node为叶子节点时的E(T_Son_node)
-            计算node为父节点时的E(T_Fa_node)
-            计算g(node) =(E(T_Son_node) -  E(T_Fa_node))/ (|T_Fa_node| - 1)
-
-        在所有的g(node)中选择值最小的对应的node，如果node不唯一，则选择辈分最小的node。
-        inter += 1
-        T(inter) = 树T(inter-1)的父节点node变为叶子节点形成的树
-        a(inter) = g(node)
-
-  从a(0)开始形成了从0逐渐变大的序列，从T(0)开始形成了从茂盛到精简的树的集合，下面利用验证数据集获取最优的a值以及对应的树：
-          1，计算验证数据集在每一个a值及其对应的树下的复杂代价度
-          2，选择复杂代价度最小的，就是最优的
+C4.5是ID3的改进版，而CART是最常用的，因此本文主要介绍CART。
 
 
-  符号说明：
-  T_Son_node：当前的树T以node为叶子节点时的子树，也就是node节点没有经过分裂，也就是node节点剪枝后；
-  T_Fa_node：当前的树T以node为根节点时的子树，也就是node节点分裂了，也就是node节点剪枝前；
-  E(T)：树T所有叶子节点的误差(分类问题：误分率*样本比例，回归问题：误差平方和*样本比例）之和；
-  |T|：树T的叶子节点的个数；
-</code></pre><p>  下面给出分类的示例</p>
-<p>  <img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/exam_tree.png" alt="image"></p>
-<p>  上述问题中总的数据条数是40。因为分类问题，是以占多数的类别作为输出类别，因此两个数字中较小的数字除以数字之和就是误分率。样本比例就是这个节点占的数据条数除以总的数据条数。</p>
-<p>  <a href="http://www.codecogs.com/eqnedit.php?latex=\dpi{100}&space;\\E(T0\_Son\_t1)=\frac{20}{40}*\frac{40}{40}=\frac{20}{40}\\&space;\\E(T0\_Fa\_t1)={\color{Red}&space;\frac{1}{10}*\frac{10}{40}[t4]}&plus;{\color{Teal}&space;\frac{2}{9}*\frac{9}{40}[t5]}&plus;{\color{Blue}&space;\frac{2}{12}*\frac{12}{40}[t6]}\\&space;\\\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;&plus;{\color{Magenta}&space;\frac{0}{6}*\frac{6}{40}[t8]}&plus;{\color{Orange}&space;\frac{2}{3}*\frac{3}{40}[t9]}=\frac{7}{40}\\&space;\\g(t1)=\frac{\frac{20}{40}-\frac{7}{40}}{5-1}=\frac{13}{160}&space;\\&space;\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\dpi{100}&space;\\E(T0\_Son\_t1)=\frac{20}{40}*\frac{40}{40}=\frac{20}{40}\\&space;\\E(T0\_Fa\_t1)={\color{Red}&space;\frac{1}{10}*\frac{10}{40}[t4]}&plus;{\color{Teal}&space;\frac{2}{9}*\frac{9}{40}[t5]}&plus;{\color{Blue}&space;\frac{2}{12}*\frac{12}{40}[t6]}\\&space;\\\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;&plus;{\color{Magenta}&space;\frac{0}{6}*\frac{6}{40}[t8]}&plus;{\color{Orange}&space;\frac{2}{3}*\frac{3}{40}[t9]}=\frac{7}{40}\\&space;\\g(t1)=\frac{\frac{20}{40}-\frac{7}{40}}{5-1}=\frac{13}{160}&space;\\&space;\\" title="\\E(T0\_Son\_t1)=\frac{20}{40}*\frac{40}{40}=\frac{20}{40}\\ \\E(T0\_Fa\_t1)={\color{Red} \frac{1}{10}*\frac{10}{40}[t4]}+{\color{Teal} \frac{2}{9}*\frac{9}{40}[t5]}+{\color{Blue} \frac{2}{12}*\frac{12}{40}[t6]}\\ \\\cdots \cdots \cdots \cdots \cdots +{\color{Magenta} \frac{0}{6}*\frac{6}{40}[t8]}+{\color{Orange} \frac{2}{3}*\frac{3}{40}[t9]}=\frac{7}{40}\\ \\g(t1)=\frac{\frac{20}{40}-\frac{7}{40}}{5-1}=\frac{13}{160} \\ \\" /></a></p>
-<p>  <a href="http://www.codecogs.com/eqnedit.php?latex=\dpi{100}&space;\\E(T0\_Son\_t2)=\frac{8}{19}*\frac{19}{40}=\frac{8}{40}\\&space;\\E(T0\_Fa\_t2)={\color{Red}&space;\frac{1}{10}*\frac{10}{40}[t4]}&plus;{\color{Teal}&space;\frac{2}{9}*\frac{9}{40}[t5]}=\frac{3}{40}\\&space;\\g(t2)=\frac{\frac{8}{40}-\frac{3}{40}}{2-1}=\frac{1}{8}\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\dpi{100}&space;\\E(T0\_Son\_t2)=\frac{8}{19}*\frac{19}{40}=\frac{8}{40}\\&space;\\E(T0\_Fa\_t2)={\color{Red}&space;\frac{1}{10}*\frac{10}{40}[t4]}&plus;{\color{Teal}&space;\frac{2}{9}*\frac{9}{40}[t5]}=\frac{3}{40}\\&space;\\g(t2)=\frac{\frac{8}{40}-\frac{3}{40}}{2-1}=\frac{1}{8}\\" title="\\E(T0\_Son\_t2)=\frac{8}{19}*\frac{19}{40}=\frac{8}{40}\\ \\E(T0\_Fa\_t2)={\color{Red} \frac{1}{10}*\frac{10}{40}[t4]}+{\color{Teal} \frac{2}{9}*\frac{9}{40}[t5]}=\frac{3}{40}\\ \\g(t2)=\frac{\frac{8}{40}-\frac{3}{40}}{2-1}=\frac{1}{8}\\" /></a></p>
-<p>  <a href="http://www.codecogs.com/eqnedit.php?latex=\dpi{100}&space;\\E(T0\_Son\_t3)=\frac{9}{21}*\frac{21}{40}=\frac{9}{40}\\&space;\\E(T0\_Fa\_t3)={\color{Blue}&space;\frac{2}{12}*\frac{12}{40}[t6]}&plus;{\color{Magenta}&space;\frac{0}{6}*\frac{6}{40}[t8]}&space;&plus;{\color{Orange}&space;\frac{1}{3}*\frac{3}{40}[t9]}&space;=\frac{3}{40}\\&space;\\g(t3)=\frac{\frac{9}{40}-\frac{3}{40}}{3-1}=\frac{3}{40}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\dpi{100}&space;\\E(T0\_Son\_t3)=\frac{9}{21}*\frac{21}{40}=\frac{9}{40}\\&space;\\E(T0\_Fa\_t3)={\color{Blue}&space;\frac{2}{12}*\frac{12}{40}[t6]}&plus;{\color{Magenta}&space;\frac{0}{6}*\frac{6}{40}[t8]}&space;&plus;{\color{Orange}&space;\frac{1}{3}*\frac{3}{40}[t9]}&space;=\frac{3}{40}\\&space;\\g(t3)=\frac{\frac{9}{40}-\frac{3}{40}}{3-1}=\frac{3}{40}" title="\\E(T0\_Son\_t3)=\frac{9}{21}*\frac{21}{40}=\frac{9}{40}\\ \\E(T0\_Fa\_t3)={\color{Blue} \frac{2}{12}*\frac{12}{40}[t6]}+{\color{Magenta} \frac{0}{6}*\frac{6}{40}[t8]} +{\color{Orange} \frac{1}{3}*\frac{3}{40}[t9]} =\frac{3}{40}\\ \\g(t3)=\frac{\frac{9}{40}-\frac{3}{40}}{3-1}=\frac{3}{40}" /></a></p>
-<p>  <a href="http://www.codecogs.com/eqnedit.php?latex=\dpi{100}&space;\\E(T0\_Son\_t7)=\frac{2}{9}*\frac{9}{40}=\frac{2}{40}\\&space;\\E(T0\_Fa\_t7)={\color{Magenta}&space;\frac{0}{6}*\frac{6}{40}[t8]}&space;&plus;{\color{Orange}&space;\frac{1}{3}*\frac{3}{40}[t9]}&space;=\frac{1}{40}\\&space;\\g(t7)=\frac{\frac{2}{40}-\frac{1}{40}}{2-1}=\frac{1}{40}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\dpi{100}&space;\\E(T0\_Son\_t7)=\frac{2}{9}*\frac{9}{40}=\frac{2}{40}\\&space;\\E(T0\_Fa\_t7)={\color{Magenta}&space;\frac{0}{6}*\frac{6}{40}[t8]}&space;&plus;{\color{Orange}&space;\frac{1}{3}*\frac{3}{40}[t9]}&space;=\frac{1}{40}\\&space;\\g(t7)=\frac{\frac{2}{40}-\frac{1}{40}}{2-1}=\frac{1}{40}" title="\\E(T0\_Son\_t7)=\frac{2}{9}*\frac{9}{40}=\frac{2}{40}\\ \\E(T0\_Fa\_t7)={\color{Magenta} \frac{0}{6}*\frac{6}{40}[t8]} +{\color{Orange} \frac{1}{3}*\frac{3}{40}[t9]} =\frac{1}{40}\\ \\g(t7)=\frac{\frac{2}{40}-\frac{1}{40}}{2-1}=\frac{1}{40}" /></a></p>
-<p>  g(t7)最小，节点t7应该被剪枝，a(1)=1/40，树T(1)变为下面这样：</p>
-<p>  <img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/tree_t1.png" alt="image"></p>
-<p>  回归和分类类似，将误分率变为误差平方和即可。</p>
+CART首先看下面表格中的示例数据(随机生成，仅供参考)。其中类似年龄，身高，月收入为连续变量，学历，工作为离散变量。
 
+如果把动心视为目标变量，此问题为分类问题。
+
+如果把动心度视为目标变量，此问题为...
+
+        
+          <p class="article-more-link">
+            <a href="/2020/07/08/jucreadme/#more">阅读全文</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">

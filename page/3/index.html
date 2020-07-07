@@ -609,31 +609,22 @@ Node.js、Hexo、Git、Github账号、Sublime Text3
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="TensorFlow-V1-13-1-中CNN的函数说明"><a href="#TensorFlow-V1-13-1-中CNN的函数说明" class="headerlink" title="TensorFlow(V1.13.1)中CNN的函数说明"></a>TensorFlow(V1.13.1)中CNN的函数说明</h2><ul>
-<li><strong>卷积</strong></li>
-</ul>
-<h4 id="tf-nn-conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积"><a href="#tf-nn-conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积" class="headerlink" title="tf.nn.conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积"></a>tf.nn.conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.conv2d(input, filter, strides, padding, use_cudnn_on_gpu=<span class="literal">True</span>, data_format=<span class="string">'NHWC'</span>, dilations=[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], name=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>input</strong>：需要进行卷积的数字矩阵。一个四维的Tensor，数据类型可为<code>half</code>，<code>bfloat16</code>，<code>float32</code>或者<code>float64</code>。维度的排列顺序和data_format的设置有关；</p>
-<p><strong>filter</strong>：代表卷积核的数字矩阵。一个四维的Tensor。4维的维度的排列顺序为[高度，宽度，通道数\深度，卷积核的个数]；</p>
-<p><strong>strides</strong>：卷积时图像每个维度的步长。一个长度为4的一维整型列表，；</p>
-<p><strong>padding</strong>：填充的方式。字符串类型，”SAME”或者”VALID”；</p>
-<p><strong>use_cudnn_on_gpu</strong>：是否使用cudnn加速。布尔类型，默认为True；</p>
-<p><strong>data_format</strong>：输入数据和输出数据的维度的排列形式。字符串类型，”NHWC”或者”NCHW”，默认为前者，此时数据维度的排列顺序为[批训练的样本数，高度，宽度，通道数\深度]。当为”NCHW”时，数据维度的排列顺序为[批训练的样本数，通道数\深度，高度，宽度]；</p>
-<p><strong>dilations</strong>：对应输入矩阵维度的扩张因子列表。一个长度为4的一维整型列表。默认值为[1，1，1，1]。对应的维度的顺序为data_format确定的维度顺序，其中批训练的样本数和通道数\深度对应的值必须为1；</p>
-<p><strong>name</strong>：定义算子的名称。属于可选参数；</p>
-<ul>
-<li><p><strong>池化</strong></p>
-<h4 id="tf-nn-avg-pool：均值池化"><a href="#tf-nn-avg-pool：均值池化" class="headerlink" title="tf.nn.avg_pool：均值池化"></a>tf.nn.avg_pool：均值池化</h4> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.avg_pool(value, ksize, strides, padding, data_format=<span class="string">'NHWC'</span>, name=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="tf-nn-max-pool：最大值池化"><a href="#tf-nn-max-pool：最大值池化" class="headerlink" title="tf.nn.max_pool：最大值池化"></a>tf.nn.max_pool：最大值池化</h4></li>
-</ul>
-   <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.nn.max_pool(value, ksize, strides, padding, data_format=<span class="string">'NHWC'</span>, name=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>value</strong>：需要进行池化的数字矩阵。一个四维的Tensor，维度的排列顺序由data_format定义；</p>
-<p><strong>ksize</strong>：每个维度对应的池化窗口的大小。一个长度为4的整数型一维列表或者元组；</p>
-<p><strong>strides</strong>：每个维度对应的池化的步长。一个长度为4的整数型一维列表或者元组；</p>
-<p><strong>padding</strong>：填充的方式。字符串类型，”SAME”或者”VALID”；</p>
-<p><strong>data_format</strong>：输入数据和输出数据的维度的排列形式。字符串类型，值为”NHWC”、”NCHW”、’NCHW_VECT_C’，默认为前者，此时数据维度的排列顺序为[批训练的样本数，高度，宽度，通道数\深度]。当为”NCHW”时，数据维度的排列顺序为[批训练的样本数，通道数\深度，高度，宽度]；当为”NCHW_VECT_C”时，数据维度的排列顺序为[批训练的样本数，通道数\深度/4，高度，宽度，4]；</p>
-<p><strong>name</strong>：定义算子的名称。属于可选参数；</p>
+        
+          <div class="entry-thumbnail">
+            <a href="/2020/04/05/tensorflow_cnn/"><img width="250" height="175" src="https://images.wallpaperscraft.com/image/pattern_animals_nature_157514_1280x720.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          TensorFlow(V1.13.1)中CNN的函数说明
+卷积
 
+tf.nn.conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积1tf.nn.conv2d(input, filter, strides, padding, use_cudnn_on_gpu=True, data_format='NHWC', dilations=[1, 1, 1, 1], name=None)
+input...
+
+        
+          <p class="article-more-link">
+            <a href="/2020/04/05/tensorflow_cnn/#more">阅读全文</a>
+          </p>
+        </div>
       
     </div>
     <footer class="entry-meta entry-footer">
@@ -745,82 +736,6 @@ Node.js、Hexo、Git、Github账号、Sublime Text3
 
   
     
-<article id="post-Recursive2"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2019/10/05/Recursive2/">数据结构基础与递归算法思想</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2019/10/05/Recursive2/" class="article-date">
-	  <time datetime="2019-10-04T16:00:00.000Z" itemprop="datePublished">十月 5, 2019</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          <div class="entry-thumbnail">
-            <a href="/2019/10/05/Recursive2/"><img width="250" height="175" src="https://cdn.kastatic.org/ka-perseus-images/f45dc6411bdf71ac3e70e53e68179ff6295cb5fd.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
-          </div>
-          <div class="entry-summary">
-          
-
-（转载作者请注明出处）
-朋友们，当您看到这篇文章，说明本公众号(kangsinx)将开始系统介绍Python算法，同时向还会陆续分享一些有用的算法小技巧与学习资料，这是一个好的消息，希望您和您的朋友一起来加入我们的学习队伍。入微信学习群，由于群人员数已经上限，这里建立一个中转群，
-扫码加入即可，如果人数已满请公众号给我留言微信号我拉你入群
-
-加过本公众号其他学习群的粉丝无需再加入，如果您...
-
-        
-          <p class="article-more-link">
-            <a href="/2019/10/05/Recursive2/#more">阅读全文</a>
-          </p>
-        </div>
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/">算法基础</a>
-
-      
-  <span class="ico-tags"></span>
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-      
-
-      <!-- 要添加的内容 -->
-      
-      <!---->
-
-            
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-<!-- Table of Contents -->
-
-    
-
-
-
-  
-    
 <article id="post-Recursive1"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -864,6 +779,82 @@ Node.js、Hexo、Git、Github账号、Sublime Text3
         
           <p class="article-more-link">
             <a href="/2019/10/05/Recursive1/#more">阅读全文</a>
+          </p>
+        </div>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/">算法基础</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+      
+
+      <!-- 要添加的内容 -->
+      
+      <!---->
+
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+<!-- Table of Contents -->
+
+    
+
+
+
+  
+    
+<article id="post-Recursive2"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2019/10/05/Recursive2/">数据结构基础与递归算法思想</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2019/10/05/Recursive2/" class="article-date">
+	  <time datetime="2019-10-04T16:00:00.000Z" itemprop="datePublished">十月 5, 2019</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          <div class="entry-thumbnail">
+            <a href="/2019/10/05/Recursive2/"><img width="250" height="175" src="https://cdn.kastatic.org/ka-perseus-images/f45dc6411bdf71ac3e70e53e68179ff6295cb5fd.jpg" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+          </div>
+          <div class="entry-summary">
+          
+
+（转载作者请注明出处）
+朋友们，当您看到这篇文章，说明本公众号(kangsinx)将开始系统介绍Python算法，同时向还会陆续分享一些有用的算法小技巧与学习资料，这是一个好的消息，希望您和您的朋友一起来加入我们的学习队伍。入微信学习群，由于群人员数已经上限，这里建立一个中转群，
+扫码加入即可，如果人数已满请公众号给我留言微信号我拉你入群
+
+加过本公众号其他学习群的粉丝无需再加入，如果您...
+
+        
+          <p class="article-more-link">
+            <a href="/2019/10/05/Recursive2/#more">阅读全文</a>
           </p>
         </div>
       

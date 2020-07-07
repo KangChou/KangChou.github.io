@@ -25,16 +25,16 @@
   
   
   
-  <meta name="description" content="卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。 对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320*240">
+  <meta name="description" content="卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="卷积神经网络">
 <meta property="og:url" content="https://kangchou001.cn/2020/07/08/cnn/index.html">
 <meta property="og:site_name" content="诗和远方biubiu">
-<meta property="og:description" content="卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。 对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320*240">
+<meta property="og:description" content="卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEFoi4.png">
 <meta property="article:published_time" content="2020-07-08T14:57:06.000Z">
-<meta property="article:modified_time" content="2020-07-07T16:28:32.239Z">
+<meta property="article:modified_time" content="2020-07-07T16:42:27.945Z">
 <meta property="article:author" content="KangChou">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -193,7 +193,7 @@ var themeMenus = {};
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="https://s1.ax1x.com/2020/07/08/UEFoi4.png" target="_blank" rel="gallery_ckcc5pasx000utsur29i4cid2 noopener">
+      <a class="article-gallery-img fancybox" href="https://s1.ax1x.com/2020/07/08/UEFoi4.png" target="_blank" rel="gallery_ckcc5x5rn000taourdfurcd5m noopener">
         <img src="https://s1.ax1x.com/2020/07/08/UEFoi4.png" itemprop="image">
       </a>
     
@@ -226,6 +226,7 @@ var themeMenus = {};
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>对于一个图片而言，假设其数字矩阵维度为(<strong>3,320,240</strong>)，其中<strong>3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度</strong>。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。</p>
+<a id="more"></a>
 <p>对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320*240*3=230400的向量，作为神经网络的输入。如果第一层的神经元的个数为100个，则全连接情形下第一层的参数就有230400*100+100=23040100个。因此对于图片而言，全连接网络需要的参数过多。因此需要提取图片的多个特征，在保留这些特征的前提下，缩短可以表示这个图片的向量的长度。</p>
 <p>首先重申以下几点说明：</p>
 <ol>

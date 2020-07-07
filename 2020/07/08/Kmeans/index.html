@@ -25,16 +25,16 @@
   
   
   
-  <meta name="description" content="Kmeans 聚类  样本集合， 为样本个数。，为每个样本的特征个数。 要把这些样本分为类，个类别的样本集合分别为。 得到的个类别要使得下式取得最小值：  其中表示第个类别的样本集合中样本的个数； 表示第个类别的中心； 表示第个类别的样本集合中的第个样本。 表示第个类别的样本集合中的样本与该类别中心的距离。  不同的距离计算方式有两个点, 坐标分别为。  欧几里得距离   曼哈顿距离">
+  <meta name="description" content="Kmeans &amp; Kmeans++  Kmeans 聚类  样本集合， 为样本个数。，为每个样本的特征个数。 要把这些样本分为类，个类别的样本集合分别为。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kmeans算法理论">
 <meta property="og:url" content="https://kangchou001.cn/2020/07/08/Kmeans/index.html">
 <meta property="og:site_name" content="诗和远方biubiu">
-<meta property="og:description" content="Kmeans 聚类  样本集合， 为样本个数。，为每个样本的特征个数。 要把这些样本分为类，个类别的样本集合分别为。 得到的个类别要使得下式取得最小值：  其中表示第个类别的样本集合中样本的个数； 表示第个类别的中心； 表示第个类别的样本集合中的第个样本。 表示第个类别的样本集合中的样本与该类别中心的距离。  不同的距离计算方式有两个点, 坐标分别为。  欧几里得距离   曼哈顿距离">
+<meta property="og:description" content="Kmeans &amp; Kmeans++  Kmeans 聚类  样本集合， 为样本个数。，为每个样本的特征个数。 要把这些样本分为类，个类别的样本集合分别为。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEPyTg.png">
 <meta property="article:published_time" content="2020-07-08T14:57:06.000Z">
-<meta property="article:modified_time" content="2020-07-07T16:13:07.323Z">
+<meta property="article:modified_time" content="2020-07-07T16:43:00.003Z">
 <meta property="article:author" content="KangChou">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="聚类">
@@ -194,7 +194,7 @@ var themeMenus = {};
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="https://s1.ax1x.com/2020/07/08/UEPyTg.png" target="_blank" rel="gallery_ckcc5pasb0006tsur1sg979cs noopener">
+      <a class="article-gallery-img fancybox" href="https://s1.ax1x.com/2020/07/08/UEPyTg.png" target="_blank" rel="gallery_ckcc5x5qk0000aouranyr6fu6 noopener">
         <img src="https://s1.ax1x.com/2020/07/08/UEPyTg.png" itemprop="image">
       </a>
     
@@ -226,17 +226,20 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
+        <h1 id="Kmeans-amp-Kmeans"><a href="#Kmeans-amp-Kmeans" class="headerlink" title="Kmeans &amp; Kmeans++"></a>Kmeans &amp; Kmeans++</h1><hr>
+<ul>
 <li><strong>Kmeans 聚类</strong></li>
 </ul>
 <p>样本集合<a href="http://www.codecogs.com/eqnedit.php?latex=X=\begin{pmatrix}&space;X_{1},&space;&X_{2},&space;&&space;\cdots&space;,&&space;X_{N}&space;\end{pmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X=\begin{pmatrix}&space;X_{1},&space;&X_{2},&space;&&space;\cdots&space;,&&space;X_{N}&space;\end{pmatrix}" title="X=\begin{pmatrix} X_{1}, &X_{2}, & \cdots ,& X_{N} \end{pmatrix}" /></a>， <a href="http://www.codecogs.com/eqnedit.php?latex=N" target="_blank"><img src="http://latex.codecogs.com/gif.latex?N" title="N" /></a>为样本个数。<a href="http://www.codecogs.com/eqnedit.php?latex=X_{i}=\begin{bmatrix}&space;X_{i}^{1}&space;&&space;X_{i}^{2}&\cdots&space;&&space;X_{i}^{m}&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{i}=\begin{bmatrix}&space;X_{i}^{1}&space;&&space;X_{i}^{2}&\cdots&space;&&space;X_{i}^{m}&space;\end{bmatrix}" title="X_{i}=\begin{bmatrix} X_{i}^{1} & X_{i}^{2}&\cdots & X_{i}^{m} \end{bmatrix}" /></a>，<a href="http://www.codecogs.com/eqnedit.php?latex=m" target="_blank"><img src="http://latex.codecogs.com/gif.latex?m" title="m" /></a>为每个样本的特征个数。</p>
 <p>要把这些样本分为<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>类，<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>个类别的样本集合分别为<a href="http://www.codecogs.com/eqnedit.php?latex=\begin{matrix}&space;C1,&&space;C2,&&space;\cdots,&space;&&space;Ck&space;\end{matrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\begin{matrix}&space;C1,&&space;C2,&&space;\cdots,&space;&&space;Ck&space;\end{matrix}" title="\begin{matrix} C1,& C2,& \cdots, & Ck \end{matrix}" /></a>。</p>
+<a id="more"></a>
 <p>得到的<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>个类别要使得下式取得最小值：</p>
 <p><a href="http://www.codecogs.com/eqnedit.php?latex=D&space;=&space;\sum_{k=1}^{K}\sum_{i=1}^{nk}dis(X_{ki},Ckc)" target="_blank"><img src="http://latex.codecogs.com/gif.latex?D&space;=&space;\sum_{k=1}^{K}\sum_{i=1}^{nk}dis(X_{ki},Ckc)" title="D = \sum_{k=1}^{K}\sum_{i=1}^{nk}dis(X_{ki},Ckc)" /></a></p>
 <p>其中<a href="http://www.codecogs.com/eqnedit.php?latex=nk" target="_blank"><img src="http://latex.codecogs.com/gif.latex?nk" title="nk" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的样本集合中样本的个数；</p>
 <p><a href="http://www.codecogs.com/eqnedit.php?latex=Ckc" target="_blank"><img src="http://latex.codecogs.com/gif.latex?Ckc" title="Ckc" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的中心；</p>
 <p><a href="http://www.codecogs.com/eqnedit.php?latex=X_{ki}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{ki}" title="X_{ki}" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的样本集合中的第<a href="http://www.codecogs.com/eqnedit.php?latex=i" target="_blank"><img src="http://latex.codecogs.com/gif.latex?i" title="i" /></a>个样本。</p>
 <p><a href="http://www.codecogs.com/eqnedit.php?latex=dis(X_{ki},Ckc)" target="_blank"><img src="http://latex.codecogs.com/gif.latex?dis(X_{ki},Ckc)" title="dis(X_{ki},Ckc)" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的样本集合中的样本与该类别中心的距离。</p>
+<!-- more -->
 <ul>
 <li><p><strong>不同的距离计算方式</strong><br>有两个点<a href="http://www.codecogs.com/eqnedit.php?latex=\mathbf{A,B}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathbf{A,B}" title="\mathbf{A,B}" /></a>, 坐标分别为<a href="http://www.codecogs.com/eqnedit.php?latex=\mathbf{A}=[a1,a2,\cdots,am]\begin{matrix}&space;&&space;\end{matrix}&space;\mathbf{B}=[b1,b2,\cdots,bm]" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathbf{A}=[a1,a2,\cdots,am]\begin{matrix}&space;&&space;\end{matrix}&space;\mathbf{B}=[b1,b2,\cdots,bm]" title="\mathbf{A}=[a1,a2,\cdots,am]\begin{matrix} & \end{matrix} \mathbf{B}=[b1,b2,\cdots,bm]" /></a>。</p>
 <ul>
@@ -389,7 +392,7 @@ var a = new Donate({
     <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
     <strong class="toc-title">文章目录</strong>
     
-      <ol class="nav">无</ol>
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kmeans-amp-Kmeans"><span class="nav-number">1.</span> <span class="nav-text">Kmeans &amp; Kmeans++</span></a></li></ol>
     
     </div>
   </aside>

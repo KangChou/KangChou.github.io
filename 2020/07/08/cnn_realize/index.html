@@ -34,7 +34,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEFOL6.png">
 <meta property="article:published_time" content="2020-07-08T14:57:06.000Z">
-<meta property="article:modified_time" content="2020-07-07T16:29:41.997Z">
+<meta property="article:modified_time" content="2020-07-07T16:42:20.746Z">
 <meta property="article:author" content="KangChou">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -193,7 +193,7 @@ var themeMenus = {};
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" href="https://s1.ax1x.com/2020/07/08/UEFOL6.png" target="_blank" rel="gallery_ckcc5pat0000ztsurc65zh03u noopener">
+      <a class="article-gallery-img fancybox" href="https://s1.ax1x.com/2020/07/08/UEFOL6.png" target="_blank" rel="gallery_ckcc5x5rs000yaour0r7sfmry noopener">
         <img src="https://s1.ax1x.com/2020/07/08/UEFOL6.png" itemprop="image">
       </a>
     
@@ -227,6 +227,7 @@ var themeMenus = {};
       
         <h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
 <p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
+<a id="more"></a>
 <h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
 <h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
 <li><p><strong>正向传播</strong></p>
