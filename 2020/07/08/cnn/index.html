@@ -17,30 +17,28 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>cnn | 诗和远方biubiu</title>
+  <title>卷积神经网络 | 诗和远方biubiu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="算法" />
   
   
   
-  <meta name="description" content="title:  卷积神经网络categories: 神经网络comments: truedate: 2020-07-08 22:57:06tags: 算法photos:   “https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;07&#x2F;08&#x2F;UEPyTg.png“  卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240">
+  
+  <meta name="description" content="卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。 对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320*240">
 <meta property="og:type" content="article">
-<meta property="og:title" content="cnn">
-<meta property="og:url" content="https://kangchou001.cn/2020/07/07/cnn/index.html">
+<meta property="og:title" content="卷积神经网络">
+<meta property="og:url" content="https://kangchou001.cn/2020/07/08/cnn/index.html">
 <meta property="og:site_name" content="诗和远方biubiu">
-<meta property="og:description" content="title:  卷积神经网络categories: 神经网络comments: truedate: 2020-07-08 22:57:06tags: 算法photos:   “https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;07&#x2F;08&#x2F;UEPyTg.png“  卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240">
+<meta property="og:description" content="卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。 对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320*240">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Cnn/cnn_s.png">
-<meta property="og:image" content="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Cnn/cnn_papng.png">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?C1%5C_Out&space;=&space;PM&space;*&space;C1&space;%5C%5C&space;%5C%5C&space;C1%5C_Out%5Bx,&space;y,&space;z%5D%5C%5C&space;=%5Csum_%7Bi=1%7D%5E%7B3%7D&space;P%5C_M%5Bx1,y1,i%5D&space;*&space;C1%5C_z%5B::i%5D&space;%5C%5C&space;=&space;%5Csum_%7Bi=1%7D%5E%7B3%7D%5Csum_%7Bh=0%7D%5E%7B10%7D%5Csum_%7Bs=0%7D%5E%7B10%7DPm%5Bi%5D%5Bh,s%5D&space;%5Ctimes&space;Cm%5Bi%5D%5Bh,s%5D&plus;C1%5C_B%5Bz%5D&space;%5C%5C&space;%5C%5C&space;.%5C,&space;%5C,&space;%5C,&space;%5C,&space;P%5C_M%5Bx1,y1,i%5D%5C,%5C:&space;is%5C,&space;%5C:&space;the%5C,&space;%5C:&space;corrding&space;%5C,&space;%5C:&space;erea&space;%5C,&space;%5C:&space;of&space;PM%5C%5C&space;%5C%5C&space;.&space;%5C,&space;%5C,&space;%5C,&space;Pm%5Bi%5D=P%5C_M%5Bx1,y1,i%5D,&space;Cm%5Bi%5D=C1%5C_z%5B::i%5D,%5C%5C&space;%5C%5C&space;.%5C,&space;%5C,&space;%5C,&space;x%5Cin&space;%5B0,29%5D,y%5Cin&space;%5B0,38%5D,z%5Cin&space;%5B0,95%5D">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?d6%5Bx,y,z%5D=d7%5Bx,y,z%5D*&space;%7BAf2%7D">
-<meta property="og:image" content="https://latex.codecogs.com/gif.latex?C2%5C_Out=Pool1%5C_Out&space;*&space;C2&space;&plus;&space;C2%5C_B,&space;%5C:&space;%5C:&space;%5C:&space;%5C:&space;%5C:&space;a*b&space;%5C:&space;%5C:&space;%5C:is&space;%5C:&space;%5C:&space;%5C:&space;convolution&space;%5C:&space;%5C:&space;%5C:&space;between&space;%5C:&space;%5C:&space;%5C:&space;a&space;%5C:&space;%5C:&space;%5C:&space;and&space;%5C:&space;%5C:&space;%5C:&space;b%5C%5C&space;%5C%5C&space;.%5C:&space;%5C:&space;%5C:&space;%5C:&space;%5C:&space;d5%5C_C2&space;=&space;%5Cfrac%7B%5Cpartial&space;E%7D%7B%5Cpartial&space;C2%7D=&space;%5Cfrac%7B%5Cpartial&space;E%7D%7B%5Cpartial&space;C2%5C_Out%7D&space;%5Ctimes&space;%5Cfrac%7B%5Cpartial&space;C2%5C_Out%7D%7B%5Cpartial&space;C2%7D=d6&space;%5Ctimes&space;%5Cfrac%7B%5Cpartial&space;C2%5C_Out%7D%7B%5Cpartial&space;C2%7D%5C%5C&space;%5C%5C&space;.%5C:&space;%5C:&space;%5C:&space;%5C:&space;%5C:&space;d5%5C_C2%5C_B&space;=&space;%5Cfrac%7B%5Cpartial&space;E%7D%7B%5Cpartial&space;C2%5C_B%7D=&space;%5Cfrac%7B%5Cpartial&space;E%7D%7B%5Cpartial&space;C2%5C_Out%7D&space;%5Ctimes&space;%5Cfrac%7B%5Cpartial&space;C2%5C_Out%7D%7B%5Cpartial&space;C2%5C_B%7D=d6&space;%5Ctimes&space;%5Cfrac%7B%5Cpartial&space;C2%5C_Out%7D%7B%5Cpartial&space;C2%5C_B%7D">
-<meta property="article:published_time" content="2020-07-07T15:57:02.515Z">
-<meta property="article:modified_time" content="2020-07-07T16:08:08.714Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEFoi4.png">
+<meta property="article:published_time" content="2020-07-08T14:57:06.000Z">
+<meta property="article:modified_time" content="2020-07-07T16:28:32.239Z">
 <meta property="article:author" content="KangChou">
-<meta property="article:tag" content="人工智能算法，Python基础知识、数据分析、数据可视化、大数据、TensorFlow和神经网络等">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Cnn/cnn_s.png">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/08/UEFoi4.png">
   
   <link rel="icon" href="/css/images/favicon.ico">
   
@@ -192,12 +190,22 @@ var themeMenus = {};
 <article id="post-cnn" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="https://s1.ax1x.com/2020/07/08/UEFoi4.png" target="_blank" rel="gallery_ckcc5pasx000utsur29i4cid2 noopener">
+        <img src="https://s1.ax1x.com/2020/07/08/UEFoi4.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
     
       <header class="article-header">
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      cnn
+      卷积神经网络
     </h1>
   
 
@@ -205,8 +213,8 @@ var themeMenus = {};
     
     <div class="article-meta">
       
-	Posted on <a href="/2020/07/07/cnn/" class="article-date">
-	  <time datetime="2020-07-07T15:57:02.515Z" itemprop="datePublished">七月 7, 2020</time>
+	Posted on <a href="/2020/07/08/cnn/" class="article-date">
+	  <time datetime="2020-07-08T14:57:06.000Z" itemprop="datePublished">七月 8, 2020</time>
 	</a>
 
       
@@ -217,11 +225,7 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title:  卷积神经网络<br>categories: 神经网络<br>comments: true<br>date: 2020-07-08 22:57:06<br>tags: 算法<br>photos: </p>
-<ul>
-<li>“<a href="https://s1.ax1x.com/2020/07/08/UEPyTg.png" target="_blank" rel="noopener">https://s1.ax1x.com/2020/07/08/UEPyTg.png</a>“</li>
-</ul>
-<h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>对于一个图片而言，假设其数字矩阵维度为(<strong>3,320,240</strong>)，其中<strong>3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度</strong>。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。</p>
+        <h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>对于一个图片而言，假设其数字矩阵维度为(<strong>3,320,240</strong>)，其中<strong>3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度</strong>。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。</p>
 <p>对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320*240*3=230400的向量，作为神经网络的输入。如果第一层的神经元的个数为100个，则全连接情形下第一层的参数就有230400*100+100=23040100个。因此对于图片而言，全连接网络需要的参数过多。因此需要提取图片的多个特征，在保留这些特征的前提下，缩短可以表示这个图片的向量的长度。</p>
 <p>首先重申以下几点说明：</p>
 <ol>
@@ -344,7 +348,13 @@ var themeMenus = {};
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+
       
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
       
         <div id="donation_div"></div>
 
@@ -371,7 +381,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>文章链接:  </strong>
-          <a href="/2020/07/07/cnn/" target="_blank" title="cnn">https://kangchou001.cn/2020/07/07/cnn/</a>
+          <a href="/2020/07/08/cnn/" target="_blank" title="卷积神经网络">https://kangchou001.cn/2020/07/08/cnn/</a>
           </li>
           <li class="post-copyright-license">
             <strong>版权声明:   </strong>
@@ -415,19 +425,19 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2020/07/07/cnn_realize/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/07/08/cart2/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          cnn_realize
+          CART分类树
         
       </div>
     </a>
   
   
-    <a href="/2020/07/07/carreadme/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/07/08/cnn_realize/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">carreadme</div>
+      <div class="article-nav-title">卷积神经网络实现</div>
     </a>
   
 </nav>

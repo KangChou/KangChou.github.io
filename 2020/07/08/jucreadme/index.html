@@ -17,42 +17,29 @@
   <!-- PACE Progress Bar START -->
 
   
-  <title>jucreadme | 诗和远方biubiu</title>
+  <title>决策树理论 | 诗和远方biubiu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="算法决策树" />
   
   
   
-  <meta name="description" content="title:  决策树理论categories: 决策树comments: truedate: 2020-07-08 22:57:06tags: [算法,决策树]photos:   “https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;07&#x2F;08&#x2F;UEPyTg.png“  Decision Tree Theory决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：  C4.5是ID3">
+  
+  <meta name="description" content="Decision Tree Theory决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：  C4.5是ID3的改进版，而CART是最常用的，因此本文主要介绍CART。  CART首先看下面表格中的示例数据(随机生成，仅供参考)。其中类似年龄，身高，月收入为连续变量，学历，工作为离散变量。  如果把动心视为目标变量，此问题为分类问题。  如果把动心度视为目标变量，此问题为回归问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jucreadme">
-<meta property="og:url" content="https://kangchou001.cn/2020/07/07/jucreadme/index.html">
+<meta property="og:title" content="决策树理论">
+<meta property="og:url" content="https://kangchou001.cn/2020/07/08/jucreadme/index.html">
 <meta property="og:site_name" content="诗和远方biubiu">
-<meta property="og:description" content="title:  决策树理论categories: 决策树comments: truedate: 2020-07-08 22:57:06tags: [算法,决策树]photos:   “https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;07&#x2F;08&#x2F;UEPyTg.png“  Decision Tree Theory决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：  C4.5是ID3">
+<meta property="og:description" content="Decision Tree Theory决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：  C4.5是ID3的改进版，而CART是最常用的，因此本文主要介绍CART。  CART首先看下面表格中的示例数据(随机生成，仅供参考)。其中类似年龄，身高，月收入为连续变量，学历，工作为离散变量。  如果把动心视为目标变量，此问题为分类问题。  如果把动心度视为目标变量，此问题为回归问题">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/decisiontree.png">
-<meta property="og:image" content="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/Gtree.png">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5Cbg_white&space;%5Cfn_phv&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BG(S)%7D&space;=&space;%5Cmathbf%7B1%7D&space;-&space;%5Csum_%7B%5Cmathrm%7Bi%7D=1%7D%5E%7B%5Cmathrm%7Bm%7D%7D(%5Cfrac%7B%7C%5Cmathbf%7BS_%7Bi%7D%7D%7C%7D%7B%7C%5Cmathbf%7BS%7D%7C%7D)%5E%7B2%7D%7D">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5Cbg_white&space;%5Cfn_phv&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BG(S)%7D&space;=&space;%5Cmathbf%7B2%7D%5Cmathbf%7BP(k)%7D*(%5Cmathbf%7B1%7D-%5Cmathbf%7BP(k)%7D)%7D">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5Cbg_white&space;%5Cfn_phv&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BG(S,&space;R&space;)%7D&space;=&space;%5Csum_%7B%5Cmathrm%7B%5Cmathbf%7Bj=1%7D%7D%7D%5E%7B%5Cmathrm%7B%5Cmathbf%7Bn%7D%7D%7D%5Cfrac%7B%5Cmathbf%7B%7CSj%7C%7D%7D%7B%5Cmathbf%7B%7CS%7C%7D%7D%5Cmathbf%7BG(Sj)%7D%7D">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cboldsymbol%7BMg1=%5BN,&space;N,&space;N,Y,Y,Y%5D%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cboldsymbol%7BMg2=%5BN,&space;N,N,Y%5D%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BG(D,gongzuo=guoqi)=%5Cfrac%7B%7CMg1%7C%7D%7B%7CD%7C%7DG(Mg1)&plus;%5Cfrac%7B%7CMg2%7C%7D%7B%7CD%7C%7DG(Mg2)%7D%7D%5C%5C&space;%5C%5C&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;=%7B%5Ccolor%7BBlue%7D&space;%5Cboldsymbol%7B%5Cfrac%7B6%7D%7B10%7D%5B1-(%5Cfrac%7B3%7D%7B6%7D)%5E%7B2%7D-(%5Cfrac%7B3%7D%7B6%7D)%5E%7B2%7D%5D&plus;%5Cfrac%7B4%7D%7B10%7D%5B1-(%5Cfrac%7B3%7D%7B4%7D)%5E%7B2%7D-(%5Cfrac%7B1%7D%7B4%7D)%5E%7B2%7D%5D%7D%7D%5C%5C&space;%5C%5C&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;=%7B%5Ccolor%7BBlue%7D&space;%5Cboldsymbol%7B0.45%7D%7D">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cboldsymbol%7BMn9=%5BN,&space;N,&space;N,Y%5D%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cboldsymbol%7BMm9=%5BN,&space;Y,Y,N,N,Y%5D%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BG(D,yueshouru%3C%3E9)=%5Cfrac%7B%7CMn9%7C%7D%7B%7CD%7C%7DG(Mn9)&plus;%5Cfrac%7B%7CMm9%7C%7D%7B%7CD%7C%7DG(Mm9)%7D%7D%5C%5C&space;%5C%5C&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;=%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7B%5Cfrac%7B4%7D%7B10%7D%5B1-(%5Cfrac%7B3%7D%7B4%7D)%5E%7B2%7D-(%5Cfrac%7B1%7D%7B4%7D)%5E%7B2%7D%5D&space;&plus;&space;%5Cfrac%7B6%7D%7B10%7D%5B1-(%5Cfrac%7B3%7D%7B6%7D)%5E%7B2%7D-(%5Cfrac%7B3%7D%7B6%7D)%5E%7B2%7D%5D%7D%7D%5C%5C&space;%5C%5C&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;=%7B%5Ccolor%7BBlue%7D&space;%5Cboldsymbol%7B0.45%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BG(D,yueshouru%3C%3E16)%7D%7D=%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7B%5Cfrac%7B9%7D%7B10%7D%5B1-(%5Cfrac%7B5%7D%7B9%7D)%5E%7B2%7D-(%5Cfrac%7B4%7D%7B9%7D)%5E%7B2%7D%5D&space;&plus;&space;%5Cfrac%7B1%7D%7B10%7D%5B1-(%5Cfrac%7B1%7D%7B1%7D)%5E%7B2%7D-(%5Cfrac%7B0%7D%7B1%7D)%5E%7B2%7D%5D%7D%7D%5C%5C&space;%5C%5C&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;=%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7B0.44%7D%7D%5C%5C">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMSE(sp)=%5Cfrac%7B%7CMsp1%7C%7D%7B%7CD%7C%7D%5Csqrt%5B2%5D%7B%5Csum_%7Bdi%5Cin&space;Msp1%7D(di-asp1)%5E%7B2%7D%7D&plus;&space;%5Cfrac%7B%7CMsp2%7C%7D%7B%7CD%7C%7D%5Csqrt%5B2%5D%7B%5Csum_%7Bdi%5Cin&space;Msp2%7D(di-asp2)%5E%7B2%7D%7D&space;%7D&space;%7D%5C%5C">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMSE(ms)=%5Cfrac%7B%7CMms1%7C%7D%7B%7CD%7C%7D%5Csqrt%5B2%5D%7B%5Csum_%7Bdi%5Cin&space;Mms1%7D(di-ams1)%5E%7B2%7D%7D&plus;&space;%5Cfrac%7B%7CMms2%7C%7D%7B%7CD%7C%7D%5Csqrt%5B2%5D%7B%5Csum_%7Bdi%5Cin&space;Mms2%7D(di-ams2)%5E%7B2%7D%7D&space;%7D&space;%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMSE(dr)=%5Cfrac%7B%7CMdr1%7C%7D%7B%7CD%7C%7D%5Csqrt%5B2%5D%7B%5Csum_%7Bdi%5Cin&space;Mdr1%7D(di-adr1)%5E%7B2%7D%7D&plus;&space;%5Cfrac%7B%7CMdr2%7C%7D%7B%7CD%7C%7D%5Csqrt%5B2%5D%7B%5Csum_%7Bdi%5Cin&space;Mdr2%7D(di-adr2)%5E%7B2%7D%7D&space;%7D&space;%7D%5C%5C">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMsp1=%5B0.56,0.52%5D,%7D%7D&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7Basp1=0.54%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMsp2=%5B0.49,0.76,0.67,0.58,0.60,0.73,0.40,0.88%5D,%7D%7D&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7Basp2=0.63875%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMSE(sp)=%5Cfrac%7B2%7D%7B10%7D&space;%5Csqrt%5B2%5D%7B(%5B(0.56-0.54)%5E%7B2%7D&plus;(0.52-0.54)%5E%7B2%7D%5D)%7D%7D%7D%5C%5C&space;%5C%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7B%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;&plus;&space;%5Cfrac%7B8%7D%7B10%7D&space;%5Csqrt%5B2%5D%7B(%5B(0.49-0.63875)%5E%7B2%7D&plus;%5Ccdots&space;&plus;(0.88-0.63875)%5E%7B2%7D%5D)%7D%7D%7D%5C%5C&space;%5C%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7B%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots=0.005657&plus;&space;0.081557%7D%7D%5C%5C&space;%5C%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7B%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots=0.087214%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMSE(ms)=0.21404%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMSE(dr)=0.229774%7D%7D%5C%5C">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMn169.5=%5B0.58,&space;0.60%5D,%7D%7D&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7Ban169.5=0.59%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMm169.5=%5B0.56,&space;0.49,&space;0.76,&space;0.67,&space;0.73,&space;0.40,&space;0.52,&space;0.88%5D,%7D%7D&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7Bam169.5=0.62625%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMSE(169.5)=%5Cfrac%7B2%7D%7B10%7D&space;%5Csqrt%5B2%5D%7B(%5B(0.58-0.59)%5E%7B2%7D&plus;(0.60-0.59)%5E%7B2%7D%5D)%7D%7D%7D%5C%5C&space;%5C%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7B%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;&plus;&space;%5Cfrac%7B8%7D%7B10%7D&space;%5Csqrt%5B2%5D%7B(%5B(0.56-0.62625)%5E%7B2%7D&plus;%5Ccdots&space;&plus;(0.88-0.62625)%5E%7B2%7D%5D)%7D%7D%7D%5C%5C&space;%5C%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7B%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots=0.002828&space;&plus;0.084944&space;%7D%7D%5C%5C&space;%5C%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7B%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots=0.087772%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMSE(174)=0.20636%7D%7D%5C%5C&space;%5C%5C&space;%7B%5Ccolor%7BBlue%7D&space;%5Cmathbf%7BMSE(177.5)=0.360627%7D%7D%5C%5C">
-<meta property="og:image" content="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/exam_tree.png">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5Cdpi%7B100%7D&space;%5C%5CE(T0%5C_Son%5C_t1)=%5Cfrac%7B20%7D%7B40%7D*%5Cfrac%7B40%7D%7B40%7D=%5Cfrac%7B20%7D%7B40%7D%5C%5C&space;%5C%5CE(T0%5C_Fa%5C_t1)=%7B%5Ccolor%7BRed%7D&space;%5Cfrac%7B1%7D%7B10%7D*%5Cfrac%7B10%7D%7B40%7D%5Bt4%5D%7D&plus;%7B%5Ccolor%7BTeal%7D&space;%5Cfrac%7B2%7D%7B9%7D*%5Cfrac%7B9%7D%7B40%7D%5Bt5%5D%7D&plus;%7B%5Ccolor%7BBlue%7D&space;%5Cfrac%7B2%7D%7B12%7D*%5Cfrac%7B12%7D%7B40%7D%5Bt6%5D%7D%5C%5C&space;%5C%5C%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;%5Ccdots&space;&plus;%7B%5Ccolor%7BMagenta%7D&space;%5Cfrac%7B0%7D%7B6%7D*%5Cfrac%7B6%7D%7B40%7D%5Bt8%5D%7D&plus;%7B%5Ccolor%7BOrange%7D&space;%5Cfrac%7B2%7D%7B3%7D*%5Cfrac%7B3%7D%7B40%7D%5Bt9%5D%7D=%5Cfrac%7B7%7D%7B40%7D%5C%5C&space;%5C%5Cg(t1)=%5Cfrac%7B%5Cfrac%7B20%7D%7B40%7D-%5Cfrac%7B7%7D%7B40%7D%7D%7B5-1%7D=%5Cfrac%7B13%7D%7B160%7D&space;%5C%5C&space;%5C%5C">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5Cdpi%7B100%7D&space;%5C%5CE(T0%5C_Son%5C_t2)=%5Cfrac%7B8%7D%7B19%7D*%5Cfrac%7B19%7D%7B40%7D=%5Cfrac%7B8%7D%7B40%7D%5C%5C&space;%5C%5CE(T0%5C_Fa%5C_t2)=%7B%5Ccolor%7BRed%7D&space;%5Cfrac%7B1%7D%7B10%7D*%5Cfrac%7B10%7D%7B40%7D%5Bt4%5D%7D&plus;%7B%5Ccolor%7BTeal%7D&space;%5Cfrac%7B2%7D%7B9%7D*%5Cfrac%7B9%7D%7B40%7D%5Bt5%5D%7D=%5Cfrac%7B3%7D%7B40%7D%5C%5C&space;%5C%5Cg(t2)=%5Cfrac%7B%5Cfrac%7B8%7D%7B40%7D-%5Cfrac%7B3%7D%7B40%7D%7D%7B2-1%7D=%5Cfrac%7B1%7D%7B8%7D%5C%5C">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5Cdpi%7B100%7D&space;%5C%5CE(T0%5C_Son%5C_t3)=%5Cfrac%7B9%7D%7B21%7D*%5Cfrac%7B21%7D%7B40%7D=%5Cfrac%7B9%7D%7B40%7D%5C%5C&space;%5C%5CE(T0%5C_Fa%5C_t3)=%7B%5Ccolor%7BBlue%7D&space;%5Cfrac%7B2%7D%7B12%7D*%5Cfrac%7B12%7D%7B40%7D%5Bt6%5D%7D&plus;%7B%5Ccolor%7BMagenta%7D&space;%5Cfrac%7B0%7D%7B6%7D*%5Cfrac%7B6%7D%7B40%7D%5Bt8%5D%7D&space;&plus;%7B%5Ccolor%7BOrange%7D&space;%5Cfrac%7B1%7D%7B3%7D*%5Cfrac%7B3%7D%7B40%7D%5Bt9%5D%7D&space;=%5Cfrac%7B3%7D%7B40%7D%5C%5C&space;%5C%5Cg(t3)=%5Cfrac%7B%5Cfrac%7B9%7D%7B40%7D-%5Cfrac%7B3%7D%7B40%7D%7D%7B3-1%7D=%5Cfrac%7B3%7D%7B40%7D">
-<meta property="og:image" content="http://latex.codecogs.com/gif.latex?%5Cdpi%7B100%7D&space;%5C%5CE(T0%5C_Son%5C_t7)=%5Cfrac%7B2%7D%7B9%7D*%5Cfrac%7B9%7D%7B40%7D=%5Cfrac%7B2%7D%7B40%7D%5C%5C&space;%5C%5CE(T0%5C_Fa%5C_t7)=%7B%5Ccolor%7BMagenta%7D&space;%5Cfrac%7B0%7D%7B6%7D*%5Cfrac%7B6%7D%7B40%7D%5Bt8%5D%7D&space;&plus;%7B%5Ccolor%7BOrange%7D&space;%5Cfrac%7B1%7D%7B3%7D*%5Cfrac%7B3%7D%7B40%7D%5Bt9%5D%7D&space;=%5Cfrac%7B1%7D%7B40%7D%5C%5C&space;%5C%5Cg(t7)=%5Cfrac%7B%5Cfrac%7B2%7D%7B40%7D-%5Cfrac%7B1%7D%7B40%7D%7D%7B2-1%7D=%5Cfrac%7B1%7D%7B40%7D">
-<meta property="og:image" content="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/tree_t1.png">
-<meta property="article:published_time" content="2020-07-07T15:53:20.642Z">
-<meta property="article:modified_time" content="2020-07-07T16:11:41.533Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEkZTS.png">
+<meta property="article:published_time" content="2020-07-08T14:57:06.000Z">
+<meta property="article:modified_time" content="2020-07-07T16:34:49.415Z">
 <meta property="article:author" content="KangChou">
-<meta property="article:tag" content="人工智能算法，Python基础知识、数据分析、数据可视化、大数据、TensorFlow和神经网络等">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="决策树">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/decisiontree.png">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/08/UEkZTS.png">
   
   <link rel="icon" href="/css/images/favicon.ico">
   
@@ -204,12 +191,22 @@ var themeMenus = {};
 <article id="post-jucreadme" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="https://s1.ax1x.com/2020/07/08/UEkZTS.png" target="_blank" rel="gallery_ckcc5pats0028tsurbput2j9a noopener">
+        <img src="https://s1.ax1x.com/2020/07/08/UEkZTS.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
     
       <header class="article-header">
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      jucreadme
+      决策树理论
     </h1>
   
 
@@ -217,8 +214,8 @@ var themeMenus = {};
     
     <div class="article-meta">
       
-	Posted on <a href="/2020/07/07/jucreadme/" class="article-date">
-	  <time datetime="2020-07-07T15:53:20.642Z" itemprop="datePublished">七月 7, 2020</time>
+	Posted on <a href="/2020/07/08/jucreadme/" class="article-date">
+	  <time datetime="2020-07-08T14:57:06.000Z" itemprop="datePublished">七月 8, 2020</time>
 	</a>
 
       
@@ -229,11 +226,7 @@ var themeMenus = {};
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title:  决策树理论<br>categories: 决策树<br>comments: true<br>date: 2020-07-08 22:57:06<br>tags: [算法,决策树]<br>photos: </p>
-<ul>
-<li>“<a href="https://s1.ax1x.com/2020/07/08/UEPyTg.png" target="_blank" rel="noopener">https://s1.ax1x.com/2020/07/08/UEPyTg.png</a>“</li>
-</ul>
-<h1 id="Decision-Tree-Theory"><a href="#Decision-Tree-Theory" class="headerlink" title="Decision Tree Theory"></a>Decision Tree Theory</h1><p>决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：</p>
+        <h1 id="Decision-Tree-Theory"><a href="#Decision-Tree-Theory" class="headerlink" title="Decision Tree Theory"></a>Decision Tree Theory</h1><p>决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：</p>
 <p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/decisiontree.png" alt="image"></p>
 <p>C4.5是ID3的改进版，而CART是最常用的，因此本文主要介绍CART。</p>
 <hr>
@@ -533,7 +526,13 @@ var themeMenus = {};
     </div>
     <footer class="entry-meta entry-footer">
       
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E5%86%B3%E7%AD%96%E6%A0%91/">决策树</a>
+
       
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
       
         <div id="donation_div"></div>
 
@@ -560,7 +559,7 @@ var a = new Donate({
           </li>
           <li class="post-copyright-link">
           <strong>文章链接:  </strong>
-          <a href="/2020/07/07/jucreadme/" target="_blank" title="jucreadme">https://kangchou001.cn/2020/07/07/jucreadme/</a>
+          <a href="/2020/07/08/jucreadme/" target="_blank" title="决策树理论">https://kangchou001.cn/2020/07/08/jucreadme/</a>
           </li>
           <li class="post-copyright-license">
             <strong>版权声明:   </strong>
@@ -604,11 +603,11 @@ var a = new Donate({
     
 <nav id="article-nav">
   
-    <a href="/2020/07/07/carreadme/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/07/08/fig/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          carreadme
+          图像处理
         
       </div>
     </a>
