@@ -387,6 +387,82 @@
       </tags>
   </entry>
   <entry>
+    <title>CART回归树</title>
+    <url>/2020/07/08/carreadme/</url>
+    <content><![CDATA[<h1 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
+<li><p>数据文件</p>
+<ul>
+<li><p>北京市Pm2.5数据集：<a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data#" target="_blank" rel="noopener">数据下载以及说明</a></p>
+</li>
+<li><p>数据文件：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/PRSA_data_2010.1.1-2014.12.31.csv" target="_blank" rel="noopener">PRSA_data_2010.1.1-2014.12.31.csv</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>基于不同库的代码文件</p>
+<ul>
+<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_DT_Regression.py" target="_blank" rel="noopener">AnFany_DT_Regression.py</a></li>
+</ul>
+</li>
+</ul>
+<pre><code> - **Sklearn**：[Sklearn_DT_Regression.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Sklearn_DT_Regression.py)
+</code></pre><ul>
+<li><p>辅助代码文件</p>
+<ul>
+<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Data_DT_Regression.py" target="_blank" rel="noopener">Data_DT_Regression.py</a></li>
+</ul>
+</li>
+</ul>
+<pre><code>  - 绘制树的程序：[AnFany_pm2.5_Tree.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_pm2.5_Tree.py)
+</code></pre><ul>
+<li><p>北京市Pm2.5数据集结果对比</p>
+   <a id="more"></a>
+<ul>
+<li><p><strong>AnFany</strong></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/adult_23.png" alt="image"></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_23.png" alt="image"></p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>  - **Sklearn**
+
+  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_pm2.5.png)
+
+  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_cure.png)
+</code></pre><ul>
+<li><p>示例 </p>
+<ul>
+<li><strong>y=sin(x1) + cos(x2)</strong></li>
+</ul>
+<ul>
+<li><p><strong>AnFany</strong></p>
+<ul>
+<li>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_example_DT.py" target="_blank" rel="noopener">AnFany_example_DT.py</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>   - 结果：
+
+     + **不同初始深度**
+
+      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/shili_mse.png)
+
+     + **拟合对比**
+
+      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_shili.png)
+</code></pre>]]></content>
+      <categories>
+        <category>决策树</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CART分类树</title>
     <url>/2020/07/08/cart2/</url>
     <content><![CDATA[<h1 id="CART分类树"><a href="#CART分类树" class="headerlink" title="CART分类树"></a>CART分类树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
@@ -619,82 +695,6 @@
 ]]></content>
       <categories>
         <category>神经网络</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CART回归树</title>
-    <url>/2020/07/08/carreadme/</url>
-    <content><![CDATA[<h1 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
-<li><p>数据文件</p>
-<ul>
-<li><p>北京市Pm2.5数据集：<a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data#" target="_blank" rel="noopener">数据下载以及说明</a></p>
-</li>
-<li><p>数据文件：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/PRSA_data_2010.1.1-2014.12.31.csv" target="_blank" rel="noopener">PRSA_data_2010.1.1-2014.12.31.csv</a></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>基于不同库的代码文件</p>
-<ul>
-<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_DT_Regression.py" target="_blank" rel="noopener">AnFany_DT_Regression.py</a></li>
-</ul>
-</li>
-</ul>
-<pre><code> - **Sklearn**：[Sklearn_DT_Regression.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Sklearn_DT_Regression.py)
-</code></pre><ul>
-<li><p>辅助代码文件</p>
-<ul>
-<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Data_DT_Regression.py" target="_blank" rel="noopener">Data_DT_Regression.py</a></li>
-</ul>
-</li>
-</ul>
-<pre><code>  - 绘制树的程序：[AnFany_pm2.5_Tree.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_pm2.5_Tree.py)
-</code></pre><ul>
-<li><p>北京市Pm2.5数据集结果对比</p>
-   <a id="more"></a>
-<ul>
-<li><p><strong>AnFany</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/adult_23.png" alt="image"></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_23.png" alt="image"></p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>  - **Sklearn**
-
-  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_pm2.5.png)
-
-  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_cure.png)
-</code></pre><ul>
-<li><p>示例 </p>
-<ul>
-<li><strong>y=sin(x1) + cos(x2)</strong></li>
-</ul>
-<ul>
-<li><p><strong>AnFany</strong></p>
-<ul>
-<li>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_example_DT.py" target="_blank" rel="noopener">AnFany_example_DT.py</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>   - 结果：
-
-     + **不同初始深度**
-
-      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/shili_mse.png)
-
-     + **拟合对比**
-
-      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_shili.png)
-</code></pre>]]></content>
-      <categories>
-        <category>决策树</category>
       </categories>
       <tags>
         <tag>算法</tag>
@@ -1348,6 +1348,23 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo-hiero主题设置文字大小</title>
+    <url>/2020/04/05/hiero0/</url>
+    <content><![CDATA[<p>字体大小和字体你可以在source/css/_variables.styl文件中60行左右对齐，这里是大部分字体但不是全部哈，细节的字体可能还需要你具体看，不一定都在这里面哈！</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block-margin &#x3D; 50px</span><br><span class="line">article-padding &#x3D; 20px   #文章字体</span><br><span class="line">mobile-nav-width &#x3D; 280px</span><br><span class="line">main-column &#x3D; 8</span><br><span class="line">sidebar-column &#x3D; 4</span><br></pre></td></tr></table></figure>
+<p>截图如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15863171-457c800cf43aa63c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><a href="http://kangchou001.cn/">可参考我的博客</a></p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>安装和使用桌面版Github (2020-03-29)</title>
     <url>/2020/04/05/hiero1/</url>
     <content><![CDATA[<h2 id="1-下载安装GitHub-Desktop"><a href="#1-下载安装GitHub-Desktop" class="headerlink" title="1.下载安装GitHub Desktop"></a>1.下载安装GitHub Desktop</h2><p>GitHub桌面版下载地址：<a href="https://desktop.github.com/" target="_blank" rel="noopener">https://desktop.github.com/</a><br><img src="https://upload-images.jianshu.io/upload_images/15863171-22f93f6e82f20263.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image1.png"></p>
@@ -1404,23 +1421,6 @@
       <tags>
         <tag>博客</tag>
         <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo-hiero主题设置文字大小</title>
-    <url>/2020/04/05/hiero0/</url>
-    <content><![CDATA[<p>字体大小和字体你可以在source/css/_variables.styl文件中60行左右对齐，这里是大部分字体但不是全部哈，细节的字体可能还需要你具体看，不一定都在这里面哈！</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block-margin &#x3D; 50px</span><br><span class="line">article-padding &#x3D; 20px   #文章字体</span><br><span class="line">mobile-nav-width &#x3D; 280px</span><br><span class="line">main-column &#x3D; 8</span><br><span class="line">sidebar-column &#x3D; 4</span><br></pre></td></tr></table></figure>
-<p>截图如下：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/15863171-457c800cf43aa63c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p><a href="http://kangchou001.cn/">可参考我的博客</a></p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1941,6 +1941,13 @@
     <title>hexo博客使用Markdown语法</title>
     <url>/2019/10/05/Markdown/</url>
     <content><![CDATA[<p><a href="https://wizardforcel.gitbooks.io/markdown-simple-world/0.html" target="_blank" rel="noopener">这里有详细的Markdown语法教程</a></p>
+<p>不管用什么编辑 Markdown 文件，最后生成的 md 文件放到 <a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io/source/_posts">http://xxxx.github.io/source/_posts</a> 文件夹或其子文件夹中即可，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo+Next配置Blog # 这是标题</span><br><span class="line">categories:  # 这里写的分类会自动汇集到 categories 页面上，分类可以多级</span><br><span class="line">- 算法 # 一级分类</span><br><span class="line">- 编程 # 二级分类 </span><br><span class="line">tags:   # 这里写的标签会自动汇集到 tags 页面上</span><br><span class="line">- Hexo # 可配置多个标签，注意格式</span><br><span class="line">- Blog</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## This is my first blog!</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>文字居中（写博客时）</strong></p>
+<p>在你博客文章中需要居中处加上下面这段代码即可，中间的文字改成你所需要的文字</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;blockquote class&#x3D;&quot;blockquote-center&quot;&gt;</span><br><span class="line">这里可以写多行文字</span><br><span class="line">&lt;&#x2F;blockquote&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
 <h2 id="简要介绍MarkdownPad-2"><a href="#简要介绍MarkdownPad-2" class="headerlink" title="简要介绍MarkdownPad 2"></a>简要介绍MarkdownPad 2</h2><p><strong>MarkdownPad</strong> 是 Windows 平台上一个功能完善的 Markdown 编辑器。</p>
 <h3 id="专为-Markdown-打造"><a href="#专为-Markdown-打造" class="headerlink" title="专为 Markdown 打造"></a>专为 Markdown 打造</h3><p>提供了语法高亮和方便的快捷键功能，给您最好的 Markdown 编写体验。<br><a id="more"></a><br>来试一下：</p>
 <ul>
@@ -2118,6 +2125,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Sublime Text 3 最新注册码（ 亲测可用2020年4月1日更新）</title>
+    <url>/2019/10/05/sublimetxtpass/</url>
+    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/15863171-7749f7682034b964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15863171-418aadb6cbc16b19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="“废话不多说直接上干货”"><a href="#“废话不多说直接上干货”" class="headerlink" title="“废话不多说直接上干货”"></a>“废话不多说直接上干货”</h4><p><a href="https://github.com/KangChou/Sublime-Text-3--s-latest-activation-code" target="_blank" rel="noopener">Github原文链接</a></p>
+<h3 id="备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整"><a href="#备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整" class="headerlink" title="备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整"></a>备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整</h3><p>具体步骤请参考：<br><a href="https://www.jianshu.com/p/b6fae22fee0f" target="_blank" rel="noopener">https://www.jianshu.com/p/b6fae22fee0f</a><br>打开sublime text ,选择help—&gt;enter license，将下面的代码内容复制到输入框中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZYNGA INC.</span><br><span class="line">50 User License</span><br><span class="line">EA7E-811825</span><br><span class="line">927BA117 84C9300F 4A0CCBC4 34A56B44</span><br><span class="line">985E4562 59F2B63B CCCFF92F 0E646B83</span><br><span class="line">0FD6487D 1507AE29 9CC4F9F5 0A6F32E3</span><br><span class="line">0343D868 C18E2CD5 27641A71 25475648</span><br><span class="line">309705B3 E468DDC4 1B766A18 7952D28C</span><br><span class="line">E627DDBA 960A2153 69A2D98A C87C0607</span><br><span class="line">45DC6049 8C04EC29 D18DFA40 442C680B</span><br><span class="line"></span><br><span class="line">1342224D 44D90641 33A3B9F2 46AADB8F</span><br></pre></td></tr></table></figure><br><a id="more"></a><br>执行结果解题如下：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-68b125f633ef4e97.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="激活成功"></p>
+<h3 id="备注2：想永久激活那就请别更新，具体操作请查考上面的链接"><a href="#备注2：想永久激活那就请别更新，具体操作请查考上面的链接" class="headerlink" title="备注2：想永久激活那就请别更新，具体操作请查考上面的链接"></a>备注2：想永久激活那就请别更新，具体操作请查考上面的链接</h3><h3 id="附件：Sublime-Text2-最新注册码请点击下面的蓝色链接"><a href="#附件：Sublime-Text2-最新注册码请点击下面的蓝色链接" class="headerlink" title="附件：Sublime Text2  最新注册码请点击下面的蓝色链接"></a>附件：Sublime Text2  最新注册码请点击下面的蓝色链接</h3><p><a href="https://www.jianshu.com/p/b6fae22fee0f" target="_blank" rel="noopener">Sublime Text  最新注册码（ 亲测可用2019年8月24日更新）</a></p>
+<h4 id="获取更多学习资源请扫码以下公众号二维码进行关注"><a href="#获取更多学习资源请扫码以下公众号二维码进行关注" class="headerlink" title="获取更多学习资源请扫码以下公众号二维码进行关注"></a>获取更多学习资源请扫码以下公众号二维码进行关注</h4><p><img src="https://upload-images.jianshu.io/upload_images/15863171-707fa71de174ba5f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="AI科技与算法编程"></p>
+]]></content>
+      <categories>
+        <category>激活与安装</category>
+      </categories>
+      <tags>
+        <tag>Sublime Text</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>互联网学习资源</title>
     <url>/2019/10/05/pagebegin/</url>
     <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/15863171-7749f7682034b964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
@@ -2179,23 +2203,6 @@
       </categories>
       <tags>
         <tag>资料</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Sublime Text 3 最新注册码（ 亲测可用2020年4月1日更新）</title>
-    <url>/2019/10/05/sublimetxtpass/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/15863171-7749f7682034b964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/15863171-418aadb6cbc16b19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="“废话不多说直接上干货”"><a href="#“废话不多说直接上干货”" class="headerlink" title="“废话不多说直接上干货”"></a>“废话不多说直接上干货”</h4><p><a href="https://github.com/KangChou/Sublime-Text-3--s-latest-activation-code" target="_blank" rel="noopener">Github原文链接</a></p>
-<h3 id="备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整"><a href="#备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整" class="headerlink" title="备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整"></a>备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整</h3><p>具体步骤请参考：<br><a href="https://www.jianshu.com/p/b6fae22fee0f" target="_blank" rel="noopener">https://www.jianshu.com/p/b6fae22fee0f</a><br>打开sublime text ,选择help—&gt;enter license，将下面的代码内容复制到输入框中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZYNGA INC.</span><br><span class="line">50 User License</span><br><span class="line">EA7E-811825</span><br><span class="line">927BA117 84C9300F 4A0CCBC4 34A56B44</span><br><span class="line">985E4562 59F2B63B CCCFF92F 0E646B83</span><br><span class="line">0FD6487D 1507AE29 9CC4F9F5 0A6F32E3</span><br><span class="line">0343D868 C18E2CD5 27641A71 25475648</span><br><span class="line">309705B3 E468DDC4 1B766A18 7952D28C</span><br><span class="line">E627DDBA 960A2153 69A2D98A C87C0607</span><br><span class="line">45DC6049 8C04EC29 D18DFA40 442C680B</span><br><span class="line"></span><br><span class="line">1342224D 44D90641 33A3B9F2 46AADB8F</span><br></pre></td></tr></table></figure><br><a id="more"></a><br>执行结果解题如下：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-68b125f633ef4e97.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="激活成功"></p>
-<h3 id="备注2：想永久激活那就请别更新，具体操作请查考上面的链接"><a href="#备注2：想永久激活那就请别更新，具体操作请查考上面的链接" class="headerlink" title="备注2：想永久激活那就请别更新，具体操作请查考上面的链接"></a>备注2：想永久激活那就请别更新，具体操作请查考上面的链接</h3><h3 id="附件：Sublime-Text2-最新注册码请点击下面的蓝色链接"><a href="#附件：Sublime-Text2-最新注册码请点击下面的蓝色链接" class="headerlink" title="附件：Sublime Text2  最新注册码请点击下面的蓝色链接"></a>附件：Sublime Text2  最新注册码请点击下面的蓝色链接</h3><p><a href="https://www.jianshu.com/p/b6fae22fee0f" target="_blank" rel="noopener">Sublime Text  最新注册码（ 亲测可用2019年8月24日更新）</a></p>
-<h4 id="获取更多学习资源请扫码以下公众号二维码进行关注"><a href="#获取更多学习资源请扫码以下公众号二维码进行关注" class="headerlink" title="获取更多学习资源请扫码以下公众号二维码进行关注"></a>获取更多学习资源请扫码以下公众号二维码进行关注</h4><p><img src="https://upload-images.jianshu.io/upload_images/15863171-707fa71de174ba5f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="AI科技与算法编程"></p>
-]]></content>
-      <categories>
-        <category>激活与安装</category>
-      </categories>
-      <tags>
-        <tag>Sublime Text</tag>
       </tags>
   </entry>
 </search>
