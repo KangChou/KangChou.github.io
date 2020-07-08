@@ -535,42 +535,6 @@
       </tags>
   </entry>
   <entry>
-    <title>卷积神经网络实现</title>
-    <url>/2020/07/08/cnn_realize/</url>
-    <content><![CDATA[<h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
-<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
-<a id="more"></a>
-<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
-<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
-<li><p><strong>正向传播</strong></p>
-<ul>
-<li><p><strong>输入层INPUT</strong></p>
-<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
-</li>
-<li><p><strong>卷积层CONV</strong>      </p>
-<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
-<li><strong>正向传播</strong></li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-]]></content>
-      <categories>
-        <category>神经网络</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>卷积神经网络</title>
     <url>/2020/07/08/cnn/</url>
     <content><![CDATA[<h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>对于一个图片而言，假设其数字矩阵维度为(<strong>3,320,240</strong>)，其中<strong>3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度</strong>。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。</p>
@@ -693,6 +657,42 @@
 
     上面的公式只是说明了卷积神经网络中梯度是如何计算的。但是并不能利用其编程实现，对于更为一般的梯度计算，[参见](https://grzegorzgwardys.wordpress.com/2016/04/22/8/#unique-identifier2)   
 </code></pre>]]></content>
+      <categories>
+        <category>神经网络</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>卷积神经网络实现</title>
+    <url>/2020/07/08/cnn_realize/</url>
+    <content><![CDATA[<h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
+<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
+<a id="more"></a>
+<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
+<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
+<li><p><strong>正向传播</strong></p>
+<ul>
+<li><p><strong>输入层INPUT</strong></p>
+<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
+</li>
+<li><p><strong>卷积层CONV</strong>      </p>
+<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>反向传播</strong></li>
+</ul>
+<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
+<li><strong>正向传播</strong></li>
+</ul>
+<ul>
+<li><strong>反向传播</strong></li>
+</ul>
+]]></content>
       <categories>
         <category>神经网络</category>
       </categories>
@@ -1197,6 +1197,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;index页面中每篇文章相隔的那条线</span><br><span class="line">.posts-expand &#123;</span><br><span class="line">  .post-eof &#123;</span><br><span class="line">    display: block;</span><br><span class="line">    margin: $post-eof-margin-top auto $post-eof-margin-bottom;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 3px;</span><br><span class="line">    background: $grey-light;</span><br><span class="line">    text-align: center;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="字体、颜色等设置"><a href="#字体、颜色等设置" class="headerlink" title="字体、颜色等设置"></a>字体、颜色等设置</h4><p>在\themes\next\source\css_variables\custom.styl 文件中添加以下代码。具体功能我已经做了注释</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 标题，修改成你期望的字体族</span><br><span class="line">$font-family-headings &#x3D; Georgia, sans</span><br><span class="line">&#x2F;&#x2F; 修改成你期望的字体族</span><br><span class="line">$font-family-base &#x3D; &quot;Microsoft YaHei&quot;, Verdana, sans-serif</span><br><span class="line">&#x2F;&#x2F; 代码字体</span><br><span class="line">$code-font-family &#x3D; &quot;Input Mono&quot;, &quot;PT Mono&quot;, Consolas, Monaco, Menlo, monospace</span><br><span class="line">&#x2F;&#x2F; 正文字体的大小</span><br><span class="line">$font-size-base &#x3D; 16px</span><br><span class="line">&#x2F;&#x2F; 代码字体的大小</span><br><span class="line">$code-font-size &#x3D; 14px</span><br><span class="line">&#x2F;&#x2F; 代码块颜色</span><br><span class="line">$code-foreground &#x3D; #dd0055</span><br><span class="line">&#x2F;&#x2F; Background color for &lt;body&gt;</span><br><span class="line">$body-bg-color &#x3D; #e7e5dc  &#x2F;&#x2F;theme mist use #fdfdfd</span><br><span class="line">&#x2F;&#x2F; text-color</span><br><span class="line">$text-color &#x3D; #353535</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.jianshu.com/p/e8e5addbbcfd" target="_blank" rel="noopener">鸣谢文献</a></p>
 <p>​                                                                          欢迎关注我的公众号</p>
 <p><img src="https://pic2.zhimg.com/80/v2-73a30c3faecaef3337cbba516a9a66ed_720w.jpg" alt="img"></p>
 ]]></content>
@@ -1630,23 +1631,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决hexo-theme-hiero博客主页打开后无法显示分类内容的问题</title>
-    <url>/2020/04/05/hiero6/</url>
-    <content><![CDATA[<p>将layout: “categories”添加到分类页面中，而不是type: “categories”<br>类似的情况可以解决标签问题….</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2020-04-07 21:33:34</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>问题描述：<br>如图（文字是因为当时没有解决的办法不得不加的）：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-91ba0c0f69383971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>按照以上修改以后刷新页面如下：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/15863171-cfdb1d691fee4f33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一招解决给hexo博客添加版权声明的方法</title>
     <url>/2020/04/05/hiero5/</url>
     <content><![CDATA[<p>今天更换了新的Hexo主题：<br><a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank" rel="noopener">hexo-theme-hiero</a></p>
@@ -1666,6 +1650,23 @@
 <h1 id="修改主题设置文件"><a href="#修改主题设置文件" class="headerlink" title="修改主题设置文件"></a>修改主题设置文件</h1><p>打开<code>themes\hiker\_config.yml</code>,添加以下内容。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#版权信息</span><br><span class="line">copyright:</span><br><span class="line">    enable: true</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
 <p>引用文献链接：<a href="https://juejin.im/post/5d728f506fb9a06aef090e47" target="_blank" rel="noopener">https://juejin.im/post/5d728f506fb9a06aef090e47</a></p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决hexo-theme-hiero博客主页打开后无法显示分类内容的问题</title>
+    <url>/2020/04/05/hiero6/</url>
+    <content><![CDATA[<p>将layout: “categories”添加到分类页面中，而不是type: “categories”<br>类似的情况可以解决标签问题….</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2020-04-07 21:33:34</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>问题描述：<br>如图（文字是因为当时没有解决的办法不得不加的）：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-91ba0c0f69383971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>按照以上修改以后刷新页面如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15863171-cfdb1d691fee4f33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 ]]></content>
       <categories>
         <category>博客教程</category>
