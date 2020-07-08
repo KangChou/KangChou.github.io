@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>决策树理论 | 诗和远方biubiu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="算法决策树" />
+  
+  
+  
+  
+  <meta name="description" content="Decision Tree Theory决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：  C4.5是ID3的改进版，而CART是最常用的，因此本文主要介绍CART。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="决策树理论">
+<meta property="og:url" content="https://kangchou001.cn/2020/07/08/jucreadme/index.html">
+<meta property="og:site_name" content="诗和远方biubiu">
+<meta property="og:description" content="Decision Tree Theory决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：  C4.5是ID3的改进版，而CART是最常用的，因此本文主要介绍CART。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEkZTS.png">
+<meta property="article:published_time" content="2020-07-08T14:57:06.000Z">
+<meta property="article:modified_time" content="2020-07-07T16:42:49.481Z">
+<meta property="article:author" content="KangChou">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="决策树">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/08/UEkZTS.png">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "首页"; 
+
+  themeMenus["/archives"] = "归档"; 
+
+  themeMenus["/categories/"] = "分类"; 
+
+  themeMenus["/tags"] = "标签"; 
+
+  themeMenus["/about"] = "关于"; 
+
+  themeMenus["/guestbook"] = "留言"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="诗和远方biubiu" rel="home"> 诗和远方biubiu </a>
+            
+          </h1>
+
+          
+            <div class="site-description">本博客致力于分享人工智能算法、Python基础知识、数据分析、TensorFlow和神经网络等学习资料，探讨互联网前沿技术和相关技术研发等。
+有诗才有远方文章征稿：kangsinx@yeah.net
+微信公众号(AI科技与算法编程)：kangsinx</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">归档</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories/">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">关于</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/guestbook">留言</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/blog.gif,css/images/pose.jpg,css/images/pose2.jpg,css/images/pose3.jpg,css/images/pose4.jpg,https://images.wallpaperscraft.com/image/couple_mountains_travel_125490_1280x720.jpg,https://cdn.pixabay.com/photo/2019/05/26/16/43/norway-4230682_1280.jpg".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+<article id="post-jucreadme" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="https://s1.ax1x.com/2020/07/08/UEkZTS.png" target="_blank" rel="gallery_ckcdgccon0027lkur7ch81ht7 noopener">
+        <img src="https://s1.ax1x.com/2020/07/08/UEkZTS.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      决策树理论
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2020/07/08/jucreadme/" class="article-date">
+	  <time datetime="2020-07-08T14:57:06.000Z" itemprop="datePublished">七月 8, 2020</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Decision-Tree-Theory"><a href="#Decision-Tree-Theory" class="headerlink" title="Decision Tree Theory"></a>Decision Tree Theory</h1><p>决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/decisiontree.png" alt="image"></p>
+<p>C4.5是ID3的改进版，而CART是最常用的，因此本文主要介绍CART。</p>
+<a id="more"></a>
+<hr>
+<h3 id="CART"><a href="#CART" class="headerlink" title="CART"></a>CART</h3><p>首先看下面表格中的示例数据(随机生成，仅供参考)。其中类似年龄，身高，月收入为连续变量，学历，工作为离散变量。</p>
+<ul>
+<li><p>如果把<strong>动心</strong>视为目标变量，此问题为<strong>分类问题</strong>。</p>
+</li>
+<li><p>如果把<strong>动心度</strong>视为目标变量，此问题为<strong>回归问题</strong>。</p>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">编号</th>
+<th style="text-align:center">年龄</th>
+<th style="text-align:center">学历</th>
+<th style="text-align:center">工作</th>
+<th style="text-align:center">月收入(k)</th>
+<th style="text-align:center">身高(cm)</th>
+<th style="text-align:center">动心</th>
+<th style="text-align:center">动心度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0001</td>
+<td style="text-align:center">24</td>
+<td style="text-align:center">专科</td>
+<td style="text-align:center">国企</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">175</td>
+<td style="text-align:center"><strong>N</strong></td>
+<td style="text-align:center">0.56</td>
+</tr>
+<tr>
+<td style="text-align:center">0002</td>
+<td style="text-align:center">35</td>
+<td style="text-align:center">博士</td>
+<td style="text-align:center">国企</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center"><strong>N</strong></td>
+<td style="text-align:center">0.49</td>
+</tr>
+<tr>
+<td style="text-align:center">0003</td>
+<td style="text-align:center">27</td>
+<td style="text-align:center">硕士</td>
+<td style="text-align:center">私企</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">173</td>
+<td style="text-align:center"><strong>Y</strong></td>
+<td style="text-align:center">0.76</td>
+</tr>
+<tr>
+<td style="text-align:center">0004</td>
+<td style="text-align:center">23</td>
+<td style="text-align:center">硕士</td>
+<td style="text-align:center">私企</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center"><strong>N</strong></td>
+<td style="text-align:center">0.67</td>
+</tr>
+<tr>
+<td style="text-align:center">0005</td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">硕士</td>
+<td style="text-align:center">国企</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">166</td>
+<td style="text-align:center"><strong>N</strong></td>
+<td style="text-align:center">0.58</td>
+</tr>
+<tr>
+<td style="text-align:center">0006</td>
+<td style="text-align:center">22</td>
+<td style="text-align:center">硕士</td>
+<td style="text-align:center">国企</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">166</td>
+<td style="text-align:center"><strong>Y</strong></td>
+<td style="text-align:center">0.60</td>
+</tr>
+<tr>
+<td style="text-align:center">0007</td>
+<td style="text-align:center">28</td>
+<td style="text-align:center">博士</td>
+<td style="text-align:center">国企</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">175</td>
+<td style="text-align:center"><strong>Y</strong></td>
+<td style="text-align:center">0.73</td>
+</tr>
+<tr>
+<td style="text-align:center">0008</td>
+<td style="text-align:center">38</td>
+<td style="text-align:center">博士</td>
+<td style="text-align:center">私企</td>
+<td style="text-align:center">19</td>
+<td style="text-align:center">180</td>
+<td style="text-align:center"><strong>N</strong></td>
+<td style="text-align:center">0.40</td>
+</tr>
+<tr>
+<td style="text-align:center">0009</td>
+<td style="text-align:center">23</td>
+<td style="text-align:center">专科</td>
+<td style="text-align:center">私企</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">175</td>
+<td style="text-align:center"><strong>N</strong></td>
+<td style="text-align:center">0.52</td>
+</tr>
+<tr>
+<td style="text-align:center">0010</td>
+<td style="text-align:center">30</td>
+<td style="text-align:center">博士</td>
+<td style="text-align:center">国企</td>
+<td style="text-align:center">13</td>
+<td style="text-align:center">173</td>
+<td style="text-align:center"><strong>Y</strong></td>
+<td style="text-align:center">0.88</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>CART的目的是生成一个类似下面这样的树：分类树或者回归树。</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/Gtree.png" alt="image"></p>
+<p>叶子节点若为Y或者N，是分类树；若是数字，则为回归树。下面分别讲述回归树和分类树的生成方式：</p>
+<ul>
+<li><p><strong>分类树</strong></p>
+<p>  ID3算法使用<strong>信息增益</strong>来选择特征，信息增益大的优先选择，这种方式会使得特征值较多的特征容易被选择【<em>示例数据中的学历可能会比工作优先选择，因为学历有3个值，而工作有2个值</em>】。</p>
+<p>  在C4.5算法中，采用了<strong>信息增益比</strong>来选择特征，改进了ID3容易选择特征值多的特征的问题。C4.5也是优先选择较大的。</p>
+<p>  上述2者都是基于信息论的<strong>熵</strong>模型的，这里面会涉及对数运算，因此计算成本较大。</p>
+<p>  CART分类树算法使用<strong>基尼系数</strong>，既减少了计算成本，又保留了熵这种运算形式的优点。基尼系数代表了模型的不纯度，基尼系数越小，则不纯度越低，特征越好。</p>
+<ul>
+<li><p><strong>基尼系数</strong></p>
+<p>对于一个样本集合<strong>S</strong>，假设其包含<strong>m</strong>个不同的值，这<strong>m</strong>个值可看作<strong>m</strong>个不同的类。其中由<strong>类i</strong>组成的集合为<strong>Si</strong>，那么对于属于<strong>类i</strong>的样本点<strong>k</strong>而言，其概率为<strong>P(k)=集合Si的样本个数除去集合S的样本个数</strong>。则基于概率分布的基尼指数定义如下：</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\bg_white&space;\fn_phv&space;{\color{Blue}&space;\mathbf{G(S)}&space;=&space;\mathbf{1}&space;-&space;\sum_{\mathrm{i}=1}^{\mathrm{m}}(\frac{|\mathbf{S_{i}}|}{|\mathbf{S}|})^{2}}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bg_white&space;\fn_phv&space;{\color{Blue}&space;\mathbf{G(S)}&space;=&space;\mathbf{1}&space;-&space;\sum_{\mathrm{i}=1}^{\mathrm{m}}(\frac{|\mathbf{S_{i}}|}{|\mathbf{S}|})^{2}}" title="{\color{Blue} \mathbf{G(S)} = \mathbf{1} - \sum_{\mathrm{i}=1}^{\mathrm{m}}(\frac{|\mathbf{S_{i}}|}{|\mathbf{S}|})^{2}}" /></a></p>
+<p>其中符号||为计算集合内元素个数的符号，对于m等于2的情况，上面的式子等价与</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\bg_white&space;\fn_phv&space;{\color{Blue}&space;\mathbf{G(S)}&space;=&space;\mathbf{2}\mathbf{P(k)}*(\mathbf{1}-\mathbf{P(k)})}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bg_white&space;\fn_phv&space;{\color{Blue}&space;\mathbf{G(S)}&space;=&space;\mathbf{2}\mathbf{P(k)}*(\mathbf{1}-\mathbf{P(k)})}" title="{\color{Blue} \mathbf{G(S)} = \mathbf{2}\mathbf{P(k)}*(\mathbf{1}-\mathbf{P(k)})}" /></a></p>
+<p>如果样本集合<strong>S</strong>，被某个规则R划分为n个数据子集，分别为S1， S2，……， Sn，则此时的计算基尼系数公示如下：</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\bg_white&space;\fn_phv&space;{\color{Blue}&space;\mathbf{G(S,&space;R&space;)}&space;=&space;\sum_{\mathrm{\mathbf{j=1}}}^{\mathrm{\mathbf{n}}}\frac{\mathbf{|Sj|}}{\mathbf{|S|}}\mathbf{G(Sj)}}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bg_white&space;\fn_phv&space;{\color{Blue}&space;\mathbf{G(S,&space;R&space;)}&space;=&space;\sum_{\mathrm{\mathbf{j=1}}}^{\mathrm{\mathbf{n}}}\frac{\mathbf{|Sj|}}{\mathbf{|S|}}\mathbf{G(Sj)}}" title="{\color{Blue} \mathbf{G(S, R )} = \sum_{\mathrm{\mathbf{j=1}}}^{\mathrm{\mathbf{n}}}\frac{\mathbf{|Sj|}}{\mathbf{|S|}}\mathbf{G(Sj)}}" /></a></p>
+<p>在CART算法中，上述n的值一定为2。因为每一次分裂，都是把数据集合一分为二。</p>
+<p>针对离散、连续的变量，下面给出具体的计算基尼系数的步骤：</p>
+</li>
+<li><p><strong>离散变量：以工作为例</strong></p>
+<ol>
+<li><p>将数据集合D分为<strong>Dg1=D(学历=国企)</strong>以及<strong>Dg2=D(学历!=国企)</strong>，其中Dg1中动心构成的集合为<strong>Mg1</strong>；Dg2中动心构成的集合为<strong>Mg2</strong>;</p>
+<p>此时的基尼系数计算如下：</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\\&space;{\color{Blue}&space;\boldsymbol{Mg1=[N,&space;N,&space;N,Y,Y,Y]}}\\&space;\\&space;{\color{Blue}&space;\boldsymbol{Mg2=[N,&space;N,N,Y]}}\\&space;\\&space;{\color{Blue}&space;\mathbf{G(D,gongzuo=guoqi)=\frac{|Mg1|}{|D|}G(Mg1)&plus;\frac{|Mg2|}{|D|}G(Mg2)}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\boldsymbol{\frac{6}{10}[1-(\frac{3}{6})^{2}-(\frac{3}{6})^{2}]&plus;\frac{4}{10}[1-(\frac{3}{4})^{2}-(\frac{1}{4})^{2}]}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\boldsymbol{0.45}}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\\&space;{\color{Blue}&space;\boldsymbol{Mg1=[N,&space;N,&space;N,Y,Y,Y]}}\\&space;\\&space;{\color{Blue}&space;\boldsymbol{Mg2=[N,&space;N,N,Y]}}\\&space;\\&space;{\color{Blue}&space;\mathbf{G(D,gongzuo=guoqi)=\frac{|Mg1|}{|D|}G(Mg1)&plus;\frac{|Mg2|}{|D|}G(Mg2)}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\boldsymbol{\frac{6}{10}[1-(\frac{3}{6})^{2}-(\frac{3}{6})^{2}]&plus;\frac{4}{10}[1-(\frac{3}{4})^{2}-(\frac{1}{4})^{2}]}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\boldsymbol{0.45}}" title="\\ {\color{Blue} \boldsymbol{Mg1=[N, N, N,Y,Y,Y]}}\\ \\ {\color{Blue} \boldsymbol{Mg2=[N, N,N,Y]}}\\ \\ {\color{Blue} \mathbf{G(D,gongzuo=guoqi)=\frac{|Mg1|}{|D|}G(Mg1)+\frac{|Mg2|}{|D|}G(Mg2)}}\\ \\ \cdots \cdots \cdots \cdots \cdots \cdots \cdots \cdots ={\color{Blue} \boldsymbol{\frac{6}{10}[1-(\frac{3}{6})^{2}-(\frac{3}{6})^{2}]+\frac{4}{10}[1-(\frac{3}{4})^{2}-(\frac{1}{4})^{2}]}}\\ \\ \cdots \cdots \cdots \cdots \cdots \cdots \cdots \cdots ={\color{Blue} \boldsymbol{0.45}}" /></a></p>
+<p>因为工作只有2个变量，因此按照工作为私企和工作为国企的基尼系数是相同的。</p>
+</li>
+</ol>
+</li>
+<li><p><strong>连续变量：以月收入为例</strong></p>
+<ol>
+<li><p>首先将月收入的值去重后，按照从小到大的排列顺序为[5, 13, 19],相邻的数值取平均值得到序列[9, 16]。类似于离散变量的情况，以9为例：将数据集分为Dn9=D(月收入<9)以及Dm9=D(月收入>9)，相应的动心组成的集合分别为<strong>Mn9,Mm9</strong>。</p>
+<p>下面给出计算基尼系数的过程：</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\\&space;{\color{Blue}&space;\boldsymbol{Mn9=[N,&space;N,&space;N,Y]}}\\&space;\\&space;{\color{Blue}&space;\boldsymbol{Mm9=[N,&space;Y,Y,N,N,Y]}}\\&space;\\&space;{\color{Blue}&space;\mathbf{G(D,yueshouru<>9)=\frac{|Mn9|}{|D|}G(Mn9)&plus;\frac{|Mm9|}{|D|}G(Mm9)}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\mathbf{\frac{4}{10}[1-(\frac{3}{4})^{2}-(\frac{1}{4})^{2}]&space;&plus;&space;\frac{6}{10}[1-(\frac{3}{6})^{2}-(\frac{3}{6})^{2}]}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\boldsymbol{0.45}}\\&space;\\&space;{\color{Blue}&space;\mathbf{G(D,yueshouru<>16)}}={\color{Blue}&space;\mathbf{\frac{9}{10}[1-(\frac{5}{9})^{2}-(\frac{4}{9})^{2}]&space;&plus;&space;\frac{1}{10}[1-(\frac{1}{1})^{2}-(\frac{0}{1})^{2}]}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\mathbf{0.44}}\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\\&space;{\color{Blue}&space;\boldsymbol{Mn9=[N,&space;N,&space;N,Y]}}\\&space;\\&space;{\color{Blue}&space;\boldsymbol{Mm9=[N,&space;Y,Y,N,N,Y]}}\\&space;\\&space;{\color{Blue}&space;\mathbf{G(D,yueshouru<>9)=\frac{|Mn9|}{|D|}G(Mn9)&plus;\frac{|Mm9|}{|D|}G(Mm9)}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\mathbf{\frac{4}{10}[1-(\frac{3}{4})^{2}-(\frac{1}{4})^{2}]&space;&plus;&space;\frac{6}{10}[1-(\frac{3}{6})^{2}-(\frac{3}{6})^{2}]}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\boldsymbol{0.45}}\\&space;\\&space;{\color{Blue}&space;\mathbf{G(D,yueshouru<>16)}}={\color{Blue}&space;\mathbf{\frac{9}{10}[1-(\frac{5}{9})^{2}-(\frac{4}{9})^{2}]&space;&plus;&space;\frac{1}{10}[1-(\frac{1}{1})^{2}-(\frac{0}{1})^{2}]}}\\&space;\\&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;={\color{Blue}&space;\mathbf{0.44}}\\" title="\\ {\color{Blue} \boldsymbol{Mn9=[N, N, N,Y]}}\\ \\ {\color{Blue} \boldsymbol{Mm9=[N, Y,Y,N,N,Y]}}\\ \\ {\color{Blue} \mathbf{G(D,yueshouru<>9)=\frac{|Mn9|}{|D|}G(Mn9)+\frac{|Mm9|}{|D|}G(Mm9)}}\\ \\ \cdots \cdots \cdots \cdots \cdots \cdots \cdots \cdots ={\color{Blue} \mathbf{\frac{4}{10}[1-(\frac{3}{4})^{2}-(\frac{1}{4})^{2}] + \frac{6}{10}[1-(\frac{3}{6})^{2}-(\frac{3}{6})^{2}]}}\\ \\ \cdots \cdots \cdots \cdots \cdots \cdots \cdots \cdots ={\color{Blue} \boldsymbol{0.45}}\\ \\ {\color{Blue} \mathbf{G(D,yueshouru<>16)}}={\color{Blue} \mathbf{\frac{9}{10}[1-(\frac{5}{9})^{2}-(\frac{4}{9})^{2}] + \frac{1}{10}[1-(\frac{1}{1})^{2}-(\frac{0}{1})^{2}]}}\\ \\ \cdots \cdots \cdots \cdots \cdots \cdots \cdots \cdots ={\color{Blue} \mathbf{0.44}}\\" /></a></p>
+</li>
+</ol>
+<p>年龄的处理方式相似，假如不考虑年龄，只考虑月收入和工作，则按着月收入为16这个界限分类，是最优的，因为0.44是最小值。</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code> + **树的输出**
+
+ 叶子节点数据集中，目标变量中占多数的类别，为这个叶子节点的输出类别。如果把上面给定的示例数据集看作一个叶子节点的话，如果某条数据正好落在这个数据集内，则这个数据的分类为N，因为这个数据集中有6条数据为N，多于为Y的数据条数。
+</code></pre><hr>
+<ul>
+<li><p><strong>回归树</strong></p>
+<p> 以上面给出的示例数据为例，下面说明2种形式的变量生成回归树的方式。将数据集合定义为<strong>D</strong>，</p>
+<ul>
+<li><p><strong>离散变量：以学历为例</strong></p>
+<ol>
+<li><p>将数据集合D分为<strong>Dsp1=D(学历=专科)</strong>以及<strong>Dsp2=D(学历!=专科)</strong>，其中Dsp1中动心度构成的集合为<strong>Msp1</strong>，均值为<strong>asp1</strong>；Dsp2中动心度构成的集合为<strong>Msp2</strong>，均值为<strong>asp2</strong>；计算2个数据子集合的误差序列方差的和值：</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\\&space;{\color{Blue}&space;\mathbf{MSE(sp)=\frac{|Msp1|}{|D|}\sqrt[2]{\sum_{di\in&space;Msp1}(di-asp1)^{2}}&plus;&space;\frac{|Msp2|}{|D|}\sqrt[2]{\sum_{di\in&space;Msp2}(di-asp2)^{2}}&space;}&space;}\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\\&space;{\color{Blue}&space;\mathbf{MSE(sp)=\frac{|Msp1|}{|D|}\sqrt[2]{\sum_{di\in&space;Msp1}(di-asp1)^{2}}&plus;&space;\frac{|Msp2|}{|D|}\sqrt[2]{\sum_{di\in&space;Msp2}(di-asp2)^{2}}&space;}&space;}\\" title="\\ {\color{Blue} \mathbf{MSE(sp)=\frac{|Msp1|}{|D|}\sqrt[2]{\sum_{di\in Msp1}(di-asp1)^{2}}+ \frac{|Msp2|}{|D|}\sqrt[2]{\sum_{di\in Msp2}(di-asp2)^{2}} } }\\" /></a></p>
+<p>类似于MSE(sp)，遍历所有学历中的值，得到下面的MSE(ms)，MSE(dr)。</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\\&space;{\color{Blue}&space;\mathbf{MSE(ms)=\frac{|Mms1|}{|D|}\sqrt[2]{\sum_{di\in&space;Mms1}(di-ams1)^{2}}&plus;&space;\frac{|Mms2|}{|D|}\sqrt[2]{\sum_{di\in&space;Mms2}(di-ams2)^{2}}&space;}&space;}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(dr)=\frac{|Mdr1|}{|D|}\sqrt[2]{\sum_{di\in&space;Mdr1}(di-adr1)^{2}}&plus;&space;\frac{|Mdr2|}{|D|}\sqrt[2]{\sum_{di\in&space;Mdr2}(di-adr2)^{2}}&space;}&space;}\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\\&space;{\color{Blue}&space;\mathbf{MSE(ms)=\frac{|Mms1|}{|D|}\sqrt[2]{\sum_{di\in&space;Mms1}(di-ams1)^{2}}&plus;&space;\frac{|Mms2|}{|D|}\sqrt[2]{\sum_{di\in&space;Mms2}(di-ams2)^{2}}&space;}&space;}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(dr)=\frac{|Mdr1|}{|D|}\sqrt[2]{\sum_{di\in&space;Mdr1}(di-adr1)^{2}}&plus;&space;\frac{|Mdr2|}{|D|}\sqrt[2]{\sum_{di\in&space;Mdr2}(di-adr2)^{2}}&space;}&space;}\\" title="\\ {\color{Blue} \mathbf{MSE(ms)=\frac{|Mms1|}{|D|}\sqrt[2]{\sum_{di\in Mms1}(di-ams1)^{2}}+ \frac{|Mms2|}{|D|}\sqrt[2]{\sum_{di\in Mms2}(di-ams2)^{2}} } }\\ \\ {\color{Blue} \mathbf{MSE(dr)=\frac{|Mdr1|}{|D|}\sqrt[2]{\sum_{di\in Mdr1}(di-adr1)^{2}}+ \frac{|Mdr2|}{|D|}\sqrt[2]{\sum_{di\in Mdr2}(di-adr2)^{2}} } }\\" /></a></p>
+<p>其中</p>
+<p>数据集<strong>Dms1=D(学历=硕士)</strong> 以及 <strong>Dms2=D(学历!=硕士)</strong>，Dms1中动心度构成的集合为<strong>Mms1</strong>，均值为<strong>ams1</strong>；Dms2中动心度构成的集合为<strong>Mms2</strong>，均值为<strong>ams2</strong>；</p>
+<p><strong>Ddr1=D(学历=博士)</strong> 以及 <strong>Ddr2=D(学历!=博士)</strong>，Ddr1中动心度构成的集合为<strong>Mdr1</strong>，均值为<strong>adr1</strong>；Ddr2中动心度构成的集合为<strong>Mdr2</strong>，均值为<strong>adr2</strong></p>
+<ul>
+<li><strong>计算示例</strong></li>
+</ul>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\\&space;{\color{Blue}&space;\mathbf{Msp1=[0.56,0.52],}}&space;{\color{Blue}&space;\mathbf{asp1=0.54}}\\&space;\\&space;{\color{Blue}&space;\mathbf{Msp2=[0.49,0.76,0.67,0.58,0.60,0.73,0.40,0.88],}}&space;{\color{Blue}&space;\mathbf{asp2=0.63875}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(sp)=\frac{2}{10}&space;\sqrt[2]{([(0.56-0.54)^{2}&plus;(0.52-0.54)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots&space;&plus;&space;\frac{8}{10}&space;\sqrt[2]{([(0.49-0.63875)^{2}&plus;\cdots&space;&plus;(0.88-0.63875)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.005657&plus;&space;0.081557}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.087214}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(ms)=0.21404}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(dr)=0.229774}}\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\\&space;{\color{Blue}&space;\mathbf{Msp1=[0.56,0.52],}}&space;{\color{Blue}&space;\mathbf{asp1=0.54}}\\&space;\\&space;{\color{Blue}&space;\mathbf{Msp2=[0.49,0.76,0.67,0.58,0.60,0.73,0.40,0.88],}}&space;{\color{Blue}&space;\mathbf{asp2=0.63875}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(sp)=\frac{2}{10}&space;\sqrt[2]{([(0.56-0.54)^{2}&plus;(0.52-0.54)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots&space;&plus;&space;\frac{8}{10}&space;\sqrt[2]{([(0.49-0.63875)^{2}&plus;\cdots&space;&plus;(0.88-0.63875)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.005657&plus;&space;0.081557}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.087214}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(ms)=0.21404}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(dr)=0.229774}}\\" title="\\ {\color{Blue} \mathbf{Msp1=[0.56,0.52],}} {\color{Blue} \mathbf{asp1=0.54}}\\ \\ {\color{Blue} \mathbf{Msp2=[0.49,0.76,0.67,0.58,0.60,0.73,0.40,0.88],}} {\color{Blue} \mathbf{asp2=0.63875}}\\ \\ {\color{Blue} \mathbf{MSE(sp)=\frac{2}{10} \sqrt[2]{([(0.56-0.54)^{2}+(0.52-0.54)^{2}])}}}\\ \\\ {\color{Blue} \mathbf{\cdots \cdots \cdots \cdots + \frac{8}{10} \sqrt[2]{([(0.49-0.63875)^{2}+\cdots +(0.88-0.63875)^{2}])}}}\\ \\\ {\color{Blue} \mathbf{\cdots \cdots \cdots \cdots=0.005657+ 0.081557}}\\ \\\ {\color{Blue} \mathbf{\cdots \cdots \cdots \cdots=0.087214}}\\ \\ {\color{Blue} \mathbf{MSE(ms)=0.21404}}\\ \\ {\color{Blue} \mathbf{MSE(dr)=0.229774}}\\" /></a></p>
+<p>得到以上结果后，MSE最小的为<strong>MSE(sp)</strong> ，其对应的特征值为<strong>专科</strong>，可以说特征学历最小的MSE为MSE(sp)，如果最终的最佳特征为学历，则以学历是否为专科作为分类标准。</p>
+</li>
+</ol>
+<ul>
+<li><p><strong>连续变量：以身高为例</strong></p>
+<ol>
+<li>将身高的所有值<strong>去重</strong>后按照<strong>从小到大</strong>的顺序排列，得到集合H=[166,173,175,180], 取<strong>相邻两个数的中间值</strong>得到集合MH=[169.5,174,177.5],接下来的计算就类似于离散变量的情况，挨个遍历，把数据分为小于、大于这2个数据子集。以169.5为例，把数据集分为<strong>Dn169.5=D(身高<169.5)和Dm169.5=D(身高>169.5)</strong>，数据子集相应的动心度组成的集合分别为<strong>Mn169.5,Mm169.5</strong>,集合相应的均值为<strong>an169.5, am169.5</strong>。</li>
+</ol>
+<p>174，177.5的符号命名规则类似，不一一赘述。</p>
+<ul>
+<li><p><strong>计算示例</strong></p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\\&space;{\color{Blue}&space;\mathbf{Mn169.5=[0.58,&space;0.60],}}&space;{\color{Blue}&space;\mathbf{an169.5=0.59}}\\&space;\\&space;{\color{Blue}&space;\mathbf{Mm169.5=[0.56,&space;0.49,&space;0.76,&space;0.67,&space;0.73,&space;0.40,&space;0.52,&space;0.88],}}&space;{\color{Blue}&space;\mathbf{am169.5=0.62625}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(169.5)=\frac{2}{10}&space;\sqrt[2]{([(0.58-0.59)^{2}&plus;(0.60-0.59)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots&space;&plus;&space;\frac{8}{10}&space;\sqrt[2]{([(0.56-0.62625)^{2}&plus;\cdots&space;&plus;(0.88-0.62625)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.002828&space;&plus;0.084944&space;}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.087772}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(174)=0.20636}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(177.5)=0.360627}}\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\\&space;{\color{Blue}&space;\mathbf{Mn169.5=[0.58,&space;0.60],}}&space;{\color{Blue}&space;\mathbf{an169.5=0.59}}\\&space;\\&space;{\color{Blue}&space;\mathbf{Mm169.5=[0.56,&space;0.49,&space;0.76,&space;0.67,&space;0.73,&space;0.40,&space;0.52,&space;0.88],}}&space;{\color{Blue}&space;\mathbf{am169.5=0.62625}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(169.5)=\frac{2}{10}&space;\sqrt[2]{([(0.58-0.59)^{2}&plus;(0.60-0.59)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots&space;&plus;&space;\frac{8}{10}&space;\sqrt[2]{([(0.56-0.62625)^{2}&plus;\cdots&space;&plus;(0.88-0.62625)^{2}])}}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.002828&space;&plus;0.084944&space;}}\\&space;\\\&space;{\color{Blue}&space;\mathbf{\cdots&space;\cdots&space;\cdots&space;\cdots=0.087772}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(174)=0.20636}}\\&space;\\&space;{\color{Blue}&space;\mathbf{MSE(177.5)=0.360627}}\\" title="\\ {\color{Blue} \mathbf{Mn169.5=[0.58, 0.60],}} {\color{Blue} \mathbf{an169.5=0.59}}\\ \\ {\color{Blue} \mathbf{Mm169.5=[0.56, 0.49, 0.76, 0.67, 0.73, 0.40, 0.52, 0.88],}} {\color{Blue} \mathbf{am169.5=0.62625}}\\ \\ {\color{Blue} \mathbf{MSE(169.5)=\frac{2}{10} \sqrt[2]{([(0.58-0.59)^{2}+(0.60-0.59)^{2}])}}}\\ \\\ {\color{Blue} \mathbf{\cdots \cdots \cdots \cdots + \frac{8}{10} \sqrt[2]{([(0.56-0.62625)^{2}+\cdots +(0.88-0.62625)^{2}])}}}\\ \\\ {\color{Blue} \mathbf{\cdots \cdots \cdots \cdots=0.002828 +0.084944 }}\\ \\\ {\color{Blue} \mathbf{\cdots \cdots \cdots \cdots=0.087772}}\\ \\ {\color{Blue} \mathbf{MSE(174)=0.20636}}\\ \\ {\color{Blue} \mathbf{MSE(177.5)=0.360627}}\\" /></a></p>
+<p>可知对于特征身高最小的MSE为MSE(169.5)。如果最终的最佳特征是身高，则要把数据集分为身高高于169.5cm、以及不足169.cm的两部分数据子集。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code> 从以上可以看出学历是比身高还要好的分类特征，是否为专科为最佳的分割变量。其他特征就不一一计算。到此，对离散、连续的变量的处理方式的说明已经结束。按照上述的方式就可以将分裂形成的数据集再次进行分裂，形成树。
+</code></pre><ul>
+<li><p><strong>树的输出</strong></p>
+<p>   树是通过一个个叶子节点决定输出的。输出的方式也包括2种：</p>
+<ul>
+<li><p><strong>回归树</strong>：叶子节点代表的数据子集中目标变量的均值，就作为输出值。例如示例中的叶子节点，其输出值为0.56+0.52=0.54。当要预测的某条数据恰好属于这个数据子集，则针对这条数据的动心度的预测值就是0.54。</p>
+</li>
+<li><p><strong>模型树</strong>：对于一个叶子节点来说，有输入，也有对应的输出。 根据输入和输出的关系，建立模型，这个模型可以是线性回归，也可以通过神经网络来建立。这个叶子节点的输出值是所建立的模型的输出值。当要预测的某条数据恰好属于这个数据子集，则针对这条数据的动心度的预测值就是将数据带入建立的模型中得到的值。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>停止生长</strong></p>
+<p> 上面说明了怎么生成一个树。当然树不能无限生长下去，这里说一下什么时候让某个数据子集停止分裂，也就是将这个数据子集形成一个叶子节点。一般有2种方式：</p>
+<ul>
+<li><p>通过限制树的深度。树的深度和人们计算家谱有几代方式相同，只不过比其少一代。示例图中显示出来的树的深度是3， 如果是家谱的就可看作4代。</p>
+</li>
+<li><p>通过给定误差序列方差或者基尼系数的阈值，当这个数据集的MSE或者基尼系数小于这个阈值时，就不再分裂，停止生长。</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p><strong>树的剪枝</strong></p>
+<p>   可以想象，如何让树无限的生长下去，最终会对每一条数据都生成一个叶子节点，这就导致了过拟合，降低了树的泛化能力。因此需要进行树的剪枝。所谓剪枝就是将某些已经分裂的数据集合，不让他分裂了。</p>
+<p>   剪枝策略主要分为两类：从上往下剪枝和从下往上剪枝。上往下剪枝也就是从根开始，遍历所有节点进行剪枝，称为预剪枝；从下往上剪枝是从叶节点开始从下往上剪枝，称为后剪枝。</p>
+<ol>
+<li>预剪枝是在决策树生成过程中，对树进行剪枝，提前结束树的分支生长。</li>
+<li><p>后剪枝是在决策树生长完成之后，对树进行剪枝，得到简化版的决策树。</p>
+<p>其实上文的停止生长，也可看作预剪枝，但是这样设置的目的不是剪枝，而是减小树的规模，提高后面真正剪枝的计算效率。</p>
+</li>
+</ol>
+</li>
+</ul>
+<pre><code> 假设现在有一颗充分生长的树，我们希望减少树的大小来防止过拟合，但又担心去掉一些叶子节点后预测的误差会变大，如何达到这两个变量之间的平衡是问题的关键。从这这个角度可以引出比较常用的后剪枝策略：代价复杂剪枝。所谓代价复杂剪枝就是在树的规模(复杂)和树的误差(代价)之间寻求一个平衡。树规模越大，树的误差越小。树的规模越小，树的误差越大。
+
+ 我们的目的是为了降低代价复杂度。令其为Ca(T)，其中T代表树。我们用树的叶子节点的个数描述树的规模，记为|T|， 树T的误差记为E(T)：
+
+ &lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex={\color{DarkRed}&amp;space;\mathbf{Ca(T)=E(T)&amp;plus;a*|T|}}&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?{\color{DarkRed}&amp;space;\mathbf{Ca(T)=E(T)&amp;plus;a*|T|}}&quot; title=&quot;{\color{DarkRed} \mathbf{Ca(T)=E(T)+a*|T|}}&quot; /&gt;&lt;/a&gt;
+
+ 其中 **a** 为权重，**a** 越大，则树规模越小，树的误差越大；**a** 越小，则树规模越大，树的误差越小；
+
+ 因为代价复杂度是和a有关系的，每一个a值都会得到最优树(代价复杂度最低的树)，并且每个a值对应的最优树是唯一的。当a值从0慢慢增大的时候，最优的树便会进入一个削剪枝叶的过程，最优树会从**充分分裂后得到的树**削剪到**没有经过任何分裂的树**。此时我们就形成了一个树的嵌套集合，并且前面的树包含后面的树。在形成的树的集合中，我们可以用交叉验证的方式得到最优的树，从而得到最终的树的结果。
+
+ 现在的问题是如何实现a值慢慢增大。下面描述实现方式:
+
+    inter = 0
+    a(0) = 0
+    T(0) = 充分生长的树
+    while 树T(inter)不是仅有一个节点时：
+        for node in 树T的内部节点(父节点)：
+            计算node为叶子节点时的E(T_Son_node)
+            计算node为父节点时的E(T_Fa_node)
+            计算g(node) =(E(T_Son_node) -  E(T_Fa_node))/ (|T_Fa_node| - 1)
+
+        在所有的g(node)中选择值最小的对应的node，如果node不唯一，则选择辈分最小的node。
+        inter += 1
+        T(inter) = 树T(inter-1)的父节点node变为叶子节点形成的树
+        a(inter) = g(node)
+
+  从a(0)开始形成了从0逐渐变大的序列，从T(0)开始形成了从茂盛到精简的树的集合，下面利用验证数据集获取最优的a值以及对应的树：
+          1，计算验证数据集在每一个a值及其对应的树下的复杂代价度
+          2，选择复杂代价度最小的，就是最优的
+
+
+  符号说明：
+  T_Son_node：当前的树T以node为叶子节点时的子树，也就是node节点没有经过分裂，也就是node节点剪枝后；
+  T_Fa_node：当前的树T以node为根节点时的子树，也就是node节点分裂了，也就是node节点剪枝前；
+  E(T)：树T所有叶子节点的误差(分类问题：误分率*样本比例，回归问题：误差平方和*样本比例）之和；
+  |T|：树T的叶子节点的个数；
+</code></pre><p>  下面给出分类的示例</p>
+<p>  <img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/exam_tree.png" alt="image"></p>
+<p>  上述问题中总的数据条数是40。因为分类问题，是以占多数的类别作为输出类别，因此两个数字中较小的数字除以数字之和就是误分率。样本比例就是这个节点占的数据条数除以总的数据条数。</p>
+<p>  <a href="http://www.codecogs.com/eqnedit.php?latex=\dpi{100}&space;\\E(T0\_Son\_t1)=\frac{20}{40}*\frac{40}{40}=\frac{20}{40}\\&space;\\E(T0\_Fa\_t1)={\color{Red}&space;\frac{1}{10}*\frac{10}{40}[t4]}&plus;{\color{Teal}&space;\frac{2}{9}*\frac{9}{40}[t5]}&plus;{\color{Blue}&space;\frac{2}{12}*\frac{12}{40}[t6]}\\&space;\\\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;&plus;{\color{Magenta}&space;\frac{0}{6}*\frac{6}{40}[t8]}&plus;{\color{Orange}&space;\frac{2}{3}*\frac{3}{40}[t9]}=\frac{7}{40}\\&space;\\g(t1)=\frac{\frac{20}{40}-\frac{7}{40}}{5-1}=\frac{13}{160}&space;\\&space;\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\dpi{100}&space;\\E(T0\_Son\_t1)=\frac{20}{40}*\frac{40}{40}=\frac{20}{40}\\&space;\\E(T0\_Fa\_t1)={\color{Red}&space;\frac{1}{10}*\frac{10}{40}[t4]}&plus;{\color{Teal}&space;\frac{2}{9}*\frac{9}{40}[t5]}&plus;{\color{Blue}&space;\frac{2}{12}*\frac{12}{40}[t6]}\\&space;\\\cdots&space;\cdots&space;\cdots&space;\cdots&space;\cdots&space;&plus;{\color{Magenta}&space;\frac{0}{6}*\frac{6}{40}[t8]}&plus;{\color{Orange}&space;\frac{2}{3}*\frac{3}{40}[t9]}=\frac{7}{40}\\&space;\\g(t1)=\frac{\frac{20}{40}-\frac{7}{40}}{5-1}=\frac{13}{160}&space;\\&space;\\" title="\\E(T0\_Son\_t1)=\frac{20}{40}*\frac{40}{40}=\frac{20}{40}\\ \\E(T0\_Fa\_t1)={\color{Red} \frac{1}{10}*\frac{10}{40}[t4]}+{\color{Teal} \frac{2}{9}*\frac{9}{40}[t5]}+{\color{Blue} \frac{2}{12}*\frac{12}{40}[t6]}\\ \\\cdots \cdots \cdots \cdots \cdots +{\color{Magenta} \frac{0}{6}*\frac{6}{40}[t8]}+{\color{Orange} \frac{2}{3}*\frac{3}{40}[t9]}=\frac{7}{40}\\ \\g(t1)=\frac{\frac{20}{40}-\frac{7}{40}}{5-1}=\frac{13}{160} \\ \\" /></a></p>
+<p>  <a href="http://www.codecogs.com/eqnedit.php?latex=\dpi{100}&space;\\E(T0\_Son\_t2)=\frac{8}{19}*\frac{19}{40}=\frac{8}{40}\\&space;\\E(T0\_Fa\_t2)={\color{Red}&space;\frac{1}{10}*\frac{10}{40}[t4]}&plus;{\color{Teal}&space;\frac{2}{9}*\frac{9}{40}[t5]}=\frac{3}{40}\\&space;\\g(t2)=\frac{\frac{8}{40}-\frac{3}{40}}{2-1}=\frac{1}{8}\\" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\dpi{100}&space;\\E(T0\_Son\_t2)=\frac{8}{19}*\frac{19}{40}=\frac{8}{40}\\&space;\\E(T0\_Fa\_t2)={\color{Red}&space;\frac{1}{10}*\frac{10}{40}[t4]}&plus;{\color{Teal}&space;\frac{2}{9}*\frac{9}{40}[t5]}=\frac{3}{40}\\&space;\\g(t2)=\frac{\frac{8}{40}-\frac{3}{40}}{2-1}=\frac{1}{8}\\" title="\\E(T0\_Son\_t2)=\frac{8}{19}*\frac{19}{40}=\frac{8}{40}\\ \\E(T0\_Fa\_t2)={\color{Red} \frac{1}{10}*\frac{10}{40}[t4]}+{\color{Teal} \frac{2}{9}*\frac{9}{40}[t5]}=\frac{3}{40}\\ \\g(t2)=\frac{\frac{8}{40}-\frac{3}{40}}{2-1}=\frac{1}{8}\\" /></a></p>
+<p>  <a href="http://www.codecogs.com/eqnedit.php?latex=\dpi{100}&space;\\E(T0\_Son\_t3)=\frac{9}{21}*\frac{21}{40}=\frac{9}{40}\\&space;\\E(T0\_Fa\_t3)={\color{Blue}&space;\frac{2}{12}*\frac{12}{40}[t6]}&plus;{\color{Magenta}&space;\frac{0}{6}*\frac{6}{40}[t8]}&space;&plus;{\color{Orange}&space;\frac{1}{3}*\frac{3}{40}[t9]}&space;=\frac{3}{40}\\&space;\\g(t3)=\frac{\frac{9}{40}-\frac{3}{40}}{3-1}=\frac{3}{40}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\dpi{100}&space;\\E(T0\_Son\_t3)=\frac{9}{21}*\frac{21}{40}=\frac{9}{40}\\&space;\\E(T0\_Fa\_t3)={\color{Blue}&space;\frac{2}{12}*\frac{12}{40}[t6]}&plus;{\color{Magenta}&space;\frac{0}{6}*\frac{6}{40}[t8]}&space;&plus;{\color{Orange}&space;\frac{1}{3}*\frac{3}{40}[t9]}&space;=\frac{3}{40}\\&space;\\g(t3)=\frac{\frac{9}{40}-\frac{3}{40}}{3-1}=\frac{3}{40}" title="\\E(T0\_Son\_t3)=\frac{9}{21}*\frac{21}{40}=\frac{9}{40}\\ \\E(T0\_Fa\_t3)={\color{Blue} \frac{2}{12}*\frac{12}{40}[t6]}+{\color{Magenta} \frac{0}{6}*\frac{6}{40}[t8]} +{\color{Orange} \frac{1}{3}*\frac{3}{40}[t9]} =\frac{3}{40}\\ \\g(t3)=\frac{\frac{9}{40}-\frac{3}{40}}{3-1}=\frac{3}{40}" /></a></p>
+<p>  <a href="http://www.codecogs.com/eqnedit.php?latex=\dpi{100}&space;\\E(T0\_Son\_t7)=\frac{2}{9}*\frac{9}{40}=\frac{2}{40}\\&space;\\E(T0\_Fa\_t7)={\color{Magenta}&space;\frac{0}{6}*\frac{6}{40}[t8]}&space;&plus;{\color{Orange}&space;\frac{1}{3}*\frac{3}{40}[t9]}&space;=\frac{1}{40}\\&space;\\g(t7)=\frac{\frac{2}{40}-\frac{1}{40}}{2-1}=\frac{1}{40}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\dpi{100}&space;\\E(T0\_Son\_t7)=\frac{2}{9}*\frac{9}{40}=\frac{2}{40}\\&space;\\E(T0\_Fa\_t7)={\color{Magenta}&space;\frac{0}{6}*\frac{6}{40}[t8]}&space;&plus;{\color{Orange}&space;\frac{1}{3}*\frac{3}{40}[t9]}&space;=\frac{1}{40}\\&space;\\g(t7)=\frac{\frac{2}{40}-\frac{1}{40}}{2-1}=\frac{1}{40}" title="\\E(T0\_Son\_t7)=\frac{2}{9}*\frac{9}{40}=\frac{2}{40}\\ \\E(T0\_Fa\_t7)={\color{Magenta} \frac{0}{6}*\frac{6}{40}[t8]} +{\color{Orange} \frac{1}{3}*\frac{3}{40}[t9]} =\frac{1}{40}\\ \\g(t7)=\frac{\frac{2}{40}-\frac{1}{40}}{2-1}=\frac{1}{40}" /></a></p>
+<p>  g(t7)最小，节点t7应该被剪枝，a(1)=1/40，树T(1)变为下面这样：</p>
+<p>  <img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/tree_t1.png" alt="image"></p>
+<p>  回归和分类类似，将误分率变为误差平方和即可。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E5%86%B3%E7%AD%96%E6%A0%91/">决策树</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%B3%E7%AD%96%E6%A0%91/" rel="tag">决策树</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/KangChou/2020PythonKangChou/blob/master/wxzf.jpg',
+  alipayImage: ''
+});
+</script>
+      
+
+      <!-- 要添加的内容 -->
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>作者:  </strong>KangChou</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>文章链接:  </strong>
+          <a href="/2020/07/08/jucreadme/" target="_blank" title="决策树理论">https://kangchou001.cn/2020/07/08/jucreadme/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>版权声明:   </strong>
+            本博客所有文章除特别声明外，均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            许可协议。转载请注明出处！
+          </li>
+        </ul>
+      <div>
+      
+      <!---->
+
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC80OTQ4NC8yNTk3Ng==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/08/carreadme/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          CART回归树
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/08/mat/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">matplotlib画廊</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Decision-Tree-Theory"><span class="nav-number">1.</span> <span class="nav-text">Decision Tree Theory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CART"><span class="nav-number">1.0.1.</span> <span class="nav-text">CART</span></a></li></ol></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2020 诗和远方biubiu All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories/" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/guestbook" class="mobile-nav-link">guestbook</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <!-- 雪花特效 -->
+  <script type="text/javascript" src="\js\snow.js"></script>
+
+  <!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>
+
+
