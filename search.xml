@@ -535,6 +535,42 @@
       </tags>
   </entry>
   <entry>
+    <title>卷积神经网络实现</title>
+    <url>/2020/07/08/cnn_realize/</url>
+    <content><![CDATA[<h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
+<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
+<a id="more"></a>
+<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
+<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
+<li><p><strong>正向传播</strong></p>
+<ul>
+<li><p><strong>输入层INPUT</strong></p>
+<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
+</li>
+<li><p><strong>卷积层CONV</strong>      </p>
+<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>反向传播</strong></li>
+</ul>
+<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
+<li><strong>正向传播</strong></li>
+</ul>
+<ul>
+<li><strong>反向传播</strong></li>
+</ul>
+]]></content>
+      <categories>
+        <category>神经网络</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>卷积神经网络</title>
     <url>/2020/07/08/cnn/</url>
     <content><![CDATA[<h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>对于一个图片而言，假设其数字矩阵维度为(<strong>3,320,240</strong>)，其中<strong>3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度</strong>。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。</p>
@@ -705,42 +741,6 @@
 ]]></content>
       <categories>
         <category>图像处理</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>卷积神经网络实现</title>
-    <url>/2020/07/08/cnn_realize/</url>
-    <content><![CDATA[<h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
-<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
-<a id="more"></a>
-<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
-<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
-<li><p><strong>正向传播</strong></p>
-<ul>
-<li><p><strong>输入层INPUT</strong></p>
-<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
-</li>
-<li><p><strong>卷积层CONV</strong>      </p>
-<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
-<li><strong>正向传播</strong></li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-]]></content>
-      <categories>
-        <category>神经网络</category>
       </categories>
       <tags>
         <tag>算法</tag>
@@ -1518,13 +1518,19 @@
       </tags>
   </entry>
   <entry>
-    <title>一步解决hexo博客搭建后的全文搜索功能</title>
-    <url>/2020/04/05/hiero3/</url>
-    <content><![CDATA[<hr>
-<p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
+    <title>解决Hexo博客页面过小问题与设置透明背景</title>
+    <url>/2020/04/05/hiero2/</url>
+    <content><![CDATA[<p>使用默认生成的主题，文章宽度过小，而两遍宽度过大。可以修改<br>themes\next\source\css_schemes\Pisces_layout.styl<br>中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.container .main-inner &#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.content-wrap &#123; width: calc(100% - 260px); &#125;</span><br></pre></td></tr></table></figure><br>代码，改变大小。但加了之后，虽然能够在电脑上显示，但手机上的显示却会出问题，不能自适应。下面提供我的方法，可以直接复制粘贴我的_layout.styl配置。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
-<p>注意：你需要在使用透视搜索之前安装 hexo-generator-json-content。<br>复制代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  width: 80%;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.header-inner &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  padding: 0;</span><br><span class="line">  width: 240px;</span><br><span class="line">  background: rgba(255,255,255,0.8);</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line"></span><br><span class="line">  +desktop-large() &#123;</span><br><span class="line">    .container &amp; &#123; width: 240px; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main &#123;</span><br><span class="line">  clearfix();</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    padding-bottom: 100px;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    padding-bottom: 100px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.container .main-inner &#123;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  width: 80%;</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content-wrap &#123;</span><br><span class="line">  float: right;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  padding: $content-desktop-padding;</span><br><span class="line">  &#x2F;&#x2F;width: $content-desktop;</span><br><span class="line">  width: calc(100% - 260px);</span><br><span class="line">  background: white;</span><br><span class="line">  min-height: 700px;</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding: 20px;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding: 20px;</span><br><span class="line">    min-height: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sidebar &#123;</span><br><span class="line">  position: static;</span><br><span class="line">  float: left;</span><br><span class="line">  margin-top: 300px;</span><br><span class="line">  width: $sidebar-desktop;</span><br><span class="line">  background: $body-bg-color;</span><br><span class="line">  box-shadow: none;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sidebar-toggle &#123; display: none; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.footer-inner &#123;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  padding-left: 260px;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">    padding-left: 0 !important;</span><br><span class="line">    padding-right: 0 !important;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">    padding-left: 0 !important;</span><br><span class="line">    padding-right: 0 !important;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.sidebar-position-right &#123;</span><br><span class="line">  .header-inner &#123; right: 0; &#125;</span><br><span class="line">  .content-wrap &#123; float: left; &#125;</span><br><span class="line">  .sidebar &#123; float: right; &#125;</span><br><span class="line"></span><br><span class="line">  .footer-inner &#123;</span><br><span class="line">    padding-left: 0;</span><br><span class="line">    padding-right: 260px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参照：<a href="https://anoyer.cn/" target="_blank" rel="noopener">https://anoyer.cn/</a></p>
+<h1 id="透明背景"><a href="#透明背景" class="headerlink" title="透明背景"></a>透明背景</h1><p>内容板块透明</p>
+<p>博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .content-wrap 标签下 background: white修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
+<h1 id="菜单栏背景"><a href="#菜单栏背景" class="headerlink" title="菜单栏背景"></a>菜单栏背景</h1><p>博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .header-inner 标签下 background: white修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
+<h1 id="站点概况背景"><a href="#站点概况背景" class="headerlink" title="站点概况背景"></a>站点概况背景</h1><p>博客根目录 themes\next\source\css_schemes\Pisces_sidebar.styl 文件 .sidebar-inner 标签下 background: white修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
+<p>然后修改博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .sidebar 标签下 background: $body-bg-color修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
+<h1 id="按钮背景"><a href="#按钮背景" class="headerlink" title="按钮背景"></a>按钮背景</h1><p>博客根目录 themes\next\source\css_common\components\post\post-button.styl 同上修改对应位置为 background: transparent;</p>
+<hr>
 ]]></content>
       <categories>
         <category>博客教程</category>
@@ -1593,28 +1599,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决Hexo博客页面过小问题与设置透明背景</title>
-    <url>/2020/04/05/hiero2/</url>
-    <content><![CDATA[<p>使用默认生成的主题，文章宽度过小，而两遍宽度过大。可以修改<br>themes\next\source\css_schemes\Pisces_layout.styl<br>中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.container .main-inner &#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.content-wrap &#123; width: calc(100% - 260px); &#125;</span><br></pre></td></tr></table></figure><br>代码，改变大小。但加了之后，虽然能够在电脑上显示，但手机上的显示却会出问题，不能自适应。下面提供我的方法，可以直接复制粘贴我的_layout.styl配置。</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  width: 80%;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.header-inner &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  padding: 0;</span><br><span class="line">  width: 240px;</span><br><span class="line">  background: rgba(255,255,255,0.8);</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line"></span><br><span class="line">  +desktop-large() &#123;</span><br><span class="line">    .container &amp; &#123; width: 240px; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main &#123;</span><br><span class="line">  clearfix();</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    padding-bottom: 100px;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    padding-bottom: 100px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.container .main-inner &#123;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  width: 80%;</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content-wrap &#123;</span><br><span class="line">  float: right;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  padding: $content-desktop-padding;</span><br><span class="line">  &#x2F;&#x2F;width: $content-desktop;</span><br><span class="line">  width: calc(100% - 260px);</span><br><span class="line">  background: white;</span><br><span class="line">  min-height: 700px;</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding: 20px;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding: 20px;</span><br><span class="line">    min-height: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sidebar &#123;</span><br><span class="line">  position: static;</span><br><span class="line">  float: left;</span><br><span class="line">  margin-top: 300px;</span><br><span class="line">  width: $sidebar-desktop;</span><br><span class="line">  background: $body-bg-color;</span><br><span class="line">  box-shadow: none;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sidebar-toggle &#123; display: none; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.footer-inner &#123;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  padding-left: 260px;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">    padding-left: 0 !important;</span><br><span class="line">    padding-right: 0 !important;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">    padding-left: 0 !important;</span><br><span class="line">    padding-right: 0 !important;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.sidebar-position-right &#123;</span><br><span class="line">  .header-inner &#123; right: 0; &#125;</span><br><span class="line">  .content-wrap &#123; float: left; &#125;</span><br><span class="line">  .sidebar &#123; float: right; &#125;</span><br><span class="line"></span><br><span class="line">  .footer-inner &#123;</span><br><span class="line">    padding-left: 0;</span><br><span class="line">    padding-right: 260px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>参照：<a href="https://anoyer.cn/" target="_blank" rel="noopener">https://anoyer.cn/</a></p>
-<h1 id="透明背景"><a href="#透明背景" class="headerlink" title="透明背景"></a>透明背景</h1><p>内容板块透明</p>
-<p>博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .content-wrap 标签下 background: white修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
-<h1 id="菜单栏背景"><a href="#菜单栏背景" class="headerlink" title="菜单栏背景"></a>菜单栏背景</h1><p>博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .header-inner 标签下 background: white修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
-<h1 id="站点概况背景"><a href="#站点概况背景" class="headerlink" title="站点概况背景"></a>站点概况背景</h1><p>博客根目录 themes\next\source\css_schemes\Pisces_sidebar.styl 文件 .sidebar-inner 标签下 background: white修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
-<p>然后修改博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .sidebar 标签下 background: $body-bg-color修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
-<h1 id="按钮背景"><a href="#按钮背景" class="headerlink" title="按钮背景"></a>按钮背景</h1><p>博客根目录 themes\next\source\css_common\components\post\post-button.styl 同上修改对应位置为 background: transparent;</p>
-<hr>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一招解决hexo博客出现无法加载“hexo-prism-plugin”的情况</title>
     <url>/2020/04/05/hiero4/</url>
     <content><![CDATA[<p>一、问题的描述</p>
@@ -1627,6 +1611,22 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一步解决hexo博客搭建后的全文搜索功能</title>
+    <url>/2020/04/05/hiero3/</url>
+    <content><![CDATA[<hr>
+<p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
+<p>注意：你需要在使用透视搜索之前安装 hexo-generator-json-content。<br>复制代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -2091,6 +2091,38 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo博客使用Markdown语法</title>
+    <url>/2019/10/05/Markdown/</url>
+    <content><![CDATA[<p><a href="https://wizardforcel.gitbooks.io/markdown-simple-world/0.html" target="_blank" rel="noopener">这里有详细的Markdown语法教程</a></p>
+<p>不管用什么编辑 Markdown 文件，最后生成的 md 文件放到 <a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io/source/_posts">http://xxxx.github.io/source/_posts</a> 文件夹或其子文件夹中即可，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo+Next配置Blog # 这是标题</span><br><span class="line">categories:  # 这里写的分类会自动汇集到 categories 页面上，分类可以多级</span><br><span class="line">- 算法 # 一级分类</span><br><span class="line">- 编程 # 二级分类 </span><br><span class="line">tags:   # 这里写的标签会自动汇集到 tags 页面上</span><br><span class="line">- Hexo # 可配置多个标签，注意格式</span><br><span class="line">- Blog</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## This is my first blog!</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>文字居中（写博客时）</strong></p>
+<p>在你博客文章中需要居中处加上下面这段代码即可，中间的文字改成你所需要的文字</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;blockquote class&#x3D;&quot;blockquote-center&quot;&gt;</span><br><span class="line">这里可以写多行文字</span><br><span class="line">&lt;&#x2F;blockquote&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="简要介绍MarkdownPad-2"><a href="#简要介绍MarkdownPad-2" class="headerlink" title="简要介绍MarkdownPad 2"></a>简要介绍MarkdownPad 2</h2><p><strong>MarkdownPad</strong> 是 Windows 平台上一个功能完善的 Markdown 编辑器。</p>
+<h3 id="专为-Markdown-打造"><a href="#专为-Markdown-打造" class="headerlink" title="专为 Markdown 打造"></a>专为 Markdown 打造</h3><p>提供了语法高亮和方便的快捷键功能，给您最好的 Markdown 编写体验。<br><a id="more"></a><br>来试一下：</p>
+<ul>
+<li><strong>粗体</strong> (<code>Ctrl+B</code>) and <em>斜体</em> (<code>Ctrl+I</code>)</li>
+<li>引用 (<code>Ctrl+Q</code>)</li>
+<li>代码块 (<code>Ctrl+K</code>)</li>
+<li>标题 1, 2, 3 (<code>Ctrl+1</code>, <code>Ctrl+2</code>, <code>Ctrl+3</code>)</li>
+<li>列表 (<code>Ctrl+U</code> and <code>Ctrl+Shift+O</code>)</li>
+</ul>
+<h3 id="实时预览，所见即所得"><a href="#实时预览，所见即所得" class="headerlink" title="实时预览，所见即所得"></a>实时预览，所见即所得</h3><p>无需猜测您的 <a href="http://markdownpad.com" target="_blank" rel="noopener">语法</a> 是否正确；每当您敲击键盘，实时预览功能都会立刻准确呈现出文档的显示效果。</p>
+<h3 id="自由定制"><a href="#自由定制" class="headerlink" title="自由定制"></a>自由定制</h3><p>100% 可自定义的字体、配色、布局和样式，让您可以将 MarkdownPad 配置的得心应手。</p>
+<h3 id="为高级用户而设计的稳定的-Markdown-编辑器"><a href="#为高级用户而设计的稳定的-Markdown-编辑器" class="headerlink" title="为高级用户而设计的稳定的 Markdown 编辑器"></a>为高级用户而设计的稳定的 Markdown 编辑器</h3><p> MarkdownPad 支持多种 Markdown 解析引擎，包括 标准 Markdown 、 Markdown 扩展 (包括表格支持) 以及 GitHub 风格 Markdown 。</p>
+<p> 有了标签式多文档界面、PDF 导出、内置的图片上传工具、会话管理、拼写检查、自动保存、语法高亮以及内置的 CSS 管理器，您可以随心所欲地使用 MarkdownPad。</p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构基础与递归算法思想</title>
     <url>/2019/10/05/Recursive1/</url>
     <content><![CDATA[<h1 id="递归的思想"><a href="#递归的思想" class="headerlink" title="递归的思想"></a>递归的思想</h1><p>您见过一套俄罗斯娃娃吗？<br>——它就是一种递归思想。<br>最初，您只会看到一个通常为彩绘木头的雕像，看起来像这样：<br><a id="more"></a><br><img src="https://upload-images.jianshu.io/upload_images/15863171-782f2379558bd6da.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
@@ -2243,38 +2275,6 @@
       </categories>
       <tags>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo博客使用Markdown语法</title>
-    <url>/2019/10/05/Markdown/</url>
-    <content><![CDATA[<p><a href="https://wizardforcel.gitbooks.io/markdown-simple-world/0.html" target="_blank" rel="noopener">这里有详细的Markdown语法教程</a></p>
-<p>不管用什么编辑 Markdown 文件，最后生成的 md 文件放到 <a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io/source/_posts">http://xxxx.github.io/source/_posts</a> 文件夹或其子文件夹中即可，如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo+Next配置Blog # 这是标题</span><br><span class="line">categories:  # 这里写的分类会自动汇集到 categories 页面上，分类可以多级</span><br><span class="line">- 算法 # 一级分类</span><br><span class="line">- 编程 # 二级分类 </span><br><span class="line">tags:   # 这里写的标签会自动汇集到 tags 页面上</span><br><span class="line">- Hexo # 可配置多个标签，注意格式</span><br><span class="line">- Blog</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## This is my first blog!</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>文字居中（写博客时）</strong></p>
-<p>在你博客文章中需要居中处加上下面这段代码即可，中间的文字改成你所需要的文字</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;blockquote class&#x3D;&quot;blockquote-center&quot;&gt;</span><br><span class="line">这里可以写多行文字</span><br><span class="line">&lt;&#x2F;blockquote&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h2 id="简要介绍MarkdownPad-2"><a href="#简要介绍MarkdownPad-2" class="headerlink" title="简要介绍MarkdownPad 2"></a>简要介绍MarkdownPad 2</h2><p><strong>MarkdownPad</strong> 是 Windows 平台上一个功能完善的 Markdown 编辑器。</p>
-<h3 id="专为-Markdown-打造"><a href="#专为-Markdown-打造" class="headerlink" title="专为 Markdown 打造"></a>专为 Markdown 打造</h3><p>提供了语法高亮和方便的快捷键功能，给您最好的 Markdown 编写体验。<br><a id="more"></a><br>来试一下：</p>
-<ul>
-<li><strong>粗体</strong> (<code>Ctrl+B</code>) and <em>斜体</em> (<code>Ctrl+I</code>)</li>
-<li>引用 (<code>Ctrl+Q</code>)</li>
-<li>代码块 (<code>Ctrl+K</code>)</li>
-<li>标题 1, 2, 3 (<code>Ctrl+1</code>, <code>Ctrl+2</code>, <code>Ctrl+3</code>)</li>
-<li>列表 (<code>Ctrl+U</code> and <code>Ctrl+Shift+O</code>)</li>
-</ul>
-<h3 id="实时预览，所见即所得"><a href="#实时预览，所见即所得" class="headerlink" title="实时预览，所见即所得"></a>实时预览，所见即所得</h3><p>无需猜测您的 <a href="http://markdownpad.com" target="_blank" rel="noopener">语法</a> 是否正确；每当您敲击键盘，实时预览功能都会立刻准确呈现出文档的显示效果。</p>
-<h3 id="自由定制"><a href="#自由定制" class="headerlink" title="自由定制"></a>自由定制</h3><p>100% 可自定义的字体、配色、布局和样式，让您可以将 MarkdownPad 配置的得心应手。</p>
-<h3 id="为高级用户而设计的稳定的-Markdown-编辑器"><a href="#为高级用户而设计的稳定的-Markdown-编辑器" class="headerlink" title="为高级用户而设计的稳定的 Markdown 编辑器"></a>为高级用户而设计的稳定的 Markdown 编辑器</h3><p> MarkdownPad 支持多种 Markdown 解析引擎，包括 标准 Markdown 、 Markdown 扩展 (包括表格支持) 以及 GitHub 风格 Markdown 。</p>
-<p> 有了标签式多文档界面、PDF 导出、内置的图片上传工具、会话管理、拼写检查、自动保存、语法高亮以及内置的 CSS 管理器，您可以随心所欲地使用 MarkdownPad。</p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
