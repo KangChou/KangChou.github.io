@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>线性回归算法理论 | 诗和远方biubiu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="算法线性回归" />
+  
+  
+  
+  
+  <meta name="description" content="Linear_Regression_Theory 线性回归问题说明  有个样本， 表示每个样本有个特征。 现在为每个样本均添加一个值为1的特征， 也就是令，其中。 这样操作本质就是将中的和合为一个，便于计算。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性回归算法理论">
+<meta property="og:url" content="https://kangchou001.cn/2020/04/05/Linear_Regression_Theory/index.html">
+<meta property="og:site_name" content="诗和远方biubiu">
+<meta property="og:description" content="Linear_Regression_Theory 线性回归问题说明  有个样本， 表示每个样本有个特征。 现在为每个样本均添加一个值为1的特征， 也就是令，其中。 这样操作本质就是将中的和合为一个，便于计算。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.wallpaperscraft.com/image/man_mountains_snowy_148388_1280x720.jpg">
+<meta property="article:published_time" content="2020-04-05T14:57:06.000Z">
+<meta property="article:modified_time" content="2020-07-07T17:07:28.701Z">
+<meta property="article:author" content="KangChou">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="线性回归">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.wallpaperscraft.com/image/man_mountains_snowy_148388_1280x720.jpg">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "首页"; 
+
+  themeMenus["/archives"] = "归档"; 
+
+  themeMenus["/categories/"] = "分类"; 
+
+  themeMenus["/tags"] = "标签"; 
+
+  themeMenus["/about"] = "关于"; 
+
+  themeMenus["/guestbook"] = "留言"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="诗和远方biubiu" rel="home"> 诗和远方biubiu </a>
+            
+          </h1>
+
+          
+            <div class="site-description">本博客致力于分享人工智能算法、Python基础知识、数据分析、TensorFlow和神经网络等学习资料，探讨互联网前沿技术和相关技术研发等。
+有诗才有远方文章征稿：kangsinx@yeah.net
+微信公众号(AI科技与算法编程)：kangsinx</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">归档</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories/">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">关于</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/guestbook">留言</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/blog.gif,css/images/pose.jpg,css/images/pose2.jpg,css/images/pose3.jpg,css/images/pose4.jpg,https://images.wallpaperscraft.com/image/couple_mountains_travel_125490_1280x720.jpg,https://cdn.pixabay.com/photo/2019/05/26/16/43/norway-4230682_1280.jpg".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+<article id="post-Linear_Regression_Theory" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="https://images.wallpaperscraft.com/image/man_mountains_snowy_148388_1280x720.jpg" target="_blank" rel="gallery_ckcgeou4m0002vkurf844ewof noopener">
+        <img src="https://images.wallpaperscraft.com/image/man_mountains_snowy_148388_1280x720.jpg" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      线性回归算法理论
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2020/04/05/Linear_Regression_Theory/" class="article-date">
+	  <time datetime="2020-04-05T14:57:06.000Z" itemprop="datePublished">四月 5, 2020</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Linear-Regression-Theory"><a href="#Linear-Regression-Theory" class="headerlink" title="Linear_Regression_Theory"></a>Linear_Regression_Theory</h1><ul>
+<li><strong>线性回归问题说明</strong></li>
+</ul>
+<p>有<img src="http://latex.codecogs.com/gif.latex?N" title="N" />个样本<img src="http://latex.codecogs.com/gif.latex?(X_{i},&space;Y_{i}),&space;i\in&space;(1,2\cdots&space;N)" title="(X_{i}, Y_{i}), i\in (1,2\cdots N)" />，</p>
+<p><img src="http://latex.codecogs.com/gif.latex?X_{i}&space;=&space;[X_{i}^{1},&space;X_{i}^{2},&space;\cdots&space;X_{i}^{m-1}]" title="X_{i} = [X_{i}^{1}, X_{i}^{2}, \cdots X_{i}^{m-1}]" />表示每个样本有<img src="http://latex.codecogs.com/gif.latex?m-1" title="m-1" />个特征。</p>
+<p>现在为每个样本均添加一个值为1的特征，</p>
+<p>也就是令<a href="http://www.codecogs.com/eqnedit.php?latex=X_{i}&space;=&space;[X_{i}^{1},X_{i}^{2},\cdots&space;X_{i}^{m-1},X_{i}^{m}]" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{i}&space;=&space;[X_{i}^{1},X_{i}^{2},\cdots&space;X_{i}^{m-1},X_{i}^{m}]" title="X_{i} = [X_{i}^{1},X_{i}^{2},\cdots X_{i}^{m-1},X_{i}^{m}]" /></a>，其中<a href="http://www.codecogs.com/eqnedit.php?latex=X_{i}^{m}&space;=&space;1" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{i}^{m}&space;=&space;1" title="X_{i}^{m} = 1" /></a>。</p>
+<p>这样操作本质就是将<a href="http://www.codecogs.com/eqnedit.php?latex=w*X&space;&plus;&space;b" target="_blank"><img src="http://latex.codecogs.com/gif.latex?w*X&space;&plus;&space;b" title="w*X + b" /></a>中的<a href="http://www.codecogs.com/eqnedit.php?latex=w" target="_blank"><img src="http://latex.codecogs.com/gif.latex?w" title="w" /></a>和<a href="http://www.codecogs.com/eqnedit.php?latex=w" target="_blank"><img src="http://latex.codecogs.com/gif.latex?b" title="b" /></a>合为一个<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>，便于计算。</p>
+<a id="more"></a>
+<p>要拟合的回归方程形式为<a href="http://www.codecogs.com/eqnedit.php?latex=\bar{Y}&space;=&space;X&space;\cdot&space;W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bar{Y}&space;=&space;X&space;\cdot&space;W" title="\bar{Y} = X \cdot W" /></a>，其中</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=X&space;=&space;\begin{bmatrix}&space;X_{1}^{1},X_{1}^{2},\cdots&space;,X_{1}^{m}\\&space;X_{2}^{1},X_{2}^{2},\cdots&space;,X_{2}^{m}\\&space;\vdots\\&space;X_{N}^{1},X_{N}^{2},\cdots&space;,X_{N}^{m}\\&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X&space;=&space;\begin{bmatrix}&space;X_{1}^{1},X_{1}^{2},\cdots&space;,X_{1}^{m}\\&space;X_{2}^{1},X_{2}^{2},\cdots&space;,X_{2}^{m}\\&space;\vdots\\&space;X_{N}^{1},X_{N}^{2},\cdots&space;,X_{N}^{m}\\&space;\end{bmatrix}" title="X = \begin{bmatrix} X_{1}^{1},X_{1}^{2},\cdots ,X_{1}^{m}\\ X_{2}^{1},X_{2}^{2},\cdots ,X_{2}^{m}\\ \vdots\\ X_{N}^{1},X_{N}^{2},\cdots ,X_{N}^{m}\\ \end{bmatrix}" /></a>，<a href="http://www.codecogs.com/eqnedit.php?latex=Y&space;=&space;\begin{bmatrix}&space;Y_{1}\\&space;Y_{2}\\&space;\vdots\\&space;Y_{N}\\&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?Y&space;=&space;\begin{bmatrix}&space;Y_{1}\\&space;Y_{2}\\&space;\vdots\\&space;Y_{N}\\&space;\end{bmatrix}" title="Y = \begin{bmatrix} Y_{1}\\ Y_{2}\\ \vdots\\ Y_{N}\\ \end{bmatrix}" /></a>，<a href="http://www.codecogs.com/eqnedit.php?latex=W&space;=&space;\begin{bmatrix}&space;W_{1}\\&space;W_{2}\\&space;\vdots&space;\\&space;W_{m}\\&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W&space;=&space;\begin{bmatrix}&space;W_{1}\\&space;W_{2}\\&space;\vdots&space;\\&space;W_{m}\\&space;\end{bmatrix}" title="W = \begin{bmatrix} W_{1}\\ W_{2}\\ \vdots \\ W_{m}\\ \end{bmatrix}" /></a></p>
+<p>得到的<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>要使得最小二乘代价函数</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\mathit{cost}&space;=&space;\frac{1}{2N}\sum_{i=1}^{N}(\bar{Y_{i}}&space;-&space;Y_{i})^{2}=\frac{1}{2N}\sum_{i=1}^{N}(X_{i}\cdot&space;W&space;-&space;Y_{i})^{2}=\frac{1}{2N}(X\cdot&space;W-Y)^{2}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathit{cost}&space;=&space;\frac{1}{2N}\sum_{i=1}^{N}(\bar{Y_{i}}&space;-&space;Y_{i})^{2}=\frac{1}{2N}\sum_{i=1}^{N}(X_{i}\cdot&space;W&space;-&space;Y_{i})^{2}=\frac{1}{2N}(X\cdot&space;W-Y)^{2}" title="\mathit{cost} = \frac{1}{2N}\sum_{i=1}^{N}(\bar{Y_{i}} - Y_{i})^{2}=\frac{1}{2N}\sum_{i=1}^{N}(X_{i}\cdot W - Y_{i})^{2}=\frac{1}{2N}(X\cdot W-Y)^{2}" /></a></p>
+<p>最小。</p>
+<ul>
+<li><strong>正规方程推导</strong></li>
+</ul>
+<p>由上可知，也就是使<a href="http://www.codecogs.com/eqnedit.php?latex=(X\cdot&space;W&space;-&space;Y)^{2}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?(X\cdot&space;W&space;-&space;Y)^{2}" title="(X\cdot W - Y)^{2}" /></a>的值最小。令</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=C&space;=&space;(X\cdot&space;W&space;-&space;Y)^{2}\\&space;........&space;=(X&space;\cdot&space;W&space;-&space;Y)^{T}\cdot&space;(X&space;\cdot&space;W&space;-&space;Y)\\&space;........=W^{T}\cdot&space;X^{T}\cdot&space;X\cdot&space;W-W^{T}\cdot&space;X^{T}\cdot&space;Y-Y^{T}\cdot&space;X\cdot&space;W&space;&plus;&space;Y^{T}\cdot&space;Y" target="_blank"><img src="http://latex.codecogs.com/gif.latex?C&space;=&space;(X\cdot&space;W&space;-&space;Y)^{2}\\&space;........&space;=(X&space;\cdot&space;W&space;-&space;Y)^{T}\cdot&space;(X&space;\cdot&space;W&space;-&space;Y)\\&space;........=W^{T}\cdot&space;X^{T}\cdot&space;X\cdot&space;W-W^{T}\cdot&space;X^{T}\cdot&space;Y-Y^{T}\cdot&space;X\cdot&space;W&space;&plus;&space;Y^{T}\cdot&space;Y" title="C = (X\cdot W - Y)^{2}\\ ........ =(X \cdot W - Y)^{T}\cdot (X \cdot W - Y)\\ ........=W^{T}\cdot X^{T}\cdot X\cdot W-W^{T}\cdot X^{T}\cdot Y-Y^{T}\cdot X\cdot W + Y^{T}\cdot Y" /></a></p>
+<p>计算导数，令其等于0，也就是有</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\frac{d&space;\mathit{C}}{dW}&space;=2&space;\times&space;X^{T}\cdot&space;X\cdot&space;W&space;-X^{T}\cdot&space;Y-(Y^{T}\cdot&space;X)^{T}\\&space;............=2&space;\times(&space;X^{T}\cdot&space;X\cdot&space;W&space;-X^{T}\cdot&space;Y)\\&space;............=0\\&space;\\&space;........\Rightarrow&space;X^{T}\cdot&space;X\cdot&space;W&space;=X^{T}\cdot&space;Y\\&space;........\Rightarrow&space;\mathbf{W&space;=&space;(X^{T}\cdot&space;X)^{-1}\cdot&space;X^{T}\cdot&space;Y&space;}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\frac{d&space;\mathit{C}}{dW}&space;=2&space;\times&space;X^{T}\cdot&space;X\cdot&space;W&space;-X^{T}\cdot&space;Y-(Y^{T}\cdot&space;X)^{T}\\&space;............=2&space;\times(&space;X^{T}\cdot&space;X\cdot&space;W&space;-X^{T}\cdot&space;Y)\\&space;............=0\\&space;\\&space;........\Rightarrow&space;X^{T}\cdot&space;X\cdot&space;W&space;=X^{T}\cdot&space;Y\\&space;........\Rightarrow&space;\mathbf{W&space;=&space;(X^{T}\cdot&space;X)^{-1}\cdot&space;X^{T}\cdot&space;Y&space;}" title="\frac{d \mathit{C}}{dW} =2 \times X^{T}\cdot X\cdot W -X^{T}\cdot Y-(Y^{T}\cdot X)^{T}\\ ............=2 \times( X^{T}\cdot X\cdot W -X^{T}\cdot Y)\\ ............=0\\ \\ ........\Rightarrow X^{T}\cdot X\cdot W =X^{T}\cdot Y\\ ........\Rightarrow \mathbf{W = (X^{T}\cdot X)^{-1}\cdot X^{T}\cdot Y }" /></a></p>
+<ul>
+<li><strong>梯度下降推导</strong></li>
+</ul>
+<p>计算代价函数<a href="http://www.codecogs.com/eqnedit.php?latex=\mathit{cost}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathit{cost}" title="\mathit{cost}" /></a>对<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>的梯度：</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\bigtriangledown&space;\mathit{cost}&space;=&space;\frac{1}{2N}&space;\bigtriangledown&space;\mathit{C}\\&space;...............=\frac{1}{N}(X^{T}\cdot&space;X\cdot&space;W-X^{T}\cdot&space;Y)\\&space;...............=\frac{1}{N}(X^{T}\cdot&space;(X\cdot&space;W&space;-Y))" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bigtriangledown&space;\mathit{cost}&space;=&space;\frac{1}{2N}&space;\bigtriangledown&space;\mathit{C}\\&space;...............=\frac{1}{N}(X^{T}\cdot&space;X\cdot&space;W-X^{T}\cdot&space;Y)\\&space;...............=\frac{1}{N}(X^{T}\cdot&space;(X\cdot&space;W&space;-Y))" title="\bigtriangledown \mathit{cost} = \frac{1}{2N} \bigtriangledown \mathit{C}\\ ...............=\frac{1}{N}(X^{T}\cdot X\cdot W-X^{T}\cdot Y)\\ ...............=\frac{1}{N}(X^{T}\cdot (X\cdot W -Y))" /></a></p>
+<p>更新<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>：</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\mathbf{W&space;=&space;W&space;-&space;\boldsymbol{\eta}&space;\times&space;\boldsymbol{\bigtriangledown&space;\mathit{cost}}&space;}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathbf{W&space;=&space;W&space;-&space;\boldsymbol{\eta}&space;\times&space;\boldsymbol{\bigtriangledown&space;\mathit{cost}}&space;}" title="\mathbf{W = W - \boldsymbol{\eta} \times \boldsymbol{\bigtriangledown \mathit{cost}} }" /></a></p>
+<p>其中<a href="http://www.codecogs.com/eqnedit.php?latex=\eta" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\eta" title="\eta" /></a>表示学习率。</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/">算法基础</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/" rel="tag">线性回归</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/KangChou/2020PythonKangChou/blob/master/wxzf.jpg',
+  alipayImage: ''
+});
+</script>
+      
+
+      <!-- 要添加的内容 -->
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>作者:  </strong>KangChou</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>文章链接:  </strong>
+          <a href="/2020/04/05/Linear_Regression_Theory/" target="_blank" title="线性回归算法理论">https://kangchou001.cn/2020/04/05/Linear_Regression_Theory/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>版权声明:   </strong>
+            本博客所有文章除特别声明外，均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            许可协议。转载请注明出处！
+          </li>
+        </ul>
+      <div>
+      
+      <!---->
+
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC80OTQ4NC8yNTk3Ng==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/04/18/cpp2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          在Visual Studio 2019创建的项目中创建多个源程序文件并执行(2020-04-18)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/05/blogre/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">长时间不登陆博客出现的情况！</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linear-Regression-Theory"><span class="nav-number">1.</span> <span class="nav-text">Linear_Regression_Theory</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2020 诗和远方biubiu All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories/" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/guestbook" class="mobile-nav-link">guestbook</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <!-- 雪花特效 -->
+  <script type="text/javascript" src="\js\snow.js"></script>
+
+  <!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>
+
+
