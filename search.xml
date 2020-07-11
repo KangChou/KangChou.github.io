@@ -1,70 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Kmeans算法理论</title>
-    <url>/2020/07/08/Kmeans/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Kmeans-amp-Kmeans"><a href="#Kmeans-amp-Kmeans" class="headerlink" title="Kmeans &amp; Kmeans++"></a>Kmeans &amp; Kmeans++</h1><hr>
-<ul>
-<li><strong>Kmeans 聚类</strong></li>
+    <title>线性回归算法理论</title>
+    <url>/2020/04/05/Linear_Regression_Theory/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Linear-Regression-Theory"><a href="#Linear-Regression-Theory" class="headerlink" title="Linear_Regression_Theory"></a>Linear_Regression_Theory</h1><ul>
+<li><strong>线性回归问题说明</strong></li>
 </ul>
-<p>样本集合<a href="http://www.codecogs.com/eqnedit.php?latex=X=\begin{pmatrix}&space;X_{1},&space;&X_{2},&space;&&space;\cdots&space;,&&space;X_{N}&space;\end{pmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X=\begin{pmatrix}&space;X_{1},&space;&X_{2},&space;&&space;\cdots&space;,&&space;X_{N}&space;\end{pmatrix}" title="X=\begin{pmatrix} X_{1}, &X_{2}, & \cdots ,& X_{N} \end{pmatrix}" /></a>， <a href="http://www.codecogs.com/eqnedit.php?latex=N" target="_blank"><img src="http://latex.codecogs.com/gif.latex?N" title="N" /></a>为样本个数。<a href="http://www.codecogs.com/eqnedit.php?latex=X_{i}=\begin{bmatrix}&space;X_{i}^{1}&space;&&space;X_{i}^{2}&\cdots&space;&&space;X_{i}^{m}&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{i}=\begin{bmatrix}&space;X_{i}^{1}&space;&&space;X_{i}^{2}&\cdots&space;&&space;X_{i}^{m}&space;\end{bmatrix}" title="X_{i}=\begin{bmatrix} X_{i}^{1} & X_{i}^{2}&\cdots & X_{i}^{m} \end{bmatrix}" /></a>，<a href="http://www.codecogs.com/eqnedit.php?latex=m" target="_blank"><img src="http://latex.codecogs.com/gif.latex?m" title="m" /></a>为每个样本的特征个数。</p>
-<p>要把这些样本分为<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>类，<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>个类别的样本集合分别为<a href="http://www.codecogs.com/eqnedit.php?latex=\begin{matrix}&space;C1,&&space;C2,&&space;\cdots,&space;&&space;Ck&space;\end{matrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\begin{matrix}&space;C1,&&space;C2,&&space;\cdots,&space;&&space;Ck&space;\end{matrix}" title="\begin{matrix} C1,& C2,& \cdots, & Ck \end{matrix}" /></a>。</p>
+<p>有<img src="http://latex.codecogs.com/gif.latex?N" title="N" />个样本<img src="http://latex.codecogs.com/gif.latex?(X_{i},&space;Y_{i}),&space;i\in&space;(1,2\cdots&space;N)" title="(X_{i}, Y_{i}), i\in (1,2\cdots N)" />，</p>
+<p><img src="http://latex.codecogs.com/gif.latex?X_{i}&space;=&space;[X_{i}^{1},&space;X_{i}^{2},&space;\cdots&space;X_{i}^{m-1}]" title="X_{i} = [X_{i}^{1}, X_{i}^{2}, \cdots X_{i}^{m-1}]" />表示每个样本有<img src="http://latex.codecogs.com/gif.latex?m-1" title="m-1" />个特征。</p>
+<p>现在为每个样本均添加一个值为1的特征，</p>
+<p>也就是令<a href="http://www.codecogs.com/eqnedit.php?latex=X_{i}&space;=&space;[X_{i}^{1},X_{i}^{2},\cdots&space;X_{i}^{m-1},X_{i}^{m}]" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{i}&space;=&space;[X_{i}^{1},X_{i}^{2},\cdots&space;X_{i}^{m-1},X_{i}^{m}]" title="X_{i} = [X_{i}^{1},X_{i}^{2},\cdots X_{i}^{m-1},X_{i}^{m}]" /></a>，其中<a href="http://www.codecogs.com/eqnedit.php?latex=X_{i}^{m}&space;=&space;1" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{i}^{m}&space;=&space;1" title="X_{i}^{m} = 1" /></a>。</p>
+<p>这样操作本质就是将<a href="http://www.codecogs.com/eqnedit.php?latex=w*X&space;&plus;&space;b" target="_blank"><img src="http://latex.codecogs.com/gif.latex?w*X&space;&plus;&space;b" title="w*X + b" /></a>中的<a href="http://www.codecogs.com/eqnedit.php?latex=w" target="_blank"><img src="http://latex.codecogs.com/gif.latex?w" title="w" /></a>和<a href="http://www.codecogs.com/eqnedit.php?latex=w" target="_blank"><img src="http://latex.codecogs.com/gif.latex?b" title="b" /></a>合为一个<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>，便于计算。</p>
 <a id="more"></a>
-<p>得到的<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>个类别要使得下式取得最小值：</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=D&space;=&space;\sum_{k=1}^{K}\sum_{i=1}^{nk}dis(X_{ki},Ckc)" target="_blank"><img src="http://latex.codecogs.com/gif.latex?D&space;=&space;\sum_{k=1}^{K}\sum_{i=1}^{nk}dis(X_{ki},Ckc)" title="D = \sum_{k=1}^{K}\sum_{i=1}^{nk}dis(X_{ki},Ckc)" /></a></p>
-<p>其中<a href="http://www.codecogs.com/eqnedit.php?latex=nk" target="_blank"><img src="http://latex.codecogs.com/gif.latex?nk" title="nk" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的样本集合中样本的个数；</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=Ckc" target="_blank"><img src="http://latex.codecogs.com/gif.latex?Ckc" title="Ckc" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的中心；</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=X_{ki}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{ki}" title="X_{ki}" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的样本集合中的第<a href="http://www.codecogs.com/eqnedit.php?latex=i" target="_blank"><img src="http://latex.codecogs.com/gif.latex?i" title="i" /></a>个样本。</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=dis(X_{ki},Ckc)" target="_blank"><img src="http://latex.codecogs.com/gif.latex?dis(X_{ki},Ckc)" title="dis(X_{ki},Ckc)" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的样本集合中的样本与该类别中心的距离。</p>
-<!-- more -->
+<p>要拟合的回归方程形式为<a href="http://www.codecogs.com/eqnedit.php?latex=\bar{Y}&space;=&space;X&space;\cdot&space;W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bar{Y}&space;=&space;X&space;\cdot&space;W" title="\bar{Y} = X \cdot W" /></a>，其中</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=X&space;=&space;\begin{bmatrix}&space;X_{1}^{1},X_{1}^{2},\cdots&space;,X_{1}^{m}\\&space;X_{2}^{1},X_{2}^{2},\cdots&space;,X_{2}^{m}\\&space;\vdots\\&space;X_{N}^{1},X_{N}^{2},\cdots&space;,X_{N}^{m}\\&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X&space;=&space;\begin{bmatrix}&space;X_{1}^{1},X_{1}^{2},\cdots&space;,X_{1}^{m}\\&space;X_{2}^{1},X_{2}^{2},\cdots&space;,X_{2}^{m}\\&space;\vdots\\&space;X_{N}^{1},X_{N}^{2},\cdots&space;,X_{N}^{m}\\&space;\end{bmatrix}" title="X = \begin{bmatrix} X_{1}^{1},X_{1}^{2},\cdots ,X_{1}^{m}\\ X_{2}^{1},X_{2}^{2},\cdots ,X_{2}^{m}\\ \vdots\\ X_{N}^{1},X_{N}^{2},\cdots ,X_{N}^{m}\\ \end{bmatrix}" /></a>，<a href="http://www.codecogs.com/eqnedit.php?latex=Y&space;=&space;\begin{bmatrix}&space;Y_{1}\\&space;Y_{2}\\&space;\vdots\\&space;Y_{N}\\&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?Y&space;=&space;\begin{bmatrix}&space;Y_{1}\\&space;Y_{2}\\&space;\vdots\\&space;Y_{N}\\&space;\end{bmatrix}" title="Y = \begin{bmatrix} Y_{1}\\ Y_{2}\\ \vdots\\ Y_{N}\\ \end{bmatrix}" /></a>，<a href="http://www.codecogs.com/eqnedit.php?latex=W&space;=&space;\begin{bmatrix}&space;W_{1}\\&space;W_{2}\\&space;\vdots&space;\\&space;W_{m}\\&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W&space;=&space;\begin{bmatrix}&space;W_{1}\\&space;W_{2}\\&space;\vdots&space;\\&space;W_{m}\\&space;\end{bmatrix}" title="W = \begin{bmatrix} W_{1}\\ W_{2}\\ \vdots \\ W_{m}\\ \end{bmatrix}" /></a></p>
+<p>得到的<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>要使得最小二乘代价函数</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\mathit{cost}&space;=&space;\frac{1}{2N}\sum_{i=1}^{N}(\bar{Y_{i}}&space;-&space;Y_{i})^{2}=\frac{1}{2N}\sum_{i=1}^{N}(X_{i}\cdot&space;W&space;-&space;Y_{i})^{2}=\frac{1}{2N}(X\cdot&space;W-Y)^{2}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathit{cost}&space;=&space;\frac{1}{2N}\sum_{i=1}^{N}(\bar{Y_{i}}&space;-&space;Y_{i})^{2}=\frac{1}{2N}\sum_{i=1}^{N}(X_{i}\cdot&space;W&space;-&space;Y_{i})^{2}=\frac{1}{2N}(X\cdot&space;W-Y)^{2}" title="\mathit{cost} = \frac{1}{2N}\sum_{i=1}^{N}(\bar{Y_{i}} - Y_{i})^{2}=\frac{1}{2N}\sum_{i=1}^{N}(X_{i}\cdot W - Y_{i})^{2}=\frac{1}{2N}(X\cdot W-Y)^{2}" /></a></p>
+<p>最小。</p>
 <ul>
-<li><p><strong>不同的距离计算方式</strong><br>有两个点<a href="http://www.codecogs.com/eqnedit.php?latex=\mathbf{A,B}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathbf{A,B}" title="\mathbf{A,B}" /></a>, 坐标分别为<a href="http://www.codecogs.com/eqnedit.php?latex=\mathbf{A}=[a1,a2,\cdots,am]\begin{matrix}&space;&&space;\end{matrix}&space;\mathbf{B}=[b1,b2,\cdots,bm]" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathbf{A}=[a1,a2,\cdots,am]\begin{matrix}&space;&&space;\end{matrix}&space;\mathbf{B}=[b1,b2,\cdots,bm]" title="\mathbf{A}=[a1,a2,\cdots,am]\begin{matrix} & \end{matrix} \mathbf{B}=[b1,b2,\cdots,bm]" /></a>。</p>
+<li><strong>正规方程推导</strong></li>
+</ul>
+<p>由上可知，也就是使<a href="http://www.codecogs.com/eqnedit.php?latex=(X\cdot&space;W&space;-&space;Y)^{2}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?(X\cdot&space;W&space;-&space;Y)^{2}" title="(X\cdot W - Y)^{2}" /></a>的值最小。令</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=C&space;=&space;(X\cdot&space;W&space;-&space;Y)^{2}\\&space;........&space;=(X&space;\cdot&space;W&space;-&space;Y)^{T}\cdot&space;(X&space;\cdot&space;W&space;-&space;Y)\\&space;........=W^{T}\cdot&space;X^{T}\cdot&space;X\cdot&space;W-W^{T}\cdot&space;X^{T}\cdot&space;Y-Y^{T}\cdot&space;X\cdot&space;W&space;&plus;&space;Y^{T}\cdot&space;Y" target="_blank"><img src="http://latex.codecogs.com/gif.latex?C&space;=&space;(X\cdot&space;W&space;-&space;Y)^{2}\\&space;........&space;=(X&space;\cdot&space;W&space;-&space;Y)^{T}\cdot&space;(X&space;\cdot&space;W&space;-&space;Y)\\&space;........=W^{T}\cdot&space;X^{T}\cdot&space;X\cdot&space;W-W^{T}\cdot&space;X^{T}\cdot&space;Y-Y^{T}\cdot&space;X\cdot&space;W&space;&plus;&space;Y^{T}\cdot&space;Y" title="C = (X\cdot W - Y)^{2}\\ ........ =(X \cdot W - Y)^{T}\cdot (X \cdot W - Y)\\ ........=W^{T}\cdot X^{T}\cdot X\cdot W-W^{T}\cdot X^{T}\cdot Y-Y^{T}\cdot X\cdot W + Y^{T}\cdot Y" /></a></p>
+<p>计算导数，令其等于0，也就是有</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\frac{d&space;\mathit{C}}{dW}&space;=2&space;\times&space;X^{T}\cdot&space;X\cdot&space;W&space;-X^{T}\cdot&space;Y-(Y^{T}\cdot&space;X)^{T}\\&space;............=2&space;\times(&space;X^{T}\cdot&space;X\cdot&space;W&space;-X^{T}\cdot&space;Y)\\&space;............=0\\&space;\\&space;........\Rightarrow&space;X^{T}\cdot&space;X\cdot&space;W&space;=X^{T}\cdot&space;Y\\&space;........\Rightarrow&space;\mathbf{W&space;=&space;(X^{T}\cdot&space;X)^{-1}\cdot&space;X^{T}\cdot&space;Y&space;}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\frac{d&space;\mathit{C}}{dW}&space;=2&space;\times&space;X^{T}\cdot&space;X\cdot&space;W&space;-X^{T}\cdot&space;Y-(Y^{T}\cdot&space;X)^{T}\\&space;............=2&space;\times(&space;X^{T}\cdot&space;X\cdot&space;W&space;-X^{T}\cdot&space;Y)\\&space;............=0\\&space;\\&space;........\Rightarrow&space;X^{T}\cdot&space;X\cdot&space;W&space;=X^{T}\cdot&space;Y\\&space;........\Rightarrow&space;\mathbf{W&space;=&space;(X^{T}\cdot&space;X)^{-1}\cdot&space;X^{T}\cdot&space;Y&space;}" title="\frac{d \mathit{C}}{dW} =2 \times X^{T}\cdot X\cdot W -X^{T}\cdot Y-(Y^{T}\cdot X)^{T}\\ ............=2 \times( X^{T}\cdot X\cdot W -X^{T}\cdot Y)\\ ............=0\\ \\ ........\Rightarrow X^{T}\cdot X\cdot W =X^{T}\cdot Y\\ ........\Rightarrow \mathbf{W = (X^{T}\cdot X)^{-1}\cdot X^{T}\cdot Y }" /></a></p>
 <ul>
-<li><p>欧几里得距离</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=E(\mathbf{A,B})&space;=&space;\sqrt{\sum_{i=1}^{m}(ai-bi)^{2}}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?E(\mathbf{A,B})&space;=&space;\sqrt{\sum_{i=1}^{m}(ai-bi)^{2}}" title="E(\mathbf{A,B}) = \sqrt{\sum_{i=1}^{m}(ai-bi)^{2}}" /></a></p>
-<ul>
-<li>曼哈顿距离</li>
+<li><strong>梯度下降推导</strong></li>
 </ul>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=M(\mathbf{A,B})&space;=&space;\sum_{i=1}^{m}\left&space;|&space;ai-bi&space;\right&space;|" target="_blank"><img src="http://latex.codecogs.com/gif.latex?M(\mathbf{A,B})&space;=&space;\sum_{i=1}^{m}\left&space;|&space;ai-bi&space;\right&space;|" title="M(\mathbf{A,B}) = \sum_{i=1}^{m}\left | ai-bi \right |" /></a></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>闵可夫斯基距离</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=HM(\mathbf{A,B})&space;=&space;\begin{pmatrix}&space;\sum_{i=1}^{m}(ai-bi)^{p}&space;\end{pmatrix}&space;^{1/p}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?HM(\mathbf{A,B})&space;=&space;\begin{pmatrix}&space;\sum_{i=1}^{m}(ai-bi)^{p}&space;\end{pmatrix}&space;^{1/p}" title="HM(\mathbf{A,B}) = \begin{pmatrix} \sum_{i=1}^{m}(ai-bi)^{p} \end{pmatrix} ^{1/p}" /></a></p>
-</li>
-</ul>
-<p>根据样本特征选择不同的距离公式，本算例采用欧几里得距离。</p>
-<ul>
-<li><p><strong>Kmeans 聚类步骤</strong></p>
-<ol>
-<li>随机选择<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>个类别中心<a href="http://www.codecogs.com/eqnedit.php?latex=\begin{matrix}&space;C1c,&&space;C2c,&&space;\cdots,&space;&&space;Ckc&space;\end{matrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\begin{matrix}&space;C1c,&&space;C2c,&&space;\cdots,&space;&&space;Ckc&space;\end{matrix}" title="\begin{matrix} C1c,& C2c,& \cdots, & Ckc \end{matrix}" /></a>；</li>
-</ol>
-</li>
-</ul>
-<pre><code> 2. 对每一个样本计算和&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个类别中心的距离，找到距离最小的&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=Ckc&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?Ckc&quot; title=&quot;Ckc&quot; /&gt;&lt;/a&gt;，
-
- 然后将该样本添加到样本集合&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=Ck&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?Ck&quot; title=&quot;Ck&quot; /&gt;&lt;/a&gt;中；
-
- 3. 计算得到的&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个类别的样本集合中样本的均值，作为新的&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个类别中心；
-
- 4. 满足迭代次数或者类别&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个类别中心不再变化，则停止。
-</code></pre><p>Kmeans聚类算法的结果会因为初始的类别中心的不同差异很大，为了避免这个缺点，下面介绍对初始类别中心的选择进行了优化的<strong>Kmeans++聚类</strong>算法。</p>
-<ul>
-<li><strong>Kmeans++聚类步骤</strong></li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> 从样本集合中随机选择一个样本作为第<span class="number">1</span>个类别中心；</span><br><span class="line"></span><br><span class="line">2. 对于样本集合中的每一个样本&lt;a href="http://www.codecogs.com/eqnedit.php?latex=X_&#123;i&#125;" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?X_&#123;i&#125;" title="X_&#123;i&#125;" /&gt;&lt;/a&gt;，计算其与上一个刚被选择成为</span><br><span class="line"></span><br><span class="line">类别中心的样本之间的距离&lt;a href="http://www.codecogs.com/eqnedit.php?latex=dis" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?dis" title="dis" /&gt;&lt;/a&gt;；</span><br><span class="line"></span><br><span class="line">3. &lt;a href="http://www.codecogs.com/eqnedit.php?latex=dis" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?dis" title="dis" /&gt;&lt;/a&gt;较大的样本，被选取作为类别中心的概率较大；</span><br><span class="line"></span><br><span class="line">4. 重复步骤&lt;a href="http://www.codecogs.com/eqnedit.php?latex=\textrm&#123;ii&#125;" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?\textrm&#123;ii&#125;" title="\textrm&#123;ii&#125;" /&gt;&lt;/a&gt;和&lt;a href="http://www.codecogs.com/eqnedit.php?latex=\textrm&#123;iii&#125;" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?\textrm&#123;iii&#125;" title="\textrm&#123;iii&#125;" /&gt;&lt;/a&gt;直到&lt;a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?K" title="K" /&gt;&lt;/a&gt;个初始的类别中心被选出；</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> 进行Kmeans算法。</span><br></pre></td></tr></table></figure>
-<p>​     </p>
-<p>​<br>​        </p>
-<p>​            </p>
+<p>计算代价函数<a href="http://www.codecogs.com/eqnedit.php?latex=\mathit{cost}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathit{cost}" title="\mathit{cost}" /></a>对<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>的梯度：</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\bigtriangledown&space;\mathit{cost}&space;=&space;\frac{1}{2N}&space;\bigtriangledown&space;\mathit{C}\\&space;...............=\frac{1}{N}(X^{T}\cdot&space;X\cdot&space;W-X^{T}\cdot&space;Y)\\&space;...............=\frac{1}{N}(X^{T}\cdot&space;(X\cdot&space;W&space;-Y))" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bigtriangledown&space;\mathit{cost}&space;=&space;\frac{1}{2N}&space;\bigtriangledown&space;\mathit{C}\\&space;...............=\frac{1}{N}(X^{T}\cdot&space;X\cdot&space;W-X^{T}\cdot&space;Y)\\&space;...............=\frac{1}{N}(X^{T}\cdot&space;(X\cdot&space;W&space;-Y))" title="\bigtriangledown \mathit{cost} = \frac{1}{2N} \bigtriangledown \mathit{C}\\ ...............=\frac{1}{N}(X^{T}\cdot X\cdot W-X^{T}\cdot Y)\\ ...............=\frac{1}{N}(X^{T}\cdot (X\cdot W -Y))" /></a></p>
+<p>更新<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>：</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=\mathbf{W&space;=&space;W&space;-&space;\boldsymbol{\eta}&space;\times&space;\boldsymbol{\bigtriangledown&space;\mathit{cost}}&space;}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathbf{W&space;=&space;W&space;-&space;\boldsymbol{\eta}&space;\times&space;\boldsymbol{\bigtriangledown&space;\mathit{cost}}&space;}" title="\mathbf{W = W - \boldsymbol{\eta} \times \boldsymbol{\bigtriangledown \mathit{cost}} }" /></a></p>
+<p>其中<a href="http://www.codecogs.com/eqnedit.php?latex=\eta" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\eta" title="\eta" /></a>表示学习率。</p>
 ]]></content>
       <categories>
-        <category>神经网络</category>
+        <category>算法基础</category>
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>聚类</tag>
+        <tag>线性回归</tag>
       </tags>
   </entry>
   <entry>
@@ -139,44 +113,70 @@
       </tags>
   </entry>
   <entry>
-    <title>线性回归算法理论</title>
-    <url>/2020/04/05/Linear_Regression_Theory/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Linear-Regression-Theory"><a href="#Linear-Regression-Theory" class="headerlink" title="Linear_Regression_Theory"></a>Linear_Regression_Theory</h1><ul>
-<li><strong>线性回归问题说明</strong></li>
+    <title>Kmeans算法理论</title>
+    <url>/2020/07/08/Kmeans/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Kmeans-amp-Kmeans"><a href="#Kmeans-amp-Kmeans" class="headerlink" title="Kmeans &amp; Kmeans++"></a>Kmeans &amp; Kmeans++</h1><hr>
+<ul>
+<li><strong>Kmeans 聚类</strong></li>
 </ul>
-<p>有<img src="http://latex.codecogs.com/gif.latex?N" title="N" />个样本<img src="http://latex.codecogs.com/gif.latex?(X_{i},&space;Y_{i}),&space;i\in&space;(1,2\cdots&space;N)" title="(X_{i}, Y_{i}), i\in (1,2\cdots N)" />，</p>
-<p><img src="http://latex.codecogs.com/gif.latex?X_{i}&space;=&space;[X_{i}^{1},&space;X_{i}^{2},&space;\cdots&space;X_{i}^{m-1}]" title="X_{i} = [X_{i}^{1}, X_{i}^{2}, \cdots X_{i}^{m-1}]" />表示每个样本有<img src="http://latex.codecogs.com/gif.latex?m-1" title="m-1" />个特征。</p>
-<p>现在为每个样本均添加一个值为1的特征，</p>
-<p>也就是令<a href="http://www.codecogs.com/eqnedit.php?latex=X_{i}&space;=&space;[X_{i}^{1},X_{i}^{2},\cdots&space;X_{i}^{m-1},X_{i}^{m}]" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{i}&space;=&space;[X_{i}^{1},X_{i}^{2},\cdots&space;X_{i}^{m-1},X_{i}^{m}]" title="X_{i} = [X_{i}^{1},X_{i}^{2},\cdots X_{i}^{m-1},X_{i}^{m}]" /></a>，其中<a href="http://www.codecogs.com/eqnedit.php?latex=X_{i}^{m}&space;=&space;1" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{i}^{m}&space;=&space;1" title="X_{i}^{m} = 1" /></a>。</p>
-<p>这样操作本质就是将<a href="http://www.codecogs.com/eqnedit.php?latex=w*X&space;&plus;&space;b" target="_blank"><img src="http://latex.codecogs.com/gif.latex?w*X&space;&plus;&space;b" title="w*X + b" /></a>中的<a href="http://www.codecogs.com/eqnedit.php?latex=w" target="_blank"><img src="http://latex.codecogs.com/gif.latex?w" title="w" /></a>和<a href="http://www.codecogs.com/eqnedit.php?latex=w" target="_blank"><img src="http://latex.codecogs.com/gif.latex?b" title="b" /></a>合为一个<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>，便于计算。</p>
+<p>样本集合<a href="http://www.codecogs.com/eqnedit.php?latex=X=\begin{pmatrix}&space;X_{1},&space;&X_{2},&space;&&space;\cdots&space;,&&space;X_{N}&space;\end{pmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X=\begin{pmatrix}&space;X_{1},&space;&X_{2},&space;&&space;\cdots&space;,&&space;X_{N}&space;\end{pmatrix}" title="X=\begin{pmatrix} X_{1}, &X_{2}, & \cdots ,& X_{N} \end{pmatrix}" /></a>， <a href="http://www.codecogs.com/eqnedit.php?latex=N" target="_blank"><img src="http://latex.codecogs.com/gif.latex?N" title="N" /></a>为样本个数。<a href="http://www.codecogs.com/eqnedit.php?latex=X_{i}=\begin{bmatrix}&space;X_{i}^{1}&space;&&space;X_{i}^{2}&\cdots&space;&&space;X_{i}^{m}&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{i}=\begin{bmatrix}&space;X_{i}^{1}&space;&&space;X_{i}^{2}&\cdots&space;&&space;X_{i}^{m}&space;\end{bmatrix}" title="X_{i}=\begin{bmatrix} X_{i}^{1} & X_{i}^{2}&\cdots & X_{i}^{m} \end{bmatrix}" /></a>，<a href="http://www.codecogs.com/eqnedit.php?latex=m" target="_blank"><img src="http://latex.codecogs.com/gif.latex?m" title="m" /></a>为每个样本的特征个数。</p>
+<p>要把这些样本分为<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>类，<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>个类别的样本集合分别为<a href="http://www.codecogs.com/eqnedit.php?latex=\begin{matrix}&space;C1,&&space;C2,&&space;\cdots,&space;&&space;Ck&space;\end{matrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\begin{matrix}&space;C1,&&space;C2,&&space;\cdots,&space;&&space;Ck&space;\end{matrix}" title="\begin{matrix} C1,& C2,& \cdots, & Ck \end{matrix}" /></a>。</p>
 <a id="more"></a>
-<p>要拟合的回归方程形式为<a href="http://www.codecogs.com/eqnedit.php?latex=\bar{Y}&space;=&space;X&space;\cdot&space;W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bar{Y}&space;=&space;X&space;\cdot&space;W" title="\bar{Y} = X \cdot W" /></a>，其中</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=X&space;=&space;\begin{bmatrix}&space;X_{1}^{1},X_{1}^{2},\cdots&space;,X_{1}^{m}\\&space;X_{2}^{1},X_{2}^{2},\cdots&space;,X_{2}^{m}\\&space;\vdots\\&space;X_{N}^{1},X_{N}^{2},\cdots&space;,X_{N}^{m}\\&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X&space;=&space;\begin{bmatrix}&space;X_{1}^{1},X_{1}^{2},\cdots&space;,X_{1}^{m}\\&space;X_{2}^{1},X_{2}^{2},\cdots&space;,X_{2}^{m}\\&space;\vdots\\&space;X_{N}^{1},X_{N}^{2},\cdots&space;,X_{N}^{m}\\&space;\end{bmatrix}" title="X = \begin{bmatrix} X_{1}^{1},X_{1}^{2},\cdots ,X_{1}^{m}\\ X_{2}^{1},X_{2}^{2},\cdots ,X_{2}^{m}\\ \vdots\\ X_{N}^{1},X_{N}^{2},\cdots ,X_{N}^{m}\\ \end{bmatrix}" /></a>，<a href="http://www.codecogs.com/eqnedit.php?latex=Y&space;=&space;\begin{bmatrix}&space;Y_{1}\\&space;Y_{2}\\&space;\vdots\\&space;Y_{N}\\&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?Y&space;=&space;\begin{bmatrix}&space;Y_{1}\\&space;Y_{2}\\&space;\vdots\\&space;Y_{N}\\&space;\end{bmatrix}" title="Y = \begin{bmatrix} Y_{1}\\ Y_{2}\\ \vdots\\ Y_{N}\\ \end{bmatrix}" /></a>，<a href="http://www.codecogs.com/eqnedit.php?latex=W&space;=&space;\begin{bmatrix}&space;W_{1}\\&space;W_{2}\\&space;\vdots&space;\\&space;W_{m}\\&space;\end{bmatrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W&space;=&space;\begin{bmatrix}&space;W_{1}\\&space;W_{2}\\&space;\vdots&space;\\&space;W_{m}\\&space;\end{bmatrix}" title="W = \begin{bmatrix} W_{1}\\ W_{2}\\ \vdots \\ W_{m}\\ \end{bmatrix}" /></a></p>
-<p>得到的<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>要使得最小二乘代价函数</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\mathit{cost}&space;=&space;\frac{1}{2N}\sum_{i=1}^{N}(\bar{Y_{i}}&space;-&space;Y_{i})^{2}=\frac{1}{2N}\sum_{i=1}^{N}(X_{i}\cdot&space;W&space;-&space;Y_{i})^{2}=\frac{1}{2N}(X\cdot&space;W-Y)^{2}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathit{cost}&space;=&space;\frac{1}{2N}\sum_{i=1}^{N}(\bar{Y_{i}}&space;-&space;Y_{i})^{2}=\frac{1}{2N}\sum_{i=1}^{N}(X_{i}\cdot&space;W&space;-&space;Y_{i})^{2}=\frac{1}{2N}(X\cdot&space;W-Y)^{2}" title="\mathit{cost} = \frac{1}{2N}\sum_{i=1}^{N}(\bar{Y_{i}} - Y_{i})^{2}=\frac{1}{2N}\sum_{i=1}^{N}(X_{i}\cdot W - Y_{i})^{2}=\frac{1}{2N}(X\cdot W-Y)^{2}" /></a></p>
-<p>最小。</p>
+<p>得到的<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>个类别要使得下式取得最小值：</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=D&space;=&space;\sum_{k=1}^{K}\sum_{i=1}^{nk}dis(X_{ki},Ckc)" target="_blank"><img src="http://latex.codecogs.com/gif.latex?D&space;=&space;\sum_{k=1}^{K}\sum_{i=1}^{nk}dis(X_{ki},Ckc)" title="D = \sum_{k=1}^{K}\sum_{i=1}^{nk}dis(X_{ki},Ckc)" /></a></p>
+<p>其中<a href="http://www.codecogs.com/eqnedit.php?latex=nk" target="_blank"><img src="http://latex.codecogs.com/gif.latex?nk" title="nk" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的样本集合中样本的个数；</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=Ckc" target="_blank"><img src="http://latex.codecogs.com/gif.latex?Ckc" title="Ckc" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的中心；</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=X_{ki}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?X_{ki}" title="X_{ki}" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的样本集合中的第<a href="http://www.codecogs.com/eqnedit.php?latex=i" target="_blank"><img src="http://latex.codecogs.com/gif.latex?i" title="i" /></a>个样本。</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=dis(X_{ki},Ckc)" target="_blank"><img src="http://latex.codecogs.com/gif.latex?dis(X_{ki},Ckc)" title="dis(X_{ki},Ckc)" /></a>表示第<a href="http://www.codecogs.com/eqnedit.php?latex=k" target="_blank"><img src="http://latex.codecogs.com/gif.latex?k" title="k" /></a>个类别的样本集合中的样本与该类别中心的距离。</p>
+<!-- more -->
 <ul>
-<li><strong>正规方程推导</strong></li>
-</ul>
-<p>由上可知，也就是使<a href="http://www.codecogs.com/eqnedit.php?latex=(X\cdot&space;W&space;-&space;Y)^{2}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?(X\cdot&space;W&space;-&space;Y)^{2}" title="(X\cdot W - Y)^{2}" /></a>的值最小。令</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=C&space;=&space;(X\cdot&space;W&space;-&space;Y)^{2}\\&space;........&space;=(X&space;\cdot&space;W&space;-&space;Y)^{T}\cdot&space;(X&space;\cdot&space;W&space;-&space;Y)\\&space;........=W^{T}\cdot&space;X^{T}\cdot&space;X\cdot&space;W-W^{T}\cdot&space;X^{T}\cdot&space;Y-Y^{T}\cdot&space;X\cdot&space;W&space;&plus;&space;Y^{T}\cdot&space;Y" target="_blank"><img src="http://latex.codecogs.com/gif.latex?C&space;=&space;(X\cdot&space;W&space;-&space;Y)^{2}\\&space;........&space;=(X&space;\cdot&space;W&space;-&space;Y)^{T}\cdot&space;(X&space;\cdot&space;W&space;-&space;Y)\\&space;........=W^{T}\cdot&space;X^{T}\cdot&space;X\cdot&space;W-W^{T}\cdot&space;X^{T}\cdot&space;Y-Y^{T}\cdot&space;X\cdot&space;W&space;&plus;&space;Y^{T}\cdot&space;Y" title="C = (X\cdot W - Y)^{2}\\ ........ =(X \cdot W - Y)^{T}\cdot (X \cdot W - Y)\\ ........=W^{T}\cdot X^{T}\cdot X\cdot W-W^{T}\cdot X^{T}\cdot Y-Y^{T}\cdot X\cdot W + Y^{T}\cdot Y" /></a></p>
-<p>计算导数，令其等于0，也就是有</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\frac{d&space;\mathit{C}}{dW}&space;=2&space;\times&space;X^{T}\cdot&space;X\cdot&space;W&space;-X^{T}\cdot&space;Y-(Y^{T}\cdot&space;X)^{T}\\&space;............=2&space;\times(&space;X^{T}\cdot&space;X\cdot&space;W&space;-X^{T}\cdot&space;Y)\\&space;............=0\\&space;\\&space;........\Rightarrow&space;X^{T}\cdot&space;X\cdot&space;W&space;=X^{T}\cdot&space;Y\\&space;........\Rightarrow&space;\mathbf{W&space;=&space;(X^{T}\cdot&space;X)^{-1}\cdot&space;X^{T}\cdot&space;Y&space;}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\frac{d&space;\mathit{C}}{dW}&space;=2&space;\times&space;X^{T}\cdot&space;X\cdot&space;W&space;-X^{T}\cdot&space;Y-(Y^{T}\cdot&space;X)^{T}\\&space;............=2&space;\times(&space;X^{T}\cdot&space;X\cdot&space;W&space;-X^{T}\cdot&space;Y)\\&space;............=0\\&space;\\&space;........\Rightarrow&space;X^{T}\cdot&space;X\cdot&space;W&space;=X^{T}\cdot&space;Y\\&space;........\Rightarrow&space;\mathbf{W&space;=&space;(X^{T}\cdot&space;X)^{-1}\cdot&space;X^{T}\cdot&space;Y&space;}" title="\frac{d \mathit{C}}{dW} =2 \times X^{T}\cdot X\cdot W -X^{T}\cdot Y-(Y^{T}\cdot X)^{T}\\ ............=2 \times( X^{T}\cdot X\cdot W -X^{T}\cdot Y)\\ ............=0\\ \\ ........\Rightarrow X^{T}\cdot X\cdot W =X^{T}\cdot Y\\ ........\Rightarrow \mathbf{W = (X^{T}\cdot X)^{-1}\cdot X^{T}\cdot Y }" /></a></p>
+<li><p><strong>不同的距离计算方式</strong><br>有两个点<a href="http://www.codecogs.com/eqnedit.php?latex=\mathbf{A,B}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathbf{A,B}" title="\mathbf{A,B}" /></a>, 坐标分别为<a href="http://www.codecogs.com/eqnedit.php?latex=\mathbf{A}=[a1,a2,\cdots,am]\begin{matrix}&space;&&space;\end{matrix}&space;\mathbf{B}=[b1,b2,\cdots,bm]" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathbf{A}=[a1,a2,\cdots,am]\begin{matrix}&space;&&space;\end{matrix}&space;\mathbf{B}=[b1,b2,\cdots,bm]" title="\mathbf{A}=[a1,a2,\cdots,am]\begin{matrix} & \end{matrix} \mathbf{B}=[b1,b2,\cdots,bm]" /></a>。</p>
 <ul>
-<li><strong>梯度下降推导</strong></li>
+<li><p>欧几里得距离</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=E(\mathbf{A,B})&space;=&space;\sqrt{\sum_{i=1}^{m}(ai-bi)^{2}}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?E(\mathbf{A,B})&space;=&space;\sqrt{\sum_{i=1}^{m}(ai-bi)^{2}}" title="E(\mathbf{A,B}) = \sqrt{\sum_{i=1}^{m}(ai-bi)^{2}}" /></a></p>
+<ul>
+<li>曼哈顿距离</li>
 </ul>
-<p>计算代价函数<a href="http://www.codecogs.com/eqnedit.php?latex=\mathit{cost}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathit{cost}" title="\mathit{cost}" /></a>对<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>的梯度：</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\bigtriangledown&space;\mathit{cost}&space;=&space;\frac{1}{2N}&space;\bigtriangledown&space;\mathit{C}\\&space;...............=\frac{1}{N}(X^{T}\cdot&space;X\cdot&space;W-X^{T}\cdot&space;Y)\\&space;...............=\frac{1}{N}(X^{T}\cdot&space;(X\cdot&space;W&space;-Y))" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\bigtriangledown&space;\mathit{cost}&space;=&space;\frac{1}{2N}&space;\bigtriangledown&space;\mathit{C}\\&space;...............=\frac{1}{N}(X^{T}\cdot&space;X\cdot&space;W-X^{T}\cdot&space;Y)\\&space;...............=\frac{1}{N}(X^{T}\cdot&space;(X\cdot&space;W&space;-Y))" title="\bigtriangledown \mathit{cost} = \frac{1}{2N} \bigtriangledown \mathit{C}\\ ...............=\frac{1}{N}(X^{T}\cdot X\cdot W-X^{T}\cdot Y)\\ ...............=\frac{1}{N}(X^{T}\cdot (X\cdot W -Y))" /></a></p>
-<p>更新<a href="http://www.codecogs.com/eqnedit.php?latex=W" target="_blank"><img src="http://latex.codecogs.com/gif.latex?W" title="W" /></a>：</p>
-<p><a href="http://www.codecogs.com/eqnedit.php?latex=\mathbf{W&space;=&space;W&space;-&space;\boldsymbol{\eta}&space;\times&space;\boldsymbol{\bigtriangledown&space;\mathit{cost}}&space;}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\mathbf{W&space;=&space;W&space;-&space;\boldsymbol{\eta}&space;\times&space;\boldsymbol{\bigtriangledown&space;\mathit{cost}}&space;}" title="\mathbf{W = W - \boldsymbol{\eta} \times \boldsymbol{\bigtriangledown \mathit{cost}} }" /></a></p>
-<p>其中<a href="http://www.codecogs.com/eqnedit.php?latex=\eta" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\eta" title="\eta" /></a>表示学习率。</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=M(\mathbf{A,B})&space;=&space;\sum_{i=1}^{m}\left&space;|&space;ai-bi&space;\right&space;|" target="_blank"><img src="http://latex.codecogs.com/gif.latex?M(\mathbf{A,B})&space;=&space;\sum_{i=1}^{m}\left&space;|&space;ai-bi&space;\right&space;|" title="M(\mathbf{A,B}) = \sum_{i=1}^{m}\left | ai-bi \right |" /></a></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>闵可夫斯基距离</p>
+<p><a href="http://www.codecogs.com/eqnedit.php?latex=HM(\mathbf{A,B})&space;=&space;\begin{pmatrix}&space;\sum_{i=1}^{m}(ai-bi)^{p}&space;\end{pmatrix}&space;^{1/p}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?HM(\mathbf{A,B})&space;=&space;\begin{pmatrix}&space;\sum_{i=1}^{m}(ai-bi)^{p}&space;\end{pmatrix}&space;^{1/p}" title="HM(\mathbf{A,B}) = \begin{pmatrix} \sum_{i=1}^{m}(ai-bi)^{p} \end{pmatrix} ^{1/p}" /></a></p>
+</li>
+</ul>
+<p>根据样本特征选择不同的距离公式，本算例采用欧几里得距离。</p>
+<ul>
+<li><p><strong>Kmeans 聚类步骤</strong></p>
+<ol>
+<li>随机选择<a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"><img src="http://latex.codecogs.com/gif.latex?K" title="K" /></a>个类别中心<a href="http://www.codecogs.com/eqnedit.php?latex=\begin{matrix}&space;C1c,&&space;C2c,&&space;\cdots,&space;&&space;Ckc&space;\end{matrix}" target="_blank"><img src="http://latex.codecogs.com/gif.latex?\begin{matrix}&space;C1c,&&space;C2c,&&space;\cdots,&space;&&space;Ckc&space;\end{matrix}" title="\begin{matrix} C1c,& C2c,& \cdots, & Ckc \end{matrix}" /></a>；</li>
+</ol>
+</li>
+</ul>
+<pre><code> 2. 对每一个样本计算和&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个类别中心的距离，找到距离最小的&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=Ckc&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?Ckc&quot; title=&quot;Ckc&quot; /&gt;&lt;/a&gt;，
+
+ 然后将该样本添加到样本集合&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=Ck&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?Ck&quot; title=&quot;Ck&quot; /&gt;&lt;/a&gt;中；
+
+ 3. 计算得到的&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个类别的样本集合中样本的均值，作为新的&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个类别中心；
+
+ 4. 满足迭代次数或者类别&lt;a href=&quot;http://www.codecogs.com/eqnedit.php?latex=K&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://latex.codecogs.com/gif.latex?K&quot; title=&quot;K&quot; /&gt;&lt;/a&gt;个类别中心不再变化，则停止。
+</code></pre><p>Kmeans聚类算法的结果会因为初始的类别中心的不同差异很大，为了避免这个缺点，下面介绍对初始类别中心的选择进行了优化的<strong>Kmeans++聚类</strong>算法。</p>
+<ul>
+<li><strong>Kmeans++聚类步骤</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> 从样本集合中随机选择一个样本作为第<span class="number">1</span>个类别中心；</span><br><span class="line"></span><br><span class="line">2. 对于样本集合中的每一个样本&lt;a href="http://www.codecogs.com/eqnedit.php?latex=X_&#123;i&#125;" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?X_&#123;i&#125;" title="X_&#123;i&#125;" /&gt;&lt;/a&gt;，计算其与上一个刚被选择成为</span><br><span class="line"></span><br><span class="line">类别中心的样本之间的距离&lt;a href="http://www.codecogs.com/eqnedit.php?latex=dis" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?dis" title="dis" /&gt;&lt;/a&gt;；</span><br><span class="line"></span><br><span class="line">3. &lt;a href="http://www.codecogs.com/eqnedit.php?latex=dis" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?dis" title="dis" /&gt;&lt;/a&gt;较大的样本，被选取作为类别中心的概率较大；</span><br><span class="line"></span><br><span class="line">4. 重复步骤&lt;a href="http://www.codecogs.com/eqnedit.php?latex=\textrm&#123;ii&#125;" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?\textrm&#123;ii&#125;" title="\textrm&#123;ii&#125;" /&gt;&lt;/a&gt;和&lt;a href="http://www.codecogs.com/eqnedit.php?latex=\textrm&#123;iii&#125;" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?\textrm&#123;iii&#125;" title="\textrm&#123;iii&#125;" /&gt;&lt;/a&gt;直到&lt;a href="http://www.codecogs.com/eqnedit.php?latex=K" target="_blank"&gt;&lt;img src="http://latex.codecogs.com/gif.latex?K" title="K" /&gt;&lt;/a&gt;个初始的类别中心被选出；</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> 进行Kmeans算法。</span><br></pre></td></tr></table></figure>
+<p>​     </p>
+<p>​<br>​        </p>
+<p>​            </p>
 ]]></content>
       <categories>
-        <category>算法基础</category>
+        <category>神经网络</category>
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>线性回归</tag>
+        <tag>聚类</tag>
       </tags>
   </entry>
   <entry>
@@ -657,114 +657,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CART分类树</title>
-    <url>/2020/07/08/cart2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="CART分类树"><a href="#CART分类树" class="headerlink" title="CART分类树"></a>CART分类树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
-<li><p>数据文件</p>
-<ul>
-<li>成年人收入数据集：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/BPNN/BPNN_Classify" target="_blank" rel="noopener">数据集参见BP神经网络分类</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>基于不同库的代码文件</p>
-<ul>
-<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Classify.py" target="_blank" rel="noopener">AnFany_DT_Classify.py</a></li>
-</ul>
-</li>
-</ul>
-<pre><code> - **Sklearn**：[Sklearn_DT_Classify.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Sklearn_DT_Classify.py)
-</code></pre><ul>
-<li><p>辅助代码文件</p>
-<ul>
-<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/DT_Classify_Data.py" target="_blank" rel="noopener">DT_Classify_Data.py</a></li>
-</ul>
-</li>
-<li><p>绘制树的程序</p>
-<ul>
-<li>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_Show_Tree.py" target="_blank" rel="noopener">AnFany_Show_Tree.py</a></li>
-<li><p>成人收入数据集(初始深度设为5)的树的示例：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_tree.png" alt="image"></p>
-</li>
-</ul>
-</li>
-<li><p>成人收入数据集结果对比</p>
-<ul>
-<li><p><strong>AnFany</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_anfany.png" alt="image"></p>
-</li>
-<li><p><strong>Sklearn</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_sklearn.png" alt="image"></p>
-</li>
-</ul>
-</li>
-<li><p>示例(以鸢尾花数据集为例) </p>
- <a id="more"></a>
-<ul>
-<li><p><strong><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/Softmax%20Regression" target="_blank" rel="noopener">数据集说明参见Softmax回归</a></strong></p>
-</li>
-<li><p><strong>AnFany</strong></p>
-<ul>
-<li><p>数据处理：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Irisdata_DT_Anfany.py" target="_blank" rel="noopener">Irisdata_DT_AnFany.py</a></p>
-</li>
-<li><p>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Iris.py" target="_blank" rel="noopener">AnFany_DT_Iris.py</a></p>
-</li>
-<li><p>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Iris_tree.py" target="_blank" rel="noopener">Iris_tree.py</a>       </p>
-</li>
-<li><p>结果：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_anfany.png" alt="image"></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_tree.png" alt="image"></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>决策树</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>卷积神经网络实现</title>
-    <url>/2020/07/08/cnn_realize/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
-<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
-<a id="more"></a>
-<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
-<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
-<li><p><strong>正向传播</strong></p>
-<ul>
-<li><p><strong>输入层INPUT</strong></p>
-<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
-</li>
-<li><p><strong>卷积层CONV</strong>      </p>
-<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
-<li><strong>正向传播</strong></li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-]]></content>
-      <categories>
-        <category>神经网络</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>卷积神经网络</title>
     <url>/2020/07/08/cnn/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>对于一个图片而言，假设其数字矩阵维度为(<strong>3,320,240</strong>)，其中<strong>3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度</strong>。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。</p>
@@ -895,6 +787,114 @@
       </tags>
   </entry>
   <entry>
+    <title>卷积神经网络实现</title>
+    <url>/2020/07/08/cnn_realize/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
+<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
+<a id="more"></a>
+<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
+<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
+<li><p><strong>正向传播</strong></p>
+<ul>
+<li><p><strong>输入层INPUT</strong></p>
+<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
+</li>
+<li><p><strong>卷积层CONV</strong>      </p>
+<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>反向传播</strong></li>
+</ul>
+<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
+<li><strong>正向传播</strong></li>
+</ul>
+<ul>
+<li><strong>反向传播</strong></li>
+</ul>
+]]></content>
+      <categories>
+        <category>神经网络</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CART分类树</title>
+    <url>/2020/07/08/cart2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="CART分类树"><a href="#CART分类树" class="headerlink" title="CART分类树"></a>CART分类树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
+<li><p>数据文件</p>
+<ul>
+<li>成年人收入数据集：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/BPNN/BPNN_Classify" target="_blank" rel="noopener">数据集参见BP神经网络分类</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>基于不同库的代码文件</p>
+<ul>
+<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Classify.py" target="_blank" rel="noopener">AnFany_DT_Classify.py</a></li>
+</ul>
+</li>
+</ul>
+<pre><code> - **Sklearn**：[Sklearn_DT_Classify.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Sklearn_DT_Classify.py)
+</code></pre><ul>
+<li><p>辅助代码文件</p>
+<ul>
+<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/DT_Classify_Data.py" target="_blank" rel="noopener">DT_Classify_Data.py</a></li>
+</ul>
+</li>
+<li><p>绘制树的程序</p>
+<ul>
+<li>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_Show_Tree.py" target="_blank" rel="noopener">AnFany_Show_Tree.py</a></li>
+<li><p>成人收入数据集(初始深度设为5)的树的示例：</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_tree.png" alt="image"></p>
+</li>
+</ul>
+</li>
+<li><p>成人收入数据集结果对比</p>
+<ul>
+<li><p><strong>AnFany</strong></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_anfany.png" alt="image"></p>
+</li>
+<li><p><strong>Sklearn</strong></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_sklearn.png" alt="image"></p>
+</li>
+</ul>
+</li>
+<li><p>示例(以鸢尾花数据集为例) </p>
+ <a id="more"></a>
+<ul>
+<li><p><strong><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/Softmax%20Regression" target="_blank" rel="noopener">数据集说明参见Softmax回归</a></strong></p>
+</li>
+<li><p><strong>AnFany</strong></p>
+<ul>
+<li><p>数据处理：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Irisdata_DT_Anfany.py" target="_blank" rel="noopener">Irisdata_DT_AnFany.py</a></p>
+</li>
+<li><p>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Iris.py" target="_blank" rel="noopener">AnFany_DT_Iris.py</a></p>
+</li>
+<li><p>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Iris_tree.py" target="_blank" rel="noopener">Iris_tree.py</a>       </p>
+</li>
+<li><p>结果：</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_anfany.png" alt="image"></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_tree.png" alt="image"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>决策树</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>在Visual Studio 2019创建的项目中创建多个源程序文件并执行(2020-04-18)</title>
     <url>/2020/04/18/cpp2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><p> 对于C语言的初学者而言，在Visual Studio 2019下创建多个源程序文件是有必要的(说白了就是在该软件下能否像vc6最初的那样，想建立什么cpp文件就运行什么。)。否则每一次都要重新创建新的一个项目，而且只能运行一个源程序，这对于初学者的学习带来极大不便。为了在所创建的项目下分别执行多个源文件，以下给出了详细的操作步骤：</p>
@@ -928,69 +928,6 @@
       </categories>
       <tags>
         <tag>C语言</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图像处理</title>
-    <url>/2020/07/08/fig/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="图像的结构"><a href="#图像的结构" class="headerlink" title="图像的结构"></a>图像的结构</h3><p>图像是由一个个像素点构成，每个像素点有三个通道，分别对应R，G，B。彩色RGB图像其实是一个三维矩阵，矩阵中的每个数字(0到255)代表的是一个像素一个通道的灰度。下面举例说明：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af.png" alt="彩色图片"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_doc.png" alt="图片描述"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_pixel.png" alt="像素图片"></p>
-<a id="more"></a>
-<h4 id="一、读取这个图片的三维矩阵"><a href="#一、读取这个图片的三维矩阵" class="headerlink" title="一、读取这个图片的三维矩阵"></a>一、读取这个图片的三维矩阵</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span></span><br><span class="line">matrix = io.imread(fig_path)  </span><br><span class="line">print(matrix, matrix.shape)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>结果<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[[[<span class="number">137</span> <span class="number">198</span> <span class="number">182</span>]</span><br><span class="line">  [<span class="number">126</span> <span class="number">189</span> <span class="number">172</span>]</span><br><span class="line">  [<span class="number">112</span> <span class="number">178</span> <span class="number">164</span>]</span><br><span class="line">  ...</span><br><span class="line">  [<span class="number">106</span> <span class="number">220</span> <span class="number">210</span>]</span><br><span class="line">  [ <span class="number">94</span> <span class="number">208</span> <span class="number">198</span>]</span><br><span class="line">  [ <span class="number">96</span> <span class="number">210</span> <span class="number">202</span>]]</span><br><span class="line">  </span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"> [[<span class="number">210</span> <span class="number">227</span> <span class="number">211</span>]</span><br><span class="line">  [<span class="number">199</span> <span class="number">216</span> <span class="number">200</span>]</span><br><span class="line">  [<span class="number">213</span> <span class="number">227</span> <span class="number">214</span>]</span><br><span class="line">  ...</span><br><span class="line">  [<span class="number">142</span> <span class="number">204</span> <span class="number">193</span>]</span><br><span class="line">  [<span class="number">147</span> <span class="number">207</span> <span class="number">197</span>]</span><br><span class="line">  [<span class="number">151</span> <span class="number">211</span> <span class="number">199</span>]]] (<span class="number">189</span>, <span class="number">149</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>可以得出图片的数字矩阵维度为(189, 149, 3)。其中第一行第一列的像素(上图右)对应的RGB是<code>[137 198 182]</code>，第一行第二列的像素对应的RGB是<code>[126 189 172]</code>；最后一行第一列像素对应的就是<code>[210 227 211]</code>。</p>
-<h4 id="二、获取3个通道的矩阵以及维度"><a href="#二、获取3个通道的矩阵以及维度" class="headerlink" title="二、获取3个通道的矩阵以及维度"></a>二、获取3个通道的矩阵以及维度</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span>   <span class="comment"># 图片路径</span></span><br><span class="line">matrix = io.imread(fig_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">R = matrix[:, :, <span class="number">0</span>]  <span class="comment"># 获取R通道</span></span><br><span class="line">G = matrix[:, :, <span class="number">1</span>]  <span class="comment"># 获取G通道</span></span><br><span class="line">B = matrix[:, :, <span class="number">2</span>]  <span class="comment"># 获取B通道</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'R通道矩阵：\n'</span>, R, <span class="string">'维度：'</span>, R.shape)</span><br><span class="line">print(<span class="string">'G通道矩阵：\n'</span>, G, <span class="string">'维度：'</span>, G.shape)</span><br><span class="line">print(<span class="string">'B通道矩阵：\n'</span>, B, <span class="string">'维度：'</span>, B.shape)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>结果<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">R通道矩阵：</span><br><span class="line"> [[<span class="number">137</span> <span class="number">126</span> <span class="number">112</span> ... <span class="number">106</span>  <span class="number">94</span>  <span class="number">96</span>]</span><br><span class="line"> [<span class="number">153</span> <span class="number">171</span> <span class="number">154</span> ... <span class="number">114</span> <span class="number">100</span> <span class="number">116</span>]</span><br><span class="line"> [<span class="number">144</span> <span class="number">137</span> <span class="number">137</span> ... <span class="number">112</span> <span class="number">106</span> <span class="number">125</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">218</span> <span class="number">216</span> <span class="number">206</span> ... <span class="number">136</span> <span class="number">140</span> <span class="number">140</span>]</span><br><span class="line"> [<span class="number">221</span> <span class="number">210</span> <span class="number">211</span> ... <span class="number">139</span> <span class="number">143</span> <span class="number">145</span>]</span><br><span class="line"> [<span class="number">210</span> <span class="number">199</span> <span class="number">213</span> ... <span class="number">142</span> <span class="number">147</span> <span class="number">151</span>]] 维度： (<span class="number">189</span>, <span class="number">149</span>)</span><br><span class="line">G通道矩阵：</span><br><span class="line"> [[<span class="number">198</span> <span class="number">189</span> <span class="number">178</span> ... <span class="number">220</span> <span class="number">208</span> <span class="number">210</span>]</span><br><span class="line"> [<span class="number">214</span> <span class="number">233</span> <span class="number">220</span> ... <span class="number">226</span> <span class="number">212</span> <span class="number">227</span>]</span><br><span class="line"> [<span class="number">206</span> <span class="number">199</span> <span class="number">201</span> ... <span class="number">220</span> <span class="number">214</span> <span class="number">235</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">232</span> <span class="number">230</span> <span class="number">222</span> ... <span class="number">202</span> <span class="number">204</span> <span class="number">203</span>]</span><br><span class="line"> [<span class="number">235</span> <span class="number">224</span> <span class="number">227</span> ... <span class="number">203</span> <span class="number">205</span> <span class="number">207</span>]</span><br><span class="line"> [<span class="number">227</span> <span class="number">216</span> <span class="number">227</span> ... <span class="number">204</span> <span class="number">207</span> <span class="number">211</span>]] 维度： (<span class="number">189</span>, <span class="number">149</span>)</span><br><span class="line">B通道矩阵：</span><br><span class="line"> [[<span class="number">182</span> <span class="number">172</span> <span class="number">164</span> ... <span class="number">210</span> <span class="number">198</span> <span class="number">202</span>]</span><br><span class="line"> [<span class="number">198</span> <span class="number">218</span> <span class="number">206</span> ... <span class="number">214</span> <span class="number">200</span> <span class="number">218</span>]</span><br><span class="line"> [<span class="number">191</span> <span class="number">184</span> <span class="number">187</span> ... <span class="number">207</span> <span class="number">201</span> <span class="number">224</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">219</span> <span class="number">217</span> <span class="number">211</span> ... <span class="number">188</span> <span class="number">190</span> <span class="number">192</span>]</span><br><span class="line"> [<span class="number">222</span> <span class="number">211</span> <span class="number">216</span> ... <span class="number">189</span> <span class="number">192</span> <span class="number">194</span>]</span><br><span class="line"> [<span class="number">211</span> <span class="number">200</span> <span class="number">214</span> ... <span class="number">193</span> <span class="number">197</span> <span class="number">199</span>]] 维度： (<span class="number">189</span>, <span class="number">149</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="三、根据每个通道的数字矩阵输出图片"><a href="#三、根据每个通道的数字矩阵输出图片" class="headerlink" title="三、根据每个通道的数字矩阵输出图片"></a>三、根据每个通道的数字矩阵输出图片</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span>   <span class="comment"># 图片路径</span></span><br><span class="line">matrix = io.imread(fig_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">R = matrix[:, :, <span class="number">0</span>]  <span class="comment"># 获取R通道</span></span><br><span class="line">G = matrix[:, :, <span class="number">1</span>]  <span class="comment"># 获取G通道</span></span><br><span class="line">B = matrix[:, :, <span class="number">2</span>]  <span class="comment"># 获取B通道</span></span><br><span class="line"></span><br><span class="line">R_image = Image.fromarray(R)</span><br><span class="line">R_image.show()</span><br><span class="line">R_image.save(<span class="string">r"C:\Users\GWT9\Desktop\af_R.png"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">G_image = Image.fromarray(G)</span><br><span class="line">G_image.show()</span><br><span class="line">G_image.save(<span class="string">r"C:\Users\GWT9\Desktop\af_G.png"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">B_image = Image.fromarray(B)</span><br><span class="line">B_image.show()</span><br><span class="line">B_image.save(<span class="string">r"C:\Users\GWT9\Desktop\af_B.png"</span>)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>结果</p>
-<ul>
-<li><strong>通道R</strong></li>
-</ul>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_R.png" alt="通道R">!</p>
-<ul>
-<li><strong>通道G</strong></li>
-</ul>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_G.png" alt="通道G">!</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>通道B</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_B.png" alt="通道B">!</p>
-</li>
-</ul>
-<h4 id="四、根据数字矩阵输出图片"><a href="#四、根据数字矩阵输出图片" class="headerlink" title="四、根据数字矩阵输出图片"></a>四、根据数字矩阵输出图片</h4><p>  因为像素值均是[0-255]内的数字，因此要保证数字矩阵的数字在此范围内，可以设置数字的格式为uint8。</p>
- <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"> <span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数字矩阵</span></span><br><span class="line">R = np.arange(<span class="number">-800</span>, <span class="number">100</span>, <span class="number">0.5</span>, dtype=np.uint8).reshape(<span class="number">30</span>, <span class="number">20</span>, <span class="number">3</span>)</span><br><span class="line">R_image = Image.fromarray(R)</span><br><span class="line">R_image.show()</span><br></pre></td></tr></table></figure>
-<p>如果不转换数字格式，也可以为输出的图设定mode，例如mode设置为’RGB’，但是此时数字矩阵和读取生成的图片的矩阵是不同的。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数字矩阵</span></span><br><span class="line">R = np.arange(<span class="number">-800</span>, <span class="number">100</span>, <span class="number">0.5</span>).reshape(<span class="number">30</span>, <span class="number">20</span>, <span class="number">3</span>)</span><br><span class="line">R_image = Image.fromarray(R, mode=<span class="string">'RGB'</span>)  <span class="comment"># 设置mode</span></span><br><span class="line">R_image.show()</span><br></pre></td></tr></table></figure><br>或将数字矩阵中的数字小于0的按0计算，大于255的按255计算，这种转换和直接将数字进行uint8转换得到的是不同的，最后在转换为uint8的格式进行图片的输出。对于在(0,255)之间的小数不用进行处理。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数字矩阵</span></span><br><span class="line">R = np.arange(<span class="number">-800</span>, <span class="number">100</span>, <span class="number">0.5</span>).reshape(<span class="number">30</span>, <span class="number">20</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># 进行转换</span></span><br><span class="line">R[R &lt; <span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">R[R &gt; <span class="number">255</span>] = <span class="number">255</span></span><br><span class="line">R_image = Image.fromarray(np.uint8(R)) <span class="comment"># 转为uint8的格式</span></span><br><span class="line">R_image.show()</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>图像处理</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo-hiero主题设置文字大小</title>
-    <url>/2020/04/05/hiero0/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>字体大小和字体你可以在source/css/_variables.styl文件中60行左右对齐，这里是大部分字体但不是全部哈，细节的字体可能还需要你具体看，不一定都在这里面哈！</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block-margin &#x3D; 50px</span><br><span class="line">article-padding &#x3D; 20px   #文章字体</span><br><span class="line">mobile-nav-width &#x3D; 280px</span><br><span class="line">main-column &#x3D; 8</span><br><span class="line">sidebar-column &#x3D; 4</span><br></pre></td></tr></table></figure>
-<p>截图如下：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/15863171-457c800cf43aa63c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p><a href="http://kangchou001.cn/">可参考我的博客</a></p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1149,6 +1086,69 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo-hiero主题设置文字大小</title>
+    <url>/2020/04/05/hiero0/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>字体大小和字体你可以在source/css/_variables.styl文件中60行左右对齐，这里是大部分字体但不是全部哈，细节的字体可能还需要你具体看，不一定都在这里面哈！</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block-margin &#x3D; 50px</span><br><span class="line">article-padding &#x3D; 20px   #文章字体</span><br><span class="line">mobile-nav-width &#x3D; 280px</span><br><span class="line">main-column &#x3D; 8</span><br><span class="line">sidebar-column &#x3D; 4</span><br></pre></td></tr></table></figure>
+<p>截图如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15863171-457c800cf43aa63c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><a href="http://kangchou001.cn/">可参考我的博客</a></p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图像处理</title>
+    <url>/2020/07/08/fig/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="图像的结构"><a href="#图像的结构" class="headerlink" title="图像的结构"></a>图像的结构</h3><p>图像是由一个个像素点构成，每个像素点有三个通道，分别对应R，G，B。彩色RGB图像其实是一个三维矩阵，矩阵中的每个数字(0到255)代表的是一个像素一个通道的灰度。下面举例说明：</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af.png" alt="彩色图片"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_doc.png" alt="图片描述"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_pixel.png" alt="像素图片"></p>
+<a id="more"></a>
+<h4 id="一、读取这个图片的三维矩阵"><a href="#一、读取这个图片的三维矩阵" class="headerlink" title="一、读取这个图片的三维矩阵"></a>一、读取这个图片的三维矩阵</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span></span><br><span class="line">matrix = io.imread(fig_path)  </span><br><span class="line">print(matrix, matrix.shape)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结果<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[[[<span class="number">137</span> <span class="number">198</span> <span class="number">182</span>]</span><br><span class="line">  [<span class="number">126</span> <span class="number">189</span> <span class="number">172</span>]</span><br><span class="line">  [<span class="number">112</span> <span class="number">178</span> <span class="number">164</span>]</span><br><span class="line">  ...</span><br><span class="line">  [<span class="number">106</span> <span class="number">220</span> <span class="number">210</span>]</span><br><span class="line">  [ <span class="number">94</span> <span class="number">208</span> <span class="number">198</span>]</span><br><span class="line">  [ <span class="number">96</span> <span class="number">210</span> <span class="number">202</span>]]</span><br><span class="line">  </span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"> [[<span class="number">210</span> <span class="number">227</span> <span class="number">211</span>]</span><br><span class="line">  [<span class="number">199</span> <span class="number">216</span> <span class="number">200</span>]</span><br><span class="line">  [<span class="number">213</span> <span class="number">227</span> <span class="number">214</span>]</span><br><span class="line">  ...</span><br><span class="line">  [<span class="number">142</span> <span class="number">204</span> <span class="number">193</span>]</span><br><span class="line">  [<span class="number">147</span> <span class="number">207</span> <span class="number">197</span>]</span><br><span class="line">  [<span class="number">151</span> <span class="number">211</span> <span class="number">199</span>]]] (<span class="number">189</span>, <span class="number">149</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>可以得出图片的数字矩阵维度为(189, 149, 3)。其中第一行第一列的像素(上图右)对应的RGB是<code>[137 198 182]</code>，第一行第二列的像素对应的RGB是<code>[126 189 172]</code>；最后一行第一列像素对应的就是<code>[210 227 211]</code>。</p>
+<h4 id="二、获取3个通道的矩阵以及维度"><a href="#二、获取3个通道的矩阵以及维度" class="headerlink" title="二、获取3个通道的矩阵以及维度"></a>二、获取3个通道的矩阵以及维度</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span>   <span class="comment"># 图片路径</span></span><br><span class="line">matrix = io.imread(fig_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">R = matrix[:, :, <span class="number">0</span>]  <span class="comment"># 获取R通道</span></span><br><span class="line">G = matrix[:, :, <span class="number">1</span>]  <span class="comment"># 获取G通道</span></span><br><span class="line">B = matrix[:, :, <span class="number">2</span>]  <span class="comment"># 获取B通道</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'R通道矩阵：\n'</span>, R, <span class="string">'维度：'</span>, R.shape)</span><br><span class="line">print(<span class="string">'G通道矩阵：\n'</span>, G, <span class="string">'维度：'</span>, G.shape)</span><br><span class="line">print(<span class="string">'B通道矩阵：\n'</span>, B, <span class="string">'维度：'</span>, B.shape)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结果<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">R通道矩阵：</span><br><span class="line"> [[<span class="number">137</span> <span class="number">126</span> <span class="number">112</span> ... <span class="number">106</span>  <span class="number">94</span>  <span class="number">96</span>]</span><br><span class="line"> [<span class="number">153</span> <span class="number">171</span> <span class="number">154</span> ... <span class="number">114</span> <span class="number">100</span> <span class="number">116</span>]</span><br><span class="line"> [<span class="number">144</span> <span class="number">137</span> <span class="number">137</span> ... <span class="number">112</span> <span class="number">106</span> <span class="number">125</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">218</span> <span class="number">216</span> <span class="number">206</span> ... <span class="number">136</span> <span class="number">140</span> <span class="number">140</span>]</span><br><span class="line"> [<span class="number">221</span> <span class="number">210</span> <span class="number">211</span> ... <span class="number">139</span> <span class="number">143</span> <span class="number">145</span>]</span><br><span class="line"> [<span class="number">210</span> <span class="number">199</span> <span class="number">213</span> ... <span class="number">142</span> <span class="number">147</span> <span class="number">151</span>]] 维度： (<span class="number">189</span>, <span class="number">149</span>)</span><br><span class="line">G通道矩阵：</span><br><span class="line"> [[<span class="number">198</span> <span class="number">189</span> <span class="number">178</span> ... <span class="number">220</span> <span class="number">208</span> <span class="number">210</span>]</span><br><span class="line"> [<span class="number">214</span> <span class="number">233</span> <span class="number">220</span> ... <span class="number">226</span> <span class="number">212</span> <span class="number">227</span>]</span><br><span class="line"> [<span class="number">206</span> <span class="number">199</span> <span class="number">201</span> ... <span class="number">220</span> <span class="number">214</span> <span class="number">235</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">232</span> <span class="number">230</span> <span class="number">222</span> ... <span class="number">202</span> <span class="number">204</span> <span class="number">203</span>]</span><br><span class="line"> [<span class="number">235</span> <span class="number">224</span> <span class="number">227</span> ... <span class="number">203</span> <span class="number">205</span> <span class="number">207</span>]</span><br><span class="line"> [<span class="number">227</span> <span class="number">216</span> <span class="number">227</span> ... <span class="number">204</span> <span class="number">207</span> <span class="number">211</span>]] 维度： (<span class="number">189</span>, <span class="number">149</span>)</span><br><span class="line">B通道矩阵：</span><br><span class="line"> [[<span class="number">182</span> <span class="number">172</span> <span class="number">164</span> ... <span class="number">210</span> <span class="number">198</span> <span class="number">202</span>]</span><br><span class="line"> [<span class="number">198</span> <span class="number">218</span> <span class="number">206</span> ... <span class="number">214</span> <span class="number">200</span> <span class="number">218</span>]</span><br><span class="line"> [<span class="number">191</span> <span class="number">184</span> <span class="number">187</span> ... <span class="number">207</span> <span class="number">201</span> <span class="number">224</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">219</span> <span class="number">217</span> <span class="number">211</span> ... <span class="number">188</span> <span class="number">190</span> <span class="number">192</span>]</span><br><span class="line"> [<span class="number">222</span> <span class="number">211</span> <span class="number">216</span> ... <span class="number">189</span> <span class="number">192</span> <span class="number">194</span>]</span><br><span class="line"> [<span class="number">211</span> <span class="number">200</span> <span class="number">214</span> ... <span class="number">193</span> <span class="number">197</span> <span class="number">199</span>]] 维度： (<span class="number">189</span>, <span class="number">149</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="三、根据每个通道的数字矩阵输出图片"><a href="#三、根据每个通道的数字矩阵输出图片" class="headerlink" title="三、根据每个通道的数字矩阵输出图片"></a>三、根据每个通道的数字矩阵输出图片</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span>   <span class="comment"># 图片路径</span></span><br><span class="line">matrix = io.imread(fig_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">R = matrix[:, :, <span class="number">0</span>]  <span class="comment"># 获取R通道</span></span><br><span class="line">G = matrix[:, :, <span class="number">1</span>]  <span class="comment"># 获取G通道</span></span><br><span class="line">B = matrix[:, :, <span class="number">2</span>]  <span class="comment"># 获取B通道</span></span><br><span class="line"></span><br><span class="line">R_image = Image.fromarray(R)</span><br><span class="line">R_image.show()</span><br><span class="line">R_image.save(<span class="string">r"C:\Users\GWT9\Desktop\af_R.png"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">G_image = Image.fromarray(G)</span><br><span class="line">G_image.show()</span><br><span class="line">G_image.save(<span class="string">r"C:\Users\GWT9\Desktop\af_G.png"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">B_image = Image.fromarray(B)</span><br><span class="line">B_image.show()</span><br><span class="line">B_image.save(<span class="string">r"C:\Users\GWT9\Desktop\af_B.png"</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>结果</p>
+<ul>
+<li><strong>通道R</strong></li>
+</ul>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_R.png" alt="通道R">!</p>
+<ul>
+<li><strong>通道G</strong></li>
+</ul>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_G.png" alt="通道G">!</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>通道B</strong></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_B.png" alt="通道B">!</p>
+</li>
+</ul>
+<h4 id="四、根据数字矩阵输出图片"><a href="#四、根据数字矩阵输出图片" class="headerlink" title="四、根据数字矩阵输出图片"></a>四、根据数字矩阵输出图片</h4><p>  因为像素值均是[0-255]内的数字，因此要保证数字矩阵的数字在此范围内，可以设置数字的格式为uint8。</p>
+ <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"> <span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数字矩阵</span></span><br><span class="line">R = np.arange(<span class="number">-800</span>, <span class="number">100</span>, <span class="number">0.5</span>, dtype=np.uint8).reshape(<span class="number">30</span>, <span class="number">20</span>, <span class="number">3</span>)</span><br><span class="line">R_image = Image.fromarray(R)</span><br><span class="line">R_image.show()</span><br></pre></td></tr></table></figure>
+<p>如果不转换数字格式，也可以为输出的图设定mode，例如mode设置为’RGB’，但是此时数字矩阵和读取生成的图片的矩阵是不同的。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数字矩阵</span></span><br><span class="line">R = np.arange(<span class="number">-800</span>, <span class="number">100</span>, <span class="number">0.5</span>).reshape(<span class="number">30</span>, <span class="number">20</span>, <span class="number">3</span>)</span><br><span class="line">R_image = Image.fromarray(R, mode=<span class="string">'RGB'</span>)  <span class="comment"># 设置mode</span></span><br><span class="line">R_image.show()</span><br></pre></td></tr></table></figure><br>或将数字矩阵中的数字小于0的按0计算，大于255的按255计算，这种转换和直接将数字进行uint8转换得到的是不同的，最后在转换为uint8的格式进行图片的输出。对于在(0,255)之间的小数不用进行处理。<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数字矩阵</span></span><br><span class="line">R = np.arange(<span class="number">-800</span>, <span class="number">100</span>, <span class="number">0.5</span>).reshape(<span class="number">30</span>, <span class="number">20</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># 进行转换</span></span><br><span class="line">R[R &lt; <span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">R[R &gt; <span class="number">255</span>] = <span class="number">255</span></span><br><span class="line">R_image = Image.fromarray(np.uint8(R)) <span class="comment"># 转为uint8的格式</span></span><br><span class="line">R_image.show()</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>图像处理</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>安装和使用桌面版Github (2020-03-29)</title>
     <url>/2020/04/05/hiero1/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-下载安装GitHub-Desktop"><a href="#1-下载安装GitHub-Desktop" class="headerlink" title="1.下载安装GitHub Desktop"></a>1.下载安装GitHub Desktop</h2><p>GitHub桌面版下载地址：<a href="https://desktop.github.com/" target="_blank" rel="noopener">https://desktop.github.com/</a><br><img src="https://upload-images.jianshu.io/upload_images/15863171-22f93f6e82f20263.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image1.png"></p>
@@ -1208,37 +1208,6 @@
       </tags>
   </entry>
   <entry>
-    <title>一步解决hexo博客搭建后的全文搜索功能</title>
-    <url>/2020/04/05/hiero3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
-<p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
-<p>注意：你需要在使用透视搜索之前安装 hexo-generator-json-content。<br>复制代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一招解决hexo博客出现无法加载“hexo-prism-plugin”的情况</title>
-    <url>/2020/04/05/hiero4/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一、问题的描述</p>
-<p><strong>“ERROR Plugin load failed: hexo-prism-plugin”</strong><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">ERROR Plugin load failed: hexo-prism-plugin</span><br><span class="line">Error: &#96;prism_plugin&#96; options should be added to _config.yml file</span><br><span class="line">    at E:\hexo\node_modules\hexo-prism-plugin\src\index.js:70:9</span><br><span class="line">    at E:\hexo\node_modules\hexo\lib\hexo\index.js:293:14</span><br><span class="line">    at tryCatcher (E:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at Promise._resolveCallback (E:\hexo\node_modules\bluebird\js\release\promise.js:466:57)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:559:17)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at E:\hexo\node_modules\bluebird\js\release\nodeback.js:42:21</span><br><span class="line">    at E:\hexo\node_modules\graceful-fs\graceful-fs.js:115:16</span><br><span class="line">    at FSReqCallback.readFileAfterClose [as oncomplete] (internal&#x2F;fs&#x2F;read_file_context.js:63:3)</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">INFO  See you again</span><br></pre></td></tr></table></figure></p>
-<p>二、问题的解决</p>
-<p>在博客目录下的配置文件中打开，将以下代码放在最后即可，重新启动生成部署。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">prism_plugin:</span><br><span class="line">  mode: &#39;preprocess&#39; # realtime&#x2F;preprocess</span><br><span class="line">  theme: &#39;default&#39;</span><br><span class="line">  line_number: false # default false</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>解决Hexo博客页面过小问题与设置透明背景</title>
     <url>/2020/04/05/hiero2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用默认生成的主题，文章宽度过小，而两遍宽度过大。可以修改<br>themes\next\source\css_schemes\Pisces_layout.styl<br>中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.container .main-inner &#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.content-wrap &#123; width: calc(100% - 260px); &#125;</span><br></pre></td></tr></table></figure><br>代码，改变大小。但加了之后，虽然能够在电脑上显示，但手机上的显示却会出问题，不能自适应。下面提供我的方法，可以直接复制粘贴我的_layout.styl配置。</p>
@@ -1252,6 +1221,23 @@
 <p>然后修改博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .sidebar 标签下 background: $body-bg-color修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
 <h1 id="按钮背景"><a href="#按钮背景" class="headerlink" title="按钮背景"></a>按钮背景</h1><p>博客根目录 themes\next\source\css_common\components\post\post-button.styl 同上修改对应位置为 background: transparent;</p>
 <hr>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决hexo-theme-hiero博客主页打开后无法显示分类内容的问题</title>
+    <url>/2020/04/05/hiero6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>将layout: “categories”添加到分类页面中，而不是type: “categories”<br>类似的情况可以解决标签问题….</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2020-04-07 21:33:34</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>问题描述：<br>如图（文字是因为当时没有解决的办法不得不加的）：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-91ba0c0f69383971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>按照以上修改以后刷新页面如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15863171-cfdb1d691fee4f33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 ]]></content>
       <categories>
         <category>博客教程</category>
@@ -1289,14 +1275,13 @@
       </tags>
   </entry>
   <entry>
-    <title>解决hexo-theme-hiero博客主页打开后无法显示分类内容的问题</title>
-    <url>/2020/04/05/hiero6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>将layout: “categories”添加到分类页面中，而不是type: “categories”<br>类似的情况可以解决标签问题….</p>
+    <title>一步解决hexo博客搭建后的全文搜索功能</title>
+    <url>/2020/04/05/hiero3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
+<p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2020-04-07 21:33:34</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>问题描述：<br>如图（文字是因为当时没有解决的办法不得不加的）：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-91ba0c0f69383971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>按照以上修改以后刷新页面如下：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/15863171-cfdb1d691fee4f33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
+<p>注意：你需要在使用透视搜索之前安装 hexo-generator-json-content。<br>复制代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>博客教程</category>
@@ -1438,70 +1423,6 @@
       </categories>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>互联网学习资源</title>
-    <url>/2019/10/05/pagebegin/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://upload-images.jianshu.io/upload_images/15863171-7749f7682034b964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>本博客分享人工智能算法，Python基础知识、数据分析、数据可视化、大数据、TensorFlow和神经网络等学习资源，以及热点资讯、相关技术文章、学习视频和学习书籍等~~~<br></p>
-<p><a href="https://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247484965&amp;idx=1&amp;sn=757e038fdc0eb968008ff73752b2456c&amp;chksm=971007d3a0678ec5ae9fa1c1c871ff8cf15b67656f227327e3b507654a7cac28002f867ddb01&amp;token=51702026&amp;lang=zh_CN" target="_blank" rel="noopener">《值得你阅读的hexo个人博客搭建：不用购买服务器，不用购买域名，不要钱，不用敲代码等等，是的，你没有看错，快来转载学习吧！》</a><br><a id="more"></a></p>
-<p><a href="https://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485656&amp;idx=1&amp;sn=57e94f6ea6c0713a9a081c0a6b207416&amp;chksm=9710092ea06780382d78aeaa5c14559965752c28b23e3068a62ec89297980e26f858e5689b9c&amp;token=1279158786&amp;lang=zh_CN#rd" target="_blank" rel="noopener">Python | Pandas 快速处理文本数据</a></p>
-<p><a href="https://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485771&amp;idx=1&amp;sn=a8bca897963101c64dbf3072932612b0&amp;chksm=971008bda06781ab85690587726635858ba32271536f7f199531af1e63c35bcd6f167f0f288b&amp;token=1305373609&amp;lang=zh_CN#rd" target="_blank" rel="noopener">解决安装AI算法库TensorFlow 2.0的最新入坑指南以及详细的安装教程【分别在linux和windows系统下安装】</a></p>
-<p><strong><em>您可能喜欢的文章：</em></strong></p>
-<ul>
-<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485246&amp;idx=1&amp;sn=21e5385c26fe6866b056619e87d8829b&amp;chksm=971006c8a0678fde4c18db3115ed91490b8c653b25aebd5bd61605eda5eeb992008c946a447a&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">数据分析开篇：一个简单的应用（2019/11/04）</a></p>
-</li>
-<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485315&amp;idx=1&amp;sn=ddec9e455757a2af1df8a3fca319b173&amp;chksm=97100675a0678f6316f39e5569d92b5727397d86888ec28fc49ae5e3fe71ab2cc8df00889e8a&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（一）：NumPy数组</a></p>
-</li>
-<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485315&amp;idx=1&amp;sn=ddec9e455757a2af1df8a3fca319b173&amp;chksm=97100675a0678f6316f39e5569d92b5727397d86888ec28fc49ae5e3fe71ab2cc8df00889e8a&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（二）：NumPy摘要——文章末尾附Python</a> </p>
-</li>
-<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485351&amp;idx=1&amp;sn=c0d14713527646dd7aa113b1b04452d4&amp;chksm=97100651a0678f47fff6692d934aaab91f53b52348dc7f567be99e21358207064ae4b0c328b1&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（三）：数组的形状和属性（有福利赠予）</a></p>
-</li>
-<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485406&amp;idx=1&amp;sn=50b327edec6ea33605a6551623133a9d&amp;chksm=97100628a0678f3ee979a6f01850b63dd1298dc07ca0e5f098e973ff1b8c888fd0125257e98a&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">数据分析必知必必会（四）：数组的转换，视图，拷贝，索引和广播（这里的“广播”是一个数组的应用：数据处理旧手机铃声）</a></p>
-</li>
-<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485459&amp;idx=1&amp;sn=5d9eaed9972b6dcd7e838530b6c9445f&amp;chksm=971009e5a06780f3d8f401ecb337ce88de166edfec059d43c9a0be2274c01322e32ce84a5718&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（五）：统计和线性代数（使用Numpy与Scipy实现）</a></p>
-</li>
-<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485579&amp;idx=1&amp;sn=a5128b4d508a51a5f8d3ba0b82364752&amp;chksm=9710097da067806bcd58e326e24971690d0736fe69a85f390b8043415600ae7ceb72d4729a52&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（六）：离散式复制的创建（以北京最近的猪肉价格为例子）</a></p>
-</li>
-<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485593&amp;idx=1&amp;sn=7a7801b8daa3f5b43a79130df721aba1&amp;chksm=9710096fa0678079c647b363eb92facda180402defcb4375322f30035f96902b57843226b8da&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（七）：pandas入门与数据结构基础</a></p>
-</li>
-<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485601&amp;idx=1&amp;sn=c8915dfba4416efc8149eb11090c70bd&amp;chksm=97100957a067804179633e45417e803481a0057dd4bc842e6652ba4cc1a19cb24709b16c0d68&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（八）：使用pandas查询数据和统计分析的应用（短小但强大）</a></p>
-</li>
-<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485699&amp;idx=1&amp;sn=e4a9946cfa5eb87e1796a57b2dacf111&amp;chksm=971008f5a06781e3a09e1eef39a7edf78703f2e44451158da06d6570a84dd4e5fe3f94bb6f28&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（九）：数据的分组与聚合</a></p>
-</li>
-</ul>
-<p>推荐互联网人工智能学习资料</p>
-<p><a href="https://github.com/KangChou/AI-algorithm" target="_blank" rel="noopener">&gt;&gt;&gt;点击进入&lt;&lt;&lt;</a></p>
-<p><strong><em>视频赏析</em></strong></p>
-<p>视频来源我的B站：Cucker周周的实验室<br><img src="hello-world/ck.jpg" alt="--&gt;"></p>
-<iframe src="//player.bilibili.com/player.html?aid=100188774&bvid=BV1c7411D763&cid=170907793&page=1" width="600" height="400" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-<br>
-
-[>>>更多视频点击进入我的B站<<<](https://space.bilibili.com/358594193?spm_id_from=333.788.b_765f7570696e666f.2)
-
-
-
-怀旧经典：《牧马人》，最淳朴的爱情，也是父辈们才能拥有的爱情。
-<iframe src="//player.bilibili.com/player.html?aid=77312863&cid=132250178&page=1" width="600" height="400" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> 
-</iframe>
-<br>
-
-
-
-
-
-
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=29759371&auto=1&height=66"></iframe>
-
-
-<p>博客网页正在更新中…</p>
-<div class="ds-recent-visitors" data-num-items="28" data-avatar-size="42" id="ds-recent-visitors"></div>]]></content>
-      <categories>
-        <category>学习资料</category>
-      </categories>
-      <tags>
-        <tag>资料</tag>
       </tags>
   </entry>
   <entry>
@@ -2072,6 +1993,85 @@
       </tags>
   </entry>
   <entry>
+    <title>一招解决hexo博客出现无法加载“hexo-prism-plugin”的情况</title>
+    <url>/2020/04/05/hiero4/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一、问题的描述</p>
+<p><strong>“ERROR Plugin load failed: hexo-prism-plugin”</strong><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">ERROR Plugin load failed: hexo-prism-plugin</span><br><span class="line">Error: &#96;prism_plugin&#96; options should be added to _config.yml file</span><br><span class="line">    at E:\hexo\node_modules\hexo-prism-plugin\src\index.js:70:9</span><br><span class="line">    at E:\hexo\node_modules\hexo\lib\hexo\index.js:293:14</span><br><span class="line">    at tryCatcher (E:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at Promise._resolveCallback (E:\hexo\node_modules\bluebird\js\release\promise.js:466:57)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:559:17)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at E:\hexo\node_modules\bluebird\js\release\nodeback.js:42:21</span><br><span class="line">    at E:\hexo\node_modules\graceful-fs\graceful-fs.js:115:16</span><br><span class="line">    at FSReqCallback.readFileAfterClose [as oncomplete] (internal&#x2F;fs&#x2F;read_file_context.js:63:3)</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">INFO  See you again</span><br></pre></td></tr></table></figure></p>
+<p>二、问题的解决</p>
+<p>在博客目录下的配置文件中打开，将以下代码放在最后即可，重新启动生成部署。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">prism_plugin:</span><br><span class="line">  mode: &#39;preprocess&#39; # realtime&#x2F;preprocess</span><br><span class="line">  theme: &#39;default&#39;</span><br><span class="line">  line_number: false # default false</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>互联网学习资源</title>
+    <url>/2019/10/05/pagebegin/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://upload-images.jianshu.io/upload_images/15863171-7749f7682034b964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>本博客分享人工智能算法，Python基础知识、数据分析、数据可视化、大数据、TensorFlow和神经网络等学习资源，以及热点资讯、相关技术文章、学习视频和学习书籍等~~~<br></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247484965&amp;idx=1&amp;sn=757e038fdc0eb968008ff73752b2456c&amp;chksm=971007d3a0678ec5ae9fa1c1c871ff8cf15b67656f227327e3b507654a7cac28002f867ddb01&amp;token=51702026&amp;lang=zh_CN" target="_blank" rel="noopener">《值得你阅读的hexo个人博客搭建：不用购买服务器，不用购买域名，不要钱，不用敲代码等等，是的，你没有看错，快来转载学习吧！》</a><br><a id="more"></a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485656&amp;idx=1&amp;sn=57e94f6ea6c0713a9a081c0a6b207416&amp;chksm=9710092ea06780382d78aeaa5c14559965752c28b23e3068a62ec89297980e26f858e5689b9c&amp;token=1279158786&amp;lang=zh_CN#rd" target="_blank" rel="noopener">Python | Pandas 快速处理文本数据</a></p>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485771&amp;idx=1&amp;sn=a8bca897963101c64dbf3072932612b0&amp;chksm=971008bda06781ab85690587726635858ba32271536f7f199531af1e63c35bcd6f167f0f288b&amp;token=1305373609&amp;lang=zh_CN#rd" target="_blank" rel="noopener">解决安装AI算法库TensorFlow 2.0的最新入坑指南以及详细的安装教程【分别在linux和windows系统下安装】</a></p>
+<p><strong><em>您可能喜欢的文章：</em></strong></p>
+<ul>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485246&amp;idx=1&amp;sn=21e5385c26fe6866b056619e87d8829b&amp;chksm=971006c8a0678fde4c18db3115ed91490b8c653b25aebd5bd61605eda5eeb992008c946a447a&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">数据分析开篇：一个简单的应用（2019/11/04）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485315&amp;idx=1&amp;sn=ddec9e455757a2af1df8a3fca319b173&amp;chksm=97100675a0678f6316f39e5569d92b5727397d86888ec28fc49ae5e3fe71ab2cc8df00889e8a&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（一）：NumPy数组</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485315&amp;idx=1&amp;sn=ddec9e455757a2af1df8a3fca319b173&amp;chksm=97100675a0678f6316f39e5569d92b5727397d86888ec28fc49ae5e3fe71ab2cc8df00889e8a&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（二）：NumPy摘要——文章末尾附Python</a> </p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485351&amp;idx=1&amp;sn=c0d14713527646dd7aa113b1b04452d4&amp;chksm=97100651a0678f47fff6692d934aaab91f53b52348dc7f567be99e21358207064ae4b0c328b1&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（三）：数组的形状和属性（有福利赠予）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485406&amp;idx=1&amp;sn=50b327edec6ea33605a6551623133a9d&amp;chksm=97100628a0678f3ee979a6f01850b63dd1298dc07ca0e5f098e973ff1b8c888fd0125257e98a&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">数据分析必知必必会（四）：数组的转换，视图，拷贝，索引和广播（这里的“广播”是一个数组的应用：数据处理旧手机铃声）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485459&amp;idx=1&amp;sn=5d9eaed9972b6dcd7e838530b6c9445f&amp;chksm=971009e5a06780f3d8f401ecb337ce88de166edfec059d43c9a0be2274c01322e32ce84a5718&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（五）：统计和线性代数（使用Numpy与Scipy实现）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485579&amp;idx=1&amp;sn=a5128b4d508a51a5f8d3ba0b82364752&amp;chksm=9710097da067806bcd58e326e24971690d0736fe69a85f390b8043415600ae7ceb72d4729a52&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（六）：离散式复制的创建（以北京最近的猪肉价格为例子）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485593&amp;idx=1&amp;sn=7a7801b8daa3f5b43a79130df721aba1&amp;chksm=9710096fa0678079c647b363eb92facda180402defcb4375322f30035f96902b57843226b8da&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（七）：pandas入门与数据结构基础</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485601&amp;idx=1&amp;sn=c8915dfba4416efc8149eb11090c70bd&amp;chksm=97100957a067804179633e45417e803481a0057dd4bc842e6652ba4cc1a19cb24709b16c0d68&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（八）：使用pandas查询数据和统计分析的应用（短小但强大）</a></p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485699&amp;idx=1&amp;sn=e4a9946cfa5eb87e1796a57b2dacf111&amp;chksm=971008f5a06781e3a09e1eef39a7edf78703f2e44451158da06d6570a84dd4e5fe3f94bb6f28&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">2020年数据分析必知必会（九）：数据的分组与聚合</a></p>
+</li>
+</ul>
+<p>推荐互联网人工智能学习资料</p>
+<p><a href="https://github.com/KangChou/AI-algorithm" target="_blank" rel="noopener">&gt;&gt;&gt;点击进入&lt;&lt;&lt;</a></p>
+<p><strong><em>视频赏析</em></strong></p>
+<p>视频来源我的B站：Cucker周周的实验室<br><img src="hello-world/ck.jpg" alt="--&gt;"></p>
+<iframe src="//player.bilibili.com/player.html?aid=100188774&bvid=BV1c7411D763&cid=170907793&page=1" width="600" height="400" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<br>
+
+[>>>更多视频点击进入我的B站<<<](https://space.bilibili.com/358594193?spm_id_from=333.788.b_765f7570696e666f.2)
+
+
+
+怀旧经典：《牧马人》，最淳朴的爱情，也是父辈们才能拥有的爱情。
+<iframe src="//player.bilibili.com/player.html?aid=77312863&cid=132250178&page=1" width="600" height="400" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> 
+</iframe>
+<br>
+
+
+
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=29759371&auto=1&height=66"></iframe>
+
+
+<p>博客网页正在更新中…</p>
+<div class="ds-recent-visitors" data-num-items="28" data-avatar-size="42" id="ds-recent-visitors"></div>]]></content>
+      <categories>
+        <category>学习资料</category>
+      </categories>
+      <tags>
+        <tag>资料</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>池化</title>
     <url>/2020/04/05/pooling/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="池化"><a href="#池化" class="headerlink" title="池化"></a>池化</h1><p>池化(Pooing)操作的对象是单通道的数字矩阵，也就是对该矩阵某一个邻域内的数字集合进行采样。主要有3种形式：一般池化，重叠池化和金字塔池化。 </p>
@@ -2193,6 +2193,23 @@
       </tags>
   </entry>
   <entry>
+    <title>Sublime Text 3 最新注册码（ 亲测可用2020年4月1日更新）</title>
+    <url>/2019/10/05/sublimetxtpass/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://upload-images.jianshu.io/upload_images/15863171-7749f7682034b964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15863171-418aadb6cbc16b19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="“废话不多说直接上干货”"><a href="#“废话不多说直接上干货”" class="headerlink" title="“废话不多说直接上干货”"></a>“废话不多说直接上干货”</h4><p><a href="https://github.com/KangChou/Sublime-Text-3--s-latest-activation-code" target="_blank" rel="noopener">Github原文链接</a></p>
+<h3 id="备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整"><a href="#备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整" class="headerlink" title="备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整"></a>备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整</h3><p>具体步骤请参考：<br><a href="https://www.jianshu.com/p/b6fae22fee0f" target="_blank" rel="noopener">https://www.jianshu.com/p/b6fae22fee0f</a><br>打开sublime text ,选择help—&gt;enter license，将下面的代码内容复制到输入框中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZYNGA INC.</span><br><span class="line">50 User License</span><br><span class="line">EA7E-811825</span><br><span class="line">927BA117 84C9300F 4A0CCBC4 34A56B44</span><br><span class="line">985E4562 59F2B63B CCCFF92F 0E646B83</span><br><span class="line">0FD6487D 1507AE29 9CC4F9F5 0A6F32E3</span><br><span class="line">0343D868 C18E2CD5 27641A71 25475648</span><br><span class="line">309705B3 E468DDC4 1B766A18 7952D28C</span><br><span class="line">E627DDBA 960A2153 69A2D98A C87C0607</span><br><span class="line">45DC6049 8C04EC29 D18DFA40 442C680B</span><br><span class="line"></span><br><span class="line">1342224D 44D90641 33A3B9F2 46AADB8F</span><br></pre></td></tr></table></figure><br><a id="more"></a><br>执行结果解题如下：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-68b125f633ef4e97.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="激活成功"></p>
+<h3 id="备注2：想永久激活那就请别更新，具体操作请查考上面的链接"><a href="#备注2：想永久激活那就请别更新，具体操作请查考上面的链接" class="headerlink" title="备注2：想永久激活那就请别更新，具体操作请查考上面的链接"></a>备注2：想永久激活那就请别更新，具体操作请查考上面的链接</h3><h3 id="附件：Sublime-Text2-最新注册码请点击下面的蓝色链接"><a href="#附件：Sublime-Text2-最新注册码请点击下面的蓝色链接" class="headerlink" title="附件：Sublime Text2  最新注册码请点击下面的蓝色链接"></a>附件：Sublime Text2  最新注册码请点击下面的蓝色链接</h3><p><a href="https://www.jianshu.com/p/b6fae22fee0f" target="_blank" rel="noopener">Sublime Text  最新注册码（ 亲测可用2019年8月24日更新）</a></p>
+<h4 id="获取更多学习资源请扫码以下公众号二维码进行关注"><a href="#获取更多学习资源请扫码以下公众号二维码进行关注" class="headerlink" title="获取更多学习资源请扫码以下公众号二维码进行关注"></a>获取更多学习资源请扫码以下公众号二维码进行关注</h4><p><img src="https://upload-images.jianshu.io/upload_images/15863171-707fa71de174ba5f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="AI科技与算法编程"></p>
+]]></content>
+      <categories>
+        <category>激活与安装</category>
+      </categories>
+      <tags>
+        <tag>Sublime Text</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>核心解密Python函数在（类与函数之间）和（类与类之间）互相调用</title>
     <url>/2020/07/01/py0/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、类与函数之间"><a href="#一、类与函数之间" class="headerlink" title="一、类与函数之间"></a>一、类与函数之间</h1><p>首先来看一个函数间的调用</p>
@@ -2304,23 +2321,6 @@
       </categories>
       <tags>
         <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Sublime Text 3 最新注册码（ 亲测可用2020年4月1日更新）</title>
-    <url>/2019/10/05/sublimetxtpass/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://upload-images.jianshu.io/upload_images/15863171-7749f7682034b964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/15863171-418aadb6cbc16b19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h4 id="“废话不多说直接上干货”"><a href="#“废话不多说直接上干货”" class="headerlink" title="“废话不多说直接上干货”"></a>“废话不多说直接上干货”</h4><p><a href="https://github.com/KangChou/Sublime-Text-3--s-latest-activation-code" target="_blank" rel="noopener">Github原文链接</a></p>
-<h3 id="备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整"><a href="#备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整" class="headerlink" title="备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整"></a>备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整</h3><p>具体步骤请参考：<br><a href="https://www.jianshu.com/p/b6fae22fee0f" target="_blank" rel="noopener">https://www.jianshu.com/p/b6fae22fee0f</a><br>打开sublime text ,选择help—&gt;enter license，将下面的代码内容复制到输入框中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZYNGA INC.</span><br><span class="line">50 User License</span><br><span class="line">EA7E-811825</span><br><span class="line">927BA117 84C9300F 4A0CCBC4 34A56B44</span><br><span class="line">985E4562 59F2B63B CCCFF92F 0E646B83</span><br><span class="line">0FD6487D 1507AE29 9CC4F9F5 0A6F32E3</span><br><span class="line">0343D868 C18E2CD5 27641A71 25475648</span><br><span class="line">309705B3 E468DDC4 1B766A18 7952D28C</span><br><span class="line">E627DDBA 960A2153 69A2D98A C87C0607</span><br><span class="line">45DC6049 8C04EC29 D18DFA40 442C680B</span><br><span class="line"></span><br><span class="line">1342224D 44D90641 33A3B9F2 46AADB8F</span><br></pre></td></tr></table></figure><br><a id="more"></a><br>执行结果解题如下：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-68b125f633ef4e97.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="激活成功"></p>
-<h3 id="备注2：想永久激活那就请别更新，具体操作请查考上面的链接"><a href="#备注2：想永久激活那就请别更新，具体操作请查考上面的链接" class="headerlink" title="备注2：想永久激活那就请别更新，具体操作请查考上面的链接"></a>备注2：想永久激活那就请别更新，具体操作请查考上面的链接</h3><h3 id="附件：Sublime-Text2-最新注册码请点击下面的蓝色链接"><a href="#附件：Sublime-Text2-最新注册码请点击下面的蓝色链接" class="headerlink" title="附件：Sublime Text2  最新注册码请点击下面的蓝色链接"></a>附件：Sublime Text2  最新注册码请点击下面的蓝色链接</h3><p><a href="https://www.jianshu.com/p/b6fae22fee0f" target="_blank" rel="noopener">Sublime Text  最新注册码（ 亲测可用2019年8月24日更新）</a></p>
-<h4 id="获取更多学习资源请扫码以下公众号二维码进行关注"><a href="#获取更多学习资源请扫码以下公众号二维码进行关注" class="headerlink" title="获取更多学习资源请扫码以下公众号二维码进行关注"></a>获取更多学习资源请扫码以下公众号二维码进行关注</h4><p><img src="https://upload-images.jianshu.io/upload_images/15863171-707fa71de174ba5f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="AI科技与算法编程"></p>
-]]></content>
-      <categories>
-        <category>激活与安装</category>
-      </categories>
-      <tags>
-        <tag>Sublime Text</tag>
       </tags>
   </entry>
   <entry>
