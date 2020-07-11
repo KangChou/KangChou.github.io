@@ -690,6 +690,42 @@
       </tags>
   </entry>
   <entry>
+    <title>卷积神经网络实现</title>
+    <url>/2020/07/08/cnn_realize/</url>
+    <content><![CDATA[<h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
+<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
+<a id="more"></a>
+<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
+<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
+<li><p><strong>正向传播</strong></p>
+<ul>
+<li><p><strong>输入层INPUT</strong></p>
+<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
+</li>
+<li><p><strong>卷积层CONV</strong>      </p>
+<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>反向传播</strong></li>
+</ul>
+<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
+<li><strong>正向传播</strong></li>
+</ul>
+<ul>
+<li><strong>反向传播</strong></li>
+</ul>
+]]></content>
+      <categories>
+        <category>神经网络</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>卷积神经网络</title>
     <url>/2020/07/08/cnn/</url>
     <content><![CDATA[<h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>对于一个图片而言，假设其数字矩阵维度为(<strong>3,320,240</strong>)，其中<strong>3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度</strong>。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。</p>
@@ -812,42 +848,6 @@
 
     上面的公式只是说明了卷积神经网络中梯度是如何计算的。但是并不能利用其编程实现，对于更为一般的梯度计算，[参见](https://grzegorzgwardys.wordpress.com/2016/04/22/8/#unique-identifier2)   
 </code></pre>]]></content>
-      <categories>
-        <category>神经网络</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>卷积神经网络实现</title>
-    <url>/2020/07/08/cnn_realize/</url>
-    <content><![CDATA[<h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
-<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
-<a id="more"></a>
-<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
-<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
-<li><p><strong>正向传播</strong></p>
-<ul>
-<li><p><strong>输入层INPUT</strong></p>
-<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
-</li>
-<li><p><strong>卷积层CONV</strong>      </p>
-<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
-<li><strong>正向传播</strong></li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-]]></content>
       <categories>
         <category>神经网络</category>
       </categories>
@@ -1579,6 +1579,22 @@
       </tags>
   </entry>
   <entry>
+    <title>一步解决hexo博客搭建后的全文搜索功能</title>
+    <url>/2020/04/05/hiero3/</url>
+    <content><![CDATA[<hr>
+<p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
+<p>注意：你需要在使用透视搜索之前安装 hexo-generator-json-content。<br>复制代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决Hexo博客页面过小问题与设置透明背景</title>
     <url>/2020/04/05/hiero2/</url>
     <content><![CDATA[<p>使用默认生成的主题，文章宽度过小，而两遍宽度过大。可以修改<br>themes\next\source\css_schemes\Pisces_layout.styl<br>中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.container .main-inner &#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.content-wrap &#123; width: calc(100% - 260px); &#125;</span><br></pre></td></tr></table></figure><br>代码，改变大小。但加了之后，虽然能够在电脑上显示，但手机上的显示却会出问题，不能自适应。下面提供我的方法，可以直接复制粘贴我的_layout.styl配置。</p>
@@ -1601,22 +1617,6 @@
       </tags>
   </entry>
   <entry>
-    <title>一步解决hexo博客搭建后的全文搜索功能</title>
-    <url>/2020/04/05/hiero3/</url>
-    <content><![CDATA[<hr>
-<p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
-<p>注意：你需要在使用透视搜索之前安装 hexo-generator-json-content。<br>复制代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一招解决hexo博客出现无法加载“hexo-prism-plugin”的情况</title>
     <url>/2020/04/05/hiero4/</url>
     <content><![CDATA[<p>一、问题的描述</p>
@@ -1629,23 +1629,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>解决hexo-theme-hiero博客主页打开后无法显示分类内容的问题</title>
-    <url>/2020/04/05/hiero6/</url>
-    <content><![CDATA[<p>将layout: “categories”添加到分类页面中，而不是type: “categories”<br>类似的情况可以解决标签问题….</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2020-04-07 21:33:34</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>问题描述：<br>如图（文字是因为当时没有解决的办法不得不加的）：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-91ba0c0f69383971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>按照以上修改以后刷新页面如下：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/15863171-cfdb1d691fee4f33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
@@ -1674,6 +1657,144 @@
       </categories>
       <tags>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决hexo-theme-hiero博客主页打开后无法显示分类内容的问题</title>
+    <url>/2020/04/05/hiero6/</url>
+    <content><![CDATA[<p>将layout: “categories”添加到分类页面中，而不是type: “categories”<br>类似的情况可以解决标签问题….</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2020-04-07 21:33:34</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>问题描述：<br>如图（文字是因为当时没有解决的办法不得不加的）：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-91ba0c0f69383971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>按照以上修改以后刷新页面如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15863171-cfdb1d691fee4f33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>池化</title>
+    <url>/2020/04/05/pooling/</url>
+    <content><![CDATA[<h1 id="池化"><a href="#池化" class="headerlink" title="池化"></a>池化</h1><p>池化(Pooing)操作的对象是单通道的数字矩阵，也就是对该矩阵某一个邻域内的数字集合进行采样。主要有3种形式：一般池化，重叠池化和金字塔池化。 </p>
+<h3 id="一、池化类型"><a href="#一、池化类型" class="headerlink" title="一、池化类型"></a>一、池化类型</h3><p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/pooling.py" target="_blank" rel="noopener">程序参见</a></p>
+<ul>
+<li><strong>一般池化</strong></li>
+</ul>
+<p>池化窗口的尺寸为n*n，一般情况下池化窗口都是正方形的。步长等于n。此时池化窗口之间是没有重叠的。对于超出数字矩阵范围的，只计算范围内的或者范围外的用0填充在计算。本文只介绍最大值池化，均值池化，随机池化。下面给出图示：</p>
+<a id="more"></a>
+<ul>
+<li><p><strong>最大值池化(Max Pooling)</strong></p>
+<p>池化窗口范围内的最大值作为采样的输出值。</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max_pool.png" alt="最大值池化"></p>
+</li>
+<li><p><strong>均值池化(Average pooling)</strong></p>
+<p>池化窗口范围内的平均值作为采样的输出值，也就是普通均值池化。或者将范围内的数字归一化，每个数字与该范围内的数字之和的比例作为该数字的权重，然后原始数字和对应权重的乘积的和作为最终的输出值，也就是加权平均。下图中的示例是前者。</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_pool.png" alt="均值池化"></p>
+</li>
+<li><p><strong>随机池化(Stochastic pooling)</strong></p>
+<p>池化窗口范围内的数字，采用轮盘赌的方式进行采样，就是值较大的数字成为采样输出值的概率较大。 </p>
+</li>
+</ul>
+<ul>
+<li><strong>重叠池化</strong>  </li>
+</ul>
+<p>池化窗口之间有重叠。也就是步长大于等于1小于n，计算和一般池化是一样的。</p>
+<ul>
+<li><strong>Spatial Pyramid Pooling 空间金字塔池化</strong>  </li>
+</ul>
+<p>空间金字塔池化，简称SPP，又名空间金字塔匹配。BP神经网络(全连接神经网络)中要求的输入维度必须是一致的，卷积神经网络中的网络也包括全连接层。因此需要将尺寸大小不一样的图片(经过多层卷积池化后的结果)，转换为同样的尺寸，作为全连接神经网络的输入。如果利用裁剪可能会丧失很多的边缘信息，而SPP可以很好的解决这个问题。</p>
+<p>空间金字塔池化就是首先把图片看成1块，对这1块进行最大值池化，得到1个值，分成4块，对这4块分别进行最大值池化，得到4个值；分成16块，对这16块分别进行最大值池化，得到16个值，以此类推。这样就可以保证对于不同尺寸的图片而言，最终得到的值的个数是一样的。因为是最大值池化，超出范围的用不用0填充不会影响结果。</p>
+<p>下面给出2个不同尺寸的图片，进行空间金字塔池化的结果。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">图1</th>
+<th style="text-align:left">ssp结果</th>
+<th style="text-align:center">l层</th>
+<th style="text-align:right">ssp结果</th>
+<th style="text-align:center">图2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_1.png" alt="竖图"></td>
+<td style="text-align:left">R通道ssp结果: 255<br>G通道ssp结果: 255<br>B通道ssp结果: 255</td>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:right">R通道ssp结果: 255<br>G通道ssp结果: 255<br>B通道ssp结果: 255</td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_1.png" alt="横图"></td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_2.png" alt="竖图"></td>
+<td style="text-align:left">R通道ssp结果: [255, 255, 255, 255]<br>G通道ssp结果: [255, 255, 246, 241]<br>B通道ssp结果: [255, 255, 255, 255]</td>
+<td style="text-align:center"><strong>2</strong></td>
+<td style="text-align:right">R通道ssp结果: [255, 255, 252, 255]<br>G通道ssp结果: [255, 239, 252, 248]<br>B通道ssp结果: [255, 255, 255, 255]</td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_2.png" alt="横图"></td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_3.png" alt="竖图"></td>
+<td style="text-align:left">R通道ssp结果: [249, 255, 255, 255, 255, 255, 244, 255, 236]<br>G通道ssp结果: [206, 224, 221, 255, 246, 255, 213, 241, 206]<br>B通道ssp结果: [255, 255, 255, 255, 255, 255, 255, 255, 255]</td>
+<td style="text-align:center"><strong>3</strong></td>
+<td style="text-align:right">R通道ssp结果: [252, 255, 229, 252, 255, 255, 243, 251, 240]<br>G通道ssp结果: [222, 255, 215, 223, 248, 239, 194, 252, 218]<br>B通道ssp结果: [255, 255, 255, 255, 255, 255, 255, 255, 255]</td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_3.png" alt="横图"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/cut_fig.py" target="_blank" rel="noopener">程序参见</a></p>
+<h3 id="二、池化作用"><a href="#二、池化作用" class="headerlink" title="二、池化作用"></a>二、池化作用</h3><ol>
+<li><p>降低了图片尺寸，也就是增大了感受野。感受野就是数字矩阵中的一个数字所对应的原图中的区域大小。因为池化是在某个范围内选择一个数字，也就是让这个数字代表这个范围内的所有的像素得值。这样做虽然也丢失了一些图片信息，但是同时增加了鲁棒性。</p>
+</li>
+<li><p>增加平移不变性。图片中某个目标单纯的位置的移动，不应该影响识别结果。而池化捕捉的恰好是目标的特征，并不是目标所在的位置，因此增加了平移不变性。</p>
+</li>
+<li><p>提升训练速度。因为在保留特征信息的前提下，降低了图片的尺寸。</p>
+</li>
+</ol>
+<h3 id="三、池化对比"><a href="#三、池化对比" class="headerlink" title="三、池化对比"></a>三、池化对比</h3><p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/lena.jpg" alt="原始图片"></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">池化方法</th>
+<th style="text-align:center">池化</th>
+<th style="text-align:center">图片显示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">一般：最大值</td>
+<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max_normal.png" alt="一般最大值图片"></td>
+</tr>
+<tr>
+<td style="text-align:center">重叠：最大值</td>
+<td style="text-align:center"><strong>尺寸=8，步长=4</strong></td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max.png" alt="重叠最大值图片"></td>
+</tr>
+<tr>
+<td style="text-align:center">一般：普通均值</td>
+<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_normal.png" alt="普通图片"></td>
+</tr>
+<tr>
+<td style="text-align:center">一般：加权均值</td>
+<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_weight.png" alt="加权图片"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/pooling_fig.py" target="_blank" rel="noopener">程序参见</a></p>
+]]></content>
+      <categories>
+        <category>算法基础</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -1933,127 +2054,6 @@
       </categories>
       <tags>
         <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>池化</title>
-    <url>/2020/04/05/pooling/</url>
-    <content><![CDATA[<h1 id="池化"><a href="#池化" class="headerlink" title="池化"></a>池化</h1><p>池化(Pooing)操作的对象是单通道的数字矩阵，也就是对该矩阵某一个邻域内的数字集合进行采样。主要有3种形式：一般池化，重叠池化和金字塔池化。 </p>
-<h3 id="一、池化类型"><a href="#一、池化类型" class="headerlink" title="一、池化类型"></a>一、池化类型</h3><p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/pooling.py" target="_blank" rel="noopener">程序参见</a></p>
-<ul>
-<li><strong>一般池化</strong></li>
-</ul>
-<p>池化窗口的尺寸为n*n，一般情况下池化窗口都是正方形的。步长等于n。此时池化窗口之间是没有重叠的。对于超出数字矩阵范围的，只计算范围内的或者范围外的用0填充在计算。本文只介绍最大值池化，均值池化，随机池化。下面给出图示：</p>
-<a id="more"></a>
-<ul>
-<li><p><strong>最大值池化(Max Pooling)</strong></p>
-<p>池化窗口范围内的最大值作为采样的输出值。</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max_pool.png" alt="最大值池化"></p>
-</li>
-<li><p><strong>均值池化(Average pooling)</strong></p>
-<p>池化窗口范围内的平均值作为采样的输出值，也就是普通均值池化。或者将范围内的数字归一化，每个数字与该范围内的数字之和的比例作为该数字的权重，然后原始数字和对应权重的乘积的和作为最终的输出值，也就是加权平均。下图中的示例是前者。</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_pool.png" alt="均值池化"></p>
-</li>
-<li><p><strong>随机池化(Stochastic pooling)</strong></p>
-<p>池化窗口范围内的数字，采用轮盘赌的方式进行采样，就是值较大的数字成为采样输出值的概率较大。 </p>
-</li>
-</ul>
-<ul>
-<li><strong>重叠池化</strong>  </li>
-</ul>
-<p>池化窗口之间有重叠。也就是步长大于等于1小于n，计算和一般池化是一样的。</p>
-<ul>
-<li><strong>Spatial Pyramid Pooling 空间金字塔池化</strong>  </li>
-</ul>
-<p>空间金字塔池化，简称SPP，又名空间金字塔匹配。BP神经网络(全连接神经网络)中要求的输入维度必须是一致的，卷积神经网络中的网络也包括全连接层。因此需要将尺寸大小不一样的图片(经过多层卷积池化后的结果)，转换为同样的尺寸，作为全连接神经网络的输入。如果利用裁剪可能会丧失很多的边缘信息，而SPP可以很好的解决这个问题。</p>
-<p>空间金字塔池化就是首先把图片看成1块，对这1块进行最大值池化，得到1个值，分成4块，对这4块分别进行最大值池化，得到4个值；分成16块，对这16块分别进行最大值池化，得到16个值，以此类推。这样就可以保证对于不同尺寸的图片而言，最终得到的值的个数是一样的。因为是最大值池化，超出范围的用不用0填充不会影响结果。</p>
-<p>下面给出2个不同尺寸的图片，进行空间金字塔池化的结果。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">图1</th>
-<th style="text-align:left">ssp结果</th>
-<th style="text-align:center">l层</th>
-<th style="text-align:right">ssp结果</th>
-<th style="text-align:center">图2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_1.png" alt="竖图"></td>
-<td style="text-align:left">R通道ssp结果: 255<br>G通道ssp结果: 255<br>B通道ssp结果: 255</td>
-<td style="text-align:center"><strong>1</strong></td>
-<td style="text-align:right">R通道ssp结果: 255<br>G通道ssp结果: 255<br>B通道ssp结果: 255</td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_1.png" alt="横图"></td>
-</tr>
-<tr>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_2.png" alt="竖图"></td>
-<td style="text-align:left">R通道ssp结果: [255, 255, 255, 255]<br>G通道ssp结果: [255, 255, 246, 241]<br>B通道ssp结果: [255, 255, 255, 255]</td>
-<td style="text-align:center"><strong>2</strong></td>
-<td style="text-align:right">R通道ssp结果: [255, 255, 252, 255]<br>G通道ssp结果: [255, 239, 252, 248]<br>B通道ssp结果: [255, 255, 255, 255]</td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_2.png" alt="横图"></td>
-</tr>
-<tr>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_3.png" alt="竖图"></td>
-<td style="text-align:left">R通道ssp结果: [249, 255, 255, 255, 255, 255, 244, 255, 236]<br>G通道ssp结果: [206, 224, 221, 255, 246, 255, 213, 241, 206]<br>B通道ssp结果: [255, 255, 255, 255, 255, 255, 255, 255, 255]</td>
-<td style="text-align:center"><strong>3</strong></td>
-<td style="text-align:right">R通道ssp结果: [252, 255, 229, 252, 255, 255, 243, 251, 240]<br>G通道ssp结果: [222, 255, 215, 223, 248, 239, 194, 252, 218]<br>B通道ssp结果: [255, 255, 255, 255, 255, 255, 255, 255, 255]</td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_3.png" alt="横图"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/cut_fig.py" target="_blank" rel="noopener">程序参见</a></p>
-<h3 id="二、池化作用"><a href="#二、池化作用" class="headerlink" title="二、池化作用"></a>二、池化作用</h3><ol>
-<li><p>降低了图片尺寸，也就是增大了感受野。感受野就是数字矩阵中的一个数字所对应的原图中的区域大小。因为池化是在某个范围内选择一个数字，也就是让这个数字代表这个范围内的所有的像素得值。这样做虽然也丢失了一些图片信息，但是同时增加了鲁棒性。</p>
-</li>
-<li><p>增加平移不变性。图片中某个目标单纯的位置的移动，不应该影响识别结果。而池化捕捉的恰好是目标的特征，并不是目标所在的位置，因此增加了平移不变性。</p>
-</li>
-<li><p>提升训练速度。因为在保留特征信息的前提下，降低了图片的尺寸。</p>
-</li>
-</ol>
-<h3 id="三、池化对比"><a href="#三、池化对比" class="headerlink" title="三、池化对比"></a>三、池化对比</h3><p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/lena.jpg" alt="原始图片"></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">池化方法</th>
-<th style="text-align:center">池化</th>
-<th style="text-align:center">图片显示</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">一般：最大值</td>
-<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max_normal.png" alt="一般最大值图片"></td>
-</tr>
-<tr>
-<td style="text-align:center">重叠：最大值</td>
-<td style="text-align:center"><strong>尺寸=8，步长=4</strong></td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max.png" alt="重叠最大值图片"></td>
-</tr>
-<tr>
-<td style="text-align:center">一般：普通均值</td>
-<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_normal.png" alt="普通图片"></td>
-</tr>
-<tr>
-<td style="text-align:center">一般：加权均值</td>
-<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_weight.png" alt="加权图片"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/pooling_fig.py" target="_blank" rel="noopener">程序参见</a></p>
-]]></content>
-      <categories>
-        <category>算法基础</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
       </tags>
   </entry>
   <entry>

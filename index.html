@@ -738,7 +738,7 @@ AnFany：AnFany_DT_Classify.py
 
   
     
-<article id="post-cnn"  class="article article-type-post" itemscope itemprop="blogPost" >
+<article id="post-cnn_realize"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -746,7 +746,7 @@ AnFany：AnFany_DT_Classify.py
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/07/08/cnn/">卷积神经网络</a>
+      <a class="article-title" href="/2020/07/08/cnn_realize/">卷积神经网络实现</a>
     </h1>
   
 
@@ -754,7 +754,7 @@ AnFany：AnFany_DT_Classify.py
     
     <div class="article-meta">
       
-	Posted on <a href="/2020/07/08/cnn/" class="article-date">
+	Posted on <a href="/2020/07/08/cnn_realize/" class="article-date">
 	  <time datetime="2020-07-08T14:57:06.000Z" itemprop="datePublished">七月 8, 2020</time>
 	</a>
 
@@ -764,16 +764,15 @@ AnFany：AnFany_DT_Classify.py
       
         
           <div class="entry-thumbnail">
-            <a href="/2020/07/08/cnn/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEFoi4.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+            <a href="/2020/07/08/cnn_realize/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEFOL6.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
           </div>
           <div class="entry-summary">
-          卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。
-
-对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320...
+          卷积神经网络实现因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从输入层INPUT开始、到卷积层CONV、激活层AF、池化层POOL、然后到输出层OUTPUT。
+对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(高度，宽度)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(1，高度...
 
         
           <p class="article-more-link">
-            <a href="/2020/07/08/cnn/#more">阅读全文</a>
+            <a href="/2020/07/08/cnn_realize/#more">阅读全文</a>
           </p>
         </div>
       
@@ -810,7 +809,7 @@ AnFany：AnFany_DT_Classify.py
 
   
     
-<article id="post-cnn_realize"  class="article article-type-post" itemscope itemprop="blogPost" >
+<article id="post-cnn"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -818,7 +817,7 @@ AnFany：AnFany_DT_Classify.py
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/07/08/cnn_realize/">卷积神经网络实现</a>
+      <a class="article-title" href="/2020/07/08/cnn/">卷积神经网络</a>
     </h1>
   
 
@@ -826,7 +825,7 @@ AnFany：AnFany_DT_Classify.py
     
     <div class="article-meta">
       
-	Posted on <a href="/2020/07/08/cnn_realize/" class="article-date">
+	Posted on <a href="/2020/07/08/cnn/" class="article-date">
 	  <time datetime="2020-07-08T14:57:06.000Z" itemprop="datePublished">七月 8, 2020</time>
 	</a>
 
@@ -836,15 +835,16 @@ AnFany：AnFany_DT_Classify.py
       
         
           <div class="entry-thumbnail">
-            <a href="/2020/07/08/cnn_realize/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEFOL6.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+            <a href="/2020/07/08/cnn/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEFoi4.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
           </div>
           <div class="entry-summary">
-          卷积神经网络实现因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从输入层INPUT开始、到卷积层CONV、激活层AF、池化层POOL、然后到输出层OUTPUT。
-对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(高度，宽度)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(1，高度...
+          卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。
+
+对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320...
 
         
           <p class="article-more-link">
-            <a href="/2020/07/08/cnn_realize/#more">阅读全文</a>
+            <a href="/2020/07/08/cnn/#more">阅读全文</a>
           </p>
         </div>
       
@@ -1114,12 +1114,12 @@ AnFany：AnFany_DT_Classify.py
 
             
               <div class="widget-entry-thumbnail">
-                <a href="/2020/07/08/cnn/" title=""><img width="50" height="50" src="https://s1.ax1x.com/2020/07/08/UEFoi4.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+                <a href="/2020/07/08/cnn_realize/" title=""><img width="50" height="50" src="https://s1.ax1x.com/2020/07/08/UEFOL6.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
               <div class="widget-entry-summary">
             
 
-              <h6 style="margin: 0;"><a href="/2020/07/08/cnn/">卷积神经网络</a></h6>
+              <h6 style="margin: 0;"><a href="/2020/07/08/cnn_realize/">卷积神经网络实现</a></h6>
               <span>七月 8, 2020</span>
             </div>
 
@@ -1129,12 +1129,12 @@ AnFany：AnFany_DT_Classify.py
 
             
               <div class="widget-entry-thumbnail">
-                <a href="/2020/07/08/cnn_realize/" title=""><img width="50" height="50" src="https://s1.ax1x.com/2020/07/08/UEFOL6.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+                <a href="/2020/07/08/cnn/" title=""><img width="50" height="50" src="https://s1.ax1x.com/2020/07/08/UEFoi4.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
               <div class="widget-entry-summary">
             
 
-              <h6 style="margin: 0;"><a href="/2020/07/08/cnn_realize/">卷积神经网络实现</a></h6>
+              <h6 style="margin: 0;"><a href="/2020/07/08/cnn/">卷积神经网络</a></h6>
               <span>七月 8, 2020</span>
             </div>
 
