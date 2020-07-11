@@ -542,74 +542,70 @@
       </tags>
   </entry>
   <entry>
-    <title>CART回归树</title>
-    <url>/2020/07/08/carreadme/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
+    <title>CART分类树</title>
+    <url>/2020/07/08/cart2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="CART分类树"><a href="#CART分类树" class="headerlink" title="CART分类树"></a>CART分类树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
 <li><p>数据文件</p>
 <ul>
-<li><p>北京市Pm2.5数据集：<a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data#" target="_blank" rel="noopener">数据下载以及说明</a></p>
-</li>
-<li><p>数据文件：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/PRSA_data_2010.1.1-2014.12.31.csv" target="_blank" rel="noopener">PRSA_data_2010.1.1-2014.12.31.csv</a></p>
-</li>
+<li>成年人收入数据集：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/BPNN/BPNN_Classify" target="_blank" rel="noopener">数据集参见BP神经网络分类</a></li>
 </ul>
 </li>
 </ul>
 <ul>
 <li><p>基于不同库的代码文件</p>
 <ul>
-<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_DT_Regression.py" target="_blank" rel="noopener">AnFany_DT_Regression.py</a></li>
+<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Classify.py" target="_blank" rel="noopener">AnFany_DT_Classify.py</a></li>
 </ul>
 </li>
 </ul>
-<pre><code> - **Sklearn**：[Sklearn_DT_Regression.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Sklearn_DT_Regression.py)
+<pre><code> - **Sklearn**：[Sklearn_DT_Classify.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Sklearn_DT_Classify.py)
 </code></pre><ul>
 <li><p>辅助代码文件</p>
 <ul>
-<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Data_DT_Regression.py" target="_blank" rel="noopener">Data_DT_Regression.py</a></li>
+<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/DT_Classify_Data.py" target="_blank" rel="noopener">DT_Classify_Data.py</a></li>
 </ul>
 </li>
+<li><p>绘制树的程序</p>
+<ul>
+<li>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_Show_Tree.py" target="_blank" rel="noopener">AnFany_Show_Tree.py</a></li>
+<li><p>成人收入数据集(初始深度设为5)的树的示例：</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_tree.png" alt="image"></p>
+</li>
 </ul>
-<pre><code>  - 绘制树的程序：[AnFany_pm2.5_Tree.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_pm2.5_Tree.py)
-</code></pre><ul>
-<li><p>北京市Pm2.5数据集结果对比</p>
-   <a id="more"></a>
+</li>
+<li><p>成人收入数据集结果对比</p>
 <ul>
 <li><p><strong>AnFany</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/adult_23.png" alt="image"></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_23.png" alt="image"></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_anfany.png" alt="image"></p>
+</li>
+<li><p><strong>Sklearn</strong></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_sklearn.png" alt="image"></p>
 </li>
 </ul>
 </li>
-</ul>
-<pre><code>  - **Sklearn**
-
-  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_pm2.5.png)
-
-  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_cure.png)
-</code></pre><ul>
-<li><p>示例 </p>
+<li><p>示例(以鸢尾花数据集为例) </p>
+ <a id="more"></a>
 <ul>
-<li><strong>y=sin(x1) + cos(x2)</strong></li>
-</ul>
-<ul>
+<li><p><strong><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/Softmax%20Regression" target="_blank" rel="noopener">数据集说明参见Softmax回归</a></strong></p>
+</li>
 <li><p><strong>AnFany</strong></p>
 <ul>
-<li>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_example_DT.py" target="_blank" rel="noopener">AnFany_example_DT.py</a></li>
-</ul>
+<li><p>数据处理：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Irisdata_DT_Anfany.py" target="_blank" rel="noopener">Irisdata_DT_AnFany.py</a></p>
+</li>
+<li><p>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Iris.py" target="_blank" rel="noopener">AnFany_DT_Iris.py</a></p>
+</li>
+<li><p>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Iris_tree.py" target="_blank" rel="noopener">Iris_tree.py</a>       </p>
+</li>
+<li><p>结果：</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_anfany.png" alt="image"></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_tree.png" alt="image"></p>
 </li>
 </ul>
 </li>
 </ul>
-<pre><code>   - 结果：
-
-     + **不同初始深度**
-
-      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/shili_mse.png)
-
-     + **拟合对比**
-
-      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_shili.png)
-</code></pre>]]></content>
+</li>
+</ul>
+]]></content>
       <categories>
         <category>决策树</category>
       </categories>
@@ -748,70 +744,74 @@
       </tags>
   </entry>
   <entry>
-    <title>CART分类树</title>
-    <url>/2020/07/08/cart2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="CART分类树"><a href="#CART分类树" class="headerlink" title="CART分类树"></a>CART分类树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
+    <title>CART回归树</title>
+    <url>/2020/07/08/carreadme/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
 <li><p>数据文件</p>
 <ul>
-<li>成年人收入数据集：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/BPNN/BPNN_Classify" target="_blank" rel="noopener">数据集参见BP神经网络分类</a></li>
+<li><p>北京市Pm2.5数据集：<a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data#" target="_blank" rel="noopener">数据下载以及说明</a></p>
+</li>
+<li><p>数据文件：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/PRSA_data_2010.1.1-2014.12.31.csv" target="_blank" rel="noopener">PRSA_data_2010.1.1-2014.12.31.csv</a></p>
+</li>
 </ul>
 </li>
 </ul>
 <ul>
 <li><p>基于不同库的代码文件</p>
 <ul>
-<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Classify.py" target="_blank" rel="noopener">AnFany_DT_Classify.py</a></li>
+<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_DT_Regression.py" target="_blank" rel="noopener">AnFany_DT_Regression.py</a></li>
 </ul>
 </li>
 </ul>
-<pre><code> - **Sklearn**：[Sklearn_DT_Classify.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Sklearn_DT_Classify.py)
+<pre><code> - **Sklearn**：[Sklearn_DT_Regression.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Sklearn_DT_Regression.py)
 </code></pre><ul>
 <li><p>辅助代码文件</p>
 <ul>
-<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/DT_Classify_Data.py" target="_blank" rel="noopener">DT_Classify_Data.py</a></li>
+<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Data_DT_Regression.py" target="_blank" rel="noopener">Data_DT_Regression.py</a></li>
 </ul>
 </li>
-<li><p>绘制树的程序</p>
-<ul>
-<li>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_Show_Tree.py" target="_blank" rel="noopener">AnFany_Show_Tree.py</a></li>
-<li><p>成人收入数据集(初始深度设为5)的树的示例：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_tree.png" alt="image"></p>
-</li>
 </ul>
-</li>
-<li><p>成人收入数据集结果对比</p>
+<pre><code>  - 绘制树的程序：[AnFany_pm2.5_Tree.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_pm2.5_Tree.py)
+</code></pre><ul>
+<li><p>北京市Pm2.5数据集结果对比</p>
+   <a id="more"></a>
 <ul>
 <li><p><strong>AnFany</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_anfany.png" alt="image"></p>
-</li>
-<li><p><strong>Sklearn</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_sklearn.png" alt="image"></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/adult_23.png" alt="image"></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_23.png" alt="image"></p>
 </li>
 </ul>
 </li>
-<li><p>示例(以鸢尾花数据集为例) </p>
- <a id="more"></a>
+</ul>
+<pre><code>  - **Sklearn**
+
+  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_pm2.5.png)
+
+  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_cure.png)
+</code></pre><ul>
+<li><p>示例 </p>
 <ul>
-<li><p><strong><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/Softmax%20Regression" target="_blank" rel="noopener">数据集说明参见Softmax回归</a></strong></p>
-</li>
+<li><strong>y=sin(x1) + cos(x2)</strong></li>
+</ul>
+<ul>
 <li><p><strong>AnFany</strong></p>
 <ul>
-<li><p>数据处理：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Irisdata_DT_Anfany.py" target="_blank" rel="noopener">Irisdata_DT_AnFany.py</a></p>
-</li>
-<li><p>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Iris.py" target="_blank" rel="noopener">AnFany_DT_Iris.py</a></p>
-</li>
-<li><p>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Iris_tree.py" target="_blank" rel="noopener">Iris_tree.py</a>       </p>
-</li>
-<li><p>结果：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_anfany.png" alt="image"></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_tree.png" alt="image"></p>
-</li>
+<li>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_example_DT.py" target="_blank" rel="noopener">AnFany_example_DT.py</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-]]></content>
+<pre><code>   - 结果：
+
+     + **不同初始深度**
+
+      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/shili_mse.png)
+
+     + **拟合对比**
+
+      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_shili.png)
+</code></pre>]]></content>
       <categories>
         <category>决策树</category>
       </categories>
@@ -1601,22 +1601,6 @@
       </tags>
   </entry>
   <entry>
-    <title>一步解决hexo博客搭建后的全文搜索功能</title>
-    <url>/2020/04/05/hiero3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
-<p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
-<p>注意：你需要在使用透视搜索之前安装 hexo-generator-json-content。<br>复制代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一招解决给hexo博客添加版权声明的方法</title>
     <url>/2020/04/05/hiero5/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>今天更换了新的Hexo主题：<br><a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank" rel="noopener">hexo-theme-hiero</a></p>
@@ -1645,14 +1629,13 @@
       </tags>
   </entry>
   <entry>
-    <title>解决hexo-theme-hiero博客主页打开后无法显示分类内容的问题</title>
-    <url>/2020/04/05/hiero6/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>将layout: “categories”添加到分类页面中，而不是type: “categories”<br>类似的情况可以解决标签问题….</p>
+    <title>一步解决hexo博客搭建后的全文搜索功能</title>
+    <url>/2020/04/05/hiero3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
+<p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2020-04-07 21:33:34</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>问题描述：<br>如图（文字是因为当时没有解决的办法不得不加的）：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-91ba0c0f69383971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>按照以上修改以后刷新页面如下：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/15863171-cfdb1d691fee4f33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
+<p>注意：你需要在使用透视搜索之前安装 hexo-generator-json-content。<br>复制代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure></p>
 ]]></content>
       <categories>
         <category>博客教程</category>
@@ -1674,6 +1657,23 @@
       </categories>
       <tags>
         <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决hexo-theme-hiero博客主页打开后无法显示分类内容的问题</title>
+    <url>/2020/04/05/hiero6/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>将layout: “categories”添加到分类页面中，而不是type: “categories”<br>类似的情况可以解决标签问题….</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2020-04-07 21:33:34</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>问题描述：<br>如图（文字是因为当时没有解决的办法不得不加的）：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-91ba0c0f69383971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>按照以上修改以后刷新页面如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15863171-cfdb1d691fee4f33.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
