@@ -738,7 +738,7 @@ AnFany：AnFany_DT_Classify.py
 
   
     
-<article id="post-cnn"  class="article article-type-post" itemscope itemprop="blogPost" >
+<article id="post-fig"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -746,7 +746,7 @@ AnFany：AnFany_DT_Classify.py
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/07/08/cnn/">卷积神经网络</a>
+      <a class="article-title" href="/2020/07/08/fig/">图像处理</a>
     </h1>
   
 
@@ -754,7 +754,7 @@ AnFany：AnFany_DT_Classify.py
     
     <div class="article-meta">
       
-	Posted on <a href="/2020/07/08/cnn/" class="article-date">
+	Posted on <a href="/2020/07/08/fig/" class="article-date">
 	  <time datetime="2020-07-08T14:57:06.000Z" itemprop="datePublished">七月 8, 2020</time>
 	</a>
 
@@ -764,16 +764,17 @@ AnFany：AnFany_DT_Classify.py
       
         
           <div class="entry-thumbnail">
-            <a href="/2020/07/08/cnn/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEFoi4.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+            <a href="/2020/07/08/fig/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEk9Wd.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
           </div>
           <div class="entry-summary">
-          卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。
+          图像的结构图像是由一个个像素点构成，每个像素点有三个通道，分别对应R，G，B。彩色RGB图像其实是一个三维矩阵，矩阵中的每个数字(0到255)代表的是一个像素一个通道的灰度。下面举例说明：
 
-对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320...
+
+一、读取这个图片的三维矩阵12345678# -*- coding：utf-8 -*-# &amp;Author  AnFanyfrom skimage import iofig_path = r"C...
 
         
           <p class="article-more-link">
-            <a href="/2020/07/08/cnn/#more">阅读全文</a>
+            <a href="/2020/07/08/fig/#more">阅读全文</a>
           </p>
         </div>
       
@@ -781,7 +782,7 @@ AnFany：AnFany_DT_Classify.py
     <footer class="entry-meta entry-footer">
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+    <a class="article-category-link" href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a>
 
       
   <span class="ico-tags"></span>
@@ -881,7 +882,7 @@ AnFany：AnFany_DT_Classify.py
 
   
     
-<article id="post-fig"  class="article article-type-post" itemscope itemprop="blogPost" >
+<article id="post-cnn"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
     
@@ -889,7 +890,7 @@ AnFany：AnFany_DT_Classify.py
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2020/07/08/fig/">图像处理</a>
+      <a class="article-title" href="/2020/07/08/cnn/">卷积神经网络</a>
     </h1>
   
 
@@ -897,7 +898,7 @@ AnFany：AnFany_DT_Classify.py
     
     <div class="article-meta">
       
-	Posted on <a href="/2020/07/08/fig/" class="article-date">
+	Posted on <a href="/2020/07/08/cnn/" class="article-date">
 	  <time datetime="2020-07-08T14:57:06.000Z" itemprop="datePublished">七月 8, 2020</time>
 	</a>
 
@@ -907,17 +908,16 @@ AnFany：AnFany_DT_Classify.py
       
         
           <div class="entry-thumbnail">
-            <a href="/2020/07/08/fig/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEk9Wd.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
+            <a href="/2020/07/08/cnn/"><img width="250" height="175" src="https://s1.ax1x.com/2020/07/08/UEFoi4.png" class="attachment-thumb-featured size-thumb-featured wp-post-image" alt=""></a>
           </div>
           <div class="entry-summary">
-          图像的结构图像是由一个个像素点构成，每个像素点有三个通道，分别对应R，G，B。彩色RGB图像其实是一个三维矩阵，矩阵中的每个数字(0到255)代表的是一个像素一个通道的灰度。下面举例说明：
+          卷积神经网络对于一个图片而言，假设其数字矩阵维度为(3,320,240)，其中3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。
 
-
-一、读取这个图片的三维矩阵12345678# -*- coding：utf-8 -*-# &amp;Author  AnFanyfrom skimage import iofig_path = r"C...
+对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320...
 
         
           <p class="article-more-link">
-            <a href="/2020/07/08/fig/#more">阅读全文</a>
+            <a href="/2020/07/08/cnn/#more">阅读全文</a>
           </p>
         </div>
       
@@ -925,7 +925,7 @@ AnFany：AnFany_DT_Classify.py
     <footer class="entry-meta entry-footer">
       
 	<span class="ico-folder"></span>
-    <a class="article-category-link" href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a>
+    <a class="article-category-link" href="/categories/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
 
       
   <span class="ico-tags"></span>
@@ -1114,12 +1114,12 @@ AnFany：AnFany_DT_Classify.py
 
             
               <div class="widget-entry-thumbnail">
-                <a href="/2020/07/08/cnn/" title=""><img width="50" height="50" src="https://s1.ax1x.com/2020/07/08/UEFoi4.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+                <a href="/2020/07/08/fig/" title=""><img width="50" height="50" src="https://s1.ax1x.com/2020/07/08/UEk9Wd.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
               <div class="widget-entry-summary">
             
 
-              <h6 style="margin: 0;"><a href="/2020/07/08/cnn/">卷积神经网络</a></h6>
+              <h6 style="margin: 0;"><a href="/2020/07/08/fig/">图像处理</a></h6>
               <span>七月 8, 2020</span>
             </div>
 
@@ -1144,12 +1144,12 @@ AnFany：AnFany_DT_Classify.py
 
             
               <div class="widget-entry-thumbnail">
-                <a href="/2020/07/08/fig/" title=""><img width="50" height="50" src="https://s1.ax1x.com/2020/07/08/UEk9Wd.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+                <a href="/2020/07/08/cnn/" title=""><img width="50" height="50" src="https://s1.ax1x.com/2020/07/08/UEFoi4.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
               <div class="widget-entry-summary">
             
 
-              <h6 style="margin: 0;"><a href="/2020/07/08/fig/">图像处理</a></h6>
+              <h6 style="margin: 0;"><a href="/2020/07/08/cnn/">卷积神经网络</a></h6>
               <span>七月 8, 2020</span>
             </div>
 
