@@ -542,42 +542,6 @@
       </tags>
   </entry>
   <entry>
-    <title>卷积神经网络实现</title>
-    <url>/2020/07/08/cnn_realize/</url>
-    <content><![CDATA[<h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
-<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
-<a id="more"></a>
-<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
-<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
-<li><p><strong>正向传播</strong></p>
-<ul>
-<li><p><strong>输入层INPUT</strong></p>
-<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
-</li>
-<li><p><strong>卷积层CONV</strong>      </p>
-<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
-<li><strong>正向传播</strong></li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-]]></content>
-      <categories>
-        <category>神经网络</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CART回归树</title>
     <url>/2020/07/08/carreadme/</url>
     <content><![CDATA[<h1 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
@@ -848,6 +812,42 @@
 
     上面的公式只是说明了卷积神经网络中梯度是如何计算的。但是并不能利用其编程实现，对于更为一般的梯度计算，[参见](https://grzegorzgwardys.wordpress.com/2016/04/22/8/#unique-identifier2)   
 </code></pre>]]></content>
+      <categories>
+        <category>神经网络</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>卷积神经网络实现</title>
+    <url>/2020/07/08/cnn_realize/</url>
+    <content><![CDATA[<h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
+<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
+<a id="more"></a>
+<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
+<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
+<li><p><strong>正向传播</strong></p>
+<ul>
+<li><p><strong>输入层INPUT</strong></p>
+<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
+</li>
+<li><p><strong>卷积层CONV</strong>      </p>
+<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>反向传播</strong></li>
+</ul>
+<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
+<li><strong>正向传播</strong></li>
+</ul>
+<ul>
+<li><strong>反向传播</strong></li>
+</ul>
+]]></content>
       <categories>
         <category>神经网络</category>
       </categories>
@@ -1439,29 +1439,6 @@
       </tags>
   </entry>
   <entry>
-    <title>长时间不登陆博客出现的情况！</title>
-    <url>/2020/04/05/blogre/</url>
-    <content><![CDATA[<p>写这篇文章的目的是因为好久没有更新我的博客而写的，由于更新的过程中遇到一些问题，所以下面整理了一些步骤，希望对一会之后的朋友少踩坑<br>重新构建你的博客之前记得在你的github仓库修改你的keyssh,下图所示</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/15863171-f202d2b0fee5d0fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>出现如下显示，说明成功<br><img src="https://upload-images.jianshu.io/upload_images/15863171-52797079d65e62e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<a id="more"></a>
-<p>遇到的问题：<br>不能推送资料：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kangs@DESKTOP-TJ06OQ5 MINGW64 &#x2F;e&#x2F;blog</span><br><span class="line">$ hexo d</span><br><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure>
-<p>如果你的问题不是上述问题就可能是这里：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-5f85b1f3ca64caad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>你自行复制你的xxx.github.io.git修改即可</p>
-<p>下面开始解决上面刚刚我说的问题<br>这是因为没安装hexo-deployer-git插件，在站点目录下输入下面的插件安装就好了：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><br>然后在使用Hexo  d命令就可以推送<br><img src="https://upload-images.jianshu.io/upload_images/15863171-1b1253ab41f8fa84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>成功推送：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-16c75d800aba7d89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>截图：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-7ecadeb71156c4b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p>下面可以开始上传以前的资料了</p>
-<p>博客参考资料:</p>
-<p><a href="kangchou001.cn">我的博客</a></p>
-<p><a href="https://kangchou001.cn/2020/04/05/mybeginblog/">博客教程</a></p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>线性回归算法理论</title>
     <url>/2020/04/05/Linear_Regression_Theory/</url>
     <content><![CDATA[<h1 id="Linear-Regression-Theory"><a href="#Linear-Regression-Theory" class="headerlink" title="Linear_Regression_Theory"></a>Linear_Regression_Theory</h1><ul>
@@ -1503,30 +1480,20 @@
       </tags>
   </entry>
   <entry>
-    <title>一步解决hexo博客搭建后的全文搜索功能</title>
-    <url>/2020/04/05/hiero3/</url>
-    <content><![CDATA[<hr>
-<p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
+    <title>长时间不登陆博客出现的情况！</title>
+    <url>/2020/04/05/blogre/</url>
+    <content><![CDATA[<p>写这篇文章的目的是因为好久没有更新我的博客而写的，由于更新的过程中遇到一些问题，所以下面整理了一些步骤，希望对一会之后的朋友少踩坑<br>重新构建你的博客之前记得在你的github仓库修改你的keyssh,下图所示</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15863171-f202d2b0fee5d0fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>出现如下显示，说明成功<br><img src="https://upload-images.jianshu.io/upload_images/15863171-52797079d65e62e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
-<p>注意：你需要在使用透视搜索之前安装 hexo-generator-json-content。<br>复制代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo-hiero主题设置文字大小</title>
-    <url>/2020/04/05/hiero0/</url>
-    <content><![CDATA[<p>字体大小和字体你可以在source/css/_variables.styl文件中60行左右对齐，这里是大部分字体但不是全部哈，细节的字体可能还需要你具体看，不一定都在这里面哈！</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block-margin &#x3D; 50px</span><br><span class="line">article-padding &#x3D; 20px   #文章字体</span><br><span class="line">mobile-nav-width &#x3D; 280px</span><br><span class="line">main-column &#x3D; 8</span><br><span class="line">sidebar-column &#x3D; 4</span><br></pre></td></tr></table></figure>
-<p>截图如下：</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/15863171-457c800cf43aa63c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p><a href="http://kangchou001.cn/">可参考我的博客</a></p>
+<p>遇到的问题：<br>不能推送资料：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">kangs@DESKTOP-TJ06OQ5 MINGW64 &#x2F;e&#x2F;blog</span><br><span class="line">$ hexo d</span><br><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure>
+<p>如果你的问题不是上述问题就可能是这里：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-5f85b1f3ca64caad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>你自行复制你的xxx.github.io.git修改即可</p>
+<p>下面开始解决上面刚刚我说的问题<br>这是因为没安装hexo-deployer-git插件，在站点目录下输入下面的插件安装就好了：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><br>然后在使用Hexo  d命令就可以推送<br><img src="https://upload-images.jianshu.io/upload_images/15863171-1b1253ab41f8fa84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>成功推送：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-16c75d800aba7d89.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>截图：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-7ecadeb71156c4b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>下面可以开始上传以前的资料了</p>
+<p>博客参考资料:</p>
+<p><a href="kangchou001.cn">我的博客</a></p>
+<p><a href="https://kangchou001.cn/2020/04/05/mybeginblog/">博客教程</a></p>
 ]]></content>
       <categories>
         <category>博客教程</category>
@@ -1595,6 +1562,23 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo-hiero主题设置文字大小</title>
+    <url>/2020/04/05/hiero0/</url>
+    <content><![CDATA[<p>字体大小和字体你可以在source/css/_variables.styl文件中60行左右对齐，这里是大部分字体但不是全部哈，细节的字体可能还需要你具体看，不一定都在这里面哈！</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block-margin &#x3D; 50px</span><br><span class="line">article-padding &#x3D; 20px   #文章字体</span><br><span class="line">mobile-nav-width &#x3D; 280px</span><br><span class="line">main-column &#x3D; 8</span><br><span class="line">sidebar-column &#x3D; 4</span><br></pre></td></tr></table></figure>
+<p>截图如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15863171-457c800cf43aa63c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><a href="http://kangchou001.cn/">可参考我的博客</a></p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决Hexo博客页面过小问题与设置透明背景</title>
     <url>/2020/04/05/hiero2/</url>
     <content><![CDATA[<p>使用默认生成的主题，文章宽度过小，而两遍宽度过大。可以修改<br>themes\next\source\css_schemes\Pisces_layout.styl<br>中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.container .main-inner &#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.content-wrap &#123; width: calc(100% - 260px); &#125;</span><br></pre></td></tr></table></figure><br>代码，改变大小。但加了之后，虽然能够在电脑上显示，但手机上的显示却会出问题，不能自适应。下面提供我的方法，可以直接复制粘贴我的_layout.styl配置。</p>
@@ -1614,6 +1598,37 @@
       </categories>
       <tags>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一步解决hexo博客搭建后的全文搜索功能</title>
+    <url>/2020/04/05/hiero3/</url>
+    <content><![CDATA[<hr>
+<p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
+<p>注意：你需要在使用透视搜索之前安装 hexo-generator-json-content。<br>复制代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一招解决hexo博客出现无法加载“hexo-prism-plugin”的情况</title>
+    <url>/2020/04/05/hiero4/</url>
+    <content><![CDATA[<p>一、问题的描述</p>
+<p><strong>“ERROR Plugin load failed: hexo-prism-plugin”</strong><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">ERROR Plugin load failed: hexo-prism-plugin</span><br><span class="line">Error: &#96;prism_plugin&#96; options should be added to _config.yml file</span><br><span class="line">    at E:\hexo\node_modules\hexo-prism-plugin\src\index.js:70:9</span><br><span class="line">    at E:\hexo\node_modules\hexo\lib\hexo\index.js:293:14</span><br><span class="line">    at tryCatcher (E:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at Promise._resolveCallback (E:\hexo\node_modules\bluebird\js\release\promise.js:466:57)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:559:17)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at E:\hexo\node_modules\bluebird\js\release\nodeback.js:42:21</span><br><span class="line">    at E:\hexo\node_modules\graceful-fs\graceful-fs.js:115:16</span><br><span class="line">    at FSReqCallback.readFileAfterClose [as oncomplete] (internal&#x2F;fs&#x2F;read_file_context.js:63:3)</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">INFO  See you again</span><br></pre></td></tr></table></figure></p>
+<p>二、问题的解决</p>
+<p>在博客目录下的配置文件中打开，将以下代码放在最后即可，重新启动生成部署。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">prism_plugin:</span><br><span class="line">  mode: &#39;preprocess&#39; # realtime&#x2F;preprocess</span><br><span class="line">  theme: &#39;default&#39;</span><br><span class="line">  line_number: false # default false</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1659,21 +1674,6 @@
       </categories>
       <tags>
         <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一招解决hexo博客出现无法加载“hexo-prism-plugin”的情况</title>
-    <url>/2020/04/05/hiero4/</url>
-    <content><![CDATA[<p>一、问题的描述</p>
-<p><strong>“ERROR Plugin load failed: hexo-prism-plugin”</strong><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">ERROR Plugin load failed: hexo-prism-plugin</span><br><span class="line">Error: &#96;prism_plugin&#96; options should be added to _config.yml file</span><br><span class="line">    at E:\hexo\node_modules\hexo-prism-plugin\src\index.js:70:9</span><br><span class="line">    at E:\hexo\node_modules\hexo\lib\hexo\index.js:293:14</span><br><span class="line">    at tryCatcher (E:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at Promise._resolveCallback (E:\hexo\node_modules\bluebird\js\release\promise.js:466:57)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:559:17)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at E:\hexo\node_modules\bluebird\js\release\nodeback.js:42:21</span><br><span class="line">    at E:\hexo\node_modules\graceful-fs\graceful-fs.js:115:16</span><br><span class="line">    at FSReqCallback.readFileAfterClose [as oncomplete] (internal&#x2F;fs&#x2F;read_file_context.js:63:3)</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">INFO  See you again</span><br></pre></td></tr></table></figure></p>
-<p>二、问题的解决</p>
-<p>在博客目录下的配置文件中打开，将以下代码放在最后即可，重新启动生成部署。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">prism_plugin:</span><br><span class="line">  mode: &#39;preprocess&#39; # realtime&#x2F;preprocess</span><br><span class="line">  theme: &#39;default&#39;</span><br><span class="line">  line_number: false # default false</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1936,42 +1936,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CNN的函数说明</title>
-    <url>/2020/04/05/tensorflow_cnn/</url>
-    <content><![CDATA[<h2 id="TensorFlow-V1-13-1-中CNN的函数说明"><a href="#TensorFlow-V1-13-1-中CNN的函数说明" class="headerlink" title="TensorFlow(V1.13.1)中CNN的函数说明"></a>TensorFlow(V1.13.1)中CNN的函数说明</h2><ul>
-<li><strong>卷积</strong></li>
-</ul>
-<h4 id="tf-nn-conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积"><a href="#tf-nn-conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积" class="headerlink" title="tf.nn.conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积"></a>tf.nn.conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tf.nn.conv2d(input, filter, strides, padding, use_cudnn_on_gpu=<span class="literal">True</span>, data_format=<span class="string">'NHWC'</span>, dilations=[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], name=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>input</strong>：需要进行卷积的数字矩阵。一个四维的Tensor，数据类型可为<code>half</code>，<code>bfloat16</code>，<code>float32</code>或者<code>float64</code>。维度的排列顺序和data_format的设置有关；</p>
-<p><strong>filter</strong>：代表卷积核的数字矩阵。一个四维的Tensor。4维的维度的排列顺序为[高度，宽度，通道数\深度，卷积核的个数]；</p>
-<a id="more"></a>
-<p><strong>strides</strong>：卷积时图像每个维度的步长。一个长度为4的一维整型列表，；</p>
-<p><strong>padding</strong>：填充的方式。字符串类型，”SAME”或者”VALID”；</p>
-<p><strong>use_cudnn_on_gpu</strong>：是否使用cudnn加速。布尔类型，默认为True；</p>
-<p><strong>data_format</strong>：输入数据和输出数据的维度的排列形式。字符串类型，”NHWC”或者”NCHW”，默认为前者，此时数据维度的排列顺序为[批训练的样本数，高度，宽度，通道数\深度]。当为”NCHW”时，数据维度的排列顺序为[批训练的样本数，通道数\深度，高度，宽度]；</p>
-<p><strong>dilations</strong>：对应输入矩阵维度的扩张因子列表。一个长度为4的一维整型列表。默认值为[1，1，1，1]。对应的维度的顺序为data_format确定的维度顺序，其中批训练的样本数和通道数\深度对应的值必须为1；</p>
-<p><strong>name</strong>：定义算子的名称。属于可选参数；</p>
-<ul>
-<li><p><strong>池化</strong></p>
-<h4 id="tf-nn-avg-pool：均值池化"><a href="#tf-nn-avg-pool：均值池化" class="headerlink" title="tf.nn.avg_pool：均值池化"></a>tf.nn.avg_pool：均值池化</h4> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tf.nn.avg_pool(value, ksize, strides, padding, data_format=<span class="string">'NHWC'</span>, name=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="tf-nn-max-pool：最大值池化"><a href="#tf-nn-max-pool：最大值池化" class="headerlink" title="tf.nn.max_pool：最大值池化"></a>tf.nn.max_pool：最大值池化</h4></li>
-</ul>
-   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tf.nn.max_pool(value, ksize, strides, padding, data_format=<span class="string">'NHWC'</span>, name=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
-<p><strong>value</strong>：需要进行池化的数字矩阵。一个四维的Tensor，维度的排列顺序由data_format定义；</p>
-<p><strong>ksize</strong>：每个维度对应的池化窗口的大小。一个长度为4的整数型一维列表或者元组；</p>
-<p><strong>strides</strong>：每个维度对应的池化的步长。一个长度为4的整数型一维列表或者元组；</p>
-<p><strong>padding</strong>：填充的方式。字符串类型，”SAME”或者”VALID”；</p>
-<p><strong>data_format</strong>：输入数据和输出数据的维度的排列形式。字符串类型，值为”NHWC”、”NCHW”、’NCHW_VECT_C’，默认为前者，此时数据维度的排列顺序为[批训练的样本数，高度，宽度，通道数\深度]。当为”NCHW”时，数据维度的排列顺序为[批训练的样本数，通道数\深度，高度，宽度]；当为”NCHW_VECT_C”时，数据维度的排列顺序为[批训练的样本数，通道数\深度/4，高度，宽度，4]；</p>
-<p><strong>name</strong>：定义算子的名称。属于可选参数；</p>
-]]></content>
-      <categories>
-        <category>神经网络</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>池化</title>
     <url>/2020/04/05/pooling/</url>
     <content><![CDATA[<h1 id="池化"><a href="#池化" class="headerlink" title="池化"></a>池化</h1><p>池化(Pooing)操作的对象是单通道的数字矩阵，也就是对该矩阵某一个邻域内的数字集合进行采样。主要有3种形式：一般池化，重叠池化和金字塔池化。 </p>
@@ -2087,6 +2051,42 @@
 ]]></content>
       <categories>
         <category>算法基础</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CNN的函数说明</title>
+    <url>/2020/04/05/tensorflow_cnn/</url>
+    <content><![CDATA[<h2 id="TensorFlow-V1-13-1-中CNN的函数说明"><a href="#TensorFlow-V1-13-1-中CNN的函数说明" class="headerlink" title="TensorFlow(V1.13.1)中CNN的函数说明"></a>TensorFlow(V1.13.1)中CNN的函数说明</h2><ul>
+<li><strong>卷积</strong></li>
+</ul>
+<h4 id="tf-nn-conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积"><a href="#tf-nn-conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积" class="headerlink" title="tf.nn.conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积"></a>tf.nn.conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tf.nn.conv2d(input, filter, strides, padding, use_cudnn_on_gpu=<span class="literal">True</span>, data_format=<span class="string">'NHWC'</span>, dilations=[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], name=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>input</strong>：需要进行卷积的数字矩阵。一个四维的Tensor，数据类型可为<code>half</code>，<code>bfloat16</code>，<code>float32</code>或者<code>float64</code>。维度的排列顺序和data_format的设置有关；</p>
+<p><strong>filter</strong>：代表卷积核的数字矩阵。一个四维的Tensor。4维的维度的排列顺序为[高度，宽度，通道数\深度，卷积核的个数]；</p>
+<a id="more"></a>
+<p><strong>strides</strong>：卷积时图像每个维度的步长。一个长度为4的一维整型列表，；</p>
+<p><strong>padding</strong>：填充的方式。字符串类型，”SAME”或者”VALID”；</p>
+<p><strong>use_cudnn_on_gpu</strong>：是否使用cudnn加速。布尔类型，默认为True；</p>
+<p><strong>data_format</strong>：输入数据和输出数据的维度的排列形式。字符串类型，”NHWC”或者”NCHW”，默认为前者，此时数据维度的排列顺序为[批训练的样本数，高度，宽度，通道数\深度]。当为”NCHW”时，数据维度的排列顺序为[批训练的样本数，通道数\深度，高度，宽度]；</p>
+<p><strong>dilations</strong>：对应输入矩阵维度的扩张因子列表。一个长度为4的一维整型列表。默认值为[1，1，1，1]。对应的维度的顺序为data_format确定的维度顺序，其中批训练的样本数和通道数\深度对应的值必须为1；</p>
+<p><strong>name</strong>：定义算子的名称。属于可选参数；</p>
+<ul>
+<li><p><strong>池化</strong></p>
+<h4 id="tf-nn-avg-pool：均值池化"><a href="#tf-nn-avg-pool：均值池化" class="headerlink" title="tf.nn.avg_pool：均值池化"></a>tf.nn.avg_pool：均值池化</h4> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tf.nn.avg_pool(value, ksize, strides, padding, data_format=<span class="string">'NHWC'</span>, name=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="tf-nn-max-pool：最大值池化"><a href="#tf-nn-max-pool：最大值池化" class="headerlink" title="tf.nn.max_pool：最大值池化"></a>tf.nn.max_pool：最大值池化</h4></li>
+</ul>
+   <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tf.nn.max_pool(value, ksize, strides, padding, data_format=<span class="string">'NHWC'</span>, name=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>value</strong>：需要进行池化的数字矩阵。一个四维的Tensor，维度的排列顺序由data_format定义；</p>
+<p><strong>ksize</strong>：每个维度对应的池化窗口的大小。一个长度为4的整数型一维列表或者元组；</p>
+<p><strong>strides</strong>：每个维度对应的池化的步长。一个长度为4的整数型一维列表或者元组；</p>
+<p><strong>padding</strong>：填充的方式。字符串类型，”SAME”或者”VALID”；</p>
+<p><strong>data_format</strong>：输入数据和输出数据的维度的排列形式。字符串类型，值为”NHWC”、”NCHW”、’NCHW_VECT_C’，默认为前者，此时数据维度的排列顺序为[批训练的样本数，高度，宽度，通道数\深度]。当为”NCHW”时，数据维度的排列顺序为[批训练的样本数，通道数\深度，高度，宽度]；当为”NCHW_VECT_C”时，数据维度的排列顺序为[批训练的样本数，通道数\深度/4，高度，宽度，4]；</p>
+<p><strong>name</strong>：定义算子的名称。属于可选参数；</p>
+]]></content>
+      <categories>
+        <category>神经网络</category>
       </categories>
       <tags>
         <tag>算法</tag>
