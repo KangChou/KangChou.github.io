@@ -3,7 +3,7 @@
   <entry>
     <title>解决安装AI算法库TensorFlow 2.0的最新入坑指南以及详细的安装教程【分别在linux和windows系统下安装】</title>
     <url>/2019/10/05/TensorFlowinstall/</url>
-    <content><![CDATA[<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xNTg2MzE3MS0yNjE2NGY2ZDFiYzRiYjNk?x-oss-process=image/format,png" alt="image"></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xNTg2MzE3MS0yNjE2NGY2ZDFiYzRiYjNk?x-oss-process=image/format,png" alt="image"></p>
 <p><strong>（转载作者请注明出处）</strong></p>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xNTg2MzE3MS03MTc4OWUyZGY2ZDZlZDZm?x-oss-process=image/format,png" alt="image"></p>
 <p><strong>废话不多说，直接上干货</strong></p>
@@ -194,7 +194,7 @@
   <entry>
     <title>2020年最全hexo博客网页教程</title>
     <url>/2020/07/08/hexo-blog/</url>
-    <content><![CDATA[<p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo官网</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo官网</a></p>
 <p><a href="https://kangchou001.cn/categories/">我的博客官网</a></p>
 <p><a href="https://github.com/KangChou/my-theme-hiero" target="_blank" rel="noopener">我的博客主题仓库</a></p>
 <p><a href="https://kangchou001.cn/2020/07/07/hieroCN/">当前博客hiero主题教程</a></p>
@@ -349,7 +349,7 @@
   <entry>
     <title>matplotlib画廊</title>
     <url>/2020/07/08/mat/</url>
-    <content><![CDATA[<p>|PyPi|<em> |Downloads|</em> |NUMFocus|_</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>|PyPi|<em> |Downloads|</em> |NUMFocus|_</p>
 <p>|DiscourseBadge|<em> |Gitter|</em> |GitHubIssues|<em> |GitTutorial|</em></p>
 <p>|Travis|<em> |AzurePipelines|</em> |AppVeyor|<em> |Codecov|</em> |LGTM|_</p>
 <p>.. |Travis| image:: <a href="https://travis-ci.com/matplotlib/matplotlib.svg?branch=master" target="_blank" rel="noopener">https://travis-ci.com/matplotlib/matplotlib.svg?branch=master</a><br>.. _Travis: <a href="https://travis-ci.com/matplotlib/matplotlib" target="_blank" rel="noopener">https://travis-ci.com/matplotlib/matplotlib</a></p>
@@ -399,7 +399,7 @@
   <entry>
     <title>核心解密Python函数在（类与函数之间）和（类与类之间）互相调用</title>
     <url>/2020/07/01/py0/</url>
-    <content><![CDATA[<h1 id="一、类与函数之间"><a href="#一、类与函数之间" class="headerlink" title="一、类与函数之间"></a>一、类与函数之间</h1><p>首先来看一个函数间的调用</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="一、类与函数之间"><a href="#一、类与函数之间" class="headerlink" title="一、类与函数之间"></a>一、类与函数之间</h1><p>首先来看一个函数间的调用</p>
 <p>类方法：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#实现类中函数之间互相调用</span><br><span class="line">#下面一个学生的简单自我介绍为例子</span><br><span class="line">__metaclass__&#x3D;type #自由的、动态的修改&#x2F;增加&#x2F;删除 类的或者实例中的方法或者属性</span><br><span class="line">class Stu:</span><br><span class="line">    #指定类要处理的参数</span><br><span class="line">    name&#x3D;None #先设定为空，下面会传入</span><br><span class="line">    age&#x3D;None</span><br><span class="line">    major&#x3D;None</span><br><span class="line">    school&#x3D;&quot;哈尔滨工业大学&quot;#类变量，被所有学生实例共有的属性或者特征</span><br><span class="line">    def __init__(self,name,age,major): #构造名字与年龄的init方法</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">        self.age&#x3D;age</span><br><span class="line">        self.major &#x3D; major</span><br><span class="line">    def Name_Age(self): #构造姓名与年龄的函数，分别传入self对应的年龄与姓名参数</span><br><span class="line">        print(&quot;我叫&quot; + self.name+ &quot;,&quot; + &quot;今年&quot; + str(self.age) + &quot;岁,&quot; + &quot;主修专业&quot; + self.major + &quot;。&quot;) #遇到(，。文字等)都加“ ”</span><br><span class="line">    def School(self): #再构造一个函数来说明学生的学校信息，可提前设定好，或者重新构造一个</span><br><span class="line">        print(&quot;来自&quot;,Stu.school)</span><br><span class="line">    def Total(self): #最后构造一个函数来互相调用上面的两个函数Name_Age和School</span><br><span class="line">        Stu.Name_Age(self)</span><br><span class="line">        Stu.School(self)</span><br><span class="line">#######################################################</span><br><span class="line"># 先整体传入参数</span><br><span class="line">stu&#x3D;Stu(&quot;马小云&quot;,20,&quot;空气动力学&quot;) #传入姓名与年龄</span><br><span class="line">#############################################</span><br><span class="line"># （原始的调用方法）实例化对象进行调用</span><br><span class="line">print(&quot;***********************各自函数调用的方法********************************&quot;)</span><br><span class="line">stu.Name_Age() #调用指定函数</span><br><span class="line">stu.School() #再调用其他函数</span><br><span class="line">#############################################</span><br><span class="line">#(函数之间互相调用之后的方法)使用类中函数调用其他函数</span><br><span class="line">print(&quot;***********************类中方法互相调用函数********************************&quot;)</span><br><span class="line">stu.Total()  #导出结果</span><br><span class="line">#######################################################</span><br></pre></td></tr></table></figure><br>执行结果：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-6e9e96097dc01737.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <a id="more"></a>
 <h2 id="备注："><a href="#备注：" class="headerlink" title="备注："></a>备注：</h2><h3 id="（一）metaclass的作用是什么？"><a href="#（一）metaclass的作用是什么？" class="headerlink" title="（一）metaclass的作用是什么？"></a>（一）metaclass的作用是什么？</h3><p> metaclass能有什么用处，先来个感性的认识：</p>
@@ -477,7 +477,7 @@
   <entry>
     <title>Kmeans算法理论</title>
     <url>/2020/07/08/Kmeans/</url>
-    <content><![CDATA[<h1 id="Kmeans-amp-Kmeans"><a href="#Kmeans-amp-Kmeans" class="headerlink" title="Kmeans &amp; Kmeans++"></a>Kmeans &amp; Kmeans++</h1><hr>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Kmeans-amp-Kmeans"><a href="#Kmeans-amp-Kmeans" class="headerlink" title="Kmeans &amp; Kmeans++"></a>Kmeans &amp; Kmeans++</h1><hr>
 <ul>
 <li><strong>Kmeans 聚类</strong></li>
 </ul>
@@ -542,81 +542,9 @@
       </tags>
   </entry>
   <entry>
-    <title>CART分类树</title>
-    <url>/2020/07/08/cart2/</url>
-    <content><![CDATA[<h1 id="CART分类树"><a href="#CART分类树" class="headerlink" title="CART分类树"></a>CART分类树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
-<li><p>数据文件</p>
-<ul>
-<li>成年人收入数据集：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/BPNN/BPNN_Classify" target="_blank" rel="noopener">数据集参见BP神经网络分类</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>基于不同库的代码文件</p>
-<ul>
-<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Classify.py" target="_blank" rel="noopener">AnFany_DT_Classify.py</a></li>
-</ul>
-</li>
-</ul>
-<pre><code> - **Sklearn**：[Sklearn_DT_Classify.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Sklearn_DT_Classify.py)
-</code></pre><ul>
-<li><p>辅助代码文件</p>
-<ul>
-<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/DT_Classify_Data.py" target="_blank" rel="noopener">DT_Classify_Data.py</a></li>
-</ul>
-</li>
-<li><p>绘制树的程序</p>
-<ul>
-<li>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_Show_Tree.py" target="_blank" rel="noopener">AnFany_Show_Tree.py</a></li>
-<li><p>成人收入数据集(初始深度设为5)的树的示例：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_tree.png" alt="image"></p>
-</li>
-</ul>
-</li>
-<li><p>成人收入数据集结果对比</p>
-<ul>
-<li><p><strong>AnFany</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_anfany.png" alt="image"></p>
-</li>
-<li><p><strong>Sklearn</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_sklearn.png" alt="image"></p>
-</li>
-</ul>
-</li>
-<li><p>示例(以鸢尾花数据集为例) </p>
- <a id="more"></a>
-<ul>
-<li><p><strong><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/Softmax%20Regression" target="_blank" rel="noopener">数据集说明参见Softmax回归</a></strong></p>
-</li>
-<li><p><strong>AnFany</strong></p>
-<ul>
-<li><p>数据处理：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Irisdata_DT_Anfany.py" target="_blank" rel="noopener">Irisdata_DT_AnFany.py</a></p>
-</li>
-<li><p>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Iris.py" target="_blank" rel="noopener">AnFany_DT_Iris.py</a></p>
-</li>
-<li><p>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Iris_tree.py" target="_blank" rel="noopener">Iris_tree.py</a>       </p>
-</li>
-<li><p>结果：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_anfany.png" alt="image"></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_tree.png" alt="image"></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>决策树</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CART回归树</title>
     <url>/2020/07/08/carreadme/</url>
-    <content><![CDATA[<h1 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
 <li><p>数据文件</p>
 <ul>
 <li><p>北京市Pm2.5数据集：<a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data#" target="_blank" rel="noopener">数据下载以及说明</a></p>
@@ -690,9 +618,81 @@
       </tags>
   </entry>
   <entry>
+    <title>CART分类树</title>
+    <url>/2020/07/08/cart2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="CART分类树"><a href="#CART分类树" class="headerlink" title="CART分类树"></a>CART分类树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
+<li><p>数据文件</p>
+<ul>
+<li>成年人收入数据集：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/BPNN/BPNN_Classify" target="_blank" rel="noopener">数据集参见BP神经网络分类</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>基于不同库的代码文件</p>
+<ul>
+<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Classify.py" target="_blank" rel="noopener">AnFany_DT_Classify.py</a></li>
+</ul>
+</li>
+</ul>
+<pre><code> - **Sklearn**：[Sklearn_DT_Classify.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Sklearn_DT_Classify.py)
+</code></pre><ul>
+<li><p>辅助代码文件</p>
+<ul>
+<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/DT_Classify_Data.py" target="_blank" rel="noopener">DT_Classify_Data.py</a></li>
+</ul>
+</li>
+<li><p>绘制树的程序</p>
+<ul>
+<li>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_Show_Tree.py" target="_blank" rel="noopener">AnFany_Show_Tree.py</a></li>
+<li><p>成人收入数据集(初始深度设为5)的树的示例：</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_tree.png" alt="image"></p>
+</li>
+</ul>
+</li>
+<li><p>成人收入数据集结果对比</p>
+<ul>
+<li><p><strong>AnFany</strong></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_anfany.png" alt="image"></p>
+</li>
+<li><p><strong>Sklearn</strong></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_sklearn.png" alt="image"></p>
+</li>
+</ul>
+</li>
+<li><p>示例(以鸢尾花数据集为例) </p>
+ <a id="more"></a>
+<ul>
+<li><p><strong><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/Softmax%20Regression" target="_blank" rel="noopener">数据集说明参见Softmax回归</a></strong></p>
+</li>
+<li><p><strong>AnFany</strong></p>
+<ul>
+<li><p>数据处理：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Irisdata_DT_Anfany.py" target="_blank" rel="noopener">Irisdata_DT_AnFany.py</a></p>
+</li>
+<li><p>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Iris.py" target="_blank" rel="noopener">AnFany_DT_Iris.py</a></p>
+</li>
+<li><p>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Iris_tree.py" target="_blank" rel="noopener">Iris_tree.py</a>       </p>
+</li>
+<li><p>结果：</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_anfany.png" alt="image"></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_tree.png" alt="image"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>决策树</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>卷积神经网络</title>
     <url>/2020/07/08/cnn/</url>
-    <content><![CDATA[<h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>对于一个图片而言，假设其数字矩阵维度为(<strong>3,320,240</strong>)，其中<strong>3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度</strong>。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>对于一个图片而言，假设其数字矩阵维度为(<strong>3,320,240</strong>)，其中<strong>3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度</strong>。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。</p>
 <a id="more"></a>
 <p>对于图片这种形式而言，如果使用全连接神经网络处理，也就是将数字矩阵变为长度为320*240*3=230400的向量，作为神经网络的输入。如果第一层的神经元的个数为100个，则全连接情形下第一层的参数就有230400*100+100=23040100个。因此对于图片而言，全连接网络需要的参数过多。因此需要提取图片的多个特征，在保留这些特征的前提下，缩短可以表示这个图片的向量的长度。</p>
 <p>首先重申以下几点说明：</p>
@@ -822,7 +822,7 @@
   <entry>
     <title>卷积神经网络实现</title>
     <url>/2020/07/08/cnn_realize/</url>
-    <content><![CDATA[<h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
 <p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
 <a id="more"></a>
 <h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
@@ -858,7 +858,7 @@
   <entry>
     <title>图像处理</title>
     <url>/2020/07/08/fig/</url>
-    <content><![CDATA[<h3 id="图像的结构"><a href="#图像的结构" class="headerlink" title="图像的结构"></a>图像的结构</h3><p>图像是由一个个像素点构成，每个像素点有三个通道，分别对应R，G，B。彩色RGB图像其实是一个三维矩阵，矩阵中的每个数字(0到255)代表的是一个像素一个通道的灰度。下面举例说明：</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="图像的结构"><a href="#图像的结构" class="headerlink" title="图像的结构"></a>图像的结构</h3><p>图像是由一个个像素点构成，每个像素点有三个通道，分别对应R，G，B。彩色RGB图像其实是一个三维矩阵，矩阵中的每个数字(0到255)代表的是一个像素一个通道的灰度。下面举例说明：</p>
 <p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af.png" alt="彩色图片"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_doc.png" alt="图片描述"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_pixel.png" alt="像素图片"></p>
 <a id="more"></a>
 <h4 id="一、读取这个图片的三维矩阵"><a href="#一、读取这个图片的三维矩阵" class="headerlink" title="一、读取这个图片的三维矩阵"></a>一、读取这个图片的三维矩阵</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span></span><br><span class="line">matrix = io.imread(fig_path)  </span><br><span class="line">print(matrix, matrix.shape)</span><br></pre></td></tr></table></figure>
@@ -904,7 +904,7 @@
   <entry>
     <title>决策树理论</title>
     <url>/2020/07/08/jucreadme/</url>
-    <content><![CDATA[<h1 id="Decision-Tree-Theory"><a href="#Decision-Tree-Theory" class="headerlink" title="Decision Tree Theory"></a>Decision Tree Theory</h1><p>决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Decision-Tree-Theory"><a href="#Decision-Tree-Theory" class="headerlink" title="Decision Tree Theory"></a>Decision Tree Theory</h1><p>决策树主要包括ID3，C4.5以及CART。下面给出三种算法的说明：</p>
 <p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/decisiontree.png" alt="image"></p>
 <p>C4.5是ID3的改进版，而CART是最常用的，因此本文主要介绍CART。</p>
 <a id="more"></a>
@@ -1212,7 +1212,7 @@
   <entry>
     <title>hiero主题博客</title>
     <url>/2020/07/07/hieroCN/</url>
-    <content><![CDATA[<hr>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
 <h1 id="Hiero"><a href="#Hiero" class="headerlink" title="Hiero"></a>Hiero</h1><p><a href="https://gitter.im/hexo-theme-hiker/Lobby?utm_source=share-link&amp;utm_medium=link&amp;utm_campaign=share-link" target="_blank" rel="noopener"><img src="https://camo.githubusercontent.com/079d8764b5eebffbb7158fb375df0959029ab2c3/68747470733a2f2f6261646765732e6769747465722e696d2f6865786f2d7468656d652d696e6469676f2f4c6f6262792e737667" alt="Gitter"></a>       <a href="https://travis-ci.org/iTimeTraveler/hexo-theme-hiero" target="_blank" rel="noopener"><img src="https://travis-ci.org/iTimeTraveler/hexo-theme-hiero.svg?branch=master" alt="Build Status"></a>        <a href="https://github.com/iTimeTraveler/hexo-theme-hiero/blob/master/LICENSE" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a></p>
 <p>Hiero is an awesome magazine theme for your <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> site.</p>
 <p><a href="https://itimetraveler.github.io/hexo-theme-hiero/" target="_blank" rel="noopener"><strong>☞ 点击预览</strong></a>  |  <a href="https://gitter.im/hexo-theme-hiker/Lobby?utm_source=share-link&amp;utm_medium=link&amp;utm_campaign=share-link" target="_blank" rel="noopener"><strong>Hiero问题交流</strong></a></p>
@@ -1297,7 +1297,7 @@
   <entry>
     <title>每日算法之旅(第三天):分而治之算法思想</title>
     <url>/2020/07/05/Divide/</url>
-    <content><![CDATA[<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/OUjib8gcw0XMeDMttMmkiav5D1Xss7OyK7XSU851GwQuNrwnHznhyrFBAg9uNkBYuwQ6HNoHCgcv9g4PibMBrvzyQ/640?wx_fmt=gif" alt="img"></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://mmbiz.qpic.cn/mmbiz_gif/OUjib8gcw0XMeDMttMmkiav5D1Xss7OyK7XSU851GwQuNrwnHznhyrFBAg9uNkBYuwQ6HNoHCgcv9g4PibMBrvzyQ/640?wx_fmt=gif" alt="img"></p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/OUjib8gcw0XPLRunwURfKghcQA1xcC50GfWnRictMxaUG6L8R3B5QiaEoxUbIzutbOwSa8tSic9Q1O61iaDict8sxP8A/640?wx_fmt=png" alt="img"></p>
 <p><strong>（转载作者请注明出处）</strong></p>
 <p>朋友们，当您看到这篇文章，说明本公众号(kangsinx)将开始系统介绍Python算法，同时向还会陆续分享一些有用的算法小技巧与学习资料，这是一个好的消息，希望您和您的朋友一起来加入我们的学习队伍。<br><a id="more"></a><br>入微信学习群，由于群人员数已经上限，这里建立一个中转群<strong>，</strong></p>
@@ -1368,7 +1368,7 @@
   <entry>
     <title>汇总国内Python镜像网址：提升安装速度</title>
     <url>/2020/04/25/tf/</url>
-    <content><![CDATA[<h3 id="pip国内的一些镜像"><a href="#pip国内的一些镜像" class="headerlink" title="pip国内的一些镜像"></a>pip国内的一些镜像</h3><p>  阿里云 <a href="https://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">https://mirrors.aliyun.com/pypi/simple/</a><br>  中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a><br>  豆瓣(douban) <a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a><br>  清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a><br>  中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">http://pypi.mirrors.ustc.edu.cn/simple/</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="pip国内的一些镜像"><a href="#pip国内的一些镜像" class="headerlink" title="pip国内的一些镜像"></a>pip国内的一些镜像</h3><p>  阿里云 <a href="https://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">https://mirrors.aliyun.com/pypi/simple/</a><br>  中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a><br>  豆瓣(douban) <a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a><br>  清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a><br>  中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">http://pypi.mirrors.ustc.edu.cn/simple/</a></p>
 <a id="more"></a>
 <p>修改源方法：</p>
 <h3 id="临时使用："><a href="#临时使用：" class="headerlink" title="临时使用："></a>临时使用：</h3><p>可以在使用pip的时候在后面加上-i参数，指定pip源<br>例如:    pip install scrapy -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple</a></p>
@@ -1405,7 +1405,7 @@
   <entry>
     <title>在Visual Studio 2019创建的项目中创建多个源程序文件并执行(2020-04-18)</title>
     <url>/2020/04/18/cpp2/</url>
-    <content><![CDATA[<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><p> 对于C语言的初学者而言，在Visual Studio 2019下创建多个源程序文件是有必要的(说白了就是在该软件下能否像vc6最初的那样，想建立什么cpp文件就运行什么。)。否则每一次都要重新创建新的一个项目，而且只能运行一个源程序，这对于初学者的学习带来极大不便。为了在所创建的项目下分别执行多个源文件，以下给出了详细的操作步骤：</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><p> 对于C语言的初学者而言，在Visual Studio 2019下创建多个源程序文件是有必要的(说白了就是在该软件下能否像vc6最初的那样，想建立什么cpp文件就运行什么。)。否则每一次都要重新创建新的一个项目，而且只能运行一个源程序，这对于初学者的学习带来极大不便。为了在所创建的项目下分别执行多个源文件，以下给出了详细的操作步骤：</p>
 <a id="more"></a>
 <h1 id="1、第一种方法（麻烦，不建议）："><a href="#1、第一种方法（麻烦，不建议）：" class="headerlink" title="1、第一种方法（麻烦，不建议）："></a><strong>1、第一种方法（麻烦，不建议）：</strong></h1><p>第一次新建项目时要记得勾选创建解决方案管理器：</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/15863171-fd57498de8d77bba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="img"></p>
@@ -1441,7 +1441,7 @@
   <entry>
     <title>线性回归算法理论</title>
     <url>/2020/04/05/Linear_Regression_Theory/</url>
-    <content><![CDATA[<h1 id="Linear-Regression-Theory"><a href="#Linear-Regression-Theory" class="headerlink" title="Linear_Regression_Theory"></a>Linear_Regression_Theory</h1><ul>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Linear-Regression-Theory"><a href="#Linear-Regression-Theory" class="headerlink" title="Linear_Regression_Theory"></a>Linear_Regression_Theory</h1><ul>
 <li><strong>线性回归问题说明</strong></li>
 </ul>
 <p>有<img src="http://latex.codecogs.com/gif.latex?N" title="N" />个样本<img src="http://latex.codecogs.com/gif.latex?(X_{i},&space;Y_{i}),&space;i\in&space;(1,2\cdots&space;N)" title="(X_{i}, Y_{i}), i\in (1,2\cdots N)" />，</p>
@@ -1482,7 +1482,7 @@
   <entry>
     <title>长时间不登陆博客出现的情况！</title>
     <url>/2020/04/05/blogre/</url>
-    <content><![CDATA[<p>写这篇文章的目的是因为好久没有更新我的博客而写的，由于更新的过程中遇到一些问题，所以下面整理了一些步骤，希望对一会之后的朋友少踩坑<br>重新构建你的博客之前记得在你的github仓库修改你的keyssh,下图所示</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>写这篇文章的目的是因为好久没有更新我的博客而写的，由于更新的过程中遇到一些问题，所以下面整理了一些步骤，希望对一会之后的朋友少踩坑<br>重新构建你的博客之前记得在你的github仓库修改你的keyssh,下图所示</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/15863171-f202d2b0fee5d0fb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>出现如下显示，说明成功<br><img src="https://upload-images.jianshu.io/upload_images/15863171-52797079d65e62e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <a id="more"></a>
 <p>遇到的问题：<br>不能推送资料：</p>
@@ -1505,7 +1505,7 @@
   <entry>
     <title>hexo-hiero主题设置文字大小</title>
     <url>/2020/04/05/hiero0/</url>
-    <content><![CDATA[<p>字体大小和字体你可以在source/css/_variables.styl文件中60行左右对齐，这里是大部分字体但不是全部哈，细节的字体可能还需要你具体看，不一定都在这里面哈！</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>字体大小和字体你可以在source/css/_variables.styl文件中60行左右对齐，这里是大部分字体但不是全部哈，细节的字体可能还需要你具体看，不一定都在这里面哈！</p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">block-margin &#x3D; 50px</span><br><span class="line">article-padding &#x3D; 20px   #文章字体</span><br><span class="line">mobile-nav-width &#x3D; 280px</span><br><span class="line">main-column &#x3D; 8</span><br><span class="line">sidebar-column &#x3D; 4</span><br></pre></td></tr></table></figure>
 <p>截图如下：</p>
@@ -1522,7 +1522,7 @@
   <entry>
     <title>安装和使用桌面版Github (2020-03-29)</title>
     <url>/2020/04/05/hiero1/</url>
-    <content><![CDATA[<h2 id="1-下载安装GitHub-Desktop"><a href="#1-下载安装GitHub-Desktop" class="headerlink" title="1.下载安装GitHub Desktop"></a>1.下载安装GitHub Desktop</h2><p>GitHub桌面版下载地址：<a href="https://desktop.github.com/" target="_blank" rel="noopener">https://desktop.github.com/</a><br><img src="https://upload-images.jianshu.io/upload_images/15863171-22f93f6e82f20263.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image1.png"></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-下载安装GitHub-Desktop"><a href="#1-下载安装GitHub-Desktop" class="headerlink" title="1.下载安装GitHub Desktop"></a>1.下载安装GitHub Desktop</h2><p>GitHub桌面版下载地址：<a href="https://desktop.github.com/" target="_blank" rel="noopener">https://desktop.github.com/</a><br><img src="https://upload-images.jianshu.io/upload_images/15863171-22f93f6e82f20263.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image1.png"></p>
 <p>下载GitHub Desktop, 如图image1.png</p>
 <a id="more"></a>
 <h2 id="2-GitHub桌面版，登录账号"><a href="#2-GitHub桌面版，登录账号" class="headerlink" title="2.GitHub桌面版，登录账号"></a>2.GitHub桌面版，登录账号</h2><p>点击File中的设置Options，windows安装之后自动跳出登录界面<br><img src="https://upload-images.jianshu.io/upload_images/15863171-01ef68e5d3f008c4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image2.png"></p>
@@ -1581,7 +1581,7 @@
   <entry>
     <title>解决Hexo博客页面过小问题与设置透明背景</title>
     <url>/2020/04/05/hiero2/</url>
-    <content><![CDATA[<p>使用默认生成的主题，文章宽度过小，而两遍宽度过大。可以修改<br>themes\next\source\css_schemes\Pisces_layout.styl<br>中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.container .main-inner &#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.content-wrap &#123; width: calc(100% - 260px); &#125;</span><br></pre></td></tr></table></figure><br>代码，改变大小。但加了之后，虽然能够在电脑上显示，但手机上的显示却会出问题，不能自适应。下面提供我的方法，可以直接复制粘贴我的_layout.styl配置。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用默认生成的主题，文章宽度过小，而两遍宽度过大。可以修改<br>themes\next\source\css_schemes\Pisces_layout.styl<br>中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.container .main-inner &#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.content-wrap &#123; width: calc(100% - 260px); &#125;</span><br></pre></td></tr></table></figure><br>代码，改变大小。但加了之后，虽然能够在电脑上显示，但手机上的显示却会出问题，不能自适应。下面提供我的方法，可以直接复制粘贴我的_layout.styl配置。</p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  width: 80%;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.header-inner &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  padding: 0;</span><br><span class="line">  width: 240px;</span><br><span class="line">  background: rgba(255,255,255,0.8);</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line"></span><br><span class="line">  +desktop-large() &#123;</span><br><span class="line">    .container &amp; &#123; width: 240px; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main &#123;</span><br><span class="line">  clearfix();</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    padding-bottom: 100px;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    padding-bottom: 100px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.container .main-inner &#123;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  width: 80%;</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content-wrap &#123;</span><br><span class="line">  float: right;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  padding: $content-desktop-padding;</span><br><span class="line">  &#x2F;&#x2F;width: $content-desktop;</span><br><span class="line">  width: calc(100% - 260px);</span><br><span class="line">  background: white;</span><br><span class="line">  min-height: 700px;</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding: 20px;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding: 20px;</span><br><span class="line">    min-height: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sidebar &#123;</span><br><span class="line">  position: static;</span><br><span class="line">  float: left;</span><br><span class="line">  margin-top: 300px;</span><br><span class="line">  width: $sidebar-desktop;</span><br><span class="line">  background: $body-bg-color;</span><br><span class="line">  box-shadow: none;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sidebar-toggle &#123; display: none; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.footer-inner &#123;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  padding-left: 260px;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">    padding-left: 0 !important;</span><br><span class="line">    padding-right: 0 !important;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">    padding-left: 0 !important;</span><br><span class="line">    padding-right: 0 !important;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.sidebar-position-right &#123;</span><br><span class="line">  .header-inner &#123; right: 0; &#125;</span><br><span class="line">  .content-wrap &#123; float: left; &#125;</span><br><span class="line">  .sidebar &#123; float: right; &#125;</span><br><span class="line"></span><br><span class="line">  .footer-inner &#123;</span><br><span class="line">    padding-left: 0;</span><br><span class="line">    padding-right: 260px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>参照：<a href="https://anoyer.cn/" target="_blank" rel="noopener">https://anoyer.cn/</a></p>
@@ -1601,9 +1601,24 @@
       </tags>
   </entry>
   <entry>
+    <title>一招解决hexo博客出现无法加载“hexo-prism-plugin”的情况</title>
+    <url>/2020/04/05/hiero4/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一、问题的描述</p>
+<p><strong>“ERROR Plugin load failed: hexo-prism-plugin”</strong><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">ERROR Plugin load failed: hexo-prism-plugin</span><br><span class="line">Error: &#96;prism_plugin&#96; options should be added to _config.yml file</span><br><span class="line">    at E:\hexo\node_modules\hexo-prism-plugin\src\index.js:70:9</span><br><span class="line">    at E:\hexo\node_modules\hexo\lib\hexo\index.js:293:14</span><br><span class="line">    at tryCatcher (E:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at Promise._resolveCallback (E:\hexo\node_modules\bluebird\js\release\promise.js:466:57)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:559:17)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at E:\hexo\node_modules\bluebird\js\release\nodeback.js:42:21</span><br><span class="line">    at E:\hexo\node_modules\graceful-fs\graceful-fs.js:115:16</span><br><span class="line">    at FSReqCallback.readFileAfterClose [as oncomplete] (internal&#x2F;fs&#x2F;read_file_context.js:63:3)</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">INFO  See you again</span><br></pre></td></tr></table></figure></p>
+<p>二、问题的解决</p>
+<p>在博客目录下的配置文件中打开，将以下代码放在最后即可，重新启动生成部署。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">prism_plugin:</span><br><span class="line">  mode: &#39;preprocess&#39; # realtime&#x2F;preprocess</span><br><span class="line">  theme: &#39;default&#39;</span><br><span class="line">  line_number: false # default false</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一步解决hexo博客搭建后的全文搜索功能</title>
     <url>/2020/04/05/hiero3/</url>
-    <content><![CDATA[<hr>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
 <p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
@@ -1617,24 +1632,9 @@
       </tags>
   </entry>
   <entry>
-    <title>一招解决hexo博客出现无法加载“hexo-prism-plugin”的情况</title>
-    <url>/2020/04/05/hiero4/</url>
-    <content><![CDATA[<p>一、问题的描述</p>
-<p><strong>“ERROR Plugin load failed: hexo-prism-plugin”</strong><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">ERROR Plugin load failed: hexo-prism-plugin</span><br><span class="line">Error: &#96;prism_plugin&#96; options should be added to _config.yml file</span><br><span class="line">    at E:\hexo\node_modules\hexo-prism-plugin\src\index.js:70:9</span><br><span class="line">    at E:\hexo\node_modules\hexo\lib\hexo\index.js:293:14</span><br><span class="line">    at tryCatcher (E:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at Promise._resolveCallback (E:\hexo\node_modules\bluebird\js\release\promise.js:466:57)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:559:17)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at E:\hexo\node_modules\bluebird\js\release\nodeback.js:42:21</span><br><span class="line">    at E:\hexo\node_modules\graceful-fs\graceful-fs.js:115:16</span><br><span class="line">    at FSReqCallback.readFileAfterClose [as oncomplete] (internal&#x2F;fs&#x2F;read_file_context.js:63:3)</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">INFO  See you again</span><br></pre></td></tr></table></figure></p>
-<p>二、问题的解决</p>
-<p>在博客目录下的配置文件中打开，将以下代码放在最后即可，重新启动生成部署。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">prism_plugin:</span><br><span class="line">  mode: &#39;preprocess&#39; # realtime&#x2F;preprocess</span><br><span class="line">  theme: &#39;default&#39;</span><br><span class="line">  line_number: false # default false</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一招解决给hexo博客添加版权声明的方法</title>
     <url>/2020/04/05/hiero5/</url>
-    <content><![CDATA[<p>今天更换了新的Hexo主题：<br><a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank" rel="noopener">hexo-theme-hiero</a></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>今天更换了新的Hexo主题：<br><a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank" rel="noopener">hexo-theme-hiero</a></p>
 <p><a href="https://kangchou001.cn">预览我的博客</a><br>觉得挺好看的，文章底部没有版权说明,自己动手也加上了。</p>
 <a id="more"></a>
 <h1 id="新建文件-copyright-ejs"><a href="#新建文件-copyright-ejs" class="headerlink" title="新建文件 copyright.ejs"></a>新建文件 copyright.ejs</h1><p>在<code>themes\hiker\layout\_partial</code>新建文件<code>copyright.ejs</code></p>
@@ -1662,7 +1662,7 @@
   <entry>
     <title>解决hexo-theme-hiero博客主页打开后无法显示分类内容的问题</title>
     <url>/2020/04/05/hiero6/</url>
-    <content><![CDATA[<p>将layout: “categories”添加到分类页面中，而不是type: “categories”<br>类似的情况可以解决标签问题….</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>将layout: “categories”添加到分类页面中，而不是type: “categories”<br>类似的情况可以解决标签问题….</p>
 <a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章分类</span><br><span class="line">date: 2020-04-07 21:33:34</span><br><span class="line">layout: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
 <p>问题描述：<br>如图（文字是因为当时没有解决的办法不得不加的）：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-91ba0c0f69383971.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
@@ -1677,130 +1677,9 @@
       </tags>
   </entry>
   <entry>
-    <title>池化</title>
-    <url>/2020/04/05/pooling/</url>
-    <content><![CDATA[<h1 id="池化"><a href="#池化" class="headerlink" title="池化"></a>池化</h1><p>池化(Pooing)操作的对象是单通道的数字矩阵，也就是对该矩阵某一个邻域内的数字集合进行采样。主要有3种形式：一般池化，重叠池化和金字塔池化。 </p>
-<h3 id="一、池化类型"><a href="#一、池化类型" class="headerlink" title="一、池化类型"></a>一、池化类型</h3><p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/pooling.py" target="_blank" rel="noopener">程序参见</a></p>
-<ul>
-<li><strong>一般池化</strong></li>
-</ul>
-<p>池化窗口的尺寸为n*n，一般情况下池化窗口都是正方形的。步长等于n。此时池化窗口之间是没有重叠的。对于超出数字矩阵范围的，只计算范围内的或者范围外的用0填充在计算。本文只介绍最大值池化，均值池化，随机池化。下面给出图示：</p>
-<a id="more"></a>
-<ul>
-<li><p><strong>最大值池化(Max Pooling)</strong></p>
-<p>池化窗口范围内的最大值作为采样的输出值。</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max_pool.png" alt="最大值池化"></p>
-</li>
-<li><p><strong>均值池化(Average pooling)</strong></p>
-<p>池化窗口范围内的平均值作为采样的输出值，也就是普通均值池化。或者将范围内的数字归一化，每个数字与该范围内的数字之和的比例作为该数字的权重，然后原始数字和对应权重的乘积的和作为最终的输出值，也就是加权平均。下图中的示例是前者。</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_pool.png" alt="均值池化"></p>
-</li>
-<li><p><strong>随机池化(Stochastic pooling)</strong></p>
-<p>池化窗口范围内的数字，采用轮盘赌的方式进行采样，就是值较大的数字成为采样输出值的概率较大。 </p>
-</li>
-</ul>
-<ul>
-<li><strong>重叠池化</strong>  </li>
-</ul>
-<p>池化窗口之间有重叠。也就是步长大于等于1小于n，计算和一般池化是一样的。</p>
-<ul>
-<li><strong>Spatial Pyramid Pooling 空间金字塔池化</strong>  </li>
-</ul>
-<p>空间金字塔池化，简称SPP，又名空间金字塔匹配。BP神经网络(全连接神经网络)中要求的输入维度必须是一致的，卷积神经网络中的网络也包括全连接层。因此需要将尺寸大小不一样的图片(经过多层卷积池化后的结果)，转换为同样的尺寸，作为全连接神经网络的输入。如果利用裁剪可能会丧失很多的边缘信息，而SPP可以很好的解决这个问题。</p>
-<p>空间金字塔池化就是首先把图片看成1块，对这1块进行最大值池化，得到1个值，分成4块，对这4块分别进行最大值池化，得到4个值；分成16块，对这16块分别进行最大值池化，得到16个值，以此类推。这样就可以保证对于不同尺寸的图片而言，最终得到的值的个数是一样的。因为是最大值池化，超出范围的用不用0填充不会影响结果。</p>
-<p>下面给出2个不同尺寸的图片，进行空间金字塔池化的结果。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">图1</th>
-<th style="text-align:left">ssp结果</th>
-<th style="text-align:center">l层</th>
-<th style="text-align:right">ssp结果</th>
-<th style="text-align:center">图2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_1.png" alt="竖图"></td>
-<td style="text-align:left">R通道ssp结果: 255<br>G通道ssp结果: 255<br>B通道ssp结果: 255</td>
-<td style="text-align:center"><strong>1</strong></td>
-<td style="text-align:right">R通道ssp结果: 255<br>G通道ssp结果: 255<br>B通道ssp结果: 255</td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_1.png" alt="横图"></td>
-</tr>
-<tr>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_2.png" alt="竖图"></td>
-<td style="text-align:left">R通道ssp结果: [255, 255, 255, 255]<br>G通道ssp结果: [255, 255, 246, 241]<br>B通道ssp结果: [255, 255, 255, 255]</td>
-<td style="text-align:center"><strong>2</strong></td>
-<td style="text-align:right">R通道ssp结果: [255, 255, 252, 255]<br>G通道ssp结果: [255, 239, 252, 248]<br>B通道ssp结果: [255, 255, 255, 255]</td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_2.png" alt="横图"></td>
-</tr>
-<tr>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_3.png" alt="竖图"></td>
-<td style="text-align:left">R通道ssp结果: [249, 255, 255, 255, 255, 255, 244, 255, 236]<br>G通道ssp结果: [206, 224, 221, 255, 246, 255, 213, 241, 206]<br>B通道ssp结果: [255, 255, 255, 255, 255, 255, 255, 255, 255]</td>
-<td style="text-align:center"><strong>3</strong></td>
-<td style="text-align:right">R通道ssp结果: [252, 255, 229, 252, 255, 255, 243, 251, 240]<br>G通道ssp结果: [222, 255, 215, 223, 248, 239, 194, 252, 218]<br>B通道ssp结果: [255, 255, 255, 255, 255, 255, 255, 255, 255]</td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_3.png" alt="横图"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/cut_fig.py" target="_blank" rel="noopener">程序参见</a></p>
-<h3 id="二、池化作用"><a href="#二、池化作用" class="headerlink" title="二、池化作用"></a>二、池化作用</h3><ol>
-<li><p>降低了图片尺寸，也就是增大了感受野。感受野就是数字矩阵中的一个数字所对应的原图中的区域大小。因为池化是在某个范围内选择一个数字，也就是让这个数字代表这个范围内的所有的像素得值。这样做虽然也丢失了一些图片信息，但是同时增加了鲁棒性。</p>
-</li>
-<li><p>增加平移不变性。图片中某个目标单纯的位置的移动，不应该影响识别结果。而池化捕捉的恰好是目标的特征，并不是目标所在的位置，因此增加了平移不变性。</p>
-</li>
-<li><p>提升训练速度。因为在保留特征信息的前提下，降低了图片的尺寸。</p>
-</li>
-</ol>
-<h3 id="三、池化对比"><a href="#三、池化对比" class="headerlink" title="三、池化对比"></a>三、池化对比</h3><p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/lena.jpg" alt="原始图片"></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">池化方法</th>
-<th style="text-align:center">池化</th>
-<th style="text-align:center">图片显示</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">一般：最大值</td>
-<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max_normal.png" alt="一般最大值图片"></td>
-</tr>
-<tr>
-<td style="text-align:center">重叠：最大值</td>
-<td style="text-align:center"><strong>尺寸=8，步长=4</strong></td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max.png" alt="重叠最大值图片"></td>
-</tr>
-<tr>
-<td style="text-align:center">一般：普通均值</td>
-<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_normal.png" alt="普通图片"></td>
-</tr>
-<tr>
-<td style="text-align:center">一般：加权均值</td>
-<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_weight.png" alt="加权图片"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/pooling_fig.py" target="_blank" rel="noopener">程序参见</a></p>
-]]></content>
-      <categories>
-        <category>算法基础</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>值得你阅读的Hexo个人博客搭建：不用购买服务器，不用购买域名，不要钱，不用敲代码等等，是的，你没有看错，快来转载学习吧！</title>
     <url>/2020/04/05/mybeginblog/</url>
-    <content><![CDATA[<p>本文的原文在我的微信公众号，欢迎点击下面蓝色字体链接进入主页</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文的原文在我的微信公众号，欢迎点击下面蓝色字体链接进入主页</p>
 <p><a href="https://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247484965&amp;idx=1&amp;sn=757e038fdc0eb968008ff73752b2456c&amp;chksm=971007d3a0678ec5ae9fa1c1c871ff8cf15b67656f227327e3b507654a7cac28002f867ddb01&amp;mpshare=1&amp;scene=1&amp;srcid=&amp;sharer_sharetime=1571762807076&amp;sharer_shareid=d33f5fb4b35f5c6867199f25b3752a3a&amp;key=b97804376b1264af0c3ca188cf96e5b8d3b5990c40809c5c043e6da161476ef8c6e3cef3a9329dcc6d4eec6f605d83d617cd92d6f6883c7b9b632ca8aaf81c0f84c846463da87113881750250a56879b&amp;ascene=1&amp;uin=MjE2NzAwOTgyNA%3D%3D&amp;devicetype=Windows+7&amp;version=62060844&amp;lang=zh_CN&amp;pass_ticket=fLo4Au8Vos0w%2Fs3CVdzWInlkCBCduYag%2BmLa3dny9lkniGqUIl0wnHtlfaWbwpJJ" target="_blank" rel="noopener">值得你阅读的Hexo个人博客搭建</a></p>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xNTg2MzE3MS01ZDJjYWQyNDY1NmQ2ZWM2?x-oss-process=image/format,png" alt="image"></p>
 <p><strong>Hexo快速搭建个人博客（2019/10/22更新）</strong></p>
@@ -2057,9 +1936,130 @@
       </tags>
   </entry>
   <entry>
+    <title>池化</title>
+    <url>/2020/04/05/pooling/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="池化"><a href="#池化" class="headerlink" title="池化"></a>池化</h1><p>池化(Pooing)操作的对象是单通道的数字矩阵，也就是对该矩阵某一个邻域内的数字集合进行采样。主要有3种形式：一般池化，重叠池化和金字塔池化。 </p>
+<h3 id="一、池化类型"><a href="#一、池化类型" class="headerlink" title="一、池化类型"></a>一、池化类型</h3><p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/pooling.py" target="_blank" rel="noopener">程序参见</a></p>
+<ul>
+<li><strong>一般池化</strong></li>
+</ul>
+<p>池化窗口的尺寸为n*n，一般情况下池化窗口都是正方形的。步长等于n。此时池化窗口之间是没有重叠的。对于超出数字矩阵范围的，只计算范围内的或者范围外的用0填充在计算。本文只介绍最大值池化，均值池化，随机池化。下面给出图示：</p>
+<a id="more"></a>
+<ul>
+<li><p><strong>最大值池化(Max Pooling)</strong></p>
+<p>池化窗口范围内的最大值作为采样的输出值。</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max_pool.png" alt="最大值池化"></p>
+</li>
+<li><p><strong>均值池化(Average pooling)</strong></p>
+<p>池化窗口范围内的平均值作为采样的输出值，也就是普通均值池化。或者将范围内的数字归一化，每个数字与该范围内的数字之和的比例作为该数字的权重，然后原始数字和对应权重的乘积的和作为最终的输出值，也就是加权平均。下图中的示例是前者。</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_pool.png" alt="均值池化"></p>
+</li>
+<li><p><strong>随机池化(Stochastic pooling)</strong></p>
+<p>池化窗口范围内的数字，采用轮盘赌的方式进行采样，就是值较大的数字成为采样输出值的概率较大。 </p>
+</li>
+</ul>
+<ul>
+<li><strong>重叠池化</strong>  </li>
+</ul>
+<p>池化窗口之间有重叠。也就是步长大于等于1小于n，计算和一般池化是一样的。</p>
+<ul>
+<li><strong>Spatial Pyramid Pooling 空间金字塔池化</strong>  </li>
+</ul>
+<p>空间金字塔池化，简称SPP，又名空间金字塔匹配。BP神经网络(全连接神经网络)中要求的输入维度必须是一致的，卷积神经网络中的网络也包括全连接层。因此需要将尺寸大小不一样的图片(经过多层卷积池化后的结果)，转换为同样的尺寸，作为全连接神经网络的输入。如果利用裁剪可能会丧失很多的边缘信息，而SPP可以很好的解决这个问题。</p>
+<p>空间金字塔池化就是首先把图片看成1块，对这1块进行最大值池化，得到1个值，分成4块，对这4块分别进行最大值池化，得到4个值；分成16块，对这16块分别进行最大值池化，得到16个值，以此类推。这样就可以保证对于不同尺寸的图片而言，最终得到的值的个数是一样的。因为是最大值池化，超出范围的用不用0填充不会影响结果。</p>
+<p>下面给出2个不同尺寸的图片，进行空间金字塔池化的结果。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">图1</th>
+<th style="text-align:left">ssp结果</th>
+<th style="text-align:center">l层</th>
+<th style="text-align:right">ssp结果</th>
+<th style="text-align:center">图2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_1.png" alt="竖图"></td>
+<td style="text-align:left">R通道ssp结果: 255<br>G通道ssp结果: 255<br>B通道ssp结果: 255</td>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:right">R通道ssp结果: 255<br>G通道ssp结果: 255<br>B通道ssp结果: 255</td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_1.png" alt="横图"></td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_2.png" alt="竖图"></td>
+<td style="text-align:left">R通道ssp结果: [255, 255, 255, 255]<br>G通道ssp结果: [255, 255, 246, 241]<br>B通道ssp结果: [255, 255, 255, 255]</td>
+<td style="text-align:center"><strong>2</strong></td>
+<td style="text-align:right">R通道ssp结果: [255, 255, 252, 255]<br>G通道ssp结果: [255, 239, 252, 248]<br>B通道ssp结果: [255, 255, 255, 255]</td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_2.png" alt="横图"></td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_3.png" alt="竖图"></td>
+<td style="text-align:left">R通道ssp结果: [249, 255, 255, 255, 255, 255, 244, 255, 236]<br>G通道ssp结果: [206, 224, 221, 255, 246, 255, 213, 241, 206]<br>B通道ssp结果: [255, 255, 255, 255, 255, 255, 255, 255, 255]</td>
+<td style="text-align:center"><strong>3</strong></td>
+<td style="text-align:right">R通道ssp结果: [252, 255, 229, 252, 255, 255, 243, 251, 240]<br>G通道ssp结果: [222, 255, 215, 223, 248, 239, 194, 252, 218]<br>B通道ssp结果: [255, 255, 255, 255, 255, 255, 255, 255, 255]</td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_3.png" alt="横图"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/cut_fig.py" target="_blank" rel="noopener">程序参见</a></p>
+<h3 id="二、池化作用"><a href="#二、池化作用" class="headerlink" title="二、池化作用"></a>二、池化作用</h3><ol>
+<li><p>降低了图片尺寸，也就是增大了感受野。感受野就是数字矩阵中的一个数字所对应的原图中的区域大小。因为池化是在某个范围内选择一个数字，也就是让这个数字代表这个范围内的所有的像素得值。这样做虽然也丢失了一些图片信息，但是同时增加了鲁棒性。</p>
+</li>
+<li><p>增加平移不变性。图片中某个目标单纯的位置的移动，不应该影响识别结果。而池化捕捉的恰好是目标的特征，并不是目标所在的位置，因此增加了平移不变性。</p>
+</li>
+<li><p>提升训练速度。因为在保留特征信息的前提下，降低了图片的尺寸。</p>
+</li>
+</ol>
+<h3 id="三、池化对比"><a href="#三、池化对比" class="headerlink" title="三、池化对比"></a>三、池化对比</h3><p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/lena.jpg" alt="原始图片"></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">池化方法</th>
+<th style="text-align:center">池化</th>
+<th style="text-align:center">图片显示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">一般：最大值</td>
+<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max_normal.png" alt="一般最大值图片"></td>
+</tr>
+<tr>
+<td style="text-align:center">重叠：最大值</td>
+<td style="text-align:center"><strong>尺寸=8，步长=4</strong></td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max.png" alt="重叠最大值图片"></td>
+</tr>
+<tr>
+<td style="text-align:center">一般：普通均值</td>
+<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_normal.png" alt="普通图片"></td>
+</tr>
+<tr>
+<td style="text-align:center">一般：加权均值</td>
+<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_weight.png" alt="加权图片"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/pooling_fig.py" target="_blank" rel="noopener">程序参见</a></p>
+]]></content>
+      <categories>
+        <category>算法基础</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CNN的函数说明</title>
     <url>/2020/04/05/tensorflow_cnn/</url>
-    <content><![CDATA[<h2 id="TensorFlow-V1-13-1-中CNN的函数说明"><a href="#TensorFlow-V1-13-1-中CNN的函数说明" class="headerlink" title="TensorFlow(V1.13.1)中CNN的函数说明"></a>TensorFlow(V1.13.1)中CNN的函数说明</h2><ul>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="TensorFlow-V1-13-1-中CNN的函数说明"><a href="#TensorFlow-V1-13-1-中CNN的函数说明" class="headerlink" title="TensorFlow(V1.13.1)中CNN的函数说明"></a>TensorFlow(V1.13.1)中CNN的函数说明</h2><ul>
 <li><strong>卷积</strong></li>
 </ul>
 <h4 id="tf-nn-conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积"><a href="#tf-nn-conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积" class="headerlink" title="tf.nn.conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积"></a>tf.nn.conv2d：根据4维的矩阵和4维的卷积核计算2维的卷积</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">tf.nn.conv2d(input, filter, strides, padding, use_cudnn_on_gpu=<span class="literal">True</span>, data_format=<span class="string">'NHWC'</span>, dilations=[<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>], name=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
@@ -2093,9 +2093,41 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo博客使用Markdown语法</title>
+    <url>/2019/10/05/Markdown/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://wizardforcel.gitbooks.io/markdown-simple-world/0.html" target="_blank" rel="noopener">这里有详细的Markdown语法教程</a></p>
+<p>不管用什么编辑 Markdown 文件，最后生成的 md 文件放到 <a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io/source/_posts">http://xxxx.github.io/source/_posts</a> 文件夹或其子文件夹中即可，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo+Next配置Blog # 这是标题</span><br><span class="line">categories:  # 这里写的分类会自动汇集到 categories 页面上，分类可以多级</span><br><span class="line">- 算法 # 一级分类</span><br><span class="line">- 编程 # 二级分类 </span><br><span class="line">tags:   # 这里写的标签会自动汇集到 tags 页面上</span><br><span class="line">- Hexo # 可配置多个标签，注意格式</span><br><span class="line">- Blog</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## This is my first blog!</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>文字居中（写博客时）</strong></p>
+<p>在你博客文章中需要居中处加上下面这段代码即可，中间的文字改成你所需要的文字</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;blockquote class&#x3D;&quot;blockquote-center&quot;&gt;</span><br><span class="line">这里可以写多行文字</span><br><span class="line">&lt;&#x2F;blockquote&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="简要介绍MarkdownPad-2"><a href="#简要介绍MarkdownPad-2" class="headerlink" title="简要介绍MarkdownPad 2"></a>简要介绍MarkdownPad 2</h2><p><strong>MarkdownPad</strong> 是 Windows 平台上一个功能完善的 Markdown 编辑器。</p>
+<h3 id="专为-Markdown-打造"><a href="#专为-Markdown-打造" class="headerlink" title="专为 Markdown 打造"></a>专为 Markdown 打造</h3><p>提供了语法高亮和方便的快捷键功能，给您最好的 Markdown 编写体验。<br><a id="more"></a><br>来试一下：</p>
+<ul>
+<li><strong>粗体</strong> (<code>Ctrl+B</code>) and <em>斜体</em> (<code>Ctrl+I</code>)</li>
+<li>引用 (<code>Ctrl+Q</code>)</li>
+<li>代码块 (<code>Ctrl+K</code>)</li>
+<li>标题 1, 2, 3 (<code>Ctrl+1</code>, <code>Ctrl+2</code>, <code>Ctrl+3</code>)</li>
+<li>列表 (<code>Ctrl+U</code> and <code>Ctrl+Shift+O</code>)</li>
+</ul>
+<h3 id="实时预览，所见即所得"><a href="#实时预览，所见即所得" class="headerlink" title="实时预览，所见即所得"></a>实时预览，所见即所得</h3><p>无需猜测您的 <a href="http://markdownpad.com" target="_blank" rel="noopener">语法</a> 是否正确；每当您敲击键盘，实时预览功能都会立刻准确呈现出文档的显示效果。</p>
+<h3 id="自由定制"><a href="#自由定制" class="headerlink" title="自由定制"></a>自由定制</h3><p>100% 可自定义的字体、配色、布局和样式，让您可以将 MarkdownPad 配置的得心应手。</p>
+<h3 id="为高级用户而设计的稳定的-Markdown-编辑器"><a href="#为高级用户而设计的稳定的-Markdown-编辑器" class="headerlink" title="为高级用户而设计的稳定的 Markdown 编辑器"></a>为高级用户而设计的稳定的 Markdown 编辑器</h3><p> MarkdownPad 支持多种 Markdown 解析引擎，包括 标准 Markdown 、 Markdown 扩展 (包括表格支持) 以及 GitHub 风格 Markdown 。</p>
+<p> 有了标签式多文档界面、PDF 导出、内置的图片上传工具、会话管理、拼写检查、自动保存、语法高亮以及内置的 CSS 管理器，您可以随心所欲地使用 MarkdownPad。</p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构基础与递归算法思想</title>
     <url>/2019/10/05/Recursive1/</url>
-    <content><![CDATA[<h1 id="递归的思想"><a href="#递归的思想" class="headerlink" title="递归的思想"></a>递归的思想</h1><p>您见过一套俄罗斯娃娃吗？<br>——它就是一种递归思想。<br>最初，您只会看到一个通常为彩绘木头的雕像，看起来像这样：<br><a id="more"></a><br><img src="https://upload-images.jianshu.io/upload_images/15863171-782f2379558bd6da.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="递归的思想"><a href="#递归的思想" class="headerlink" title="递归的思想"></a>递归的思想</h1><p>您见过一套俄罗斯娃娃吗？<br>——它就是一种递归思想。<br>最初，您只会看到一个通常为彩绘木头的雕像，看起来像这样：<br><a id="more"></a><br><img src="https://upload-images.jianshu.io/upload_images/15863171-782f2379558bd6da.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
 <p>您可以移除第一个玩偶的上半部分，并且在里面看到什么？另一个稍小的俄罗斯娃娃！</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/15863171-e00f6450bc007061.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
 <p>您可以删除该洋娃娃并将其上半部分和下半部分分开。然后您会看到另一个甚至更小的娃娃：</p>
@@ -2130,41 +2162,9 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo博客使用Markdown语法</title>
-    <url>/2019/10/05/Markdown/</url>
-    <content><![CDATA[<p><a href="https://wizardforcel.gitbooks.io/markdown-simple-world/0.html" target="_blank" rel="noopener">这里有详细的Markdown语法教程</a></p>
-<p>不管用什么编辑 Markdown 文件，最后生成的 md 文件放到 <a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io/source/_posts">http://xxxx.github.io/source/_posts</a> 文件夹或其子文件夹中即可，如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo+Next配置Blog # 这是标题</span><br><span class="line">categories:  # 这里写的分类会自动汇集到 categories 页面上，分类可以多级</span><br><span class="line">- 算法 # 一级分类</span><br><span class="line">- 编程 # 二级分类 </span><br><span class="line">tags:   # 这里写的标签会自动汇集到 tags 页面上</span><br><span class="line">- Hexo # 可配置多个标签，注意格式</span><br><span class="line">- Blog</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## This is my first blog!</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>文字居中（写博客时）</strong></p>
-<p>在你博客文章中需要居中处加上下面这段代码即可，中间的文字改成你所需要的文字</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;blockquote class&#x3D;&quot;blockquote-center&quot;&gt;</span><br><span class="line">这里可以写多行文字</span><br><span class="line">&lt;&#x2F;blockquote&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h2 id="简要介绍MarkdownPad-2"><a href="#简要介绍MarkdownPad-2" class="headerlink" title="简要介绍MarkdownPad 2"></a>简要介绍MarkdownPad 2</h2><p><strong>MarkdownPad</strong> 是 Windows 平台上一个功能完善的 Markdown 编辑器。</p>
-<h3 id="专为-Markdown-打造"><a href="#专为-Markdown-打造" class="headerlink" title="专为 Markdown 打造"></a>专为 Markdown 打造</h3><p>提供了语法高亮和方便的快捷键功能，给您最好的 Markdown 编写体验。<br><a id="more"></a><br>来试一下：</p>
-<ul>
-<li><strong>粗体</strong> (<code>Ctrl+B</code>) and <em>斜体</em> (<code>Ctrl+I</code>)</li>
-<li>引用 (<code>Ctrl+Q</code>)</li>
-<li>代码块 (<code>Ctrl+K</code>)</li>
-<li>标题 1, 2, 3 (<code>Ctrl+1</code>, <code>Ctrl+2</code>, <code>Ctrl+3</code>)</li>
-<li>列表 (<code>Ctrl+U</code> and <code>Ctrl+Shift+O</code>)</li>
-</ul>
-<h3 id="实时预览，所见即所得"><a href="#实时预览，所见即所得" class="headerlink" title="实时预览，所见即所得"></a>实时预览，所见即所得</h3><p>无需猜测您的 <a href="http://markdownpad.com" target="_blank" rel="noopener">语法</a> 是否正确；每当您敲击键盘，实时预览功能都会立刻准确呈现出文档的显示效果。</p>
-<h3 id="自由定制"><a href="#自由定制" class="headerlink" title="自由定制"></a>自由定制</h3><p>100% 可自定义的字体、配色、布局和样式，让您可以将 MarkdownPad 配置的得心应手。</p>
-<h3 id="为高级用户而设计的稳定的-Markdown-编辑器"><a href="#为高级用户而设计的稳定的-Markdown-编辑器" class="headerlink" title="为高级用户而设计的稳定的 Markdown 编辑器"></a>为高级用户而设计的稳定的 Markdown 编辑器</h3><p> MarkdownPad 支持多种 Markdown 解析引擎，包括 标准 Markdown 、 Markdown 扩展 (包括表格支持) 以及 GitHub 风格 Markdown 。</p>
-<p> 有了标签式多文档界面、PDF 导出、内置的图片上传工具、会话管理、拼写检查、自动保存、语法高亮以及内置的 CSS 管理器，您可以随心所欲地使用 MarkdownPad。</p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构基础与递归算法思想</title>
     <url>/2019/10/05/Recursive2/</url>
-    <content><![CDATA[<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/OUjib8gcw0XMeDMttMmkiav5D1Xss7OyK7XSU851GwQuNrwnHznhyrFBAg9uNkBYuwQ6HNoHCgcv9g4PibMBrvzyQ/640?wx_fmt=gif" alt="img"></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://mmbiz.qpic.cn/mmbiz_gif/OUjib8gcw0XMeDMttMmkiav5D1Xss7OyK7XSU851GwQuNrwnHznhyrFBAg9uNkBYuwQ6HNoHCgcv9g4PibMBrvzyQ/640?wx_fmt=gif" alt="img"></p>
 <p><img src="https://mmbiz.qpic.cn/mmbiz_png/OUjib8gcw0XPLRunwURfKghcQA1xcC50GfWnRictMxaUG6L8R3B5QiaEoxUbIzutbOwSa8tSic9Q1O61iaDict8sxP8A/640?wx_fmt=png" alt="img"></p>
 <p><strong>（转载作者请注明出处）</strong></p>
 <p>朋友们，当您看到这篇文章，说明本公众号(kangsinx)将开始系统介绍Python算法，同时向还会陆续分享一些有用的算法小技巧与学习资料，这是一个好的消息，希望您和您的朋友一起来加入我们的学习队伍。<br><a id="more"></a><br>入微信学习群，由于群人员数已经上限，这里建立一个中转群<strong>，</strong></p>
@@ -2282,7 +2282,7 @@
   <entry>
     <title>互联网学习资源</title>
     <url>/2019/10/05/pagebegin/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/15863171-7749f7682034b964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://upload-images.jianshu.io/upload_images/15863171-7749f7682034b964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>本博客分享人工智能算法，Python基础知识、数据分析、数据可视化、大数据、TensorFlow和神经网络等学习资源，以及热点资讯、相关技术文章、学习视频和学习书籍等~~~<br></p>
 <p><a href="https://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247484965&amp;idx=1&amp;sn=757e038fdc0eb968008ff73752b2456c&amp;chksm=971007d3a0678ec5ae9fa1c1c871ff8cf15b67656f227327e3b507654a7cac28002f867ddb01&amp;token=51702026&amp;lang=zh_CN" target="_blank" rel="noopener">《值得你阅读的hexo个人博客搭建：不用购买服务器，不用购买域名，不要钱，不用敲代码等等，是的，你没有看错，快来转载学习吧！》</a><br><a id="more"></a></p>
 <p><a href="https://mp.weixin.qq.com/s?__biz=MzIwNzUwOTY1Nw==&amp;mid=2247485656&amp;idx=1&amp;sn=57e94f6ea6c0713a9a081c0a6b207416&amp;chksm=9710092ea06780382d78aeaa5c14559965752c28b23e3068a62ec89297980e26f858e5689b9c&amp;token=1279158786&amp;lang=zh_CN#rd" target="_blank" rel="noopener">Python | Pandas 快速处理文本数据</a></p>
@@ -2346,7 +2346,7 @@
   <entry>
     <title>Sublime Text 3 最新注册码（ 亲测可用2020年4月1日更新）</title>
     <url>/2019/10/05/sublimetxtpass/</url>
-    <content><![CDATA[<p><img src="https://upload-images.jianshu.io/upload_images/15863171-7749f7682034b964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://upload-images.jianshu.io/upload_images/15863171-7749f7682034b964.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p><img src="https://upload-images.jianshu.io/upload_images/15863171-418aadb6cbc16b19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <h4 id="“废话不多说直接上干货”"><a href="#“废话不多说直接上干货”" class="headerlink" title="“废话不多说直接上干货”"></a>“废话不多说直接上干货”</h4><p><a href="https://github.com/KangChou/Sublime-Text-3--s-latest-activation-code" target="_blank" rel="noopener">Github原文链接</a></p>
 <h3 id="备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整"><a href="#备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整" class="headerlink" title="备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整"></a>备注1：激活前需要对你的电脑端的hosts文件参数及内容进行调整</h3><p>具体步骤请参考：<br><a href="https://www.jianshu.com/p/b6fae22fee0f" target="_blank" rel="noopener">https://www.jianshu.com/p/b6fae22fee0f</a><br>打开sublime text ,选择help—&gt;enter license，将下面的代码内容复制到输入框中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZYNGA INC.</span><br><span class="line">50 User License</span><br><span class="line">EA7E-811825</span><br><span class="line">927BA117 84C9300F 4A0CCBC4 34A56B44</span><br><span class="line">985E4562 59F2B63B CCCFF92F 0E646B83</span><br><span class="line">0FD6487D 1507AE29 9CC4F9F5 0A6F32E3</span><br><span class="line">0343D868 C18E2CD5 27641A71 25475648</span><br><span class="line">309705B3 E468DDC4 1B766A18 7952D28C</span><br><span class="line">E627DDBA 960A2153 69A2D98A C87C0607</span><br><span class="line">45DC6049 8C04EC29 D18DFA40 442C680B</span><br><span class="line"></span><br><span class="line">1342224D 44D90641 33A3B9F2 46AADB8F</span><br></pre></td></tr></table></figure><br><a id="more"></a><br>执行结果解题如下：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-68b125f633ef4e97.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="激活成功"></p>
