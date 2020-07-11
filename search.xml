@@ -542,36 +542,76 @@
       </tags>
   </entry>
   <entry>
-    <title>卷积神经网络实现</title>
-    <url>/2020/07/08/cnn_realize/</url>
-    <content><![CDATA[<h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
-<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
-<a id="more"></a>
-<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
-<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
-<li><p><strong>正向传播</strong></p>
+    <title>CART回归树</title>
+    <url>/2020/07/08/carreadme/</url>
+    <content><![CDATA[<h1 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
+<li><p>数据文件</p>
 <ul>
-<li><p><strong>输入层INPUT</strong></p>
-<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
+<li><p>北京市Pm2.5数据集：<a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data#" target="_blank" rel="noopener">数据下载以及说明</a></p>
 </li>
-<li><p><strong>卷积层CONV</strong>      </p>
-<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
+<li><p>数据文件：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/PRSA_data_2010.1.1-2014.12.31.csv" target="_blank" rel="noopener">PRSA_data_2010.1.1-2014.12.31.csv</a></p>
 </li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><strong>反向传播</strong></li>
+<li><p>基于不同库的代码文件</p>
+<ul>
+<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_DT_Regression.py" target="_blank" rel="noopener">AnFany_DT_Regression.py</a></li>
 </ul>
-<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
-<li><strong>正向传播</strong></li>
+</li>
+</ul>
+<pre><code> - **Sklearn**：[Sklearn_DT_Regression.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Sklearn_DT_Regression.py)
+</code></pre><ul>
+<li><p>辅助代码文件</p>
+<ul>
+<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Data_DT_Regression.py" target="_blank" rel="noopener">Data_DT_Regression.py</a></li>
+</ul>
+</li>
+</ul>
+<pre><code>  - 绘制树的程序：[AnFany_pm2.5_Tree.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_pm2.5_Tree.py)
+</code></pre><ul>
+<li><p>北京市Pm2.5数据集结果对比</p>
+   <a id="more"></a>
+<ul>
+<li><p><strong>AnFany</strong></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/adult_23.png" alt="image"></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_23.png" alt="image"></p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>  - **Sklearn**
+
+  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_pm2.5.png)
+
+  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_cure.png)
+</code></pre><ul>
+<li><p>示例 </p>
+<ul>
+<li><strong>y=sin(x1) + cos(x2)</strong></li>
 </ul>
 <ul>
-<li><strong>反向传播</strong></li>
+<li><p><strong>AnFany</strong></p>
+<ul>
+<li>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_example_DT.py" target="_blank" rel="noopener">AnFany_example_DT.py</a></li>
 </ul>
-]]></content>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>   - 结果：
+
+     + **不同初始深度**
+
+      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/shili_mse.png)
+
+     + **拟合对比**
+
+      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_shili.png)
+</code></pre>]]></content>
       <categories>
-        <category>神经网络</category>
+        <category>决策树</category>
       </categories>
       <tags>
         <tag>算法</tag>
@@ -780,76 +820,36 @@
       </tags>
   </entry>
   <entry>
-    <title>CART回归树</title>
-    <url>/2020/07/08/carreadme/</url>
-    <content><![CDATA[<h1 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
-<li><p>数据文件</p>
+    <title>卷积神经网络实现</title>
+    <url>/2020/07/08/cnn_realize/</url>
+    <content><![CDATA[<h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
+<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
+<a id="more"></a>
+<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
+<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
+<li><p><strong>正向传播</strong></p>
 <ul>
-<li><p>北京市Pm2.5数据集：<a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data#" target="_blank" rel="noopener">数据下载以及说明</a></p>
+<li><p><strong>输入层INPUT</strong></p>
+<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
 </li>
-<li><p>数据文件：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/PRSA_data_2010.1.1-2014.12.31.csv" target="_blank" rel="noopener">PRSA_data_2010.1.1-2014.12.31.csv</a></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>基于不同库的代码文件</p>
-<ul>
-<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_DT_Regression.py" target="_blank" rel="noopener">AnFany_DT_Regression.py</a></li>
-</ul>
-</li>
-</ul>
-<pre><code> - **Sklearn**：[Sklearn_DT_Regression.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Sklearn_DT_Regression.py)
-</code></pre><ul>
-<li><p>辅助代码文件</p>
-<ul>
-<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Data_DT_Regression.py" target="_blank" rel="noopener">Data_DT_Regression.py</a></li>
-</ul>
-</li>
-</ul>
-<pre><code>  - 绘制树的程序：[AnFany_pm2.5_Tree.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_pm2.5_Tree.py)
-</code></pre><ul>
-<li><p>北京市Pm2.5数据集结果对比</p>
-   <a id="more"></a>
-<ul>
-<li><p><strong>AnFany</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/adult_23.png" alt="image"></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_23.png" alt="image"></p>
+<li><p><strong>卷积层CONV</strong>      </p>
+<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
 </li>
 </ul>
 </li>
-</ul>
-<pre><code>  - **Sklearn**
-
-  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_pm2.5.png)
-
-  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_cure.png)
-</code></pre><ul>
-<li><p>示例 </p>
-<ul>
-<li><strong>y=sin(x1) + cos(x2)</strong></li>
 </ul>
 <ul>
-<li><p><strong>AnFany</strong></p>
+<li><strong>反向传播</strong></li>
+</ul>
+<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
+<li><strong>正向传播</strong></li>
+</ul>
 <ul>
-<li>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_example_DT.py" target="_blank" rel="noopener">AnFany_example_DT.py</a></li>
+<li><strong>反向传播</strong></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>   - 结果：
-
-     + **不同初始深度**
-
-      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/shili_mse.png)
-
-     + **拟合对比**
-
-      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_shili.png)
-</code></pre>]]></content>
+]]></content>
       <categories>
-        <category>决策树</category>
+        <category>神经网络</category>
       </categories>
       <tags>
         <tag>算法</tag>
@@ -1677,127 +1677,6 @@
       </tags>
   </entry>
   <entry>
-    <title>池化</title>
-    <url>/2020/04/05/pooling/</url>
-    <content><![CDATA[<h1 id="池化"><a href="#池化" class="headerlink" title="池化"></a>池化</h1><p>池化(Pooing)操作的对象是单通道的数字矩阵，也就是对该矩阵某一个邻域内的数字集合进行采样。主要有3种形式：一般池化，重叠池化和金字塔池化。 </p>
-<h3 id="一、池化类型"><a href="#一、池化类型" class="headerlink" title="一、池化类型"></a>一、池化类型</h3><p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/pooling.py" target="_blank" rel="noopener">程序参见</a></p>
-<ul>
-<li><strong>一般池化</strong></li>
-</ul>
-<p>池化窗口的尺寸为n*n，一般情况下池化窗口都是正方形的。步长等于n。此时池化窗口之间是没有重叠的。对于超出数字矩阵范围的，只计算范围内的或者范围外的用0填充在计算。本文只介绍最大值池化，均值池化，随机池化。下面给出图示：</p>
-<a id="more"></a>
-<ul>
-<li><p><strong>最大值池化(Max Pooling)</strong></p>
-<p>池化窗口范围内的最大值作为采样的输出值。</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max_pool.png" alt="最大值池化"></p>
-</li>
-<li><p><strong>均值池化(Average pooling)</strong></p>
-<p>池化窗口范围内的平均值作为采样的输出值，也就是普通均值池化。或者将范围内的数字归一化，每个数字与该范围内的数字之和的比例作为该数字的权重，然后原始数字和对应权重的乘积的和作为最终的输出值，也就是加权平均。下图中的示例是前者。</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_pool.png" alt="均值池化"></p>
-</li>
-<li><p><strong>随机池化(Stochastic pooling)</strong></p>
-<p>池化窗口范围内的数字，采用轮盘赌的方式进行采样，就是值较大的数字成为采样输出值的概率较大。 </p>
-</li>
-</ul>
-<ul>
-<li><strong>重叠池化</strong>  </li>
-</ul>
-<p>池化窗口之间有重叠。也就是步长大于等于1小于n，计算和一般池化是一样的。</p>
-<ul>
-<li><strong>Spatial Pyramid Pooling 空间金字塔池化</strong>  </li>
-</ul>
-<p>空间金字塔池化，简称SPP，又名空间金字塔匹配。BP神经网络(全连接神经网络)中要求的输入维度必须是一致的，卷积神经网络中的网络也包括全连接层。因此需要将尺寸大小不一样的图片(经过多层卷积池化后的结果)，转换为同样的尺寸，作为全连接神经网络的输入。如果利用裁剪可能会丧失很多的边缘信息，而SPP可以很好的解决这个问题。</p>
-<p>空间金字塔池化就是首先把图片看成1块，对这1块进行最大值池化，得到1个值，分成4块，对这4块分别进行最大值池化，得到4个值；分成16块，对这16块分别进行最大值池化，得到16个值，以此类推。这样就可以保证对于不同尺寸的图片而言，最终得到的值的个数是一样的。因为是最大值池化，超出范围的用不用0填充不会影响结果。</p>
-<p>下面给出2个不同尺寸的图片，进行空间金字塔池化的结果。</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">图1</th>
-<th style="text-align:left">ssp结果</th>
-<th style="text-align:center">l层</th>
-<th style="text-align:right">ssp结果</th>
-<th style="text-align:center">图2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_1.png" alt="竖图"></td>
-<td style="text-align:left">R通道ssp结果: 255<br>G通道ssp结果: 255<br>B通道ssp结果: 255</td>
-<td style="text-align:center"><strong>1</strong></td>
-<td style="text-align:right">R通道ssp结果: 255<br>G通道ssp结果: 255<br>B通道ssp结果: 255</td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_1.png" alt="横图"></td>
-</tr>
-<tr>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_2.png" alt="竖图"></td>
-<td style="text-align:left">R通道ssp结果: [255, 255, 255, 255]<br>G通道ssp结果: [255, 255, 246, 241]<br>B通道ssp结果: [255, 255, 255, 255]</td>
-<td style="text-align:center"><strong>2</strong></td>
-<td style="text-align:right">R通道ssp结果: [255, 255, 252, 255]<br>G通道ssp结果: [255, 239, 252, 248]<br>B通道ssp结果: [255, 255, 255, 255]</td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_2.png" alt="横图"></td>
-</tr>
-<tr>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_3.png" alt="竖图"></td>
-<td style="text-align:left">R通道ssp结果: [249, 255, 255, 255, 255, 255, 244, 255, 236]<br>G通道ssp结果: [206, 224, 221, 255, 246, 255, 213, 241, 206]<br>B通道ssp结果: [255, 255, 255, 255, 255, 255, 255, 255, 255]</td>
-<td style="text-align:center"><strong>3</strong></td>
-<td style="text-align:right">R通道ssp结果: [252, 255, 229, 252, 255, 255, 243, 251, 240]<br>G通道ssp结果: [222, 255, 215, 223, 248, 239, 194, 252, 218]<br>B通道ssp结果: [255, 255, 255, 255, 255, 255, 255, 255, 255]</td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_3.png" alt="横图"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/cut_fig.py" target="_blank" rel="noopener">程序参见</a></p>
-<h3 id="二、池化作用"><a href="#二、池化作用" class="headerlink" title="二、池化作用"></a>二、池化作用</h3><ol>
-<li><p>降低了图片尺寸，也就是增大了感受野。感受野就是数字矩阵中的一个数字所对应的原图中的区域大小。因为池化是在某个范围内选择一个数字，也就是让这个数字代表这个范围内的所有的像素得值。这样做虽然也丢失了一些图片信息，但是同时增加了鲁棒性。</p>
-</li>
-<li><p>增加平移不变性。图片中某个目标单纯的位置的移动，不应该影响识别结果。而池化捕捉的恰好是目标的特征，并不是目标所在的位置，因此增加了平移不变性。</p>
-</li>
-<li><p>提升训练速度。因为在保留特征信息的前提下，降低了图片的尺寸。</p>
-</li>
-</ol>
-<h3 id="三、池化对比"><a href="#三、池化对比" class="headerlink" title="三、池化对比"></a>三、池化对比</h3><p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/lena.jpg" alt="原始图片"></p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">池化方法</th>
-<th style="text-align:center">池化</th>
-<th style="text-align:center">图片显示</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">一般：最大值</td>
-<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max_normal.png" alt="一般最大值图片"></td>
-</tr>
-<tr>
-<td style="text-align:center">重叠：最大值</td>
-<td style="text-align:center"><strong>尺寸=8，步长=4</strong></td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max.png" alt="重叠最大值图片"></td>
-</tr>
-<tr>
-<td style="text-align:center">一般：普通均值</td>
-<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_normal.png" alt="普通图片"></td>
-</tr>
-<tr>
-<td style="text-align:center">一般：加权均值</td>
-<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
-<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_weight.png" alt="加权图片"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/pooling_fig.py" target="_blank" rel="noopener">程序参见</a></p>
-]]></content>
-      <categories>
-        <category>算法基础</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>值得你阅读的Hexo个人博客搭建：不用购买服务器，不用购买域名，不要钱，不用敲代码等等，是的，你没有看错，快来转载学习吧！</title>
     <url>/2020/04/05/mybeginblog/</url>
     <content><![CDATA[<p>本文的原文在我的微信公众号，欢迎点击下面蓝色字体链接进入主页</p>
@@ -2054,6 +1933,127 @@
       </categories>
       <tags>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>池化</title>
+    <url>/2020/04/05/pooling/</url>
+    <content><![CDATA[<h1 id="池化"><a href="#池化" class="headerlink" title="池化"></a>池化</h1><p>池化(Pooing)操作的对象是单通道的数字矩阵，也就是对该矩阵某一个邻域内的数字集合进行采样。主要有3种形式：一般池化，重叠池化和金字塔池化。 </p>
+<h3 id="一、池化类型"><a href="#一、池化类型" class="headerlink" title="一、池化类型"></a>一、池化类型</h3><p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/pooling.py" target="_blank" rel="noopener">程序参见</a></p>
+<ul>
+<li><strong>一般池化</strong></li>
+</ul>
+<p>池化窗口的尺寸为n*n，一般情况下池化窗口都是正方形的。步长等于n。此时池化窗口之间是没有重叠的。对于超出数字矩阵范围的，只计算范围内的或者范围外的用0填充在计算。本文只介绍最大值池化，均值池化，随机池化。下面给出图示：</p>
+<a id="more"></a>
+<ul>
+<li><p><strong>最大值池化(Max Pooling)</strong></p>
+<p>池化窗口范围内的最大值作为采样的输出值。</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max_pool.png" alt="最大值池化"></p>
+</li>
+<li><p><strong>均值池化(Average pooling)</strong></p>
+<p>池化窗口范围内的平均值作为采样的输出值，也就是普通均值池化。或者将范围内的数字归一化，每个数字与该范围内的数字之和的比例作为该数字的权重，然后原始数字和对应权重的乘积的和作为最终的输出值，也就是加权平均。下图中的示例是前者。</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_pool.png" alt="均值池化"></p>
+</li>
+<li><p><strong>随机池化(Stochastic pooling)</strong></p>
+<p>池化窗口范围内的数字，采用轮盘赌的方式进行采样，就是值较大的数字成为采样输出值的概率较大。 </p>
+</li>
+</ul>
+<ul>
+<li><strong>重叠池化</strong>  </li>
+</ul>
+<p>池化窗口之间有重叠。也就是步长大于等于1小于n，计算和一般池化是一样的。</p>
+<ul>
+<li><strong>Spatial Pyramid Pooling 空间金字塔池化</strong>  </li>
+</ul>
+<p>空间金字塔池化，简称SPP，又名空间金字塔匹配。BP神经网络(全连接神经网络)中要求的输入维度必须是一致的，卷积神经网络中的网络也包括全连接层。因此需要将尺寸大小不一样的图片(经过多层卷积池化后的结果)，转换为同样的尺寸，作为全连接神经网络的输入。如果利用裁剪可能会丧失很多的边缘信息，而SPP可以很好的解决这个问题。</p>
+<p>空间金字塔池化就是首先把图片看成1块，对这1块进行最大值池化，得到1个值，分成4块，对这4块分别进行最大值池化，得到4个值；分成16块，对这16块分别进行最大值池化，得到16个值，以此类推。这样就可以保证对于不同尺寸的图片而言，最终得到的值的个数是一样的。因为是最大值池化，超出范围的用不用0填充不会影响结果。</p>
+<p>下面给出2个不同尺寸的图片，进行空间金字塔池化的结果。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">图1</th>
+<th style="text-align:left">ssp结果</th>
+<th style="text-align:center">l层</th>
+<th style="text-align:right">ssp结果</th>
+<th style="text-align:center">图2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_1.png" alt="竖图"></td>
+<td style="text-align:left">R通道ssp结果: 255<br>G通道ssp结果: 255<br>B通道ssp结果: 255</td>
+<td style="text-align:center"><strong>1</strong></td>
+<td style="text-align:right">R通道ssp结果: 255<br>G通道ssp结果: 255<br>B通道ssp结果: 255</td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_1.png" alt="横图"></td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_2.png" alt="竖图"></td>
+<td style="text-align:left">R通道ssp结果: [255, 255, 255, 255]<br>G通道ssp结果: [255, 255, 246, 241]<br>B通道ssp结果: [255, 255, 255, 255]</td>
+<td style="text-align:center"><strong>2</strong></td>
+<td style="text-align:right">R通道ssp结果: [255, 255, 252, 255]<br>G通道ssp结果: [255, 239, 252, 248]<br>B通道ssp结果: [255, 255, 255, 255]</td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_2.png" alt="横图"></td>
+</tr>
+<tr>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/vertical_iris_3.png" alt="竖图"></td>
+<td style="text-align:left">R通道ssp结果: [249, 255, 255, 255, 255, 255, 244, 255, 236]<br>G通道ssp结果: [206, 224, 221, 255, 246, 255, 213, 241, 206]<br>B通道ssp结果: [255, 255, 255, 255, 255, 255, 255, 255, 255]</td>
+<td style="text-align:center"><strong>3</strong></td>
+<td style="text-align:right">R通道ssp结果: [252, 255, 229, 252, 255, 255, 243, 251, 240]<br>G通道ssp结果: [222, 255, 215, 223, 248, 239, 194, 252, 218]<br>B通道ssp结果: [255, 255, 255, 255, 255, 255, 255, 255, 255]</td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/horizontal_iris_3.png" alt="横图"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/cut_fig.py" target="_blank" rel="noopener">程序参见</a></p>
+<h3 id="二、池化作用"><a href="#二、池化作用" class="headerlink" title="二、池化作用"></a>二、池化作用</h3><ol>
+<li><p>降低了图片尺寸，也就是增大了感受野。感受野就是数字矩阵中的一个数字所对应的原图中的区域大小。因为池化是在某个范围内选择一个数字，也就是让这个数字代表这个范围内的所有的像素得值。这样做虽然也丢失了一些图片信息，但是同时增加了鲁棒性。</p>
+</li>
+<li><p>增加平移不变性。图片中某个目标单纯的位置的移动，不应该影响识别结果。而池化捕捉的恰好是目标的特征，并不是目标所在的位置，因此增加了平移不变性。</p>
+</li>
+<li><p>提升训练速度。因为在保留特征信息的前提下，降低了图片的尺寸。</p>
+</li>
+</ol>
+<h3 id="三、池化对比"><a href="#三、池化对比" class="headerlink" title="三、池化对比"></a>三、池化对比</h3><p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/lena.jpg" alt="原始图片"></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">池化方法</th>
+<th style="text-align:center">池化</th>
+<th style="text-align:center">图片显示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">一般：最大值</td>
+<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max_normal.png" alt="一般最大值图片"></td>
+</tr>
+<tr>
+<td style="text-align:center">重叠：最大值</td>
+<td style="text-align:center"><strong>尺寸=8，步长=4</strong></td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/max.png" alt="重叠最大值图片"></td>
+</tr>
+<tr>
+<td style="text-align:center">一般：普通均值</td>
+<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_normal.png" alt="普通图片"></td>
+</tr>
+<tr>
+<td style="text-align:center">一般：加权均值</td>
+<td style="text-align:center"><strong>尺寸=8，步长=10</strong></td>
+<td style="text-align:center"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/mean_weight.png" alt="加权图片"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Pooling/pooling_fig.py" target="_blank" rel="noopener">程序参见</a></p>
+]]></content>
+      <categories>
+        <category>算法基础</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
