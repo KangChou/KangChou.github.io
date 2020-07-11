@@ -618,78 +618,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CART分类树</title>
-    <url>/2020/07/08/cart2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="CART分类树"><a href="#CART分类树" class="headerlink" title="CART分类树"></a>CART分类树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
-<li><p>数据文件</p>
-<ul>
-<li>成年人收入数据集：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/BPNN/BPNN_Classify" target="_blank" rel="noopener">数据集参见BP神经网络分类</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>基于不同库的代码文件</p>
-<ul>
-<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Classify.py" target="_blank" rel="noopener">AnFany_DT_Classify.py</a></li>
-</ul>
-</li>
-</ul>
-<pre><code> - **Sklearn**：[Sklearn_DT_Classify.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Sklearn_DT_Classify.py)
-</code></pre><ul>
-<li><p>辅助代码文件</p>
-<ul>
-<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/DT_Classify_Data.py" target="_blank" rel="noopener">DT_Classify_Data.py</a></li>
-</ul>
-</li>
-<li><p>绘制树的程序</p>
-<ul>
-<li>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_Show_Tree.py" target="_blank" rel="noopener">AnFany_Show_Tree.py</a></li>
-<li><p>成人收入数据集(初始深度设为5)的树的示例：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_tree.png" alt="image"></p>
-</li>
-</ul>
-</li>
-<li><p>成人收入数据集结果对比</p>
-<ul>
-<li><p><strong>AnFany</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_anfany.png" alt="image"></p>
-</li>
-<li><p><strong>Sklearn</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_sklearn.png" alt="image"></p>
-</li>
-</ul>
-</li>
-<li><p>示例(以鸢尾花数据集为例) </p>
- <a id="more"></a>
-<ul>
-<li><p><strong><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/Softmax%20Regression" target="_blank" rel="noopener">数据集说明参见Softmax回归</a></strong></p>
-</li>
-<li><p><strong>AnFany</strong></p>
-<ul>
-<li><p>数据处理：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Irisdata_DT_Anfany.py" target="_blank" rel="noopener">Irisdata_DT_AnFany.py</a></p>
-</li>
-<li><p>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Iris.py" target="_blank" rel="noopener">AnFany_DT_Iris.py</a></p>
-</li>
-<li><p>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Iris_tree.py" target="_blank" rel="noopener">Iris_tree.py</a>       </p>
-</li>
-<li><p>结果：</p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_anfany.png" alt="image"></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_tree.png" alt="image"></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>决策树</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>卷积神经网络</title>
     <url>/2020/07/08/cnn/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h3><p>对于一个图片而言，假设其数字矩阵维度为(<strong>3,320,240</strong>)，其中<strong>3是通道数或者说是深度，320是图片数字矩阵的高度，240是宽度</strong>。需要注意的是，卷积神经网络中输入的数字矩阵，并不是利用skimage库中io.read()函数读取图片得到的，因为直接读取得到的矩阵维度是(320,240,3)的。</p>
@@ -814,6 +742,78 @@
 </code></pre>]]></content>
       <categories>
         <category>神经网络</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CART分类树</title>
+    <url>/2020/07/08/cart2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="CART分类树"><a href="#CART分类树" class="headerlink" title="CART分类树"></a>CART分类树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
+<li><p>数据文件</p>
+<ul>
+<li>成年人收入数据集：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/BPNN/BPNN_Classify" target="_blank" rel="noopener">数据集参见BP神经网络分类</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>基于不同库的代码文件</p>
+<ul>
+<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Classify.py" target="_blank" rel="noopener">AnFany_DT_Classify.py</a></li>
+</ul>
+</li>
+</ul>
+<pre><code> - **Sklearn**：[Sklearn_DT_Classify.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Sklearn_DT_Classify.py)
+</code></pre><ul>
+<li><p>辅助代码文件</p>
+<ul>
+<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/DT_Classify_Data.py" target="_blank" rel="noopener">DT_Classify_Data.py</a></li>
+</ul>
+</li>
+<li><p>绘制树的程序</p>
+<ul>
+<li>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_Show_Tree.py" target="_blank" rel="noopener">AnFany_Show_Tree.py</a></li>
+<li><p>成人收入数据集(初始深度设为5)的树的示例：</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_tree.png" alt="image"></p>
+</li>
+</ul>
+</li>
+<li><p>成人收入数据集结果对比</p>
+<ul>
+<li><p><strong>AnFany</strong></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_anfany.png" alt="image"></p>
+</li>
+<li><p><strong>Sklearn</strong></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/adult_sklearn.png" alt="image"></p>
+</li>
+</ul>
+</li>
+<li><p>示例(以鸢尾花数据集为例) </p>
+ <a id="more"></a>
+<ul>
+<li><p><strong><a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/tree/master/Softmax%20Regression" target="_blank" rel="noopener">数据集说明参见Softmax回归</a></strong></p>
+</li>
+<li><p><strong>AnFany</strong></p>
+<ul>
+<li><p>数据处理：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Irisdata_DT_Anfany.py" target="_blank" rel="noopener">Irisdata_DT_AnFany.py</a></p>
+</li>
+<li><p>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/AnFany_DT_Iris.py" target="_blank" rel="noopener">AnFany_DT_Iris.py</a></p>
+</li>
+<li><p>绘制树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/Iris_tree.py" target="_blank" rel="noopener">Iris_tree.py</a>       </p>
+</li>
+<li><p>结果：</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_anfany.png" alt="image"></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Classify/iris_tree.png" alt="image"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>决策树</category>
       </categories>
       <tags>
         <tag>算法</tag>
@@ -1617,21 +1617,6 @@
       </tags>
   </entry>
   <entry>
-    <title>一招解决hexo博客出现无法加载“hexo-prism-plugin”的情况</title>
-    <url>/2020/04/05/hiero4/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一、问题的描述</p>
-<p><strong>“ERROR Plugin load failed: hexo-prism-plugin”</strong><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">ERROR Plugin load failed: hexo-prism-plugin</span><br><span class="line">Error: &#96;prism_plugin&#96; options should be added to _config.yml file</span><br><span class="line">    at E:\hexo\node_modules\hexo-prism-plugin\src\index.js:70:9</span><br><span class="line">    at E:\hexo\node_modules\hexo\lib\hexo\index.js:293:14</span><br><span class="line">    at tryCatcher (E:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at Promise._resolveCallback (E:\hexo\node_modules\bluebird\js\release\promise.js:466:57)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:559:17)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at E:\hexo\node_modules\bluebird\js\release\nodeback.js:42:21</span><br><span class="line">    at E:\hexo\node_modules\graceful-fs\graceful-fs.js:115:16</span><br><span class="line">    at FSReqCallback.readFileAfterClose [as oncomplete] (internal&#x2F;fs&#x2F;read_file_context.js:63:3)</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">INFO  See you again</span><br></pre></td></tr></table></figure></p>
-<p>二、问题的解决</p>
-<p>在博客目录下的配置文件中打开，将以下代码放在最后即可，重新启动生成部署。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">prism_plugin:</span><br><span class="line">  mode: &#39;preprocess&#39; # realtime&#x2F;preprocess</span><br><span class="line">  theme: &#39;default&#39;</span><br><span class="line">  line_number: false # default false</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>一招解决给hexo博客添加版权声明的方法</title>
     <url>/2020/04/05/hiero5/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>今天更换了新的Hexo主题：<br><a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank" rel="noopener">hexo-theme-hiero</a></p>
@@ -1657,6 +1642,21 @@
       </categories>
       <tags>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一招解决hexo博客出现无法加载“hexo-prism-plugin”的情况</title>
+    <url>/2020/04/05/hiero4/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一、问题的描述</p>
+<p><strong>“ERROR Plugin load failed: hexo-prism-plugin”</strong><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">ERROR Plugin load failed: hexo-prism-plugin</span><br><span class="line">Error: &#96;prism_plugin&#96; options should be added to _config.yml file</span><br><span class="line">    at E:\hexo\node_modules\hexo-prism-plugin\src\index.js:70:9</span><br><span class="line">    at E:\hexo\node_modules\hexo\lib\hexo\index.js:293:14</span><br><span class="line">    at tryCatcher (E:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at Promise._resolveCallback (E:\hexo\node_modules\bluebird\js\release\promise.js:466:57)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:559:17)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at E:\hexo\node_modules\bluebird\js\release\nodeback.js:42:21</span><br><span class="line">    at E:\hexo\node_modules\graceful-fs\graceful-fs.js:115:16</span><br><span class="line">    at FSReqCallback.readFileAfterClose [as oncomplete] (internal&#x2F;fs&#x2F;read_file_context.js:63:3)</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">INFO  See you again</span><br></pre></td></tr></table></figure></p>
+<p>二、问题的解决</p>
+<p>在博客目录下的配置文件中打开，将以下代码放在最后即可，重新启动生成部署。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">prism_plugin:</span><br><span class="line">  mode: &#39;preprocess&#39; # realtime&#x2F;preprocess</span><br><span class="line">  theme: &#39;default&#39;</span><br><span class="line">  line_number: false # default false</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>

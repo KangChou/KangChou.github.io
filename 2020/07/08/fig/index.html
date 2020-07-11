@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>图像处理 | 诗和远方biubiu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="算法" />
+  
+  
+  
+  
+  <meta name="description" content="图像的结构图像是由一个个像素点构成，每个像素点有三个通道，分别对应R，G，B。彩色RGB图像其实是一个三维矩阵，矩阵中的每个数字(0到255)代表的是一个像素一个通道的灰度。下面举例说明：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图像处理">
+<meta property="og:url" content="https://kangchou001.cn/2020/07/08/fig/index.html">
+<meta property="og:site_name" content="诗和远方biubiu">
+<meta property="og:description" content="图像的结构图像是由一个个像素点构成，每个像素点有三个通道，分别对应R，G，B。彩色RGB图像其实是一个三维矩阵，矩阵中的每个数字(0到255)代表的是一个像素一个通道的灰度。下面举例说明：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s1.ax1x.com/2020/07/08/UEk9Wd.png">
+<meta property="article:published_time" content="2020-07-08T14:57:06.000Z">
+<meta property="article:modified_time" content="2020-07-07T16:42:40.110Z">
+<meta property="article:author" content="KangChou">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/07/08/UEk9Wd.png">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "首页"; 
+
+  themeMenus["/archives"] = "归档"; 
+
+  themeMenus["/categories/"] = "分类"; 
+
+  themeMenus["/tags"] = "标签"; 
+
+  themeMenus["/about"] = "关于"; 
+
+  themeMenus["/guestbook"] = "留言"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="诗和远方biubiu" rel="home"> 诗和远方biubiu </a>
+            
+          </h1>
+
+          
+            <div class="site-description">本博客致力于分享人工智能算法、Python基础知识、数据分析、TensorFlow和神经网络等学习资料，探讨互联网前沿技术和相关技术研发等。
+有诗才有远方文章征稿：kangsinx@yeah.net
+微信公众号(AI科技与算法编程)：kangsinx</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">归档</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories/">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">关于</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/guestbook">留言</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/blog.gif,css/images/pose.jpg,css/images/pose2.jpg,css/images/pose3.jpg,css/images/pose4.jpg,https://images.wallpaperscraft.com/image/couple_mountains_travel_125490_1280x720.jpg,https://cdn.pixabay.com/photo/2019/05/26/16/43/norway-4230682_1280.jpg".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+             
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+<article id="post-fig" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="https://s1.ax1x.com/2020/07/08/UEk9Wd.png" target="_blank" rel="gallery_ckch8a8gi0016dourepgjcn0e noopener">
+        <img src="https://s1.ax1x.com/2020/07/08/UEk9Wd.png" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      图像处理
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2020/07/08/fig/" class="article-date">
+	  <time datetime="2020-07-08T14:57:06.000Z" itemprop="datePublished">七月 8, 2020</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="图像的结构"><a href="#图像的结构" class="headerlink" title="图像的结构"></a>图像的结构</h3><p>图像是由一个个像素点构成，每个像素点有三个通道，分别对应R，G，B。彩色RGB图像其实是一个三维矩阵，矩阵中的每个数字(0到255)代表的是一个像素一个通道的灰度。下面举例说明：</p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af.png" alt="彩色图片"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_doc.png" alt="图片描述"><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_pixel.png" alt="像素图片"></p>
+<a id="more"></a>
+<h4 id="一、读取这个图片的三维矩阵"><a href="#一、读取这个图片的三维矩阵" class="headerlink" title="一、读取这个图片的三维矩阵"></a>一、读取这个图片的三维矩阵</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span></span><br><span class="line">matrix = io.imread(fig_path)  </span><br><span class="line">print(matrix, matrix.shape)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[[[<span class="number">137</span> <span class="number">198</span> <span class="number">182</span>]</span><br><span class="line">  [<span class="number">126</span> <span class="number">189</span> <span class="number">172</span>]</span><br><span class="line">  [<span class="number">112</span> <span class="number">178</span> <span class="number">164</span>]</span><br><span class="line">  ...</span><br><span class="line">  [<span class="number">106</span> <span class="number">220</span> <span class="number">210</span>]</span><br><span class="line">  [ <span class="number">94</span> <span class="number">208</span> <span class="number">198</span>]</span><br><span class="line">  [ <span class="number">96</span> <span class="number">210</span> <span class="number">202</span>]]</span><br><span class="line">  </span><br><span class="line">...</span><br><span class="line"></span><br><span class="line"> [[<span class="number">210</span> <span class="number">227</span> <span class="number">211</span>]</span><br><span class="line">  [<span class="number">199</span> <span class="number">216</span> <span class="number">200</span>]</span><br><span class="line">  [<span class="number">213</span> <span class="number">227</span> <span class="number">214</span>]</span><br><span class="line">  ...</span><br><span class="line">  [<span class="number">142</span> <span class="number">204</span> <span class="number">193</span>]</span><br><span class="line">  [<span class="number">147</span> <span class="number">207</span> <span class="number">197</span>]</span><br><span class="line">  [<span class="number">151</span> <span class="number">211</span> <span class="number">199</span>]]] (<span class="number">189</span>, <span class="number">149</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>可以得出图片的数字矩阵维度为(189, 149, 3)。其中第一行第一列的像素(上图右)对应的RGB是<code>[137 198 182]</code>，第一行第二列的像素对应的RGB是<code>[126 189 172]</code>；最后一行第一列像素对应的就是<code>[210 227 211]</code>。</p>
+<h4 id="二、获取3个通道的矩阵以及维度"><a href="#二、获取3个通道的矩阵以及维度" class="headerlink" title="二、获取3个通道的矩阵以及维度"></a>二、获取3个通道的矩阵以及维度</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span>   <span class="comment"># 图片路径</span></span><br><span class="line">matrix = io.imread(fig_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">R = matrix[:, :, <span class="number">0</span>]  <span class="comment"># 获取R通道</span></span><br><span class="line">G = matrix[:, :, <span class="number">1</span>]  <span class="comment"># 获取G通道</span></span><br><span class="line">B = matrix[:, :, <span class="number">2</span>]  <span class="comment"># 获取B通道</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'R通道矩阵：\n'</span>, R, <span class="string">'维度：'</span>, R.shape)</span><br><span class="line">print(<span class="string">'G通道矩阵：\n'</span>, G, <span class="string">'维度：'</span>, G.shape)</span><br><span class="line">print(<span class="string">'B通道矩阵：\n'</span>, B, <span class="string">'维度：'</span>, B.shape)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>结果<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">R通道矩阵：</span><br><span class="line"> [[<span class="number">137</span> <span class="number">126</span> <span class="number">112</span> ... <span class="number">106</span>  <span class="number">94</span>  <span class="number">96</span>]</span><br><span class="line"> [<span class="number">153</span> <span class="number">171</span> <span class="number">154</span> ... <span class="number">114</span> <span class="number">100</span> <span class="number">116</span>]</span><br><span class="line"> [<span class="number">144</span> <span class="number">137</span> <span class="number">137</span> ... <span class="number">112</span> <span class="number">106</span> <span class="number">125</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">218</span> <span class="number">216</span> <span class="number">206</span> ... <span class="number">136</span> <span class="number">140</span> <span class="number">140</span>]</span><br><span class="line"> [<span class="number">221</span> <span class="number">210</span> <span class="number">211</span> ... <span class="number">139</span> <span class="number">143</span> <span class="number">145</span>]</span><br><span class="line"> [<span class="number">210</span> <span class="number">199</span> <span class="number">213</span> ... <span class="number">142</span> <span class="number">147</span> <span class="number">151</span>]] 维度： (<span class="number">189</span>, <span class="number">149</span>)</span><br><span class="line">G通道矩阵：</span><br><span class="line"> [[<span class="number">198</span> <span class="number">189</span> <span class="number">178</span> ... <span class="number">220</span> <span class="number">208</span> <span class="number">210</span>]</span><br><span class="line"> [<span class="number">214</span> <span class="number">233</span> <span class="number">220</span> ... <span class="number">226</span> <span class="number">212</span> <span class="number">227</span>]</span><br><span class="line"> [<span class="number">206</span> <span class="number">199</span> <span class="number">201</span> ... <span class="number">220</span> <span class="number">214</span> <span class="number">235</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">232</span> <span class="number">230</span> <span class="number">222</span> ... <span class="number">202</span> <span class="number">204</span> <span class="number">203</span>]</span><br><span class="line"> [<span class="number">235</span> <span class="number">224</span> <span class="number">227</span> ... <span class="number">203</span> <span class="number">205</span> <span class="number">207</span>]</span><br><span class="line"> [<span class="number">227</span> <span class="number">216</span> <span class="number">227</span> ... <span class="number">204</span> <span class="number">207</span> <span class="number">211</span>]] 维度： (<span class="number">189</span>, <span class="number">149</span>)</span><br><span class="line">B通道矩阵：</span><br><span class="line"> [[<span class="number">182</span> <span class="number">172</span> <span class="number">164</span> ... <span class="number">210</span> <span class="number">198</span> <span class="number">202</span>]</span><br><span class="line"> [<span class="number">198</span> <span class="number">218</span> <span class="number">206</span> ... <span class="number">214</span> <span class="number">200</span> <span class="number">218</span>]</span><br><span class="line"> [<span class="number">191</span> <span class="number">184</span> <span class="number">187</span> ... <span class="number">207</span> <span class="number">201</span> <span class="number">224</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">219</span> <span class="number">217</span> <span class="number">211</span> ... <span class="number">188</span> <span class="number">190</span> <span class="number">192</span>]</span><br><span class="line"> [<span class="number">222</span> <span class="number">211</span> <span class="number">216</span> ... <span class="number">189</span> <span class="number">192</span> <span class="number">194</span>]</span><br><span class="line"> [<span class="number">211</span> <span class="number">200</span> <span class="number">214</span> ... <span class="number">193</span> <span class="number">197</span> <span class="number">199</span>]] 维度： (<span class="number">189</span>, <span class="number">149</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="三、根据每个通道的数字矩阵输出图片"><a href="#三、根据每个通道的数字矩阵输出图片" class="headerlink" title="三、根据每个通道的数字矩阵输出图片"></a>三、根据每个通道的数字矩阵输出图片</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fig_path = <span class="string">r"C:\Users\GWT9\Desktop\af.png"</span>   <span class="comment"># 图片路径</span></span><br><span class="line">matrix = io.imread(fig_path)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">R = matrix[:, :, <span class="number">0</span>]  <span class="comment"># 获取R通道</span></span><br><span class="line">G = matrix[:, :, <span class="number">1</span>]  <span class="comment"># 获取G通道</span></span><br><span class="line">B = matrix[:, :, <span class="number">2</span>]  <span class="comment"># 获取B通道</span></span><br><span class="line"></span><br><span class="line">R_image = Image.fromarray(R)</span><br><span class="line">R_image.show()</span><br><span class="line">R_image.save(<span class="string">r"C:\Users\GWT9\Desktop\af_R.png"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">G_image = Image.fromarray(G)</span><br><span class="line">G_image.show()</span><br><span class="line">G_image.save(<span class="string">r"C:\Users\GWT9\Desktop\af_G.png"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">B_image = Image.fromarray(B)</span><br><span class="line">B_image.show()</span><br><span class="line">B_image.save(<span class="string">r"C:\Users\GWT9\Desktop\af_B.png"</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>结果</p>
+<ul>
+<li><strong>通道R</strong></li>
+</ul>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_R.png" alt="通道R">!</p>
+<ul>
+<li><strong>通道G</strong></li>
+</ul>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_G.png" alt="通道G">!</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>通道B</strong></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/CNN/Fig/af_B.png" alt="通道B">!</p>
+</li>
+</ul>
+<h4 id="四、根据数字矩阵输出图片"><a href="#四、根据数字矩阵输出图片" class="headerlink" title="四、根据数字矩阵输出图片"></a>四、根据数字矩阵输出图片</h4><p>  因为像素值均是[0-255]内的数字，因此要保证数字矩阵的数字在此范围内，可以设置数字的格式为uint8。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数字矩阵</span></span><br><span class="line">R = np.arange(<span class="number">-800</span>, <span class="number">100</span>, <span class="number">0.5</span>, dtype=np.uint8).reshape(<span class="number">30</span>, <span class="number">20</span>, <span class="number">3</span>)</span><br><span class="line">R_image = Image.fromarray(R)</span><br><span class="line">R_image.show()</span><br></pre></td></tr></table></figure>
+<p>如果不转换数字格式，也可以为输出的图设定mode，例如mode设置为’RGB’，但是此时数字矩阵和读取生成的图片的矩阵是不同的。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数字矩阵</span></span><br><span class="line">R = np.arange(<span class="number">-800</span>, <span class="number">100</span>, <span class="number">0.5</span>).reshape(<span class="number">30</span>, <span class="number">20</span>, <span class="number">3</span>)</span><br><span class="line">R_image = Image.fromarray(R, mode=<span class="string">'RGB'</span>)  <span class="comment"># 设置mode</span></span><br><span class="line">R_image.show()</span><br></pre></td></tr></table></figure><br>或将数字矩阵中的数字小于0的按0计算，大于255的按255计算，这种转换和直接将数字进行uint8转换得到的是不同的，最后在转换为uint8的格式进行图片的输出。对于在(0,255)之间的小数不用进行处理。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding：utf-8 -*-</span></span><br><span class="line"><span class="comment"># &amp;Author  AnFany</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三维数字矩阵</span></span><br><span class="line">R = np.arange(<span class="number">-800</span>, <span class="number">100</span>, <span class="number">0.5</span>).reshape(<span class="number">30</span>, <span class="number">20</span>, <span class="number">3</span>)</span><br><span class="line"><span class="comment"># 进行转换</span></span><br><span class="line">R[R &lt; <span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">R[R &gt; <span class="number">255</span>] = <span class="number">255</span></span><br><span class="line">R_image = Image.fromarray(np.uint8(R)) <span class="comment"># 转为uint8的格式</span></span><br><span class="line">R_image.show()</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">图像处理</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/KangChou/2020PythonKangChou/blob/master/wxzf.jpg',
+  alipayImage: ''
+});
+</script>
+      
+
+      <!-- 要添加的内容 -->
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>作者:  </strong>KangChou</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>文章链接:  </strong>
+          <a href="/2020/07/08/fig/" target="_blank" title="图像处理">https://kangchou001.cn/2020/07/08/fig/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>版权声明:   </strong>
+            本博客所有文章除特别声明外，均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            许可协议。转载请注明出处！
+          </li>
+        </ul>
+      <div>
+      
+      <!---->
+
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC80OTQ4NC8yNTk3Ng==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/08/cnn_realize/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          卷积神经网络实现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/08/jucreadme/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">决策树理论</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#图像的结构"><span class="nav-number">1.</span> <span class="nav-text">图像的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一、读取这个图片的三维矩阵"><span class="nav-number">1.1.</span> <span class="nav-text">一、读取这个图片的三维矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、获取3个通道的矩阵以及维度"><span class="nav-number">1.2.</span> <span class="nav-text">二、获取3个通道的矩阵以及维度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、根据每个通道的数字矩阵输出图片"><span class="nav-number">1.3.</span> <span class="nav-text">三、根据每个通道的数字矩阵输出图片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、根据数字矩阵输出图片"><span class="nav-number">1.4.</span> <span class="nav-text">四、根据数字矩阵输出图片</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+
+
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2020 诗和远方biubiu All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories/" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/guestbook" class="mobile-nav-link">guestbook</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <!-- 雪花特效 -->
+  <script type="text/javascript" src="\js\snow.js"></script>
+
+  <!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>
+
+

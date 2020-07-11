@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>核心解密python函数在（类与函数之间）和（类与类之间）互相调用 | 诗和远方biubiu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Python" />
+  
+  
+  
+  
+  <meta name="description" content="一、类与函数之间首先来看一个函数间的调用 类方法：123456789101112131415161718192021222324252627282930313233#实现类中函数之间互相调用#下面一个学生的简单自我介绍为例子__metaclass__&#x3D;type #自由的、动态的修改&#x2F;增加&#x2F;删除 类的或者实例中的方法或者属性class Stu:    #指定类要处理的参">
+<meta property="og:type" content="article">
+<meta property="og:title" content="核心解密Python函数在（类与函数之间）和（类与类之间）互相调用">
+<meta property="og:url" content="https://kangchou001.cn/2020/07/01/py0/index.html">
+<meta property="og:site_name" content="诗和远方biubiu">
+<meta property="og:description" content="一、类与函数之间首先来看一个函数间的调用 类方法：123456789101112131415161718192021222324252627282930313233#实现类中函数之间互相调用#下面一个学生的简单自我介绍为例子__metaclass__&#x3D;type #自由的、动态的修改&#x2F;增加&#x2F;删除 类的或者实例中的方法或者属性class Stu:    #指定类要处理的参">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/15863171-730c308d8c2138a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/928/format/webp.jpg">
+<meta property="article:published_time" content="2020-06-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-07-07T15:13:30.056Z">
+<meta property="article:author" content="KangChou">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/15863171-730c308d8c2138a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/928/format/webp.jpg">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "首页"; 
+
+  themeMenus["/archives"] = "归档"; 
+
+  themeMenus["/categories/"] = "分类"; 
+
+  themeMenus["/tags"] = "标签"; 
+
+  themeMenus["/about"] = "关于"; 
+
+  themeMenus["/guestbook"] = "留言"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="诗和远方biubiu" rel="home"> 诗和远方biubiu </a>
+            
+          </h1>
+
+          
+            <div class="site-description">本博客致力于分享人工智能算法、Python基础知识、数据分析、TensorFlow和神经网络等学习资料，探讨互联网前沿技术和相关技术研发等。
+有诗才有远方文章征稿：kangsinx@yeah.net
+微信公众号(AI科技与算法编程)：kangsinx</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">归档</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories/">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">关于</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/guestbook">留言</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/blog.gif,css/images/pose.jpg,css/images/pose2.jpg,css/images/pose3.jpg,css/images/pose4.jpg,https://images.wallpaperscraft.com/image/couple_mountains_travel_125490_1280x720.jpg,https://cdn.pixabay.com/photo/2019/05/26/16/43/norway-4230682_1280.jpg".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+             
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+<article id="post-py0" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" href="https://upload-images.jianshu.io/upload_images/15863171-730c308d8c2138a9.png?imageMogr2/auto-orient/strip|imageView2/2/w/928/format/webp.jpg" target="_blank" rel="gallery_ckch8a8hd002pdourecd5c4ew noopener">
+        <img src="https://upload-images.jianshu.io/upload_images/15863171-730c308d8c2138a9.png?imageMogr2/auto-orient/strip|imageView2/2/w/928/format/webp.jpg" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      核心解密Python函数在（类与函数之间）和（类与类之间）互相调用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2020/07/01/py0/" class="article-date">
+	  <time datetime="2020-06-30T16:00:00.000Z" itemprop="datePublished">七月 1, 2020</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、类与函数之间"><a href="#一、类与函数之间" class="headerlink" title="一、类与函数之间"></a>一、类与函数之间</h1><p>首先来看一个函数间的调用</p>
+<p>类方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#实现类中函数之间互相调用</span><br><span class="line">#下面一个学生的简单自我介绍为例子</span><br><span class="line">__metaclass__&#x3D;type #自由的、动态的修改&#x2F;增加&#x2F;删除 类的或者实例中的方法或者属性</span><br><span class="line">class Stu:</span><br><span class="line">    #指定类要处理的参数</span><br><span class="line">    name&#x3D;None #先设定为空，下面会传入</span><br><span class="line">    age&#x3D;None</span><br><span class="line">    major&#x3D;None</span><br><span class="line">    school&#x3D;&quot;哈尔滨工业大学&quot;#类变量，被所有学生实例共有的属性或者特征</span><br><span class="line">    def __init__(self,name,age,major): #构造名字与年龄的init方法</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">        self.age&#x3D;age</span><br><span class="line">        self.major &#x3D; major</span><br><span class="line">    def Name_Age(self): #构造姓名与年龄的函数，分别传入self对应的年龄与姓名参数</span><br><span class="line">        print(&quot;我叫&quot; + self.name+ &quot;,&quot; + &quot;今年&quot; + str(self.age) + &quot;岁,&quot; + &quot;主修专业&quot; + self.major + &quot;。&quot;) #遇到(，。文字等)都加“ ”</span><br><span class="line">    def School(self): #再构造一个函数来说明学生的学校信息，可提前设定好，或者重新构造一个</span><br><span class="line">        print(&quot;来自&quot;,Stu.school)</span><br><span class="line">    def Total(self): #最后构造一个函数来互相调用上面的两个函数Name_Age和School</span><br><span class="line">        Stu.Name_Age(self)</span><br><span class="line">        Stu.School(self)</span><br><span class="line">#######################################################</span><br><span class="line"># 先整体传入参数</span><br><span class="line">stu&#x3D;Stu(&quot;马小云&quot;,20,&quot;空气动力学&quot;) #传入姓名与年龄</span><br><span class="line">#############################################</span><br><span class="line"># （原始的调用方法）实例化对象进行调用</span><br><span class="line">print(&quot;***********************各自函数调用的方法********************************&quot;)</span><br><span class="line">stu.Name_Age() #调用指定函数</span><br><span class="line">stu.School() #再调用其他函数</span><br><span class="line">#############################################</span><br><span class="line">#(函数之间互相调用之后的方法)使用类中函数调用其他函数</span><br><span class="line">print(&quot;***********************类中方法互相调用函数********************************&quot;)</span><br><span class="line">stu.Total()  #导出结果</span><br><span class="line">#######################################################</span><br></pre></td></tr></table></figure><br>执行结果：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-6e9e96097dc01737.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<a id="more"></a>
+<h2 id="备注："><a href="#备注：" class="headerlink" title="备注："></a>备注：</h2><h3 id="（一）metaclass的作用是什么？"><a href="#（一）metaclass的作用是什么？" class="headerlink" title="（一）metaclass的作用是什么？"></a>（一）metaclass的作用是什么？</h3><p> metaclass能有什么用处，先来个感性的认识：</p>
+<ol>
+<li><p>你可以自由的、动态的修改/增加/删除 类的或者实例中的方法或者属性</p>
+</li>
+<li><p>批量的对某些方法使用decorator，而不需要每次都在方法的上面加入@decorator_func</p>
+</li>
+<li><p>当引入第三方库的时候，如果该库某些类需要patch的时候可以用metaclass</p>
+</li>
+<li><p>可以用于序列化(参见yaml这个库的实现，我没怎么仔细看）</p>
+</li>
+<li><p>提供接口注册，接口格式检查等</p>
+</li>
+<li><p>自动委托(auto delegate)</p>
+</li>
+<li><p>more…</p>
+</li>
+</ol>
+<h3 id="（二）metaclass的相关知识"><a href="#（二）metaclass的相关知识" class="headerlink" title="（二）metaclass的相关知识"></a>（二）metaclass的相关知识</h3><ol>
+<li>what is metaclass?</li>
+</ol>
+<p>1.1 在wiki上面，metaclass是这样定义的：In object-oriented programming, </p>
+<p>a metaclass is a class whose instances are classes. </p>
+<p>Just as an ordinary class defines the behavior of certain objects, </p>
+<p>a metaclass defines the behavior of certain classes and their instances.</p>
+<p>也就是说metaclass的实例化结果是类，而class实例化的结果是instance。我是这么理解的：</p>
+<p>metaclass是类似创建类的模板，所有的类都是通过他来create的(调用<strong>new</strong>)，这使得你可以自由的控制</p>
+<p>创建类的那个过程，实现你所需要的功能。</p>
+<h3 id="（三）metaclass基础"><a href="#（三）metaclass基础" class="headerlink" title="（三）metaclass基础"></a>（三）metaclass基础</h3><ul>
+<li>一般情况下, 如果你要用类来实现metaclass的话，该类需要继承于type，而且通常会重写type的<strong>new</strong>方法来控制创建过程。</li>
+</ul>
+<p>当然你也可以用函数的方式（下文会讲）</p>
+<ul>
+<li>在metaclass里面定义的方法会成为类的方法，可以直接通过类名来调用</li>
+</ul>
+<h3 id="（四）如何使用metaclass"><a href="#（四）如何使用metaclass" class="headerlink" title="（四）如何使用metaclass"></a>（四）如何使用metaclass</h3><p>4.1 用类的形式</p>
+<p>4.1.1 类继承于type, 例如： class Meta(type):pass</p>
+<p>4.1.2 将需要使用metaclass来构建class的类的<strong>metaclass</strong>属性（不需要显示声明，直接有的了）赋值为Meta（继承于type的类）</p>
+<p>4.2 用函数的形式</p>
+<p>4.2.1 构建一个函数，例如叫metaclass_new, 需要3个参数：name, bases, attrs，</p>
+<p>name: 类的名字</p>
+<p>bases: 基类，通常是tuple类型</p>
+<p>attrs: dict类型，就是类的属性或者函数</p>
+<p>4.2.2 将需要使用metaclass来构建class的类的<strong>metaclass</strong>属性（不需要显示声明，直接有的了）赋值为函数metaclas_new</p>
+<h3 id="（五）-metaclass-原理"><a href="#（五）-metaclass-原理" class="headerlink" title="（五） metaclass 原理"></a>（五） metaclass 原理</h3><p>5.1 basic</p>
+<p>metaclass的原理其实是这样的：当定义好类之后，创建类的时候其实是调用了type的<strong>new</strong>方法为这个类分配内存空间，创建</p>
+<p>好了之后再调用type的<strong>init</strong>方法初始化（做一些赋值等）。所以metaclass的所有magic其实就在于这个<strong>new</strong>方法里面了。</p>
+<p>说说这个方法：<strong>new</strong>(cls, name, bases, attrs)</p>
+<p>cls: 将要创建的类，类似与self，但是self指向的是instance，而这里cls指向的是class</p>
+<p>name: 类的名字，也就是我们通常用类名.<strong>name</strong>获取的。</p>
+<p>bases: 基类</p>
+<p>attrs: 属性的dict。dict的内容可以是变量(类属性），也可以是函数（类方法）。</p>
+<p>所以在创建类的过程，我们可以在这个函数里面修改name，bases，attrs的值来自由的达到我们的功能。这里常用的配合方法是</p>
+<p>getattr和setattr（just an advice)</p>
+<h1 id="二、类与类之间调用函数"><a href="#二、类与类之间调用函数" class="headerlink" title="二、类与类之间调用函数"></a>二、类与类之间调用函数</h1><p>下面实现python中在一个类中调用另一个类的函数方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#实现类与类中的函数调用</span><br><span class="line">class Person: #构造第一个类</span><br><span class="line">	def __init__(self,name): #先定义init方法，指定参数</span><br><span class="line">		self.name &#x3D; name</span><br><span class="line">	def go_to(self,position,type): #构造的函数</span><br><span class="line">		&#39;&#39;&#39;</span><br><span class="line">		:param position:地名参数</span><br><span class="line">		:param type:去的方法</span><br><span class="line">		:return:</span><br><span class="line">		&#39;&#39;&#39;</span><br><span class="line">		print(&#39;去:&#39; + position)</span><br><span class="line">		#此处调用另一个类：Car类的方法</span><br><span class="line">		type.run()</span><br><span class="line">class Car: #构造第二个类</span><br><span class="line">	def run(self):</span><br><span class="line">		print(&#39;走你~&#39;)</span><br><span class="line"></span><br><span class="line">call &#x3D; Person(&#39;小王&#39;)</span><br><span class="line">#为了让小王调用Car类中的run()方法，需实例化出一辆车</span><br><span class="line">toll &#x3D; Car()</span><br><span class="line">#通过将Car类的对象toll传给call这个对象，从而达到调用toll方法run()的目的</span><br><span class="line">call.go_to(&#39;上海&#39;,toll)</span><br></pre></td></tr></table></figure>
+<p>或者下面来一个号理解的例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#实现调用类与类之间的函数方法</span><br><span class="line">import numpy as np</span><br><span class="line">class Calculate(object): #构造第一个类</span><br><span class="line">    def add(self, a, b): #构造加法函数</span><br><span class="line">        a1 &#x3D; np.add(a,  b)</span><br><span class="line">        return a1</span><br><span class="line">    def multiply(self,a, b):#构造乘法函数</span><br><span class="line">        a2&#x3D; np.multiply(a, b)</span><br><span class="line">        return a2</span><br><span class="line">    def reduce(self,a,b):#构造减法函数</span><br><span class="line">        a3 &#x3D; np.subtract(a, b)</span><br><span class="line">        return a3</span><br><span class="line">    def division(self,a, b):#构造除法函数</span><br><span class="line">        a4 &#x3D; np.divide(a, b)</span><br><span class="line">        return a4</span><br><span class="line">class Total_grade(object):#构造第二个类</span><br><span class="line">    def __init__(self): #构建一个init方法</span><br><span class="line">        self.Calculate &#x3D; Calculate() #该方法调用第一个类的方法</span><br><span class="line">    def get_id(self,id): #身份证号或者什么号都行</span><br><span class="line">        return id</span><br><span class="line"></span><br><span class="line">    def get_name(self, grade):#名称参数</span><br><span class="line">        return grade</span><br><span class="line"></span><br><span class="line">    def get_totalgrade(self, c, d):#调用第二类方法 下面调用第一类方法</span><br><span class="line">        return self.Calculate.add(c, d)#加法或者其他</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">s &#x3D; Total_grade()</span><br><span class="line">print(s.get_id(&#39;1234567890&#39;))</span><br><span class="line">print(s.get_name(&#39;张飞&#39;))</span><br><span class="line">print(s.get_totalgrade(2019,2020))</span><br></pre></td></tr></table></figure>
+<p>执行结果：<br><img src="https://upload-images.jianshu.io/upload_images/15863171-dcc9e93fe744df05.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h1 id="三、嵌套类之间的函数调用"><a href="#三、嵌套类之间的函数调用" class="headerlink" title="三、嵌套类之间的函数调用"></a>三、嵌套类之间的函数调用</h1><h2 id="1、内部与外部的类的调用"><a href="#1、内部与外部的类的调用" class="headerlink" title="1、内部与外部的类的调用"></a>1、内部与外部的类的调用</h2><p>先来介绍内部类与外部类是什么？<br>看源码解析：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#先来实现一个简单的init嵌套类的交互方法</span><br><span class="line">class MyOuter:#构造外部类</span><br><span class="line">    age&#x3D;19 #定义一个参数，这里暂时用不上，只是想说明类开始也可传入恒定参数</span><br><span class="line">    def __init__(self,name):#构造一个init函数</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line"></span><br><span class="line">    class MyInner: #构造内部法类</span><br><span class="line">        def __init__(self,inner_name): #类似的构造一个init函数</span><br><span class="line">            self.inner_name&#x3D;inner_name</span><br><span class="line"></span><br><span class="line">###########################################################################</span><br><span class="line">out&#x3D;MyOuter(&#39;王小二在门外（外部类）&#39;) #实例化调用外部的类</span><br><span class="line">#####################################</span><br><span class="line">#直接实例化内部类调用</span><br><span class="line">inner&#x3D;out.MyInner(&#39;王小二在房间里inner（内部类）&#39;) #在从外部进入内部的类的函数</span><br><span class="line">print(inner.inner_name) #将实例中的参数传入：王小二在房间里inner（内部类）&#x3D;inner_name</span><br><span class="line">##########################################################################</span><br><span class="line">#直接实例化外部类调用</span><br><span class="line">out2&#x3D;MyOuter #外部类参数</span><br><span class="line">print(out2.age) #调用外部类方法</span><br></pre></td></tr></table></figure>
+<h2 id="2、嵌套类之间的互相调用"><a href="#2、嵌套类之间的互相调用" class="headerlink" title="2、嵌套类之间的互相调用"></a>2、嵌套类之间的互相调用</h2><p>内部类调用外部类的类属性和类方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#实现内部类调用外部类的类属性和类方法：这里是类属性和类方法</span><br><span class="line">class MyOuter:</span><br><span class="line">    age&#x3D;19</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">        &#39;&#39;&#39;</span><br><span class="line">        :#描述：classmethod 修饰符对应的函数不需要实例化，</span><br><span class="line">        :不需要 self 参数，但第一个参数需要是表示自身类的 cls 参数，</span><br><span class="line">        :可以来调用类的属性，类的方法，实例化对象等。</span><br><span class="line">        &#39;&#39;&#39;</span><br><span class="line">    @classmethod</span><br><span class="line">    def outer_class_method(cls):</span><br><span class="line">        print(&#39;我是外部类的类方法&#39;)</span><br><span class="line"></span><br><span class="line">    class MyInner:</span><br><span class="line">        def __init__(self,inner_name):</span><br><span class="line">            self.inner_name&#x3D;inner_name</span><br><span class="line">        def inner_method(self):</span><br><span class="line">            print(&#39;我是内部类的对象方法&#39;)</span><br><span class="line">            MyOuter.outer_class_method()</span><br><span class="line"></span><br><span class="line">out&#x3D;MyOuter(&#39;在门外&#39;)</span><br><span class="line">inner&#x3D;out.MyInner(&#39;在屋里inner&#39;)</span><br><span class="line">inner.inner_method() #执行调用内部函数</span><br></pre></td></tr></table></figure>
+<h2 id="3、内部类调用外部对象的对象属性和方法"><a href="#3、内部类调用外部对象的对象属性和方法" class="headerlink" title="3、内部类调用外部对象的对象属性和方法"></a>3、内部类调用外部对象的对象属性和方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class MyOuter:</span><br><span class="line">    age&#x3D;24</span><br><span class="line">    def __init__(self,name):</span><br><span class="line">        self.name&#x3D;name</span><br><span class="line">    @classmethod</span><br><span class="line">    def outer_class_method(cls):</span><br><span class="line">        print(&#39;我是外部类的类方法&#39;)</span><br><span class="line">    def outer_obj_method(self):</span><br><span class="line">        print(&#39;我是外部类对象的绑定方法&#39;)</span><br><span class="line"></span><br><span class="line">    class MyInner:</span><br><span class="line">        def __init__(self,inner_name,obj):</span><br><span class="line">            self.inner_name&#x3D;inner_name</span><br><span class="line">            self.obj&#x3D;obj</span><br><span class="line">        def inner_method(self):</span><br><span class="line">            print(&#39;我是内部类的对象方法&#39;)</span><br><span class="line">            MyOuter.outer_class_method()</span><br><span class="line">            self.obj.outer_obj_method()</span><br><span class="line"></span><br><span class="line">out&#x3D;MyOuter(&#39;外部类&#39;)</span><br><span class="line">inner&#x3D;out.MyInner(&#39;从外部类进入内部类inner&#39;,out)</span><br><span class="line">inner.inner_method() #调用方法</span><br></pre></td></tr></table></figure>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a href="https://www.runoob.com/python/python-func-classmethod.html" target="_blank" rel="noopener">参考文献1</a><br><a href="https://blog.csdn.net/ball4022/article/details/101670035?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">参考文献2</a><br><a href="https://blog.csdn.net/zag666/article/details/105178492?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.nonecase" target="_blank" rel="noopener">参考文献3</a></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E5%B0%8F%E6%8A%80%E5%B7%A7/">编程小技巧</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/KangChou/2020PythonKangChou/blob/master/wxzf.jpg',
+  alipayImage: ''
+});
+</script>
+      
+
+      <!-- 要添加的内容 -->
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>作者:  </strong>KangChou</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>文章链接:  </strong>
+          <a href="/2020/07/01/py0/" target="_blank" title="核心解密Python函数在（类与函数之间）和（类与类之间）互相调用">https://kangchou001.cn/2020/07/01/py0/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>版权声明:   </strong>
+            本博客所有文章除特别声明外，均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            许可协议。转载请注明出处！
+          </li>
+        </ul>
+      <div>
+      
+      <!---->
+
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC80OTQ4NC8yNTk3Ng==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/07/05/Divide/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          每日算法之旅(第三天):分而治之算法思想
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/25/tf/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">汇总国内Python镜像网址：提升安装速度</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、类与函数之间"><span class="nav-number">1.</span> <span class="nav-text">一、类与函数之间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#备注："><span class="nav-number">1.1.</span> <span class="nav-text">备注：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）metaclass的作用是什么？"><span class="nav-number">1.1.1.</span> <span class="nav-text">（一）metaclass的作用是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）metaclass的相关知识"><span class="nav-number">1.1.2.</span> <span class="nav-text">（二）metaclass的相关知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）metaclass基础"><span class="nav-number">1.1.3.</span> <span class="nav-text">（三）metaclass基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）如何使用metaclass"><span class="nav-number">1.1.4.</span> <span class="nav-text">（四）如何使用metaclass</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）-metaclass-原理"><span class="nav-number">1.1.5.</span> <span class="nav-text">（五） metaclass 原理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、类与类之间调用函数"><span class="nav-number">2.</span> <span class="nav-text">二、类与类之间调用函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、嵌套类之间的函数调用"><span class="nav-number">3.</span> <span class="nav-text">三、嵌套类之间的函数调用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、内部与外部的类的调用"><span class="nav-number">3.1.</span> <span class="nav-text">1、内部与外部的类的调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、嵌套类之间的互相调用"><span class="nav-number">3.2.</span> <span class="nav-text">2、嵌套类之间的互相调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、内部类调用外部对象的对象属性和方法"><span class="nav-number">3.3.</span> <span class="nav-text">3、内部类调用外部对象的对象属性和方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2020 诗和远方biubiu All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories/" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/guestbook" class="mobile-nav-link">guestbook</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+  <!-- 雪花特效 -->
+  <script type="text/javascript" src="\js\snow.js"></script>
+
+  <!--单击显示文字-->
+<script type="text/javascript" src="/js/click_show_text.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>
+
+
