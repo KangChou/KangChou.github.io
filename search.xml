@@ -744,82 +744,6 @@
       </tags>
   </entry>
   <entry>
-    <title>CART回归树</title>
-    <url>/2020/07/08/carreadme/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
-<li><p>数据文件</p>
-<ul>
-<li><p>北京市Pm2.5数据集：<a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data#" target="_blank" rel="noopener">数据下载以及说明</a></p>
-</li>
-<li><p>数据文件：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/PRSA_data_2010.1.1-2014.12.31.csv" target="_blank" rel="noopener">PRSA_data_2010.1.1-2014.12.31.csv</a></p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>基于不同库的代码文件</p>
-<ul>
-<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_DT_Regression.py" target="_blank" rel="noopener">AnFany_DT_Regression.py</a></li>
-</ul>
-</li>
-</ul>
-<pre><code> - **Sklearn**：[Sklearn_DT_Regression.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Sklearn_DT_Regression.py)
-</code></pre><ul>
-<li><p>辅助代码文件</p>
-<ul>
-<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Data_DT_Regression.py" target="_blank" rel="noopener">Data_DT_Regression.py</a></li>
-</ul>
-</li>
-</ul>
-<pre><code>  - 绘制树的程序：[AnFany_pm2.5_Tree.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_pm2.5_Tree.py)
-</code></pre><ul>
-<li><p>北京市Pm2.5数据集结果对比</p>
-   <a id="more"></a>
-<ul>
-<li><p><strong>AnFany</strong></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/adult_23.png" alt="image"></p>
-<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_23.png" alt="image"></p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>  - **Sklearn**
-
-  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_pm2.5.png)
-
-  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_cure.png)
-</code></pre><ul>
-<li><p>示例 </p>
-<ul>
-<li><strong>y=sin(x1) + cos(x2)</strong></li>
-</ul>
-<ul>
-<li><p><strong>AnFany</strong></p>
-<ul>
-<li>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_example_DT.py" target="_blank" rel="noopener">AnFany_example_DT.py</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>   - 结果：
-
-     + **不同初始深度**
-
-      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/shili_mse.png)
-
-     + **拟合对比**
-
-      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_shili.png)
-</code></pre>]]></content>
-      <categories>
-        <category>决策树</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>卷积神经网络实现</title>
     <url>/2020/07/08/cnn_realize/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
@@ -896,6 +820,82 @@
 ]]></content>
       <categories>
         <category>图像处理</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CART回归树</title>
+    <url>/2020/07/08/carreadme/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="CART回归树"><a href="#CART回归树" class="headerlink" title="CART回归树"></a>CART回归树</h1><h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><ul>
+<li><p>数据文件</p>
+<ul>
+<li><p>北京市Pm2.5数据集：<a href="http://archive.ics.uci.edu/ml/datasets/Beijing+PM2.5+Data#" target="_blank" rel="noopener">数据下载以及说明</a></p>
+</li>
+<li><p>数据文件：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/PRSA_data_2010.1.1-2014.12.31.csv" target="_blank" rel="noopener">PRSA_data_2010.1.1-2014.12.31.csv</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>基于不同库的代码文件</p>
+<ul>
+<li><strong>AnFany</strong>：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_DT_Regression.py" target="_blank" rel="noopener">AnFany_DT_Regression.py</a></li>
+</ul>
+</li>
+</ul>
+<pre><code> - **Sklearn**：[Sklearn_DT_Regression.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Sklearn_DT_Regression.py)
+</code></pre><ul>
+<li><p>辅助代码文件</p>
+<ul>
+<li>数据读取与预处理程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/Data_DT_Regression.py" target="_blank" rel="noopener">Data_DT_Regression.py</a></li>
+</ul>
+</li>
+</ul>
+<pre><code>  - 绘制树的程序：[AnFany_pm2.5_Tree.py](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_pm2.5_Tree.py)
+</code></pre><ul>
+<li><p>北京市Pm2.5数据集结果对比</p>
+   <a id="more"></a>
+<ul>
+<li><p><strong>AnFany</strong></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/adult_23.png" alt="image"></p>
+<p><img src="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_23.png" alt="image"></p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>  - **Sklearn**
+
+  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_pm2.5.png)
+
+  ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/sk_cure.png)
+</code></pre><ul>
+<li><p>示例 </p>
+<ul>
+<li><strong>y=sin(x1) + cos(x2)</strong></li>
+</ul>
+<ul>
+<li><p><strong>AnFany</strong></p>
+<ul>
+<li>决策树程序：<a href="https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/AnFany_example_DT.py" target="_blank" rel="noopener">AnFany_example_DT.py</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>   - 结果：
+
+     + **不同初始深度**
+
+      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/shili_mse.png)
+
+     + **拟合对比**
+
+      ![image](https://github.com/Anfany/Machine-Learning-for-Beginner-by-Python3/blob/master/Decision%20Tree/DT_Regression/cure_shili.png)
+</code></pre>]]></content>
+      <categories>
+        <category>决策树</category>
       </categories>
       <tags>
         <tag>算法</tag>
@@ -1579,6 +1579,22 @@
       </tags>
   </entry>
   <entry>
+    <title>一步解决hexo博客搭建后的全文搜索功能</title>
+    <url>/2020/04/05/hiero3/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
+<p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
+<p>注意：你需要在使用透视搜索之前安装 hexo-generator-json-content。<br>复制代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>解决Hexo博客页面过小问题与设置透明背景</title>
     <url>/2020/04/05/hiero2/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用默认生成的主题，文章宽度过小，而两遍宽度过大。可以修改<br>themes\next\source\css_schemes\Pisces_layout.styl<br>中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.container .main-inner &#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.content-wrap &#123; width: calc(100% - 260px); &#125;</span><br></pre></td></tr></table></figure><br>代码，改变大小。但加了之后，虽然能够在电脑上显示，但手机上的显示却会出问题，不能自适应。下面提供我的方法，可以直接复制粘贴我的_layout.styl配置。</p>
@@ -1598,6 +1614,21 @@
       </categories>
       <tags>
         <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一招解决hexo博客出现无法加载“hexo-prism-plugin”的情况</title>
+    <url>/2020/04/05/hiero4/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一、问题的描述</p>
+<p><strong>“ERROR Plugin load failed: hexo-prism-plugin”</strong><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">ERROR Plugin load failed: hexo-prism-plugin</span><br><span class="line">Error: &#96;prism_plugin&#96; options should be added to _config.yml file</span><br><span class="line">    at E:\hexo\node_modules\hexo-prism-plugin\src\index.js:70:9</span><br><span class="line">    at E:\hexo\node_modules\hexo\lib\hexo\index.js:293:14</span><br><span class="line">    at tryCatcher (E:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at Promise._resolveCallback (E:\hexo\node_modules\bluebird\js\release\promise.js:466:57)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:559:17)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at E:\hexo\node_modules\bluebird\js\release\nodeback.js:42:21</span><br><span class="line">    at E:\hexo\node_modules\graceful-fs\graceful-fs.js:115:16</span><br><span class="line">    at FSReqCallback.readFileAfterClose [as oncomplete] (internal&#x2F;fs&#x2F;read_file_context.js:63:3)</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">INFO  See you again</span><br></pre></td></tr></table></figure></p>
+<p>二、问题的解决</p>
+<p>在博客目录下的配置文件中打开，将以下代码放在最后即可，重新启动生成部署。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">prism_plugin:</span><br><span class="line">  mode: &#39;preprocess&#39; # realtime&#x2F;preprocess</span><br><span class="line">  theme: &#39;default&#39;</span><br><span class="line">  line_number: false # default false</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1626,37 +1657,6 @@
       </categories>
       <tags>
         <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一步解决hexo博客搭建后的全文搜索功能</title>
-    <url>/2020/04/05/hiero3/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><hr>
-<p>全文搜索<br>Hiero使用 Insight Search 帮助你搜索站点内的任何内容，而无需第三方插件。<br>复制代码</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Search</span><br><span class="line">search:</span><br><span class="line">    insight: true # you need to install &#96;hexo-generator-json-content&#96; before using Insight Search</span><br><span class="line">    swiftype: # enter swiftype install key here</span><br><span class="line">    baidu: false # you need to disable other search engines to use Baidu search, options: true, false</span><br></pre></td></tr></table></figure>
-<p>注意：你需要在使用透视搜索之前安装 hexo-generator-json-content。<br>复制代码<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ npm install -S hexo-generator-json-content</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一招解决hexo博客出现无法加载“hexo-prism-plugin”的情况</title>
-    <url>/2020/04/05/hiero4/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一、问题的描述</p>
-<p><strong>“ERROR Plugin load failed: hexo-prism-plugin”</strong><br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br><span class="line">ERROR Plugin load failed: hexo-prism-plugin</span><br><span class="line">Error: &#96;prism_plugin&#96; options should be added to _config.yml file</span><br><span class="line">    at E:\hexo\node_modules\hexo-prism-plugin\src\index.js:70:9</span><br><span class="line">    at E:\hexo\node_modules\hexo\lib\hexo\index.js:293:14</span><br><span class="line">    at tryCatcher (E:\hexo\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at Promise._resolveCallback (E:\hexo\node_modules\bluebird\js\release\promise.js:466:57)</span><br><span class="line">    at Promise._settlePromiseFromHandler (E:\hexo\node_modules\bluebird\js\release\promise.js:559:17)</span><br><span class="line">    at Promise._settlePromise (E:\hexo\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (E:\hexo\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (E:\hexo\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at Promise._fulfill (E:\hexo\node_modules\bluebird\js\release\promise.js:673:18)</span><br><span class="line">    at E:\hexo\node_modules\bluebird\js\release\nodeback.js:42:21</span><br><span class="line">    at E:\hexo\node_modules\graceful-fs\graceful-fs.js:115:16</span><br><span class="line">    at FSReqCallback.readFileAfterClose [as oncomplete] (internal&#x2F;fs&#x2F;read_file_context.js:63:3)</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br><span class="line">INFO  See you again</span><br></pre></td></tr></table></figure></p>
-<p>二、问题的解决</p>
-<p>在博客目录下的配置文件中打开，将以下代码放在最后即可，重新启动生成部署。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">prism_plugin:</span><br><span class="line">  mode: &#39;preprocess&#39; # realtime&#x2F;preprocess</span><br><span class="line">  theme: &#39;default&#39;</span><br><span class="line">  line_number: false # default false</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -2093,38 +2093,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo博客使用Markdown语法</title>
-    <url>/2019/10/05/Markdown/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://wizardforcel.gitbooks.io/markdown-simple-world/0.html" target="_blank" rel="noopener">这里有详细的Markdown语法教程</a></p>
-<p>不管用什么编辑 Markdown 文件，最后生成的 md 文件放到 <a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io/source/_posts">http://xxxx.github.io/source/_posts</a> 文件夹或其子文件夹中即可，如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo+Next配置Blog # 这是标题</span><br><span class="line">categories:  # 这里写的分类会自动汇集到 categories 页面上，分类可以多级</span><br><span class="line">- 算法 # 一级分类</span><br><span class="line">- 编程 # 二级分类 </span><br><span class="line">tags:   # 这里写的标签会自动汇集到 tags 页面上</span><br><span class="line">- Hexo # 可配置多个标签，注意格式</span><br><span class="line">- Blog</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## This is my first blog!</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><strong>文字居中（写博客时）</strong></p>
-<p>在你博客文章中需要居中处加上下面这段代码即可，中间的文字改成你所需要的文字</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;blockquote class&#x3D;&quot;blockquote-center&quot;&gt;</span><br><span class="line">这里可以写多行文字</span><br><span class="line">&lt;&#x2F;blockquote&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h2 id="简要介绍MarkdownPad-2"><a href="#简要介绍MarkdownPad-2" class="headerlink" title="简要介绍MarkdownPad 2"></a>简要介绍MarkdownPad 2</h2><p><strong>MarkdownPad</strong> 是 Windows 平台上一个功能完善的 Markdown 编辑器。</p>
-<h3 id="专为-Markdown-打造"><a href="#专为-Markdown-打造" class="headerlink" title="专为 Markdown 打造"></a>专为 Markdown 打造</h3><p>提供了语法高亮和方便的快捷键功能，给您最好的 Markdown 编写体验。<br><a id="more"></a><br>来试一下：</p>
-<ul>
-<li><strong>粗体</strong> (<code>Ctrl+B</code>) and <em>斜体</em> (<code>Ctrl+I</code>)</li>
-<li>引用 (<code>Ctrl+Q</code>)</li>
-<li>代码块 (<code>Ctrl+K</code>)</li>
-<li>标题 1, 2, 3 (<code>Ctrl+1</code>, <code>Ctrl+2</code>, <code>Ctrl+3</code>)</li>
-<li>列表 (<code>Ctrl+U</code> and <code>Ctrl+Shift+O</code>)</li>
-</ul>
-<h3 id="实时预览，所见即所得"><a href="#实时预览，所见即所得" class="headerlink" title="实时预览，所见即所得"></a>实时预览，所见即所得</h3><p>无需猜测您的 <a href="http://markdownpad.com" target="_blank" rel="noopener">语法</a> 是否正确；每当您敲击键盘，实时预览功能都会立刻准确呈现出文档的显示效果。</p>
-<h3 id="自由定制"><a href="#自由定制" class="headerlink" title="自由定制"></a>自由定制</h3><p>100% 可自定义的字体、配色、布局和样式，让您可以将 MarkdownPad 配置的得心应手。</p>
-<h3 id="为高级用户而设计的稳定的-Markdown-编辑器"><a href="#为高级用户而设计的稳定的-Markdown-编辑器" class="headerlink" title="为高级用户而设计的稳定的 Markdown 编辑器"></a>为高级用户而设计的稳定的 Markdown 编辑器</h3><p> MarkdownPad 支持多种 Markdown 解析引擎，包括 标准 Markdown 、 Markdown 扩展 (包括表格支持) 以及 GitHub 风格 Markdown 。</p>
-<p> 有了标签式多文档界面、PDF 导出、内置的图片上传工具、会话管理、拼写检查、自动保存、语法高亮以及内置的 CSS 管理器，您可以随心所欲地使用 MarkdownPad。</p>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构基础与递归算法思想</title>
     <url>/2019/10/05/Recursive1/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="递归的思想"><a href="#递归的思想" class="headerlink" title="递归的思想"></a>递归的思想</h1><p>您见过一套俄罗斯娃娃吗？<br>——它就是一种递归思想。<br>最初，您只会看到一个通常为彩绘木头的雕像，看起来像这样：<br><a id="more"></a><br><img src="https://upload-images.jianshu.io/upload_images/15863171-782f2379558bd6da.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
@@ -2159,6 +2127,38 @@
       </categories>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo博客使用Markdown语法</title>
+    <url>/2019/10/05/Markdown/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://wizardforcel.gitbooks.io/markdown-simple-world/0.html" target="_blank" rel="noopener">这里有详细的Markdown语法教程</a></p>
+<p>不管用什么编辑 Markdown 文件，最后生成的 md 文件放到 <a href="https://link.zhihu.com/?target=http%3A//xxxx.github.io/source/_posts">http://xxxx.github.io/source/_posts</a> 文件夹或其子文件夹中即可，如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Hexo+Next配置Blog # 这是标题</span><br><span class="line">categories:  # 这里写的分类会自动汇集到 categories 页面上，分类可以多级</span><br><span class="line">- 算法 # 一级分类</span><br><span class="line">- 编程 # 二级分类 </span><br><span class="line">tags:   # 这里写的标签会自动汇集到 tags 页面上</span><br><span class="line">- Hexo # 可配置多个标签，注意格式</span><br><span class="line">- Blog</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## This is my first blog!</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>文字居中（写博客时）</strong></p>
+<p>在你博客文章中需要居中处加上下面这段代码即可，中间的文字改成你所需要的文字</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;blockquote class&#x3D;&quot;blockquote-center&quot;&gt;</span><br><span class="line">这里可以写多行文字</span><br><span class="line">&lt;&#x2F;blockquote&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="简要介绍MarkdownPad-2"><a href="#简要介绍MarkdownPad-2" class="headerlink" title="简要介绍MarkdownPad 2"></a>简要介绍MarkdownPad 2</h2><p><strong>MarkdownPad</strong> 是 Windows 平台上一个功能完善的 Markdown 编辑器。</p>
+<h3 id="专为-Markdown-打造"><a href="#专为-Markdown-打造" class="headerlink" title="专为 Markdown 打造"></a>专为 Markdown 打造</h3><p>提供了语法高亮和方便的快捷键功能，给您最好的 Markdown 编写体验。<br><a id="more"></a><br>来试一下：</p>
+<ul>
+<li><strong>粗体</strong> (<code>Ctrl+B</code>) and <em>斜体</em> (<code>Ctrl+I</code>)</li>
+<li>引用 (<code>Ctrl+Q</code>)</li>
+<li>代码块 (<code>Ctrl+K</code>)</li>
+<li>标题 1, 2, 3 (<code>Ctrl+1</code>, <code>Ctrl+2</code>, <code>Ctrl+3</code>)</li>
+<li>列表 (<code>Ctrl+U</code> and <code>Ctrl+Shift+O</code>)</li>
+</ul>
+<h3 id="实时预览，所见即所得"><a href="#实时预览，所见即所得" class="headerlink" title="实时预览，所见即所得"></a>实时预览，所见即所得</h3><p>无需猜测您的 <a href="http://markdownpad.com" target="_blank" rel="noopener">语法</a> 是否正确；每当您敲击键盘，实时预览功能都会立刻准确呈现出文档的显示效果。</p>
+<h3 id="自由定制"><a href="#自由定制" class="headerlink" title="自由定制"></a>自由定制</h3><p>100% 可自定义的字体、配色、布局和样式，让您可以将 MarkdownPad 配置的得心应手。</p>
+<h3 id="为高级用户而设计的稳定的-Markdown-编辑器"><a href="#为高级用户而设计的稳定的-Markdown-编辑器" class="headerlink" title="为高级用户而设计的稳定的 Markdown 编辑器"></a>为高级用户而设计的稳定的 Markdown 编辑器</h3><p> MarkdownPad 支持多种 Markdown 解析引擎，包括 标准 Markdown 、 Markdown 扩展 (包括表格支持) 以及 GitHub 风格 Markdown 。</p>
+<p> 有了标签式多文档界面、PDF 导出、内置的图片上传工具、会话管理、拼写检查、自动保存、语法高亮以及内置的 CSS 管理器，您可以随心所欲地使用 MarkdownPad。</p>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
