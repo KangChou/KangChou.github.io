@@ -820,6 +820,42 @@
       </tags>
   </entry>
   <entry>
+    <title>卷积神经网络实现</title>
+    <url>/2020/07/08/cnn_realize/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
+<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
+<a id="more"></a>
+<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
+<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
+<li><p><strong>正向传播</strong></p>
+<ul>
+<li><p><strong>输入层INPUT</strong></p>
+<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
+</li>
+<li><p><strong>卷积层CONV</strong>      </p>
+<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>反向传播</strong></li>
+</ul>
+<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
+<li><strong>正向传播</strong></li>
+</ul>
+<ul>
+<li><strong>反向传播</strong></li>
+</ul>
+]]></content>
+      <categories>
+        <category>神经网络</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图像处理</title>
     <url>/2020/07/08/fig/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="图像的结构"><a href="#图像的结构" class="headerlink" title="图像的结构"></a>图像的结构</h3><p>图像是由一个个像素点构成，每个像素点有三个通道，分别对应R，G，B。彩色RGB图像其实是一个三维矩阵，矩阵中的每个数字(0到255)代表的是一个像素一个通道的灰度。下面举例说明：</p>
@@ -860,42 +896,6 @@
 ]]></content>
       <categories>
         <category>图像处理</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>卷积神经网络实现</title>
-    <url>/2020/07/08/cnn_realize/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="卷积神经网络实现"><a href="#卷积神经网络实现" class="headerlink" title="卷积神经网络实现"></a>卷积神经网络实现</h3><p>因为卷积神经网络是多个层的叠加，因此为了简便期间，下面只描述从<strong>输入层INPUT</strong>开始、到<strong>卷积层CONV</strong>、<strong>激活层AF</strong>、<strong>池化层POOL</strong>、然后到<strong>输出层OUTPUT</strong>。</p>
-<p>对于灰度图片而言，例如Mnist，Fashion-Mnist数据集中的图片，其数字矩阵是二维的，矩阵的维度是(<strong>高度</strong>，<strong>宽度</strong>)。 为了程序的通用性，对于灰度图片，为其加上一个维度：通道数，也就是将数字矩阵变为三维的(<strong>1</strong>，<strong>高度</strong>，<strong>宽度</strong>)。</p>
-<a id="more"></a>
-<h3 id="一、基于Numpy的实现"><a href="#一、基于Numpy的实现" class="headerlink" title="一、基于Numpy的实现"></a>一、基于Numpy的实现</h3><p>以Mnist数据集为例，单张图片的数字矩阵的维度为(28，28)，将其添加一个值为1的通道数维度，其维度变为(1，28，28)。因为训练数据中样本的个数为60000，因此训练的输入矩阵<strong>INM</strong>的维度就是（60000，1，28，28）。下面开始描述卷积神经网络的过程：</p>
-<h3 id="1，AnFany"><a href="#1，AnFany" class="headerlink" title="1，AnFany"></a>1，AnFany</h3><ul>
-<li><p><strong>正向传播</strong></p>
-<ul>
-<li><p><strong>输入层INPUT</strong></p>
-<p> 输出的是INM，其维度是（60000，1，28，28）；</p>
-</li>
-<li><p><strong>卷积层CONV</strong>      </p>
-<p> 卷积核的个数C，卷积核的高度CH、宽度CW，填充CP，步长CS</p>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-<h3 id="2，TensorFlow"><a href="#2，TensorFlow" class="headerlink" title="2，TensorFlow"></a>2，TensorFlow</h3><ul>
-<li><strong>正向传播</strong></li>
-</ul>
-<ul>
-<li><strong>反向传播</strong></li>
-</ul>
-]]></content>
-      <categories>
-        <category>神经网络</category>
       </categories>
       <tags>
         <tag>算法</tag>
@@ -1520,28 +1520,6 @@
       </tags>
   </entry>
   <entry>
-    <title>解决Hexo博客页面过小问题与设置透明背景</title>
-    <url>/2020/04/05/hiero2/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用默认生成的主题，文章宽度过小，而两遍宽度过大。可以修改<br>themes\next\source\css_schemes\Pisces_layout.styl<br>中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.container .main-inner &#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.content-wrap &#123; width: calc(100% - 260px); &#125;</span><br></pre></td></tr></table></figure><br>代码，改变大小。但加了之后，虽然能够在电脑上显示，但手机上的显示却会出问题，不能自适应。下面提供我的方法，可以直接复制粘贴我的_layout.styl配置。</p>
-<a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  width: 80%;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.header-inner &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  padding: 0;</span><br><span class="line">  width: 240px;</span><br><span class="line">  background: rgba(255,255,255,0.8);</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line"></span><br><span class="line">  +desktop-large() &#123;</span><br><span class="line">    .container &amp; &#123; width: 240px; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main &#123;</span><br><span class="line">  clearfix();</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    padding-bottom: 100px;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    padding-bottom: 100px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.container .main-inner &#123;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  width: 80%;</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content-wrap &#123;</span><br><span class="line">  float: right;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  padding: $content-desktop-padding;</span><br><span class="line">  &#x2F;&#x2F;width: $content-desktop;</span><br><span class="line">  width: calc(100% - 260px);</span><br><span class="line">  background: white;</span><br><span class="line">  min-height: 700px;</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding: 20px;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding: 20px;</span><br><span class="line">    min-height: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sidebar &#123;</span><br><span class="line">  position: static;</span><br><span class="line">  float: left;</span><br><span class="line">  margin-top: 300px;</span><br><span class="line">  width: $sidebar-desktop;</span><br><span class="line">  background: $body-bg-color;</span><br><span class="line">  box-shadow: none;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sidebar-toggle &#123; display: none; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.footer-inner &#123;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  padding-left: 260px;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">    padding-left: 0 !important;</span><br><span class="line">    padding-right: 0 !important;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">    padding-left: 0 !important;</span><br><span class="line">    padding-right: 0 !important;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.sidebar-position-right &#123;</span><br><span class="line">  .header-inner &#123; right: 0; &#125;</span><br><span class="line">  .content-wrap &#123; float: left; &#125;</span><br><span class="line">  .sidebar &#123; float: right; &#125;</span><br><span class="line"></span><br><span class="line">  .footer-inner &#123;</span><br><span class="line">    padding-left: 0;</span><br><span class="line">    padding-right: 260px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>参照：<a href="https://anoyer.cn/" target="_blank" rel="noopener">https://anoyer.cn/</a></p>
-<h1 id="透明背景"><a href="#透明背景" class="headerlink" title="透明背景"></a>透明背景</h1><p>内容板块透明</p>
-<p>博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .content-wrap 标签下 background: white修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
-<h1 id="菜单栏背景"><a href="#菜单栏背景" class="headerlink" title="菜单栏背景"></a>菜单栏背景</h1><p>博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .header-inner 标签下 background: white修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
-<h1 id="站点概况背景"><a href="#站点概况背景" class="headerlink" title="站点概况背景"></a>站点概况背景</h1><p>博客根目录 themes\next\source\css_schemes\Pisces_sidebar.styl 文件 .sidebar-inner 标签下 background: white修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
-<p>然后修改博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .sidebar 标签下 background: $body-bg-color修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
-<h1 id="按钮背景"><a href="#按钮背景" class="headerlink" title="按钮背景"></a>按钮背景</h1><p>博客根目录 themes\next\source\css_common\components\post\post-button.styl 同上修改对应位置为 background: transparent;</p>
-<hr>
-]]></content>
-      <categories>
-        <category>博客教程</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>安装和使用桌面版Github (2020-03-29)</title>
     <url>/2020/04/05/hiero1/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-下载安装GitHub-Desktop"><a href="#1-下载安装GitHub-Desktop" class="headerlink" title="1.下载安装GitHub Desktop"></a>1.下载安装GitHub Desktop</h2><p>GitHub桌面版下载地址：<a href="https://desktop.github.com/" target="_blank" rel="noopener">https://desktop.github.com/</a><br><img src="https://upload-images.jianshu.io/upload_images/15863171-22f93f6e82f20263.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image1.png"></p>
@@ -1598,6 +1576,28 @@
       <tags>
         <tag>博客</tag>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>解决Hexo博客页面过小问题与设置透明背景</title>
+    <url>/2020/04/05/hiero2/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用默认生成的主题，文章宽度过小，而两遍宽度过大。可以修改<br>themes\next\source\css_schemes\Pisces_layout.styl<br>中<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header&#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.container .main-inner &#123; width: 80%; &#125; &#x2F;* 80% *&#x2F;</span><br><span class="line">.content-wrap &#123; width: calc(100% - 260px); &#125;</span><br></pre></td></tr></table></figure><br>代码，改变大小。但加了之后，虽然能够在电脑上显示，但手机上的显示却会出问题，不能自适应。下面提供我的方法，可以直接复制粘贴我的_layout.styl配置。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.header &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  width: 80%;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.header-inner &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">  padding: 0;</span><br><span class="line">  width: 240px;</span><br><span class="line">  background: rgba(255,255,255,0.8);</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line"></span><br><span class="line">  +desktop-large() &#123;</span><br><span class="line">    .container &amp; &#123; width: 240px; &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">    width: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.main &#123;</span><br><span class="line">  clearfix();</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    padding-bottom: 100px;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    padding-bottom: 100px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.container .main-inner &#123;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  width: 80%;</span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content-wrap &#123;</span><br><span class="line">  float: right;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  padding: $content-desktop-padding;</span><br><span class="line">  &#x2F;&#x2F;width: $content-desktop;</span><br><span class="line">  width: calc(100% - 260px);</span><br><span class="line">  background: white;</span><br><span class="line">  min-height: 700px;</span><br><span class="line">  box-shadow: $box-shadow-inner;</span><br><span class="line">  border-radius: $border-radius-inner;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding: 20px;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    padding: 20px;</span><br><span class="line">    min-height: auto;</span><br><span class="line">    border-radius: initial;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sidebar &#123;</span><br><span class="line">  position: static;</span><br><span class="line">  float: left;</span><br><span class="line">  margin-top: 300px;</span><br><span class="line">  width: $sidebar-desktop;</span><br><span class="line">  background: $body-bg-color;</span><br><span class="line">  box-shadow: none;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    display: none;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.sidebar-toggle &#123; display: none; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.footer-inner &#123;</span><br><span class="line">  &#x2F;&#x2F;width: $main-desktop;</span><br><span class="line">  padding-left: 260px;</span><br><span class="line"></span><br><span class="line">  +tablet() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">    padding-left: 0 !important;</span><br><span class="line">    padding-right: 0 !important;</span><br><span class="line">  &#125;</span><br><span class="line">  +mobile() &#123;</span><br><span class="line">    width: auto;</span><br><span class="line">    padding-left: 0 !important;</span><br><span class="line">    padding-right: 0 !important;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.sidebar-position-right &#123;</span><br><span class="line">  .header-inner &#123; right: 0; &#125;</span><br><span class="line">  .content-wrap &#123; float: left; &#125;</span><br><span class="line">  .sidebar &#123; float: right; &#125;</span><br><span class="line"></span><br><span class="line">  .footer-inner &#123;</span><br><span class="line">    padding-left: 0;</span><br><span class="line">    padding-right: 260px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参照：<a href="https://anoyer.cn/" target="_blank" rel="noopener">https://anoyer.cn/</a></p>
+<h1 id="透明背景"><a href="#透明背景" class="headerlink" title="透明背景"></a>透明背景</h1><p>内容板块透明</p>
+<p>博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .content-wrap 标签下 background: white修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
+<h1 id="菜单栏背景"><a href="#菜单栏背景" class="headerlink" title="菜单栏背景"></a>菜单栏背景</h1><p>博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .header-inner 标签下 background: white修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
+<h1 id="站点概况背景"><a href="#站点概况背景" class="headerlink" title="站点概况背景"></a>站点概况背景</h1><p>博客根目录 themes\next\source\css_schemes\Pisces_sidebar.styl 文件 .sidebar-inner 标签下 background: white修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
+<p>然后修改博客根目录 themes\next\source\css_schemes\Pisces_layout.styl 文件 .sidebar 标签下 background: $body-bg-color修改为：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">background: rgba(255,255,255,0.7); &#x2F;&#x2F;0.7是透明度</span><br></pre></td></tr></table></figure></p>
+<h1 id="按钮背景"><a href="#按钮背景" class="headerlink" title="按钮背景"></a>按钮背景</h1><p>博客根目录 themes\next\source\css_common\components\post\post-button.styl 同上修改对应位置为 background: transparent;</p>
+<hr>
+]]></content>
+      <categories>
+        <category>博客教程</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
       </tags>
   </entry>
   <entry>
