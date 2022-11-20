@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.coomatrix.com/2020/04/05/blog/</loc>
+    <loc>https://www.coomatrix.com/2022/11/20/ai1/</loc>
     
-    <lastmod>2022-04-16</lastmod>
+    <lastmod>2022-11-20</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.coomatrix.com/2022/10/02/ai1/</loc>
+    <loc>https://www.coomatrix.com/2020/04/05/blog/</loc>
     
     <lastmod>2022-04-16</lastmod>
     
@@ -94,7 +94,7 @@
 
   <url>
     <loc>https://www.coomatrix.com/</loc>
-    <lastmod>2022-10-02</lastmod>
+    <lastmod>2022-11-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -102,21 +102,21 @@
   
   <url>
     <loc>https://www.coomatrix.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2022-10-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.coomatrix.com/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2022-10-02</lastmod>
+    <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coomatrix.com/tags/%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2022-10-02</lastmod>
+    <lastmod>2022-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.coomatrix.com/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -125,14 +125,14 @@
   
   <url>
     <loc>https://www.coomatrix.com/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2022-10-02</lastmod>
+    <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.coomatrix.com/categories/%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-10-02</lastmod>
+    <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
