@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.coomatrix.com/2018/04/05/latex/</loc>
+    
+    <lastmod>2022-11-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.coomatrix.com/photography/index.html</loc>
     
     <lastmod>2022-11-20</lastmod>
@@ -101,14 +110,14 @@
 
   
   <url>
-    <loc>https://www.coomatrix.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <loc>https://www.coomatrix.com/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.coomatrix.com/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://www.coomatrix.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -121,7 +130,21 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://www.coomatrix.com/tags/%E6%8E%92%E7%89%88%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2022-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
+  
+  <url>
+    <loc>https://www.coomatrix.com/categories/%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2022-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://www.coomatrix.com/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
@@ -131,7 +154,7 @@
   </url>
   
   <url>
-    <loc>https://www.coomatrix.com/categories/%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://www.coomatrix.com/categories/LaTeX/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
