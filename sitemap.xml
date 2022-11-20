@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.coomatrix.com/2018/04/05/yolocv5/</loc>
+    <loc>https://www.coomatrix.com/2022/09/20/yolocv5/</loc>
     
     <lastmod>2022-11-20</lastmod>
     
@@ -146,6 +146,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://www.coomatrix.com/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/</loc>
+    <lastmod>2022-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -164,6 +171,13 @@
   
   <url>
     <loc>https://www.coomatrix.com/categories/LaTeX/</loc>
+    <lastmod>2022-11-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.coomatrix.com/categories/AI%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
