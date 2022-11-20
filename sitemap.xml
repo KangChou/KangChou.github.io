@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.coomatrix.com/about/index.html</loc>
+    
+    <lastmod>2022-11-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.coomatrix.com/2022/11/20/ai1/</loc>
     
     <lastmod>2022-11-20</lastmod>
@@ -65,15 +74,6 @@
   </url>
   
   <url>
-    <loc>https://www.coomatrix.com/about/index.html</loc>
-    
-    <lastmod>2022-04-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.coomatrix.com/categories/index.html</loc>
     
     <lastmod>2022-04-16</lastmod>
@@ -101,14 +101,14 @@
 
   
   <url>
-    <loc>https://www.coomatrix.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <loc>https://www.coomatrix.com/tags/%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.coomatrix.com/tags/%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://www.coomatrix.com/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
     <lastmod>2022-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
