@@ -197,73 +197,6 @@ var themeMenus = {};
           <section id="main">
   
     
-<article id="post-yolocv5"  class="article article-type-post" itemscope itemprop="blogPost" >
-  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-    
-    
-    <div class="article-meta">
-      
-	Posted on <a href="/2022/11/20/yolocv5/" class="article-date">
-	  <time datetime="2022-11-20T13:34:02.211Z" itemprop="datePublished">十一月 20, 2022</time>
-	</a>
-
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>title: 新版OpenCV5 （C++）版本目标检测：YOLOv4打包成可用AI软件（离线或者上线使用）<br>comments: true<br>categories: AI目标检测算法<br>tags: 目标检测<br>date: 2022-09-20 20:57:06<br>photos: </p>
-<ul>
-<li>“<a target="_blank" rel="noopener" href="https://img-blog.csdnimg.cn/c3f2497028cb440f884e3526669d3ca3.png&quot;">https://img-blog.csdnimg.cn/c3f2497028cb440f884e3526669d3ca3.png&quot;</a></li>
-</ul>
-<hr>
-<p><img src="https://img-blog.csdnimg.cn/c3f2497028cb440f884e3526669d3ca3.png" alt="在这里插入图片描述"></p>
-<p>上一篇文章:<br>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41194129/article/details/126650822?spm=1001.2014.3001.5501">C++版本的OpenCV 5.x编译生成opencv-python&#x3D;&#x3D;5.x(GPU版本)接口并进行调用</a><br>2、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41194129/article/details/126511773?spm=1001.2014.3001.5501">【强力推荐】基于Nvidia-Docker-Linux(Ubuntu18.04)平台：新版OpenCV5.x(C++)联合CUDA11.1(GPU)完美配置视觉算法开发环境</a><br>3、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41194129/article/details/123951358">AI模型C++部署:【配置OpenCV4++环境】与【三种在 C++ 中部署 TensorFlow 模型的方式】【准备阶段】</a><br>4、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41194129/article/details/126684495">yolov4视频目标检测：使用C++版本联合CUDA11.2的OpenCV 5.x编译生成opencv-python&#x3D;&#x3D;5.x进行推理</a></p>
-<h1 id="需要软件请在平论区留言，源码会开源，持续关注本博客。"><a href="#需要软件请在平论区留言，源码会开源，持续关注本博客。" class="headerlink" title="需要软件请在平论区留言，源码会开源，持续关注本博客。"></a><em><strong>需要软件请在平论区留言，源码会开源，持续关注本博客。</strong></em></h1><ul>
-<li>1、打包成linux软件，后续增加QT功能</li>
-<li>2、软件增加了加密功能，后续会开源代码，敬请期待<br><img src="https://img-blog.csdnimg.cn/2df3df92db9646f292fda28a6e468a80.png" alt="在这里插入图片描述"></li>
-<li>3、增加计算使用剩余天数</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/828102f1fcc74cb5abde55cd0b14eeb7.png" alt="在这里插入图片描述"></p>
-<ul>
-<li>4、增加等等功能组件…不说了，后面会一一展示..</li>
-</ul>
-<h1 id="本YOLO目标检测软件只在ubuntu18-04平台使用"><a href="#本YOLO目标检测软件只在ubuntu18-04平台使用" class="headerlink" title="本YOLO目标检测软件只在ubuntu18.04平台使用"></a>本YOLO目标检测软件只在ubuntu18.04平台使用</h1><p>工程目录：<br><img src="https://img-blog.csdnimg.cn/6ac843a04035496eb7eb8c06323d47b4.png" alt="在这里插入图片描述"></p>
-<p>可执行文件为：sudo .&#x2F;main.sh<br>其他就是yolo的配置文件和模型了：<br><img src="https://img-blog.csdnimg.cn/0b9f6195a63c4fe28955cf52c478a3d2.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/f6cd02ef3e0d49c789a1121c160c08f0.png" alt="在这里插入图片描述"></p>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>测试图片存放位置,格式只要是jpg,随便往里仍：<br><img src="https://img-blog.csdnimg.cn/f5104c4c8c524dc995a94c6209817337.png" alt="在这里插入图片描述"></p>
-<p><img src="https://img-blog.csdnimg.cn/32e0a6bcb59f49a5a838005489bc0b6d.png" alt="在这里插入图片描述"></p>
-<p>保存的结果在result文件目录下：<br><img src="https://img-blog.csdnimg.cn/8a0a309855e14347b474cc543efef7f8.png" alt="在这里插入图片描述"></p>
-<p>直接将软件在拿走在UBUNTU18使用即可：sudo .&#x2F;main.sh</p>
-<p>视频操作教程:  <a target="_blank" rel="noopener" href="https://live.csdn.net/v/239286?spm=1001.2014.3001.5501">https://live.csdn.net/v/239286?spm=1001.2014.3001.5501</a></p>
-
-      
-    </div>
-    <footer class="entry-meta entry-footer">
-      
-      
-      
-
-      <!-- 要添加的内容 -->
-      
-      <!---->
-
-            
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-<!-- Table of Contents -->
-
-    
-
-
-
-  
-    
 <article id="post-ai1"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
     
@@ -281,7 +214,7 @@ var themeMenus = {};
     <div class="article-meta">
       
 	Posted on <a href="/2022/11/20/ai1/" class="article-date">
-	  <time datetime="2022-11-20T07:03:27.401Z" itemprop="datePublished">十一月 20, 2022</time>
+	  <time datetime="2022-11-20T12:57:06.000Z" itemprop="datePublished">十一月 20, 2022</time>
 	</a>
 
       
@@ -289,11 +222,11 @@ var themeMenus = {};
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="https://user-images.githubusercontent.com/36963108/163676068-3aac29a3-95d5-4fd1-9e04-ae54ceb415fb.png" alt="image"></p>
-<p>AI新闻网：<a target="_blank" rel="noopener" href="https://www.marktechpost.com/">https://www.marktechpost.com/</a>  </p>
+<p>AI新闻网：<a target="_blank" rel="noopener" href="https://www.marktechpost.com/">https://www.marktechpost.com/</a></p>
 <p>算法核心基础与AI模型设计【我的CSDN技术博客】：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41194129/category_11362509.html">https://blog.csdn.net/weixin_41194129/category_11362509.html</a></p>
 <p>AI算法学习社区: <a target="_blank" rel="noopener" href="https://github.com/Algorithm-learning-community-for-python">https://github.com/Algorithm-learning-community-for-python</a></p>
 <p>YOLO系列资料汇总：<a target="_blank" rel="noopener" href="https://github.com/KangChou/Cver4s">https://github.com/KangChou/Cver4s</a></p>
-<iframe src="//player.bilibili.com/player.html?aid=556216400&bvid=BV1Se4y1975L&cid=781812098&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="440"> </iframe>
+<iframe src="https://player.bilibili.com/player.html?aid=556216400&bvid=BV1Se4y1975L&cid=781812098&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="440"> </iframe>
 
 <p>NVIDIA-CUDA编程:<a target="_blank" rel="noopener" href="https://github.com/KangChou/deepcv_project_demo/tree/main/CUDA%E7%BC%96%E7%A8%8B">https://github.com/KangChou/deepcv_project_demo/tree/main/CUDA%E7%BC%96%E7%A8%8B</a></p>
 <p>自动驾驶点云技术: <a target="_blank" rel="noopener" href="https://github.com/KangChou/deepcv_project_demo/tree/main/CVPR/point-cloud">https://github.com/KangChou/deepcv_project_demo/tree/main/CVPR/point-cloud</a></p>
@@ -324,7 +257,7 @@ var themeMenus = {};
 <p>激光雷达论文：<a target="_blank" rel="noopener" href="https://arxiv.org/search/?query=+LiDAR&amp;searchtype=all&amp;source=header">https://arxiv.org/search/?query=+LiDAR&amp;searchtype=all&amp;source=header</a></p>
 <p>使用CUDA PCL 加速Jetson的点云处理：<a target="_blank" rel="noopener" href="https://developer.nvidia.com/zh-cn/blog/cuda-pcl-1-0-jetson/">https://developer.nvidia.com/zh-cn/blog/cuda-pcl-1-0-jetson/</a></p>
 <p>PCT: Point Cloud Transformer: <a target="_blank" rel="noopener" href="https://github.com/MenghaoGuo/PCT">https://github.com/MenghaoGuo/PCT</a></p>
-<p><img src="https://img-blog.csdnimg.cn/60fc01ba8b7147768343bfd11a7721d0.png" alt="在这里插入图片描述"> </p>
+<p><img src="https://img-blog.csdnimg.cn/60fc01ba8b7147768343bfd11a7721d0.png" alt="在这里插入图片描述"></p>
 
       
     </div>
@@ -336,6 +269,83 @@ var themeMenus = {};
       
   <span class="ico-tags"></span>
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
+
+      
+
+      <!-- 要添加的内容 -->
+      
+      <!---->
+
+            
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+<!-- Table of Contents -->
+
+    
+
+
+
+  
+    
+<article id="post-yolocv5"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2022/09/20/yolocv5/">新版OpenCV5 （C++）版本目标检测：YOLOv4打包成可用AI软件（离线或者上线使用）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2022/09/20/yolocv5/" class="article-date">
+	  <time datetime="2022-09-20T12:57:06.000Z" itemprop="datePublished">九月 20, 2022</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://img-blog.csdnimg.cn/c3f2497028cb440f884e3526669d3ca3.png" alt="在这里插入图片描述"></p>
+<p>上一篇文章:<br>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41194129/article/details/126650822?spm=1001.2014.3001.5501">C++版本的OpenCV 5.x编译生成opencv-python&#x3D;&#x3D;5.x(GPU版本)接口并进行调用</a><br>2、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41194129/article/details/126511773?spm=1001.2014.3001.5501">【强力推荐】基于Nvidia-Docker-Linux(Ubuntu18.04)平台：新版OpenCV5.x(C++)联合CUDA11.1(GPU)完美配置视觉算法开发环境</a><br>3、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41194129/article/details/123951358">AI模型C++部署:【配置OpenCV4++环境】与【三种在 C++ 中部署 TensorFlow 模型的方式】【准备阶段】</a><br>4、<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41194129/article/details/126684495">yolov4视频目标检测：使用C++版本联合CUDA11.2的OpenCV 5.x编译生成opencv-python&#x3D;&#x3D;5.x进行推理</a></p>
+<h1 id="需要软件请在平论区留言，源码会开源，持续关注本博客。"><a href="#需要软件请在平论区留言，源码会开源，持续关注本博客。" class="headerlink" title="需要软件请在平论区留言，源码会开源，持续关注本博客。"></a><em><strong>需要软件请在平论区留言，源码会开源，持续关注本博客。</strong></em></h1><ul>
+<li>1、打包成linux软件，后续增加QT功能</li>
+<li>2、软件增加了加密功能，后续会开源代码，敬请期待<br><img src="https://img-blog.csdnimg.cn/2df3df92db9646f292fda28a6e468a80.png" alt="在这里插入图片描述"></li>
+<li>3、增加计算使用剩余天数</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/828102f1fcc74cb5abde55cd0b14eeb7.png" alt="在这里插入图片描述"></p>
+<ul>
+<li>4、增加等等功能组件…不说了，后面会一一展示..</li>
+</ul>
+<h1 id="本YOLO目标检测软件只在ubuntu18-04平台使用"><a href="#本YOLO目标检测软件只在ubuntu18-04平台使用" class="headerlink" title="本YOLO目标检测软件只在ubuntu18.04平台使用"></a>本YOLO目标检测软件只在ubuntu18.04平台使用</h1><p>工程目录：<br><img src="https://img-blog.csdnimg.cn/6ac843a04035496eb7eb8c06323d47b4.png" alt="在这里插入图片描述"></p>
+<p>可执行文件为：sudo .&#x2F;main.sh<br>其他就是yolo的配置文件和模型了：<br><img src="https://img-blog.csdnimg.cn/0b9f6195a63c4fe28955cf52c478a3d2.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/f6cd02ef3e0d49c789a1121c160c08f0.png" alt="在这里插入图片描述"></p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><p>测试图片存放位置,格式只要是jpg,随便往里仍：<br><img src="https://img-blog.csdnimg.cn/f5104c4c8c524dc995a94c6209817337.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/32e0a6bcb59f49a5a838005489bc0b6d.png" alt="在这里插入图片描述"></p>
+<p>保存的结果在result文件目录下：<br><img src="https://img-blog.csdnimg.cn/8a0a309855e14347b474cc543efef7f8.png" alt="在这里插入图片描述"></p>
+<p>直接将软件在拿走在UBUNTU18使用即可：sudo .&#x2F;main.sh</p>
+<p>视频操作教程:  <a target="_blank" rel="noopener" href="https://live.csdn.net/v/239286?spm=1001.2014.3001.5501">https://live.csdn.net/v/239286?spm=1001.2014.3001.5501</a></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/AI%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/">AI目标检测算法</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" rel="tag">目标检测</a></li></ul>
 
       
 
@@ -790,10 +800,13 @@ Node.js、Hexo、Git、Github账号、Sublime Text3
           <li class="clearfix">
 
             
-              <div class="widget-entry-summary" style="margin: 0;">
+              <div class="widget-entry-thumbnail">
+                <a href="/2022/11/20/ai1/" title=""><img width="50" height="50" src="https://www.marktechpost.com/wp-content/uploads/2022/03/Screen-Shot-2022-03-31-at-4.17.59-PM-1024x663.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+              </div>
+              <div class="widget-entry-summary">
             
 
-              <h6 style="margin: 0;"><a href="/2022/11/20/yolocv5/">(no title)</a></h6>
+              <h6 style="margin: 0;"><a href="/2022/11/20/ai1/">人工智能科技与文献网</a></h6>
               <span>十一月 20, 2022</span>
             </div>
 
@@ -803,13 +816,13 @@ Node.js、Hexo、Git、Github账号、Sublime Text3
 
             
               <div class="widget-entry-thumbnail">
-                <a href="/2022/11/20/ai1/" title=""><img width="50" height="50" src="https://www.marktechpost.com/wp-content/uploads/2022/03/Screen-Shot-2022-03-31-at-4.17.59-PM-1024x663.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
+                <a href="/2022/09/20/yolocv5/" title=""><img width="50" height="50" src="https://img-blog.csdnimg.cn/c3f2497028cb440f884e3526669d3ca3.png" class="attachment-thumb-small size-thumb-small wp-post-image" alt="preview-16" title=""></a>
               </div>
               <div class="widget-entry-summary">
             
 
-              <h6 style="margin: 0;"><a href="/2022/11/20/ai1/">人工智能科技与文献网</a></h6>
-              <span>十一月 20, 2022</span>
+              <h6 style="margin: 0;"><a href="/2022/09/20/yolocv5/">新版OpenCV5 （C++）版本目标检测：YOLOv4打包成可用AI软件（离线或者上线使用）</a></h6>
+              <span>九月 20, 2022</span>
             </div>
 
           </li>
@@ -883,7 +896,7 @@ Node.js、Hexo、Git、Github账号、Sublime Text3
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0/">教程学习</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B%E7%AE%97%E6%B3%95/">AI目标检测算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LaTeX/">LaTeX</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%99%E7%A8%8B%E5%AD%A6%E4%B9%A0/">教程学习</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -893,7 +906,7 @@ Node.js、Hexo、Git、Github账号、Sublime Text3
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E7%89%88%E5%B7%A5%E5%85%B7/" rel="tag">排版工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/" rel="tag">核心算法</a><span class="tag-list-count">2</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E7%89%88%E5%B7%A5%E5%85%B7/" rel="tag">排版工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A0%B8%E5%BF%83%E7%AE%97%E6%B3%95/" rel="tag">核心算法</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" rel="tag">目标检测</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -904,7 +917,7 @@ Node.js、Hexo、Git、Github账号、Sublime Text3
     <h3 class="widget-title">归档</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">四月 2018</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
