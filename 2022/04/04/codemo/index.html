@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <!-- PACE Progress Bar START -->
+  
+    
+<script src="https://raw.githubusercontent.com/HubSpot/pace/v1.0.2/pace.min.js"></script>
+
+    
+<link rel="stylesheet" href="https://github.com/HubSpot/pace/raw/master/themes/orange/pace-theme-flash.css">
+
+  
+  
+
+  <!-- PACE Progress Bar START -->
+
+  
+  <title>ai模型c++部署:tensorflow2图像分类模型之金钱豹大战齐天大圣【opencv纯c++接口调用tensorflow生成的pb模型】【源码已开源】 | ovo$^{mc^2}$</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="学习" />
+  
+  
+  
+  
+  <meta name="description" content="CSDN原文:AI模型C++部署:TensorFlow2图像分类模型之金钱豹大战齐天大圣【OpenCV纯C++接口调用tensorflow生成的pb模型】【源码已开源】   1、准备训练数据【金钱豹与齐天大圣】ubuntu16.04开发环境1：python3.6+cuda11+tensoflow-gpu 2.5ubuntu16.04开发环境2：python3.6+cuda10+tensoflow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI模型C++部署:TensorFlow2图像分类模型之金钱豹大战齐天大圣【OpenCV纯C++接口调用tensorflow生成的pb模型】【源码已开源】">
+<meta property="og:url" content="https://www.coomatrix.com/2022/04/04/codemo/index.html">
+<meta property="og:site_name" content="ovo$^{mc^2}$">
+<meta property="og:description" content="CSDN原文:AI模型C++部署:TensorFlow2图像分类模型之金钱豹大战齐天大圣【OpenCV纯C++接口调用tensorflow生成的pb模型】【源码已开源】   1、准备训练数据【金钱豹与齐天大圣】ubuntu16.04开发环境1：python3.6+cuda11+tensoflow-gpu 2.5ubuntu16.04开发环境2：python3.6+cuda10+tensoflow">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images.wallpaperscraft.com/image/single/laptop_code_programming_212332_1280x720.jpg">
+<meta property="article:published_time" content="2022-04-04T07:07:23.000Z">
+<meta property="article:modified_time" content="2022-11-26T09:23:24.317Z">
+<meta property="article:author" content="KangChou">
+<meta property="article:tag" content="人工智能">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images.wallpaperscraft.com/image/single/laptop_code_programming_212332_1280x720.jpg">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+    <link rel="stylesheet" href="/css/vdonate.css" >
+  
+
+  <!-- Custom CSS -->
+  
+<link rel="stylesheet" href="/css/my.css">
+
+  <!-- Google Adsense -->
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0123456789ABCDEF",
+          enable_page_level_ads: true
+      });
+  </script>
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="ovo$^{mc^2}$" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "首页"; 
+
+  themeMenus["/archives"] = "归档"; 
+
+  themeMenus["/categories"] = "分类"; 
+
+  themeMenus["/tags"] = "标签"; 
+
+  themeMenus["/photography"] = "摄影"; 
+
+  themeMenus["/about"] = "关于"; 
+
+  themeMenus["/guestbook"] = "留言"; 
+
+  themeMenus["/AI"] = "ai"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" title="ovo$^{mc^2}$" rel="home"> ovo$^{mc^2}$ </a>
+            
+          </h1>
+
+          
+            <div class="site-description">互联网人工智能技术开发者$$世间万物 e^{ i \pi}+1=0 互联互通$$
+邮箱:kangsinx@yeah.net     微信公众号(AI科技与算法编程):kangsinx</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">首页</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">归档</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/categories">分类</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/tags">标签</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/photography">摄影</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">关于</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/guestbook">留言</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/AI">ai</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+  <div id="originBgDiv" style="background: #fff; width: 100%;">
+
+      <div style="max-height:600px; overflow: hidden;  display: flex; display: -webkit-flex; align-items: center;">
+        <img id="originBg" width="100%" alt="" src="">
+      </div>
+
+  </div>
+
+  <script>
+  function setAboutIMG(){
+      var imgUrls = "css/images/blog.gif,css/images/pose.jpg,css/images/pose2.jpg,css/images/pose3.jpg,css/images/pose4.jpg,https://images.wallpaperscraft.com/image/couple_mountains_travel_125490_1280x720.jpg,https://cdn.pixabay.com/photo/2019/05/26/16/43/norway-4230682_1280.jpg".split(",");
+      var random = Math.floor((Math.random() * imgUrls.length ));
+      if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+        document.getElementById("originBg").src=imgUrls[random];
+      } else {
+        document.getElementById("originBg").src='/' + imgUrls[random];
+      }
+  }
+  bgDiv=document.getElementById("originBgDiv");
+  if(location.pathname.match('about')){
+    setAboutIMG();
+    bgDiv.style.display='block';
+  }else{
+    bgDiv.style.display='none';
+  }
+  </script>
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+<article id="post-codemo" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+<div class="article-gallery">
+  <div class="article-gallery-photos">
+    
+      <a class="article-gallery-img fancybox" target="_blank" href="https://images.wallpaperscraft.com/image/single/laptop_code_programming_212332_1280x720.jpg" rel="gallery_claxq6etk0009lwvd596bd3lc noopener">
+        <img src="https://images.wallpaperscraft.com/image/single/laptop_code_programming_212332_1280x720.jpg" itemprop="image">
+      </a>
+    
+  </div>
+</div>
+
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      AI模型C++部署:TensorFlow2图像分类模型之金钱豹大战齐天大圣【OpenCV纯C++接口调用tensorflow生成的pb模型】【源码已开源】
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/2022/04/04/codemo/" class="article-date">
+	  <time datetime="2022-04-04T07:07:23.000Z" itemprop="datePublished">四月 4, 2022</time>
+	</a>
+
+
+<!--
+	不蒜子统计
+	<span id="busuanzi_container_page_pv" style='display:none' class="article-date">
+		  <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+-->
+      
+	<span id="busuanzi_container_page_pv">
+	  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="https://images.wallpaperscraft.com/image/single/laptop_code_programming_212332_1280x720.jpg" alt="img"></p>
+<p>CSDN原文:<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41194129/article/details/123958572">AI模型C++部署:TensorFlow2图像分类模型之金钱豹大战齐天大圣【OpenCV纯C++接口调用tensorflow生成的pb模型】【源码已开源】</a></p>
+<p><img src="https://img-blog.csdnimg.cn/182ed179c311496e9a0b7639efa852ae.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/85b2be77fbbd4802af96c43feb146817.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/d1732a50fdc54014b691f69e6156e547.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5rqQ5Luj56CB5p2A5omL,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/1ce807f6fdb54a9b9cf3181d606465bb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5rqQ5Luj56CB5p2A5omL,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h1 id="1、准备训练数据【金钱豹与齐天大圣】"><a href="#1、准备训练数据【金钱豹与齐天大圣】" class="headerlink" title="1、准备训练数据【金钱豹与齐天大圣】"></a>1、准备训练数据【金钱豹与齐天大圣】</h1><p>ubuntu16.04开发环境1：python3.6+cuda11+tensoflow-gpu 2.5<br>ubuntu16.04开发环境2：python3.6+cuda10+tensoflow-gpu 1.13<br><img src="https://img-blog.csdnimg.cn/d38c913111f9457bb41b42e6e0696536.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5rqQ5Luj56CB5p2A5omL,size_10,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>这里的数据处理包括reshape、去噪、对比度增强、批量剪切、图片灰度、二值化、缩放、丰富数据等等。</p>
+<h2 id="1-0、获取数据地址"><a href="#1-0、获取数据地址" class="headerlink" title="1.0、获取数据地址"></a>1.0、获取数据地址</h2><p><a target="_blank" rel="noopener" href="https://github.com/KangChou/classeifier_models/blob/main/deal_datasets/down_datasets/golds_and_monkey.zip">https://github.com/KangChou/classeifier_models/blob/main/deal_datasets/down_datasets/golds_and_monkey.zip</a></p>
+<h2 id="1-1、处理数据集100-100"><a href="#1-1、处理数据集100-100" class="headerlink" title="1.1、处理数据集100*100"></a>1.1、处理数据集100*100</h2><p>将数据处理成尺寸大小一样的jpg图片，处理的 代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># function:change the size of pictures in one folder&quot;</span></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取不规范图片数据，并规范为相同大小格式</span></span><br><span class="line"></span><br><span class="line">image_size = <span class="number">100</span>  <span class="comment"># 设定尺寸</span></span><br><span class="line">source_path = <span class="string">&quot;/home/zkpark/Documents/pcl2022/opencv_cc_tensorflow/golds_and_monkey/train/monkey_king/&quot;</span>  <span class="comment"># 源文件路径</span></span><br><span class="line"><span class="comment"># source_path = &quot;/home/zkpark/Documents/pcl2022/opencv_cc_tensorflow/golds_and_monkey/train/gold/&quot;  # 源文件路径</span></span><br><span class="line">target_path = <span class="string">&quot;./dataset2/monkey_king/&quot;</span>  <span class="comment"># 输出目标文件路径</span></span><br><span class="line"><span class="comment"># target_path = &quot;./dataset2/gold/&quot;  # 输出目标文件路径</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(target_path):</span><br><span class="line">    os.makedirs(target_path)</span><br><span class="line"></span><br><span class="line">image_list = os.listdir(source_path)  <span class="comment"># 获得文件名</span></span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> image_list:</span><br><span class="line">    i = i + <span class="number">1</span></span><br><span class="line">    image_source = cv2.imread(source_path + file)  <span class="comment"># 读取图片</span></span><br><span class="line">    <span class="built_in">print</span>(image_source)</span><br><span class="line">    image = cv2.resize(image_source, (image_size, image_size), <span class="number">0</span>, <span class="number">0</span>, cv2.INTER_LINEAR)  <span class="comment"># 修改尺寸</span></span><br><span class="line">    cv2.imwrite(target_path + <span class="string">&#x27;1-&#x27;</span> + <span class="built_in">str</span>(i) + <span class="string">&quot;.jpg&quot;</span>, image)  <span class="comment"># 重命名并且保存</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;批量处理完成&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2、数据批量处理"><a href="#1-2、数据批量处理" class="headerlink" title="1.2、数据批量处理"></a>1.2、数据批量处理</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 读取图片</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">read_img</span>(<span class="params">path, w, h</span>):</span><br><span class="line">    cate = [path + x <span class="keyword">for</span> x <span class="keyword">in</span> os.listdir(path) <span class="keyword">if</span> os.path.isdir(path + x)]</span><br><span class="line">    <span class="comment"># print(cate)</span></span><br><span class="line"></span><br><span class="line">    imgs = []</span><br><span class="line">    labels = []</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Start read the image ...&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> index, folder <span class="keyword">in</span> <span class="built_in">enumerate</span>(cate):</span><br><span class="line">        <span class="comment"># print(index, folder)</span></span><br><span class="line">        <span class="keyword">for</span> im <span class="keyword">in</span> glob.glob(folder + <span class="string">&#x27;/*.jpg&#x27;</span>):</span><br><span class="line">            <span class="comment"># print(&#x27;Reading The Image: %s&#x27; % im)</span></span><br><span class="line">            img = io.imread(im)</span><br><span class="line">            img = transform.resize(img, (w, h))</span><br><span class="line">            imgs.append(img)</span><br><span class="line">            <span class="comment"># print(index)</span></span><br><span class="line">            labels.append(index)                    <span class="comment"># 每个子文件夹是一个label</span></span><br><span class="line">            <span class="comment"># print(len(labels))</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;Finished ...&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(imgs))</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(labels))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> np.asarray(imgs, np.float32), np.asarray(labels, np.float32)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打乱顺序 为了均匀取数据</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">messUpOrder</span>(<span class="params">data, label</span>):</span><br><span class="line">    num_example = data.shape[<span class="number">0</span>]</span><br><span class="line">    arr = np.arange(num_example)</span><br><span class="line">    np.random.shuffle(arr)</span><br><span class="line">    data = data[arr]</span><br><span class="line">    label = label[arr]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> data, label</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将所有数据分为训练集和验证集</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">segmentation</span>(<span class="params">data, label, ratio=<span class="number">0.8</span></span>):</span><br><span class="line">    num_example = data.shape[<span class="number">0</span>]</span><br><span class="line">    s = np.<span class="built_in">int</span>(num_example * ratio)</span><br><span class="line">    x_train = data[:s]</span><br><span class="line">    y_train = label[:s]</span><br><span class="line">    x_val = data[s:]</span><br><span class="line">    y_val = label[s:]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> x_train, y_train, x_val, y_val</span><br></pre></td></tr></table></figure>
+
+<h1 id="2、tensorflow2-x模型生成"><a href="#2、tensorflow2-x模型生成" class="headerlink" title="2、tensorflow2.x模型生成"></a>2、tensorflow2.x模型生成</h1><p>tensorflow1代码升级到2的方法请参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41194129/article/details/121499555">https://blog.csdn.net/weixin_41194129&#x2F;article&#x2F;details&#x2F;121499555</a></p>
+<h2 id="2-0、TF2分类模型网络构建"><a href="#2-0、TF2分类模型网络构建" class="headerlink" title="2.0、TF2分类模型网络构建"></a>2.0、TF2分类模型网络构建</h2><h3 id="2-0-1、模型网络结构与训练"><a href="#2-0-1、模型网络结构与训练" class="headerlink" title="2.0.1、模型网络结构与训练"></a>2.0.1、模型网络结构与训练</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 构建网络</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">buildCNN</span>(<span class="params">w, h, c</span>):</span><br><span class="line">    <span class="comment"># 占位符</span></span><br><span class="line">    x = tf.placeholder(tf.float32, shape=[<span class="literal">None</span>, w, h, c], name=<span class="string">&#x27;x&#x27;</span>)</span><br><span class="line">    y_ = tf.placeholder(tf.int32, shape=[<span class="literal">None</span>, ], name=<span class="string">&#x27;y_&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 第一个卷积层 + 池化层（100——&gt;50)</span></span><br><span class="line">    conv1 = tf.layers.conv2d(</span><br><span class="line">        inputs=x,</span><br><span class="line">        filters=<span class="number">32</span>,</span><br><span class="line">        kernel_size=[<span class="number">5</span>, <span class="number">5</span>],</span><br><span class="line">        padding=<span class="string">&quot;same&quot;</span>,</span><br><span class="line">        activation=tf.nn.relu,</span><br><span class="line">        kernel_initializer=tf.truncated_normal_initializer(stddev=<span class="number">0.01</span>))</span><br><span class="line">    pool1 = tf.layers.max_pooling2d(inputs=conv1, pool_size=[<span class="number">2</span>, <span class="number">2</span>], strides=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 第二个卷积层 + 池化层 (50-&gt;25)</span></span><br><span class="line">    conv2 = tf.layers.conv2d(</span><br><span class="line">        inputs=pool1,</span><br><span class="line">        filters=<span class="number">64</span>,</span><br><span class="line">        kernel_size=[<span class="number">5</span>, <span class="number">5</span>],</span><br><span class="line">        padding=<span class="string">&quot;same&quot;</span>,</span><br><span class="line">        activation=tf.nn.relu,</span><br><span class="line">        kernel_initializer=tf.truncated_normal_initializer(stddev=<span class="number">0.01</span>))</span><br><span class="line">    pool2 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[<span class="number">2</span>, <span class="number">2</span>], strides=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 第三个卷积层 + 池化层 (25-&gt;12)</span></span><br><span class="line">    conv3 = tf.layers.conv2d(</span><br><span class="line">        inputs=pool2,</span><br><span class="line">        filters=<span class="number">128</span>,</span><br><span class="line">        kernel_size=[<span class="number">3</span>, <span class="number">3</span>],</span><br><span class="line">        padding=<span class="string">&quot;same&quot;</span>,</span><br><span class="line">        activation=tf.nn.relu,</span><br><span class="line">        kernel_initializer=tf.truncated_normal_initializer(stddev=<span class="number">0.01</span>))</span><br><span class="line">    pool3 = tf.layers.max_pooling2d(inputs=conv3, pool_size=[<span class="number">2</span>, <span class="number">2</span>], strides=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 第四个卷积层 + 池化层 (12-&gt;6)</span></span><br><span class="line">    conv4 = tf.layers.conv2d(</span><br><span class="line">        inputs=pool3,</span><br><span class="line">        filters=<span class="number">128</span>,</span><br><span class="line">        kernel_size=[<span class="number">3</span>, <span class="number">3</span>],</span><br><span class="line">        padding=<span class="string">&quot;same&quot;</span>,</span><br><span class="line">        activation=tf.nn.relu,</span><br><span class="line">        kernel_initializer=tf.truncated_normal_initializer(stddev=<span class="number">0.01</span>))</span><br><span class="line">    pool4 = tf.layers.max_pooling2d(inputs=conv4, pool_size=[<span class="number">2</span>, <span class="number">2</span>], strides=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    re1 = tf.reshape(pool4, [-<span class="number">1</span>, <span class="number">6</span> * <span class="number">6</span> * <span class="number">128</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 全连接层</span></span><br><span class="line">    dense1 = tf.layers.dense(inputs=re1,</span><br><span class="line">                             units=<span class="number">1024</span>,</span><br><span class="line">                             activation=tf.nn.relu,</span><br><span class="line">                             kernel_initializer=tf.truncated_normal_initializer(stddev=<span class="number">0.01</span>),</span><br><span class="line">                             kernel_regularizer=tf.contrib.layers.l2_regularizer(<span class="number">0.003</span>))</span><br><span class="line">    dense2 = tf.layers.dense(inputs=dense1,</span><br><span class="line">                             units=<span class="number">512</span>,</span><br><span class="line">                             activation=tf.nn.relu,</span><br><span class="line">                             kernel_initializer=tf.truncated_normal_initializer(stddev=<span class="number">0.01</span>),</span><br><span class="line">                             kernel_regularizer=tf.contrib.layers.l2_regularizer(<span class="number">0.003</span>))</span><br><span class="line">    logits = tf.layers.dense(inputs=dense2,</span><br><span class="line">                             units=<span class="number">32</span>,</span><br><span class="line">                             activation=<span class="literal">None</span>,</span><br><span class="line">                             kernel_initializer=tf.truncated_normal_initializer(stddev=<span class="number">0.01</span>),</span><br><span class="line">                             kernel_regularizer=tf.contrib.layers.l2_regularizer(<span class="number">0.003</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> logits, x, y_</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 返回损失函数的值，准确值等参数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">accCNN</span>(<span class="params">logits, y_</span>):</span><br><span class="line">    loss = tf.losses.sparse_softmax_cross_entropy(labels=y_, logits=logits)</span><br><span class="line">    train_op = tf.train.AdamOptimizer(learning_rate=<span class="number">0.001</span>).minimize(loss)</span><br><span class="line">    correct_prediction = tf.equal(tf.cast(tf.argmax(logits, <span class="number">1</span>), tf.int32), y_)</span><br><span class="line">    acc = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> loss, train_op, correct_prediction, acc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义一个函数，按批次取数据</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">minibatches</span>(<span class="params">inputs=<span class="literal">None</span>, targets=<span class="literal">None</span>, batch_size=<span class="literal">None</span>, shuffle=<span class="literal">False</span></span>):</span><br><span class="line">    <span class="keyword">assert</span> <span class="built_in">len</span>(inputs) == <span class="built_in">len</span>(targets), <span class="string">&#x27;len(inputs) != len(targets)&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> shuffle:</span><br><span class="line">        indices = np.arange(<span class="built_in">len</span>(inputs))   <span class="comment"># [0, 1, 2, ..., 422]</span></span><br><span class="line">        np.random.shuffle(indices)     <span class="comment"># 打乱下标顺序</span></span><br><span class="line">    <span class="keyword">for</span> start_idx <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(inputs) - batch_size + <span class="number">1</span>, batch_size):</span><br><span class="line">        <span class="keyword">if</span> shuffle:</span><br><span class="line">            excerpt = indices[start_idx:start_idx + batch_size]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            excerpt = <span class="built_in">slice</span>(start_idx, start_idx + batch_size)</span><br><span class="line">        <span class="keyword">yield</span> inputs[excerpt], targets[excerpt]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练和测试</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">runable</span>(<span class="params">x_train, y_train, train_op, loss, acc, x, y_, x_val, y_val</span>):</span><br><span class="line">    <span class="comment"># 训练和测试数据，可将n_epoch设置更大一些</span></span><br><span class="line">    n_epoch = <span class="number">100</span></span><br><span class="line">    batch_size = <span class="number">20</span></span><br><span class="line">    sess = tf.InteractiveSession()</span><br><span class="line">    sess.run(tf.global_variables_initializer())</span><br><span class="line">    <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(n_epoch):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;epoch: &#x27;</span>, epoch)</span><br><span class="line">        <span class="comment"># training</span></span><br><span class="line">        train_loss, train_acc, n_batch = <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> x_train_a, y_train_a <span class="keyword">in</span> minibatches(x_train, y_train, batch_size, shuffle=<span class="literal">True</span>):</span><br><span class="line">            <span class="comment"># print(&#x27;x_val_a: &#x27;, x_val_a.shape())</span></span><br><span class="line">            <span class="comment"># print(&#x27;y_val_a: &#x27;, y_val_a.shape())</span></span><br><span class="line">            _, err, ac = sess.run([train_op, loss, acc], feed_dict=&#123;x: x_train_a, y_: y_train_a&#125;)</span><br><span class="line">            train_loss += err</span><br><span class="line">            train_acc += ac</span><br><span class="line">            n_batch += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;train loss: %f&quot;</span> % (train_loss / n_batch))</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;train acc: %f&quot;</span> % (train_acc / n_batch))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># validation</span></span><br><span class="line">        val_loss, val_acc, n_batch = <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> x_val_a, y_val_a <span class="keyword">in</span> minibatches(x_val, y_val, batch_size, shuffle=<span class="literal">False</span>):</span><br><span class="line">            <span class="comment"># print(&#x27;x_val_a: &#x27;, x_val_a)</span></span><br><span class="line">            <span class="comment"># print(&#x27;y_val_a: &#x27;, y_val_a)</span></span><br><span class="line">            err, ac = sess.run([loss, acc], feed_dict=&#123;x: x_val_a, y_: y_val_a&#125;)</span><br><span class="line">            val_loss += err</span><br><span class="line">            val_acc += ac</span><br><span class="line">            n_batch += <span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;validation loss: %f&quot;</span> % (val_loss / n_batch))</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;validation acc: %f&quot;</span> % (val_acc / n_batch))</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;*&#x27;</span> * <span class="number">50</span>)</span><br><span class="line"></span><br><span class="line">    sess.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-0-2、训练输出"><a href="#2-0-2、训练输出" class="headerlink" title="2.0.2、训练输出"></a>2.0.2、训练输出</h3><p><img src="https://img-blog.csdnimg.cn/9f41e478e56d451c978426590538ab2d.png" alt="在这里插入图片描述"></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">train loss: <span class="number">1.939822</span></span><br><span class="line">train acc: <span class="number">0.526667</span></span><br><span class="line">validation loss: <span class="number">1.844313</span></span><br><span class="line">validation acc: <span class="number">0.600000</span></span><br><span class="line">**************************************************</span><br><span class="line">epoch:  <span class="number">1</span></span><br><span class="line">train loss: <span class="number">1.482922</span></span><br><span class="line">train acc: <span class="number">0.513333</span></span><br><span class="line">validation loss: <span class="number">0.704169</span></span><br><span class="line">validation acc: <span class="number">0.600000</span></span><br><span class="line">**************************************************</span><br><span class="line">epoch:  <span class="number">2</span></span><br><span class="line">train loss: <span class="number">1.043171</span></span><br><span class="line">train acc: <span class="number">0.546667</span></span><br><span class="line">validation loss: <span class="number">1.278273</span></span><br><span class="line">validation acc: <span class="number">0.600000</span></span><br><span class="line">**************************************************</span><br><span class="line">epoch:  <span class="number">3</span></span><br><span class="line">train loss: <span class="number">1.165261</span></span><br><span class="line">train acc: <span class="number">0.546667</span></span><br><span class="line">validation loss: <span class="number">0.706824</span></span><br><span class="line">validation acc: <span class="number">0.600000</span></span><br><span class="line">**************************************************</span><br><span class="line">epoch:  <span class="number">4</span></span><br><span class="line">train loss: <span class="number">0.843956</span></span><br><span class="line">train acc: <span class="number">0.553333</span></span><br><span class="line">validation loss: <span class="number">0.733591</span></span><br><span class="line">validation acc: <span class="number">0.600000</span></span><br><span class="line">**************************************************</span><br><span class="line">epoch:  <span class="number">5</span></span><br><span class="line">train loss: <span class="number">0.754458</span></span><br><span class="line">train acc: <span class="number">0.546667</span></span><br><span class="line">validation loss: <span class="number">0.714196</span></span><br><span class="line">validation acc: <span class="number">0.400000</span></span><br><span class="line">**************************************************</span><br><span class="line">epoch:  <span class="number">6</span></span><br><span class="line">train loss: <span class="number">0.726300</span></span><br><span class="line">train acc: <span class="number">0.446667</span></span><br><span class="line">validation loss: <span class="number">0.754467</span></span><br><span class="line">validation acc: <span class="number">0.400000</span></span><br><span class="line">**************************************************</span><br><span class="line">epoch:  <span class="number">7</span></span><br><span class="line">train loss: <span class="number">0.730567</span></span><br><span class="line">train acc: <span class="number">0.460000</span></span><br><span class="line">validation loss: <span class="number">0.759676</span></span><br><span class="line">validation acc: <span class="number">0.400000</span></span><br><span class="line">**************************************************</span><br><span class="line">epoch:  <span class="number">8</span></span><br><span class="line">train loss: <span class="number">0.730799</span></span><br><span class="line">train acc: <span class="number">0.453333</span></span><br><span class="line">validation loss: <span class="number">0.739154</span></span><br><span class="line">validation acc: <span class="number">0.400000</span></span><br><span class="line">**************************************************</span><br><span class="line">epoch:  <span class="number">9</span></span><br><span class="line">train loss: <span class="number">0.712395</span></span><br><span class="line">train acc: <span class="number">0.440000</span></span><br><span class="line">validation loss: <span class="number">0.704720</span></span><br><span class="line">validation acc: <span class="number">0.400000</span></span><br><span class="line">**************************************************</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-0-3、vscode内浏览模型结构（tensorboard-–logdir）"><a href="#2-0-3、vscode内浏览模型结构（tensorboard-–logdir）" class="headerlink" title="2.0.3、vscode内浏览模型结构（tensorboard –logdir）"></a>2.0.3、vscode内浏览模型结构（tensorboard –logdir）</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow.compat.v1 <span class="keyword">as</span> tf</span><br><span class="line">tf.disable_v2_behavior()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">tf.train.import_meta_graph(<span class="string">&quot;./model/.meta&quot;</span>)</span><br><span class="line">tf.summary.FileWriter(<span class="string">&quot;./summary&quot;</span>, sess.graph)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>查看命令：tensorboard –logdir&#x3D;.&#x2F;summary&#x2F;</p>
+<p><img src="https://img-blog.csdnimg.cn/cea65dba17d241cdbbbb82102fbffc1e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5rqQ5Luj56CB5p2A5omL,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h3 id="2-0-4、生成pb模型"><a href="#2-0-4、生成pb模型" class="headerlink" title="2.0.4、生成pb模型"></a>2.0.4、生成pb模型</h3><p>转化的时候会出现如下问题：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">&quot;dealmodel_pb.py&quot;</span>, line <span class="number">11</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">from</span> tensorflow.framework <span class="keyword">import</span> graph_util</span><br><span class="line">ModuleNotFoundError: No module named <span class="string">&#x27;tensorflow.framework&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>解决方法：在代码开头补充如下几行</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#转换成pb文件</span></span><br><span class="line"><span class="comment"># import tensorflow as tf</span></span><br><span class="line"><span class="keyword">import</span> tensorflow.compat.v1 <span class="keyword">as</span> tf</span><br><span class="line">tf.disable_v2_behavior()</span><br><span class="line">physical_devices = tf.config.experimental.list_physical_devices(<span class="string">&#x27;GPU&#x27;</span>)</span><br><span class="line"><span class="keyword">assert</span> <span class="built_in">len</span>(physical_devices) &gt; <span class="number">0</span>, <span class="string">&quot;Not enough GPU hardware devices available&quot;</span></span><br><span class="line">tf.config.experimental.set_memory_growth(physical_devices[<span class="number">0</span>], <span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<p> 完整代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#转换成pb文件</span></span><br><span class="line"><span class="comment"># import tensorflow as tf</span></span><br><span class="line"><span class="keyword">import</span> tensorflow.compat.v1 <span class="keyword">as</span> tf</span><br><span class="line">tf.disable_v2_behavior()</span><br><span class="line">physical_devices = tf.compat.v1.config.experimental.list_physical_devices(<span class="string">&#x27;GPU&#x27;</span>)</span><br><span class="line"><span class="keyword">assert</span> <span class="built_in">len</span>(physical_devices) &gt; <span class="number">0</span>, <span class="string">&quot;Not enough GPU hardware devices available&quot;</span></span><br><span class="line">tf.compat.v1.config.experimental.set_memory_growth(physical_devices[<span class="number">0</span>], <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os.path</span><br><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.framework <span class="keyword">import</span> graph_util</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">freeze_graph</span>(<span class="params">output_node_names</span>):</span><br><span class="line">    <span class="comment">#checkpoint = tf.train.get_checkpoint_state(model_folder)</span></span><br><span class="line">    <span class="comment">#input_checkpoint = checkpoint.model_checkpoint_path</span></span><br><span class="line"></span><br><span class="line">    saver = tf.compat.v1.train.import_meta_graph(<span class="string">&#x27;./model/.meta&#x27;</span>, clear_devices=<span class="literal">True</span>)</span><br><span class="line">    graph = tf.compat.v1.get_default_graph()</span><br><span class="line">    input_graph_def = graph.as_graph_def()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> tf.compat.v1.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        saver.restore(sess, <span class="string">&#x27;./model/&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> node <span class="keyword">in</span> input_graph_def.node:</span><br><span class="line">            <span class="keyword">if</span> node.op == <span class="string">&#x27;RefSwitch&#x27;</span>:</span><br><span class="line">                node.op = <span class="string">&#x27;Switch&#x27;</span></span><br><span class="line">                <span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(node.<span class="built_in">input</span>)):</span><br><span class="line">                    <span class="keyword">if</span> <span class="string">&#x27;moving_&#x27;</span> <span class="keyword">in</span> node.<span class="built_in">input</span>[index]:</span><br><span class="line">                        node.<span class="built_in">input</span>[index] = node.<span class="built_in">input</span>[index] + <span class="string">&#x27;/read&#x27;</span></span><br><span class="line">            <span class="keyword">elif</span> node.op == <span class="string">&#x27;AssignSub&#x27;</span>:</span><br><span class="line">                node.op = <span class="string">&#x27;Sub&#x27;</span></span><br><span class="line">                <span class="keyword">if</span> <span class="string">&#x27;use_locking&#x27;</span> <span class="keyword">in</span> node.attr: <span class="keyword">del</span> node.attr[<span class="string">&#x27;use_locking&#x27;</span>]</span><br><span class="line"></span><br><span class="line">        output_graph_def = graph_util.convert_variables_to_constants(</span><br><span class="line">            sess,</span><br><span class="line">            input_graph_def,</span><br><span class="line">            output_node_names</span><br><span class="line">        )</span><br><span class="line">        <span class="keyword">with</span> tf.io.gfile.GFile(<span class="string">&#x27;classify_gold.pb&#x27;</span>, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(output_graph_def.SerializeToString())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    freeze_graph([<span class="string">&#x27;output&#x27;</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-0-5、查看pb模型节点名称【事实上，上述的可视化就可以查看了，这里只是打印出来方便查看】"><a href="#2-0-5、查看pb模型节点名称【事实上，上述的可视化就可以查看了，这里只是打印出来方便查看】" class="headerlink" title="2.0.5、查看pb模型节点名称【事实上，上述的可视化就可以查看了，这里只是打印出来方便查看】"></a>2.0.5、查看pb模型节点名称【事实上，上述的可视化就可以查看了，这里只是打印出来方便查看】</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow.compat.v1 <span class="keyword">as</span> tf</span><br><span class="line">tf.disable_v2_behavior()</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># model_dir = &#x27;./&#x27;</span></span><br><span class="line">out_path = <span class="string">&#x27;./&#x27;</span></span><br><span class="line">model_name = <span class="string">&#x27;classify_gold.pb&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_graph</span>():</span><br><span class="line">    <span class="keyword">with</span> tf.gfile.FastGFile(os.path.join(out_path + model_name), <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        graph_def = tf.GraphDef()</span><br><span class="line">        graph_def.ParseFromString(f.read())</span><br><span class="line">        tf.import_graph_def(graph_def, name=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">create_graph()</span><br><span class="line">tensor_name_list = [tensor.name <span class="keyword">for</span> tensor <span class="keyword">in</span> tf.get_default_graph().as_graph_def().node]</span><br><span class="line"><span class="keyword">for</span> tensor_name <span class="keyword">in</span> tensor_name_list:</span><br><span class="line">    <span class="built_in">print</span>(tensor_name)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>生成内容：很明显，从输入到输出的节点都已经包括在其内了</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Use tf.gfile.GFile.</span><br><span class="line"><span class="built_in">input</span>/x-<span class="built_in">input</span></span><br><span class="line">conv2d/kernel</span><br><span class="line">conv2d/kernel/read</span><br><span class="line">conv2d/bias</span><br><span class="line">conv2d/bias/read</span><br><span class="line">conv2d-pool-<span class="number">1</span>/conv2d/Conv2D</span><br><span class="line">conv2d-pool-<span class="number">1</span>/conv2d/BiasAdd</span><br><span class="line">conv2d-pool-<span class="number">1</span>/conv2d/Relu</span><br><span class="line">conv2d-pool-<span class="number">1</span>/max_pooling2d/MaxPool</span><br><span class="line">conv2d_1/kernel</span><br><span class="line">conv2d_1/kernel/read</span><br><span class="line">conv2d_1/bias</span><br><span class="line">conv2d_1/bias/read</span><br><span class="line">conv2d-pool-<span class="number">2</span>/conv2d/Conv2D</span><br><span class="line">conv2d-pool-<span class="number">2</span>/conv2d/BiasAdd</span><br><span class="line">conv2d-pool-<span class="number">2</span>/conv2d/Relu</span><br><span class="line">conv2d-pool-<span class="number">2</span>/max_pooling2d/MaxPool</span><br><span class="line">conv2d_2/kernel</span><br><span class="line">conv2d_2/kernel/read</span><br><span class="line">conv2d_2/bias</span><br><span class="line">conv2d_2/bias/read</span><br><span class="line">conv2d-pool-<span class="number">3</span>/conv2d/Conv2D</span><br><span class="line">conv2d-pool-<span class="number">3</span>/conv2d/BiasAdd</span><br><span class="line">conv2d-pool-<span class="number">3</span>/conv2d/Relu</span><br><span class="line">conv2d-pool-<span class="number">3</span>/max_pooling2d/MaxPool</span><br><span class="line">conv2d_3/kernel</span><br><span class="line">conv2d_3/kernel/read</span><br><span class="line">conv2d_3/bias</span><br><span class="line">conv2d_3/bias/read</span><br><span class="line">conv2d-pool-<span class="number">4</span>/conv2d/Conv2D</span><br><span class="line">conv2d-pool-<span class="number">4</span>/conv2d/BiasAdd</span><br><span class="line">conv2d-pool-<span class="number">4</span>/conv2d/Relu</span><br><span class="line">conv2d-pool-<span class="number">4</span>/max_pooling2d/MaxPool</span><br><span class="line">Reshape/shape</span><br><span class="line">Reshape</span><br><span class="line">dense/kernel</span><br><span class="line">dense/kernel/read</span><br><span class="line">dense/bias</span><br><span class="line">dense/bias/read</span><br><span class="line">layer-<span class="number">1</span>/dense/MatMul</span><br><span class="line">layer-<span class="number">1</span>/dense/BiasAdd</span><br><span class="line">layer-<span class="number">1</span>/dense/Relu</span><br><span class="line">dense_1/kernel</span><br><span class="line">dense_1/kernel/read</span><br><span class="line">dense_1/bias</span><br><span class="line">dense_1/bias/read</span><br><span class="line">layer-<span class="number">2</span>/dense/MatMul</span><br><span class="line">layer-<span class="number">2</span>/dense/BiasAdd</span><br><span class="line">layer-<span class="number">2</span>/dense/Relu</span><br><span class="line">dense_2/kernel</span><br><span class="line">dense_2/kernel/read</span><br><span class="line">dense_2/bias</span><br><span class="line">dense_2/bias/read</span><br><span class="line">layer-<span class="number">3</span>/dense/MatMul</span><br><span class="line">layer-<span class="number">3</span>/dense/BiasAdd</span><br><span class="line">dense_3/kernel</span><br><span class="line">dense_3/kernel/read</span><br><span class="line">dense_3/bias</span><br><span class="line">dense_3/bias/read</span><br><span class="line">layer-<span class="number">4</span>/dense/MatMul</span><br><span class="line">layer-<span class="number">4</span>/dense/BiasAdd</span><br><span class="line">output</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-1、使用OpenCV接口调用TF2-PB模型"><a href="#2-1、使用OpenCV接口调用TF2-PB模型" class="headerlink" title="2.1、使用OpenCV接口调用TF2-PB模型"></a>2.1、使用OpenCV接口调用TF2-PB模型</h2><p>此处加载网络并未用到pbtxt文件，网上也有将pb文件导出为pbtxt文件的代码，但当将pb导出为pbtxt时，无法也将pbtxt加载到网络中，具体原因暂不明确。不过此处只加载pb文件就能够使用了。</p>
+<h3 id="2-1-0、配置OpenCV-C-环境"><a href="#2-1-0、配置OpenCV-C-环境" class="headerlink" title="2.1.0、配置OpenCV(C++)环境"></a>2.1.0、配置OpenCV(C++)环境</h3><p>AI模型C++部署:【配置OpenCV4++环境】与【三种在 C++ 中部署 TensorFlow 模型的方式】【准备阶段】：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41194129/article/details/123951358">https://blog.csdn.net/weixin_41194129&#x2F;article&#x2F;details&#x2F;123951358</a></p>
+<h3 id="2-1-1、定义OpenCV-C-接口去调用TF2-PB模型"><a href="#2-1-1、定义OpenCV-C-接口去调用TF2-PB模型" class="headerlink" title="2.1.1、定义OpenCV(C++)接口去调用TF2-PB模型"></a>2.1.1、定义OpenCV(C++)接口去调用TF2-PB模型</h3><p>main.cc</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/dnn.hpp&gt;</span>			<span class="comment">//包含dnn模块的头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span>				<span class="comment">//文件流进行txt文件读取</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv::dnn;			<span class="comment">//包含dnn的命名空间</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">//车辆分类，输入模型的地址</span></span><br><span class="line">	string bin_model = <span class="string">&quot;./classify_gold.pb&quot;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//加载模型</span></span><br><span class="line">	Net net = <span class="built_in">readNetFromTensorflow</span>(bin_model);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//获取各层信息</span></span><br><span class="line">	vector&lt;string&gt; layer_names = net.<span class="built_in">getLayerNames</span>();		<span class="comment">//此时我们就可以获取所有层的名称了，有了这些可以将其ID取出</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; layer_names.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">		<span class="type">int</span> id = net.<span class="built_in">getLayerId</span>(layer_names[i]);			<span class="comment">//通过name获取其id</span></span><br><span class="line">		<span class="keyword">auto</span> layer = net.<span class="built_in">getLayer</span>(id);						<span class="comment">//通过id获取layer</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;layer id:%d,type:%s,name:%s\n&quot;</span>, id, layer-&gt;type.<span class="built_in">c_str</span>(), layer-&gt;name.<span class="built_in">c_str</span>());	<span class="comment">//将每一层的id，类型，姓名打印出来（可以明白此网络有哪些结构信息了）</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">waitKey</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// g++ --std=c++11 `pkg-config opencv --cflags` main.cc  -o demo `pkg-config opencv --libs` &amp;&amp; ./demo   </span></span><br></pre></td></tr></table></figure>
+
+<p>执行命令：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">g++ --std=c++<span class="number">11</span> `pkg-config opencv --cflags` main.cc  -o demo `pkg-config opencv --libs` &amp;&amp; ./demo </span><br></pre></td></tr></table></figure>
+
+<p>输出结果：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">g++ --std=c++<span class="number">11</span> `pkg-config opencv --cflags` main.cc  -o demo `pkg-config opencv --libs` &amp;&amp; ./demo </span><br><span class="line">[ INFO:<span class="number">0</span>@<span class="number">0.327</span>] global /data/Documents/pcl2022/opencv_cc_tensorflow/opencv<span class="number">-4.2</span><span class="number">.0</span>/opencv/modules/dnn/src/tensorflow/tf_importer.<span class="built_in">cpp</span> (<span class="number">2991</span>) populateNet DNN/TF: parsing model produced by TF <span class="built_in">v0</span> (min_consumer=<span class="number">0</span>). Number of nodes = <span class="number">62</span></span><br><span class="line">layer id:<span class="number">1</span>,type:Convolution,name:conv2d-pool<span class="number">-1</span>/conv2d/Conv2D</span><br><span class="line">layer id:<span class="number">2</span>,type:ReLU,name:conv2d-pool<span class="number">-1</span>/conv2d/Relu</span><br><span class="line">layer id:<span class="number">3</span>,type:Pooling,name:conv2d-pool<span class="number">-1</span>/max_pooling2d/MaxPool</span><br><span class="line">layer id:<span class="number">4</span>,type:Convolution,name:conv2d-pool<span class="number">-2</span>/conv2d/Conv2D</span><br><span class="line">layer id:<span class="number">5</span>,type:ReLU,name:conv2d-pool<span class="number">-2</span>/conv2d/Relu</span><br><span class="line">layer id:<span class="number">6</span>,type:Pooling,name:conv2d-pool<span class="number">-2</span>/max_pooling2d/MaxPool</span><br><span class="line">layer id:<span class="number">7</span>,type:Convolution,name:conv2d-pool<span class="number">-3</span>/conv2d/Conv2D</span><br><span class="line">layer id:<span class="number">8</span>,type:ReLU,name:conv2d-pool<span class="number">-3</span>/conv2d/Relu</span><br><span class="line">layer id:<span class="number">9</span>,type:Pooling,name:conv2d-pool<span class="number">-3</span>/max_pooling2d/MaxPool</span><br><span class="line">layer id:<span class="number">10</span>,type:Convolution,name:conv2d-pool<span class="number">-4</span>/conv2d/Conv2D</span><br><span class="line">layer id:<span class="number">11</span>,type:ReLU,name:conv2d-pool<span class="number">-4</span>/conv2d/Relu</span><br><span class="line">layer id:<span class="number">12</span>,type:Pooling,name:conv2d-pool<span class="number">-4</span>/max_pooling2d/MaxPool</span><br><span class="line">layer id:<span class="number">13</span>,type:Permute,name:Reshape/nhwc</span><br><span class="line">layer id:<span class="number">14</span>,type:Reshape,name:Reshape</span><br><span class="line">layer id:<span class="number">15</span>,type:InnerProduct,name:layer<span class="number">-1</span>/dense/MatMul</span><br><span class="line">layer id:<span class="number">16</span>,type:ReLU,name:layer<span class="number">-1</span>/dense/Relu</span><br><span class="line">layer id:<span class="number">17</span>,type:InnerProduct,name:layer<span class="number">-2</span>/dense/MatMul</span><br><span class="line">layer id:<span class="number">18</span>,type:ReLU,name:layer<span class="number">-2</span>/dense/Relu</span><br><span class="line">layer id:<span class="number">19</span>,type:InnerProduct,name:layer<span class="number">-3</span>/dense/MatMul</span><br><span class="line">layer id:<span class="number">20</span>,type:InnerProduct,name:layer<span class="number">-4</span>/dense/MatMul</span><br><span class="line">layer id:<span class="number">21</span>,type:Softmax,name:output</span><br><span class="line">[ INFO:<span class="number">0</span>@<span class="number">0.422</span>] global /data/Documents/pcl2022/opencv_cc_tensorflow/opencv<span class="number">-4.2</span><span class="number">.0</span>/opencv/modules/highgui/src/registry.impl.<span class="built_in">hpp</span> (<span class="number">114</span>) UIBackendRegistry UI: Enabled <span class="built_in">backends</span>(<span class="number">2</span>, sorted by priority): <span class="built_in">GTK</span>(<span class="number">1000</span>); <span class="built_in">GTK2</span>(<span class="number">990</span>) + <span class="built_in">BUILTIN</span>(GTK2)</span><br><span class="line">[ INFO:<span class="number">0</span>@<span class="number">0.422</span>] global /data/Documents/pcl2022/opencv_cc_tensorflow/opencv<span class="number">-4.2</span><span class="number">.0</span>/opencv/modules/highgui/src/backend.<span class="built_in">cpp</span> (<span class="number">90</span>) createUIBackend UI: <span class="keyword">using</span> backend: <span class="built_in">GTK</span> (priority=<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-1-2、OpenCV-C-调用TF2-PB模型并输入一张图片进行分类预测结果"><a href="#2-1-2、OpenCV-C-调用TF2-PB模型并输入一张图片进行分类预测结果" class="headerlink" title="2.1.2、OpenCV(C++)调用TF2-PB模型并输入一张图片进行分类预测结果"></a>2.1.2、OpenCV(C++)调用TF2-PB模型并输入一张图片进行分类预测结果</h3><p>测试图片也要保证尺寸一样100*100<br><img src="https://img-blog.csdnimg.cn/5bdd48a1c5e848b39ce6fe70fe403f22.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5rqQ5Luj56CB5p2A5omL,size_14,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h4 id="OPENCV-C-推理代码"><a href="#OPENCV-C-推理代码" class="headerlink" title="OPENCV+C++ 推理代码"></a>OPENCV+C++ 推理代码</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/dnn.hpp&gt;</span>			<span class="comment">//包含dnn模块的头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span>				<span class="comment">//文件流进行txt文件读取</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv::dnn;			<span class="comment">//包含dnn的命名空间</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义名称，用于后面的显示操作</span></span><br><span class="line">String objNames[] = &#123; <span class="string">&quot;glod&quot;</span>,<span class="string">&quot;monkey_king&quot;</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//模型的pb文件</span></span><br><span class="line">	string bin_model = <span class="string">&quot;/data/Documents/pcl2022/opencv_cc_tensorflow/Neural_network/TFCNN/TFV2_MOLDEL/classify_gold.pb&quot;</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// load DNN model</span></span><br><span class="line">	Net net = <span class="built_in">readNetFromTensorflow</span>(bin_model);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//获取各层信息</span></span><br><span class="line">	<span class="comment">// vector&lt;string&gt; layer_names = net.getLayerNames();		//此时我们就可以获取所有层的名称了，有了这些可以将其ID取出</span></span><br><span class="line">	<span class="comment">// for (int i = 0; i &lt; layer_names.size(); i++) &#123;</span></span><br><span class="line">	<span class="comment">// 	int id = net.getLayerId(layer_names[i]);			//通过name获取其id</span></span><br><span class="line">	<span class="comment">// 	auto layer = net.getLayer(id);						//通过id获取layer</span></span><br><span class="line">	<span class="comment">// 	printf(&quot;layer id:%d,type:%s,name:%s\n&quot;, id, layer-&gt;type.c_str(), layer-&gt;name.c_str());	//将每一层的id，类型，姓名打印出来（可以明白此网络有哪些结构信息了）</span></span><br><span class="line">	<span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">	Mat src = <span class="built_in">imread</span>(<span class="string">&quot;/data/Documents/pcl2022/opencv_cc_tensorflow/Neural_network/TFCNN/dataset2/test/1-3.jpg&quot;</span>);</span><br><span class="line">															<span class="comment">//2-20,2-21,2-11,2-1</span></span><br><span class="line">	<span class="keyword">if</span> (src.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;could not load image..&quot;</span> &lt;&lt; endl;</span><br><span class="line">		<span class="built_in">getchar</span>();</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">imshow</span>(<span class="string">&quot;src&quot;</span>, src);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//构建输入(根据建立的网络模型时的输入)</span></span><br><span class="line">	Mat inputBlob = <span class="built_in">blobFromImage</span>(src, <span class="number">1.0</span>, <span class="built_in">Size</span>(<span class="number">100</span>, <span class="number">100</span>), <span class="built_in">Scalar</span>(), <span class="literal">true</span>, <span class="literal">false</span>);	<span class="comment">//我们要将图像resize成100*100的才是我们神经网络可以接受的宽高</span></span><br><span class="line">	<span class="comment">//参数1：输入图像，参数2：默认1.0表示0-255范围的，参数3：设置输出的大小，参数4：均值对所有数据中心化预处理,参数5：是否进行通道转换(需要),参数6：，参数7：默认深度为浮点型</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//上方得到的inputBlob是4维的（在变量窗口看dim），所以在imagewatch中无法查看</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//设置输入</span></span><br><span class="line">	<span class="comment">//现在要将其输入到创建的网络中</span></span><br><span class="line">	net.<span class="built_in">setInput</span>(inputBlob);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//进行推断得到输出</span></span><br><span class="line">	<span class="comment">//让网络执行得到output,调用forward可以得到一个结果</span></span><br><span class="line">	<span class="comment">//此处不给参数，得到的是最后一层的结果，也可以输入层数得到任何一层的输出结果</span></span><br><span class="line">	Mat probMat = net.forward();	<span class="comment">//通过前面的输出层看最后一层，可以知道输出7个分类</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//对数据进行序列化（变成1行n列的，可以在后面进行方便的知道是哪个index了）</span></span><br><span class="line">	Mat prob = probMat.<span class="built_in">reshape</span>(<span class="number">1</span>, <span class="number">1</span>);		<span class="comment">//reshape函数可以进行序列化，（输出为1通道1行的数据，参数1:1个通道，参数2:1行）将输出结果变成1行n列的，但前面probMat本身就是7*1*1</span></span><br><span class="line">	<span class="comment">//										//实际结果probMat和prob相同</span></span><br><span class="line">	<span class="comment">//										//当其他网络probMat需要序列化的时候，reshape就可以了</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//此时找到最大的那个</span></span><br><span class="line">	Point classNum;</span><br><span class="line">	<span class="type">double</span> classProb;</span><br><span class="line">	<span class="built_in">minMaxLoc</span>(prob, <span class="literal">NULL</span>, &amp;classProb, <span class="literal">NULL</span>, &amp;classNum);<span class="comment">//此时只获取最大值及最大值位置，最小值不管他</span></span><br><span class="line">	<span class="type">int</span> index = classNum.x;		<span class="comment">//此时得到的是最大值的列坐标。就是其类的索引值，就可以知道其类名了</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n current index=%d,possible:%2f,name=%s\n&quot;</span>, index, classProb, objNames[index].<span class="built_in">c_str</span>());</span><br><span class="line">	<span class="comment">//此时可以将名称打印到图片上去</span></span><br><span class="line">	<span class="built_in">putText</span>(src, objNames[index].<span class="built_in">c_str</span>(), <span class="built_in">Point</span>(<span class="number">50</span>, <span class="number">50</span>), FONT_HERSHEY_SIMPLEX, <span class="number">0.75</span>, <span class="built_in">Scalar</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), <span class="number">2</span>, <span class="number">8</span>);</span><br><span class="line">	<span class="built_in">imshow</span>(<span class="string">&quot;result&quot;</span>, src);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">waitKey</span>(<span class="number">50000</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// g++ --std=c++11 `pkg-config opencv --cflags` inference_cv.cc  -o result `pkg-config opencv --libs` &amp;&amp; ./result   </span></span><br></pre></td></tr></table></figure>
+
+<h4 id="推理结果输出"><a href="#推理结果输出" class="headerlink" title="推理结果输出"></a>推理结果输出</h4><p>编译命令：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">g++ --std=c++<span class="number">11</span> `pkg-config opencv --cflags` inference_cv.cc  -o result `pkg-config opencv --libs` &amp;&amp; ./result   </span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/412fecffcfd8494fbae4d75d70232654.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5rqQ5Luj56CB5p2A5omL,size_17,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/8ac15d83c80843e0a092990f2b88af5e.png" alt="在这里插入图片描述"><br>输出概率：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">current index=<span class="number">0</span>,possible:<span class="number">0.999974</span>,name=glod</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/22efb780a6f9491694438996045caaa4.png" alt="在这里插入图片描述"><br>输出概率：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">current index=<span class="number">1</span>,possible:<span class="number">0.617289</span>,name=monkey_king</span><br></pre></td></tr></table></figure>
+
+<h1 id="3、tensorflow1-x模型生成"><a href="#3、tensorflow1-x模型生成" class="headerlink" title="3、tensorflow1.x模型生成"></a>3、tensorflow1.x模型生成</h1><h2 id="tensorflow1-x训练生成的模型OPENCV-C-调用方法同上【代码已经开源】地址如下"><a href="#tensorflow1-x训练生成的模型OPENCV-C-调用方法同上【代码已经开源】地址如下" class="headerlink" title="tensorflow1.x训练生成的模型OPENCV(C++)调用方法同上【代码已经开源】地址如下"></a>tensorflow1.x训练生成的模型OPENCV(C++)调用方法同上【代码已经开源】地址如下</h2><p><a target="_blank" rel="noopener" href="https://github.com/KangChou/gold_monkey_king">https://github.com/KangChou/gold_monkey_king</a></p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44870829/article/details/108592530?spm=1001.2014.3001.5506">https://blog.csdn.net/qq_44870829/article/details/108592530?spm=1001.2014.3001.5506</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39928773/article/details/103910850?utm_medium=distribute.pc_relevant.none-task-blog-blogcommendfrommachinelearnpai2-2.channel_param&depth_1-utm_source=distribute.pc_relevant.none-task-blog-blogcommendfrommachinelearnpai2-2.channel_param">https://blog.csdn.net/weixin_39928773&#x2F;article&#x2F;details&#x2F;103910850m</a></p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+	<span class="ico-folder"></span>
+    <a class="article-category-link" href="/categories/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B/">图像分类模型</a>
+
+      
+  <span class="ico-tags"></span>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a></li></ul>
+
+      
+        <div id="donation_div"></div>
+
+
+<script src="/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作!', // 可选参数，打赏标题
+  btnText: '打赏支持', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: 'https://github.com/KangChou/2020PythonKangChou/blob/master/wxzf.jpg',
+  alipayImage: ''
+});
+</script>
+      
+
+      <!-- 要添加的内容 -->
+      
+      <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>作者:  </strong>KangChou</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>文章链接:  </strong>
+          <a href="/2022/04/04/codemo/" target="_blank" title="AI模型C++部署:TensorFlow2图像分类模型之金钱豹大战齐天大圣【OpenCV纯C++接口调用tensorflow生成的pb模型】【源码已开源】">https://www.coomatrix.com/2022/04/04/codemo/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>版权声明:   </strong>
+            本博客所有文章除特别声明外，均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            许可协议。转载请注明出处！
+          </li>
+        </ul>
+      <div>
+      
+      <!---->
+
+            
+      
+        
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC80OTQ4NC8yNTk3Ng==">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/09/20/yolocv5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          新版OpenCV5(C++)版本目标检测:YOLOv4打包成可用AI软件(离线或者上线使用)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/05/books/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">开源书籍与源码</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article" style="overflow-y: scroll; max-width: 28%;">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E5%87%86%E5%A4%87%E8%AE%AD%E7%BB%83%E6%95%B0%E6%8D%AE%E3%80%90%E9%87%91%E9%92%B1%E8%B1%B9%E4%B8%8E%E9%BD%90%E5%A4%A9%E5%A4%A7%E5%9C%A3%E3%80%91"><span class="nav-number">1.</span> <span class="nav-text">1、准备训练数据【金钱豹与齐天大圣】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-0%E3%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE%E5%9C%B0%E5%9D%80"><span class="nav-number">1.1.</span> <span class="nav-text">1.0、获取数据地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1%E3%80%81%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE%E9%9B%86100-100"><span class="nav-number">1.2.</span> <span class="nav-text">1.1、处理数据集100*100</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2%E3%80%81%E6%95%B0%E6%8D%AE%E6%89%B9%E9%87%8F%E5%A4%84%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">1.2、数据批量处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81tensorflow2-x%E6%A8%A1%E5%9E%8B%E7%94%9F%E6%88%90"><span class="nav-number">2.</span> <span class="nav-text">2、tensorflow2.x模型生成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-0%E3%80%81TF2%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%BD%91%E7%BB%9C%E6%9E%84%E5%BB%BA"><span class="nav-number">2.1.</span> <span class="nav-text">2.0、TF2分类模型网络构建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-1%E3%80%81%E6%A8%A1%E5%9E%8B%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%AD%E7%BB%83"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.0.1、模型网络结构与训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-2%E3%80%81%E8%AE%AD%E7%BB%83%E8%BE%93%E5%87%BA"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.0.2、训练输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-3%E3%80%81vscode%E5%86%85%E6%B5%8F%E8%A7%88%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84%EF%BC%88tensorboard-%E2%80%93logdir%EF%BC%89"><span class="nav-number">2.1.3.</span> <span class="nav-text">2.0.3、vscode内浏览模型结构（tensorboard –logdir）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-4%E3%80%81%E7%94%9F%E6%88%90pb%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.1.4.</span> <span class="nav-text">2.0.4、生成pb模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-5%E3%80%81%E6%9F%A5%E7%9C%8Bpb%E6%A8%A1%E5%9E%8B%E8%8A%82%E7%82%B9%E5%90%8D%E7%A7%B0%E3%80%90%E4%BA%8B%E5%AE%9E%E4%B8%8A%EF%BC%8C%E4%B8%8A%E8%BF%B0%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%9F%A5%E7%9C%8B%E4%BA%86%EF%BC%8C%E8%BF%99%E9%87%8C%E5%8F%AA%E6%98%AF%E6%89%93%E5%8D%B0%E5%87%BA%E6%9D%A5%E6%96%B9%E4%BE%BF%E6%9F%A5%E7%9C%8B%E3%80%91"><span class="nav-number">2.1.5.</span> <span class="nav-text">2.0.5、查看pb模型节点名称【事实上，上述的可视化就可以查看了，这里只是打印出来方便查看】</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1%E3%80%81%E4%BD%BF%E7%94%A8OpenCV%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8TF2-PB%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.2.</span> <span class="nav-text">2.1、使用OpenCV接口调用TF2-PB模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-0%E3%80%81%E9%85%8D%E7%BD%AEOpenCV-C-%E7%8E%AF%E5%A2%83"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1.0、配置OpenCV(C++)环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1%E3%80%81%E5%AE%9A%E4%B9%89OpenCV-C-%E6%8E%A5%E5%8F%A3%E5%8E%BB%E8%B0%83%E7%94%A8TF2-PB%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.1.1、定义OpenCV(C++)接口去调用TF2-PB模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2%E3%80%81OpenCV-C-%E8%B0%83%E7%94%A8TF2-PB%E6%A8%A1%E5%9E%8B%E5%B9%B6%E8%BE%93%E5%85%A5%E4%B8%80%E5%BC%A0%E5%9B%BE%E7%89%87%E8%BF%9B%E8%A1%8C%E5%88%86%E7%B1%BB%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C"><span class="nav-number">2.2.3.</span> <span class="nav-text">2.1.2、OpenCV(C++)调用TF2-PB模型并输入一张图片进行分类预测结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#OPENCV-C-%E6%8E%A8%E7%90%86%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">OPENCV+C++ 推理代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E7%90%86%E7%BB%93%E6%9E%9C%E8%BE%93%E5%87%BA"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">推理结果输出</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%E3%80%81tensorflow1-x%E6%A8%A1%E5%9E%8B%E7%94%9F%E6%88%90"><span class="nav-number">3.</span> <span class="nav-text">3、tensorflow1.x模型生成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tensorflow1-x%E8%AE%AD%E7%BB%83%E7%94%9F%E6%88%90%E7%9A%84%E6%A8%A1%E5%9E%8BOPENCV-C-%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%E5%90%8C%E4%B8%8A%E3%80%90%E4%BB%A3%E7%A0%81%E5%B7%B2%E7%BB%8F%E5%BC%80%E6%BA%90%E3%80%91%E5%9C%B0%E5%9D%80%E5%A6%82%E4%B8%8B"><span class="nav-number">3.1.</span> <span class="nav-text">tensorflow1.x训练生成的模型OPENCV(C++)调用方法同上【代码已经开源】地址如下</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+
+</section>
+        
+      </div>
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+本站总访问量<span id="busuanzi_value_site_pv"></span>次
+ | 
+本站访客数<span id="busuanzi_value_site_uv"></span>人次
+
+
+{% if theme.footer.counter %}
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+{% endif %}
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/photography" class="mobile-nav-link">photography</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+    <a href="/guestbook" class="mobile-nav-link">guestbook</a>
+  
+    <a href="/AI" class="mobile-nav-link">AI</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/scripts.js"></script>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="https://dnqof95d40fo6.cloudfront.net/atw7f8.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+    <!-- 添加人体时钟等有趣的挂件
+  <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script> -->
+  <!-- 雪花特效 -->
+  <script type="text/javascript" src="\js\snow.js"></script>
+  <!-- <script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script> -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
+
+
