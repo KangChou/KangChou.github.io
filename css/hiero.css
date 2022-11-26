@@ -254,7 +254,7 @@ object {
 ----------------------------------------------- */
 .site-header {
 	padding: 20px 0 0;
-	background: #16171b;
+	background: #c90707;
 	}
 .site-branding {
 	float: left;
@@ -267,14 +267,14 @@ object {
 	line-height: 1;
 	}
 .site-title a {
-	color: #fff;
+	color: rgba(247, 244, 244, 0.996);
 	text-decoration: none;
 	}
 .site-description {
-	color: #999;
+	color: rgb(236, 187, 11);
 	font-family: "Yanone Kaffeesatz", "Microsoft YaHei Light", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: 4px;
 	}
 
 /* MENU
