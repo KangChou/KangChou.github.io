@@ -176,6 +176,13 @@
   </url>
   
   <url>
+    <loc>https://www.coomatrix.com/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.coomatrix.com/tags/%E6%8E%92%E7%89%88%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-11-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -220,14 +227,14 @@
   </url>
   
   <url>
-    <loc>https://www.coomatrix.com/categories/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://www.coomatrix.com/categories/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B/</loc>
     <lastmod>2022-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.coomatrix.com/categories/%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B/</loc>
+    <loc>https://www.coomatrix.com/categories/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%BE%E7%A8%8B/</loc>
     <lastmod>2022-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
