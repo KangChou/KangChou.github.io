@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.coomatrix.com/2018/02/02/deeplearning/</loc>
+    
+    <lastmod>2022-11-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.coomatrix.com/2017/12/11/bloglearning/</loc>
     
     <lastmod>2022-11-27</lastmod>
@@ -205,6 +214,13 @@
   
   <url>
     <loc>https://www.coomatrix.com/categories/%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2022-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.coomatrix.com/categories/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
