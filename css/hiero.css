@@ -257,8 +257,8 @@ object {
 	background: #c90707;
 	}
 .site-branding {
-	float: left;
-	}
+	float: left; 
+	} 
 .site-title {
 	margin: 0;
 	font-size: 4.25em;
@@ -271,7 +271,7 @@ object {
 	text-decoration: none;
 	}
 .site-description {
-	color: rgb(236, 187, 11);
+	color: rgb(248, 247, 244);
 	font-family: "Yanone Kaffeesatz", "Microsoft YaHei Light", Arial, Helvetica, sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 4px;
