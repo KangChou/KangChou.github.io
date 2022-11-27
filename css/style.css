@@ -1693,3 +1693,16 @@ pre .javascript .function {
   margin-right: 5px;
   display: inline-block;
 }
+body {
+  background: url("https://images.wallpaperscraft.com/image/single/boat_mountains_lake_135258_1280x720.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+}
