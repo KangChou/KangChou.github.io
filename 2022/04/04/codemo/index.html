@@ -34,7 +34,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://images.wallpaperscraft.com/image/single/laptop_code_programming_212332_1280x720.jpg">
 <meta property="article:published_time" content="2022-04-04T07:07:23.000Z">
-<meta property="article:modified_time" content="2022-11-26T09:23:24.317Z">
+<meta property="article:modified_time" content="2022-11-28T10:42:57.348Z">
 <meta property="article:author" content="KangChou">
 <meta property="article:tag" content="人工智能">
 <meta name="twitter:card" content="summary">
@@ -206,7 +206,7 @@ var themeMenus = {};
 <div class="article-gallery">
   <div class="article-gallery-photos">
     
-      <a class="article-gallery-img fancybox" target="_blank" href="https://images.wallpaperscraft.com/image/single/laptop_code_programming_212332_1280x720.jpg" rel="gallery_claz8vvz7000bx8vd9ryu5mnb noopener">
+      <a class="article-gallery-img fancybox" target="_blank" href="https://images.wallpaperscraft.com/image/single/laptop_code_programming_212332_1280x720.jpg" rel="gallery_clb0p85lp000bqsvd97949u1o noopener">
         <img src="https://images.wallpaperscraft.com/image/single/laptop_code_programming_212332_1280x720.jpg" itemprop="image">
       </a>
     
@@ -253,6 +253,9 @@ var themeMenus = {};
 <h1 id="1、准备训练数据【金钱豹与齐天大圣】"><a href="#1、准备训练数据【金钱豹与齐天大圣】" class="headerlink" title="1、准备训练数据【金钱豹与齐天大圣】"></a>1、准备训练数据【金钱豹与齐天大圣】</h1><p>ubuntu16.04开发环境1：python3.6+cuda11+tensoflow-gpu 2.5<br>ubuntu16.04开发环境2：python3.6+cuda10+tensoflow-gpu 1.13<br><img src="https://img-blog.csdnimg.cn/d38c913111f9457bb41b42e6e0696536.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5rqQ5Luj56CB5p2A5omL,size_10,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
 <p>这里的数据处理包括reshape、去噪、对比度增强、批量剪切、图片灰度、二值化、缩放、丰富数据等等。</p>
 <h2 id="1-0、获取数据地址"><a href="#1-0、获取数据地址" class="headerlink" title="1.0、获取数据地址"></a>1.0、获取数据地址</h2><p><a target="_blank" rel="noopener" href="https://github.com/KangChou/classeifier_models/blob/main/deal_datasets/down_datasets/golds_and_monkey.zip">https://github.com/KangChou/classeifier_models/blob/main/deal_datasets/down_datasets/golds_and_monkey.zip</a></p>
+<span id="more"></span>
+
+
 <h2 id="1-1、处理数据集100-100"><a href="#1-1、处理数据集100-100" class="headerlink" title="1.1、处理数据集100*100"></a>1.1、处理数据集100*100</h2><p>将数据处理成尺寸大小一样的jpg图片，处理的 代码</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># function:change the size of pictures in one folder&quot;</span></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取不规范图片数据，并规范为相同大小格式</span></span><br><span class="line"></span><br><span class="line">image_size = <span class="number">100</span>  <span class="comment"># 设定尺寸</span></span><br><span class="line">source_path = <span class="string">&quot;/home/zkpark/Documents/pcl2022/opencv_cc_tensorflow/golds_and_monkey/train/monkey_king/&quot;</span>  <span class="comment"># 源文件路径</span></span><br><span class="line"><span class="comment"># source_path = &quot;/home/zkpark/Documents/pcl2022/opencv_cc_tensorflow/golds_and_monkey/train/gold/&quot;  # 源文件路径</span></span><br><span class="line">target_path = <span class="string">&quot;./dataset2/monkey_king/&quot;</span>  <span class="comment"># 输出目标文件路径</span></span><br><span class="line"><span class="comment"># target_path = &quot;./dataset2/gold/&quot;  # 输出目标文件路径</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(target_path):</span><br><span class="line">    os.makedirs(target_path)</span><br><span class="line"></span><br><span class="line">image_list = os.listdir(source_path)  <span class="comment"># 获得文件名</span></span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> image_list:</span><br><span class="line">    i = i + <span class="number">1</span></span><br><span class="line">    image_source = cv2.imread(source_path + file)  <span class="comment"># 读取图片</span></span><br><span class="line">    <span class="built_in">print</span>(image_source)</span><br><span class="line">    image = cv2.resize(image_source, (image_size, image_size), <span class="number">0</span>, <span class="number">0</span>, cv2.INTER_LINEAR)  <span class="comment"># 修改尺寸</span></span><br><span class="line">    cv2.imwrite(target_path + <span class="string">&#x27;1-&#x27;</span> + <span class="built_in">str</span>(i) + <span class="string">&quot;.jpg&quot;</span>, image)  <span class="comment"># 重命名并且保存</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;批量处理完成&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
