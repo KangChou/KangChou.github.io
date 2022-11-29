@@ -25,12 +25,12 @@
   
   
   
-  <meta name="description" content="我是一名数学专业硕士的人工智能算法开发者(KangChou)😀，主要从事工作领域:计算机科学与人工智能算法方向 。  本博客致力于分享人工智能算法、AI算法模型与设计、Python基础知识、数据分析、TensorFlow和神经网络等学习资料，探讨互联网前沿技术和相关技术研发等。 下面展示开发过程中的demo案例：人体姿态估计骨骼关键点识别           有诗才有远方文章征稿：&amp;#107;&amp;">
+  <meta name="description" content="我是一名数学专业硕士的人工智能算法开发者(KangChou)😀，主要从事工作领域:计算机科学与人工智能算法方向 。  本博客致力于分享人工智能算法、AI算法模型与设计、Python基础知识、数据分析、TensorFlow和神经网络等学习资料，探讨互联网前沿技术和相关技术研发等。 下面展示开发过程中的demo案例：人体姿态估计骨骼关键点识别           有诗才有远方文章征稿：&amp;#x6b;&amp;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="关于博客与作者">
 <meta property="og:url" content="https://www.coomatrix.com/about/index.html">
 <meta property="og:site_name" content="ovo$^{mc^2}$">
-<meta property="og:description" content="我是一名数学专业硕士的人工智能算法开发者(KangChou)😀，主要从事工作领域:计算机科学与人工智能算法方向 。  本博客致力于分享人工智能算法、AI算法模型与设计、Python基础知识、数据分析、TensorFlow和神经网络等学习资料，探讨互联网前沿技术和相关技术研发等。 下面展示开发过程中的demo案例：人体姿态估计骨骼关键点识别           有诗才有远方文章征稿：&amp;#107;&amp;">
+<meta property="og:description" content="我是一名数学专业硕士的人工智能算法开发者(KangChou)😀，主要从事工作领域:计算机科学与人工智能算法方向 。  本博客致力于分享人工智能算法、AI算法模型与设计、Python基础知识、数据分析、TensorFlow和神经网络等学习资料，探讨互联网前沿技术和相关技术研发等。 下面展示开发过程中的demo案例：人体姿态估计骨骼关键点识别           有诗才有远方文章征稿：&amp;#x6b;&amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://d47jbcq60tnr6.cloudfront.net/202046/23933-13vdmgc.7mgh.jpg">
 <meta property="og:image" content="https://d47jbcq60tnr6.cloudfront.net/202048/26924-1jzjqgm.ykbv.jpg">
@@ -243,7 +243,7 @@ var themeMenus = {};
 
 
 
-<p>有诗才有远方文章征稿：<a href="mailto:&#107;&#x61;&#110;&#x67;&#x73;&#x69;&#x6e;&#120;&#64;&#121;&#101;&#97;&#104;&#46;&#110;&#x65;&#116;">&#107;&#x61;&#110;&#x67;&#x73;&#x69;&#x6e;&#120;&#64;&#121;&#101;&#97;&#104;&#46;&#110;&#x65;&#116;</a></p>
+<p>有诗才有远方文章征稿：<a href="mailto:&#x6b;&#x61;&#x6e;&#x67;&#115;&#105;&#x6e;&#120;&#64;&#x79;&#101;&#97;&#104;&#x2e;&#110;&#x65;&#116;">&#x6b;&#x61;&#x6e;&#x67;&#115;&#105;&#x6e;&#120;&#64;&#x79;&#101;&#97;&#104;&#x2e;&#110;&#x65;&#116;</a></p>
 <p><img src="https://d47jbcq60tnr6.cloudfront.net/202048/26924-1jzjqgm.ykbv.jpg" alt="欢迎扫码关注微信公众号二维码"></p>
 <p>点击回到博客主页：<br><a href="https://www.coomatrix.com/" title="博客主页">&amp;#34;博客主页&amp;#34;</a></p>
 
@@ -564,15 +564,82 @@ var a = new Donate({
 </aside>
         
       </div>
-      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-本站总访问量<span id="busuanzi_value_site_pv"></span>次
- | 
-本站访客数<span id="busuanzi_value_site_uv"></span>人次
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2022 ovo$^{mc^2}$ All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              本站访客数<span id="busuanzi_value_site_uv"></span>人次  
+              本站总访问量<span id="busuanzi_value_site_pv"></span>次
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+      
+  </div>
+  
+  <span id="sitetime"></span>
+
+</footer>
 
 
-{% if theme.footer.counter %}
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-{% endif %}
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+
+<!-- Custome JS -->
+
+<script src="/js/my.js"></script>
+
+
+
+
+<script language=javascript>
+  function siteTime() {
+      window.setTimeout("siteTime()", 1000);
+      var seconds = 1000;
+      var minutes = seconds * 60;
+      var hours = minutes * 60;
+      var days = hours * 24;
+      var years = days * 365;
+      var today = new Date();
+      var todayYear = today.getFullYear();
+      var todayMonth = today.getMonth() + 1;
+      var todayDate = today.getDate();
+      var todayHour = today.getHours();
+      var todayMinute = today.getMinutes();
+      var todaySecond = today.getSeconds();
+      /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+      year - 作为date对象的年份，为4位年份值
+      month - 0-11之间的整数，做为date对象的月份
+      day - 1-31之间的整数，做为date对象的天数
+      hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+      minutes - 0-59之间的整数，做为date对象的分钟数
+      seconds - 0-59之间的整数，做为date对象的秒数
+      microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+      var t1 = Date.UTC(2018, 02, 11, 00, 00, 00); // 北京时间2018-2-13 00:00:00
+      var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+      var diff = t2 - t1;
+      var diffYears = Math.floor(diff / years);
+      var diffDays = Math.floor((diff / days) - diffYears * 365);
+      var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+      var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+      var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+      document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+  }
+  siteTime();
+</script>
 
     </div>
     <!-- <nav id="mobile-nav">
@@ -679,7 +746,7 @@ var a = new Donate({
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
 </html>
 
-<script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script>
+<!-- <script src="https://g.joyinshare.com/hc/piao.js" type="text/javascript"></script> -->
 <script type="text/javascript" src="\js\snow.js"></script>
 <script type="text/javascript" src="/js/love.js"></script>
 <script type="text/javascript" src="/js/cursor/firework.js"></script>
